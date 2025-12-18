@@ -9,10 +9,14 @@
 
 ![Example4](screenshot_4.png) execute Python 
 
-![Example5](screenshot_5.png) execute Go  algorithm
+![Example5](screenshot_5.png) execute Python Three Sum Brutforse  algorithm
 
 ![Example6](screenshot_6.png) execute Go
 
-![Example7](screenshot_7.png) execute Go function (education variant)
+![Example7](screenshot_7.png) execute Go algorithm Three Sum
 
-![Example8](screenshot_8.png) execute Python function (education variant)
+![Example8](screenshot_8.png) execute Go function (education variant)
+
+![Example8](screenshot_9.png) execute Python function (education variant)
+
+![Example8](screenshot_10.png) execute Python functions 
