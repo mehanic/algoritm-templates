@@ -1,5 +1,5 @@
 function algoG.ContainsDuplicate.Brute_Force
-    set output_file "ContainsDuplicate.Brute_Force"
+    set output_file "ContainsDuplicate.Brute_Force.go"
 
     set template_content "package main
 
@@ -31,7 +31,7 @@ end
 
 
 function algoG.ContainsDuplicate.Sorting
-    set output_file "ContainsDuplicate.Sort_Based"
+    set output_file "ContainsDuplicate.Sort_Based.go"
 
     set template_content "package main
 
