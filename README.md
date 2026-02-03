@@ -1,6 +1,8 @@
 # algoritm-templates
 ⌁/.config/fish
 
+Golang and Python algorithm templates are in conf.d
+
 ![Example1](screenshot_0.png) Structura
 
 ![Example1](screenshot_1.png) Golang
