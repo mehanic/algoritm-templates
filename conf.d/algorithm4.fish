@@ -66,9 +66,10 @@ end
 
 
 function algoP.Permutations
-    set output_file "string_permutations.py"
+    set output_file "main.py"
 
-    set template_content 'def get_permutations(w):
+    set template_content '
+def get_permutations(w):
     if len(w) <= 1:
         return set(w)
 
@@ -95,9 +96,10 @@ end
 
 
 function algoG.Permutations
-    set output_file "string_permutations.go"
+    set output_file "main.go"
 
-    set template_content 'package main
+    set template_content '
+package main
 
 import "fmt"
 
@@ -604,7 +606,7 @@ end
 
 
 function algoG.BinarySearch
-    set output_file "array_binary_search.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -2061,7 +2063,7 @@ end
 
 
 function algoG.BinarySearchTreeInOrder
-    set output_file "bst_inorder.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -2141,7 +2143,7 @@ func main() {
 end
 
 function algoG.BinarySearchTreePreOrder
-    set output_file "bst_preorder.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -2221,7 +2223,7 @@ func main() {
 end
 
 function algoG.BinarySearchTreePostOrder
-    set output_file "bst_postorder.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -2301,7 +2303,7 @@ func main() {
 end
 
 function algoG.BinarySearchTreePostOrder
-    set output_file "bst_postorder.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -2382,7 +2384,7 @@ end
 
 
 function algoG.BinarySearchTreeDelete
-    set output_file "bst_delete_inorder.go"
+    set output_file "main.go"
 
     set template_content 'package main
 

@@ -1068,10 +1068,9 @@ end
 
 
 function algoP.CloneGraph.DepthFirstSeacrh
-    set output_file "clone_graph_dfs.py"
+    set output_file "main.py"
 
-    set template_content '"""
-# Definition for a Node.
+    set template_content '
 class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
@@ -1094,6 +1093,58 @@ class Solution:
             return copy
 
         return dfs(node) if node else None
+
+node1 = Node(1)
+Solution().cloneGraph(node1)
+
+
+node1 = Node(1)
+node2 = Node(2)
+
+node1.neighbors = [node2]
+node2.neighbors = [node1]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+
+node1.neighbors = [node2, node3]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node1, node2]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+
+solution = Solution()
+cloned_node1 = solution.cloneGraph(node1)
+print(cloned_node1.val)  # 1
+print([n.val for n in cloned_node1.neighbors])  # [2, 4]
+
+
+print(cloned_node1 is node1)  # False
+print(cloned_node1.neighbors[0] is node2)  # False
+
+#     1
+#    / \
+#   2'--3'
+
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+nodes = [Node(i+1) for i in range(4)]
+
+nodes[0].neighbors = [nodes[1], nodes[3]]
+nodes[1].neighbors = [nodes[0], nodes[2]]
+nodes[2].neighbors = [nodes[1], nodes[3]]
+nodes[3].neighbors = [nodes[0], nodes[2]]
+
 '
 
     echo $template_content > $output_file
@@ -1104,10 +1155,9 @@ class Solution:
 end
 
 function algoP.CloneGraph.BreadthFirstSearch
-    set output_file "clone_graph_bfs.py"
+    set output_file "main.py"
 
-    set template_content '"""
-# Definition for a Node.
+    set template_content '
 class Node:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
@@ -1134,6 +1184,224 @@ class Solution:
                 oldToNew[cur].neighbors.append(oldToNew[nei])
 
         return oldToNew[node]
+
+node1 = Node(1)
+Solution().cloneGraph(node1)
+
+
+node1 = Node(1)
+node2 = Node(2)
+
+node1.neighbors = [node2]
+node2.neighbors = [node1]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+
+node1.neighbors = [node2, node3]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node1, node2]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+
+solution = Solution()
+cloned_node1 = solution.cloneGraph(node1)
+print(cloned_node1.val)  # 1
+print([n.val for n in cloned_node1.neighbors])  # [2, 4]
+
+
+print(cloned_node1 is node1)  # False
+print(cloned_node1.neighbors[0] is node2)  # False
+
+#     1
+#    / \
+#   2'--3'
+
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+nodes = [Node(i+1) for i in range(4)]
+
+nodes[0].neighbors = [nodes[1], nodes[3]]
+nodes[1].neighbors = [nodes[0], nodes[2]]
+nodes[2].neighbors = [nodes[1], nodes[3]]
+nodes[3].neighbors = [nodes[0], nodes[2]]
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+
+solution = Solution()
+cloned_node1 = solution.cloneGraph(node1)
+
+print(cloned_node1.val)                     # 1
+print([n.val for n in cloned_node1.neighbors])  # [2, 4]
+print(cloned_node1 is node1)                # False
+print(cloned_node1.neighbors[0] is node2)   # False
+
+# 1. Single node
+node1 = Node(1)
+test_graph(node1, "Single node")
+
+# 2. Two nodes cycle
+node1 = Node(1)
+node2 = Node(2)
+node1.neighbors = [node2]
+node2.neighbors = [node1]
+test_graph(node1, "Two nodes cycle")
+
+# 3. Triangle
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node1.neighbors = [node2, node3]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node1, node2]
+test_graph(node1, "Triangle")
+
+# 4. Square graph
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+test_graph(node1, "Square graph")
+
+# 5. AdjList graph
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+nodes = [Node(i + 1) for i in range(4)]
+nodes[0].neighbors = [nodes[1], nodes[3]]
+nodes[1].neighbors = [nodes[0], nodes[2]]
+nodes[2].neighbors = [nodes[1], nodes[3]]
+nodes[3].neighbors = [nodes[0], nodes[2]]
+test_graph(nodes[0], "AdjList graph")
+
+node1 = Node(1)
+Solution().cloneGraph(node1)
+
+
+node1 = Node(1)
+node2 = Node(2)
+
+node1.neighbors = [node2]
+node2.neighbors = [node1]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+
+node1.neighbors = [node2, node3]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node1, node2]
+
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+
+solution = Solution()
+cloned_node1 = solution.cloneGraph(node1)
+print(cloned_node1.val)  # 1
+print([n.val for n in cloned_node1.neighbors])  # [2, 4]
+
+
+print(cloned_node1 is node1)  # False
+print(cloned_node1.neighbors[0] is node2)  # False
+
+#     1
+#    / \
+#   2'--3'
+
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+nodes = [Node(i+1) for i in range(4)]
+
+nodes[0].neighbors = [nodes[1], nodes[3]]
+nodes[1].neighbors = [nodes[0], nodes[2]]
+nodes[2].neighbors = [nodes[1], nodes[3]]
+nodes[3].neighbors = [nodes[0], nodes[2]]
+
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+
+solution = Solution()
+cloned_node1 = solution.cloneGraph(node1)
+
+print(cloned_node1.val)                     # 1
+print([n.val for n in cloned_node1.neighbors])  # [2, 4]
+print(cloned_node1 is node1)                # False
+print(cloned_node1.neighbors[0] is node2)   # False
+
+# 1. Single node
+node1 = Node(1)
+test_graph(node1, "Single node")
+
+# 2. Two nodes cycle
+node1 = Node(1)
+node2 = Node(2)
+node1.neighbors = [node2]
+node2.neighbors = [node1]
+test_graph(node1, "Two nodes cycle")
+
+# 3. Triangle
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node1.neighbors = [node2, node3]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node1, node2]
+test_graph(node1, "Triangle")
+
+# 4. Square graph
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node1.neighbors = [node2, node4]
+node2.neighbors = [node1, node3]
+node3.neighbors = [node2, node4]
+node4.neighbors = [node1, node3]
+test_graph(node1, "Square graph")
+
+# 5. AdjList graph
+adjList = [[2,4],[1,3],[2,4],[1,3]]
+nodes = [Node(i + 1) for i in range(4)]
+nodes[0].neighbors = [nodes[1], nodes[3]]
+nodes[1].neighbors = [nodes[0], nodes[2]]
+nodes[2].neighbors = [nodes[1], nodes[3]]
+nodes[3].neighbors = [nodes[0], nodes[2]]
+test_graph(nodes[0], "AdjList graph")
 '
 
     echo $template_content > $output_file
@@ -1145,9 +1413,10 @@ end
 
 
 function algoP.IslandsAndTreasure.BruteForce_Backtracking
-    set output_file "islands_and_treasure_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def islandsAndTreasure(self, grid: List[List[int]]) -> None:
@@ -1175,6 +1444,41 @@ class Solution:
             for c in range(COLS):
                 if grid[r][c] == INF:
                     grid[r][c] = dfs(r, c)
+
+grid = [
+    [INF, -1,   0, INF],
+    [INF, INF, INF, -1],
+    [INF, -1, INF, -1],
+    [0,   -1, INF, INF]
+]
+
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, INF, INF],
+    [INF,  0,  INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1,  0],
+    [INF, -1, INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1, 0],
+    [-1, -1, -1],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
 '
 
     echo $template_content > $output_file
@@ -1185,9 +1489,10 @@ class Solution:
 end
 
 function algoP.IslandsAndTreasure.BreadthFirstSearch
-    set output_file "islands_and_treasure_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -1220,6 +1525,41 @@ class Solution:
             for c in range(COLS):
                 if grid[r][c] == INF:
                     grid[r][c] = bfs(r, c)
+
+grid = [
+    [INF, -1,   0, INF],
+    [INF, INF, INF, -1],
+    [INF, -1, INF, -1],
+    [0,   -1, INF, INF]
+]
+
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, INF, INF],
+    [INF,  0,  INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1,  0],
+    [INF, -1, INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1, 0],
+    [-1, -1, -1],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
 '
 
     echo $template_content > $output_file
@@ -1230,9 +1570,10 @@ class Solution:
 end
 
 function algoP.IslandsAndTreasure.MultiSourceBFS
-    set output_file "islands_and_treasure_multibfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -1265,6 +1606,41 @@ class Solution:
                 addCell(r, c + 1)
                 addCell(r, c - 1)
             dist += 1
+
+grid = [
+    [INF, -1,   0, INF],
+    [INF, INF, INF, -1],
+    [INF, -1, INF, -1],
+    [0,   -1, INF, INF]
+]
+
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, INF, INF],
+    [INF,  0,  INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1,  0],
+    [INF, -1, INF],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
+grid = [
+    [INF, -1, 0],
+    [-1, -1, -1],
+    [INF, INF, INF]
+]
+Solution().islandsAndTreasure(grid)
+print(grid)
+
 '
 
     echo $template_content > $output_file
@@ -1276,9 +1652,10 @@ end
 
 
 function algoP.RottingFruit.BreadthFirstSearch
-    set output_file "rotting_oranges_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 import collections
 
 class Solution:
@@ -1309,6 +1686,38 @@ class Solution:
             time += 1
 
         return time if fresh == 0 else -1
+
+examples = [
+    [
+        [2,1,1],
+        [1,1,0],
+        [0,1,1]
+    ],
+    [
+        [2,1,1],
+        [0,1,1],
+        [1,0,1]
+    ],
+    [
+        [2,2],
+        [2,2]
+    ],
+    [
+        [1,1,1],
+        [1,1,1]
+    ],
+    [
+        [2,1,1,1]
+    ]
+]
+
+solution = Solution()
+
+for i, grid in enumerate(examples, 1):
+    import copy
+    grid_copy = copy.deepcopy(grid)
+    res = solution.orangesRotting(grid_copy)
+    print(f"Example {i}: {res}")
 '
 
     echo $template_content > $output_file
@@ -1319,9 +1728,10 @@ class Solution:
 end
 
 function algoP.RottingFruit.BreadthFirstSearch_NoQueue
-    set output_file "rotting_oranges_step_simulation.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
@@ -1360,6 +1770,38 @@ class Solution:
             time += 1
 
         return time
+
+examples = [
+    [
+        [2,1,1],
+        [1,1,0],
+        [0,1,1]
+    ],
+    [
+        [2,1,1],
+        [0,1,1],
+        [1,0,1]
+    ],
+    [
+        [2,2],
+        [2,2]
+    ],
+    [
+        [1,1,1],
+        [1,1,1]
+    ],
+    [
+        [2,1,1,1]
+    ]
+]
+
+solution = Solution()
+
+for i, grid in enumerate(examples, 1):
+    import copy
+    grid_copy = copy.deepcopy(grid)
+    res = solution.orangesRotting(grid_copy)
+    print(f"Example {i}: {res}")
 '
 
     echo $template_content > $output_file
@@ -1370,9 +1812,10 @@ class Solution:
 end
 
 function algoP.PacificAtlanticWaterFlow.BruteForce_Backtracking
-    set output_file "pacific_atlantic_brutal_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
@@ -1410,6 +1853,37 @@ class Solution:
                 if pacific and atlantic:
                     res.append([r, c])
         return res
+
+examples = [
+    [
+      [1,2,2,3,5],
+      [3,2,3,4,4],
+      [2,4,5,3,1],
+      [6,7,1,4,5],
+      [5,1,1,2,4]
+    ],
+    [
+      [2,1],
+      [1,2]
+    ],
+    [
+      [1,1,1],
+      [1,1,1],
+      [1,1,1]
+    ],
+    [
+      [3,3,3],
+      [3,1,3],
+      [3,3,3]
+    ]
+]
+
+solution = Solution()
+
+for i, grid in enumerate(examples, 1):
+    res = solution.pacificAtlantic(grid)
+    print(f"Example {i}: {res}")
+
 '
 
     echo $template_content > $output_file
@@ -1421,9 +1895,10 @@ end
 
 
 function algoP.PacificAtlanticWaterFlow.DepthFirstSearch
-    set output_file "pacific_atlantic_dfs_set.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
@@ -1455,6 +1930,36 @@ class Solution:
                 if (r, c) in pac and (r, c) in atl:
                     res.append([r, c])
         return res
+examples = [
+    [
+      [1,2,2,3,5],
+      [3,2,3,4,4],
+      [2,4,5,3,1],
+      [6,7,1,4,5],
+      [5,1,1,2,4]
+    ],
+    [
+      [2,1],
+      [1,2]
+    ],
+    [
+      [1,1,1],
+      [1,1,1],
+      [1,1,1]
+    ],
+    [
+      [3,3,3],
+      [3,1,3],
+      [3,3,3]
+    ]
+]
+
+solution = Solution()
+
+for i, grid in enumerate(examples, 1):
+    res = solution.pacificAtlantic(grid)
+    print(f"Example {i}: {res}")
+
 '
 
     echo $template_content > $output_file
@@ -1466,9 +1971,10 @@ end
 
 
 function algoP.PacificAtlanticWaterFlow.BreadthFirstSearch
-    set output_file "pacific_atlantic_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -1511,6 +2017,37 @@ class Solution:
                 if pac[r][c] and atl[r][c]:
                     res.append([r, c])
         return res
+
+examples = [
+    [
+      [1,2,2,3,5],
+      [3,2,3,4,4],
+      [2,4,5,3,1],
+      [6,7,1,4,5],
+      [5,1,1,2,4]
+    ],
+    [
+      [2,1],
+      [1,2]
+    ],
+    [
+      [1,1,1],
+      [1,1,1],
+      [1,1,1]
+    ],
+    [
+      [3,3,3],
+      [3,1,3],
+      [3,3,3]
+    ]
+]
+
+solution = Solution()
+
+for i, grid in enumerate(examples, 1):
+    res = solution.pacificAtlantic(grid)
+    print(f"Example {i}: {res}")
+
 '
 
     echo $template_content > $output_file
@@ -1522,9 +2059,10 @@ end
 
 
 function algoP.SurroundedRegions.DepthFirstSearch
-    set output_file "surrounded_regions_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
@@ -1558,6 +2096,37 @@ class Solution:
                     board[r][c] = "X"
                 elif board[r][c] == "T":
                     board[r][c] = "O"
+
+examples = [
+    [
+        ["X","X","X","X"],
+        ["X","O","O","X"],
+        ["X","X","O","X"],
+        ["X","O","X","X"]
+    ],
+    [
+        ["O","O","O"],
+        ["O","O","O"],
+        ["O","O","O"]
+    ],
+    [
+        ["X","O","X"],
+        ["O","O","O"],
+        ["X","O","X"]
+    ]
+]
+
+solution = Solution()
+
+for i, board in enumerate(examples, 1):
+    import copy
+    board_copy = copy.deepcopy(board)
+    solution.solve(board_copy)
+    print(f"Example {i}:")
+    for row in board_copy:
+        print(row)
+    print()
+
 '
 
     echo $template_content > $output_file
@@ -1569,9 +2138,10 @@ end
 
 
 function algoP.SurroundedRegions.BreadthFirstSearch
-    set output_file "surrounded_regions_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -1604,6 +2174,37 @@ class Solution:
                     board[r][c] = "X"
                 elif board[r][c] == "T":
                     board[r][c] = "O"
+
+examples = [
+    [
+        ["X","X","X","X"],
+        ["X","O","O","X"],
+        ["X","X","O","X"],
+        ["X","O","X","X"]
+    ],
+    [
+        ["O","O","O"],
+        ["O","O","O"],
+        ["O","O","O"]
+    ],
+    [
+        ["X","O","X"],
+        ["O","O","O"],
+        ["X","O","X"]
+    ]
+]
+
+solution = Solution()
+
+for i, board in enumerate(examples, 1):
+    import copy
+    board_copy = copy.deepcopy(board)
+    solution.solve(board_copy)
+    print(f"Example {i}:")
+    for row in board_copy:
+        print(row)
+    print()
+
 '
 
     echo $template_content > $output_file
@@ -1615,9 +2216,10 @@ end
 
 
 function algoP.SurroundedRegions.DisjointSetUnion
-    set output_file "surrounded_regions_dsu.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class DSU:
     def __init__(self, n):
@@ -1668,6 +2270,37 @@ class Solution:
             for c in range(COLS):
                 if board[r][c] == "O" and not dsu.connected(ROWS * COLS, r * COLS + c):
                     board[r][c] = "X"
+
+examples = [
+    [
+        ["X","X","X","X"],
+        ["X","O","O","X"],
+        ["X","X","O","X"],
+        ["X","O","X","X"]
+    ],
+    [
+        ["O","O","O"],
+        ["O","O","O"],
+        ["O","O","O"]
+    ],
+    [
+        ["X","O","X"],
+        ["O","O","O"],
+        ["X","O","X"]
+    ]
+]
+
+solution = Solution()
+
+for i, board in enumerate(examples, 1):
+    import copy
+    board_copy = copy.deepcopy(board)
+    solution.solve(board_copy)
+    print(f"Example {i}:")
+    for row in board_copy:
+        print(row)
+    print()
+
 '
 
     echo $template_content > $output_file
@@ -1679,9 +2312,10 @@ end
 
 
 function algoP.CourseSchedule.CycleDetection_DFS
-    set output_file "course_schedule_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
@@ -1709,6 +2343,21 @@ class Solution:
             if not dfs(c):
                 return False
         return True
+
+examples = [
+    (2, [[1,0]]),           # Example 1
+    (2, [[1,0],[0,1]]),     # Example 2 (цикл)
+    (3, [[0,1],[0,2],[1,2]]), # Example 3
+    (5, [[1,4],[2,4],[3,1],[3,2]]), # Example 4
+    (3, [[0,1],[1,2],[2,0]]) # Example 5 (цикл)
+]
+
+solution = Solution()
+
+for i, (numCourses, prereqs) in enumerate(examples, 1):
+    res = solution.canFinish(numCourses, prereqs)
+    print(f"Example {i}: {res}")
+
 '
 
     echo $template_content > $output_file
@@ -1719,7 +2368,7 @@ class Solution:
 end
 
 function algoP.CourseSchedule.TopologicalSort_KahnAlgorithm
-    set output_file "course_schedule_bfs.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 from collections import deque
@@ -1747,6 +2396,21 @@ class Solution:
                     q.append(nei)
 
         return finish == numCourses
+
+examples = [
+    (2, [[1,0]]),           # Example 1
+    (2, [[1,0],[0,1]]),     # Example 2 (цикл)
+    (3, [[0,1],[0,2],[1,2]]), # Example 3
+    (5, [[1,4],[2,4],[3,1],[3,2]]), # Example 4
+    (3, [[0,1],[1,2],[2,0]]) # Example 5 (цикл)
+]
+
+solution = Solution()
+
+for i, (numCourses, prereqs) in enumerate(examples, 1):
+    res = solution.canFinish(numCourses, prereqs)
+    print(f"Example {i}: {res}")
+
 '
 
     echo $template_content > $output_file
@@ -1759,9 +2423,10 @@ end
 
 
 function algoP.CourseScheduleII.CycleDetection_DFS
-    set output_file "course_schedule_II_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
@@ -1791,6 +2456,20 @@ class Solution:
             if not dfs(c):
                 return []
         return output
+
+examples = [
+    (2, [[1, 0]]),
+    (2, [[1, 0], [0, 1]]),
+    (4, [[1,0],[2,0],[3,1],[3,2]]),
+    (1, []),
+    (3, [[0,1],[1,2]])
+]
+
+solution = Solution()
+
+for i, (numCourses, prereqs) in enumerate(examples, 1):
+    result = solution.findOrder(numCourses, prereqs)
+    print(f"Example {i}: {result}")
 '
 
     echo $template_content > $output_file
@@ -1802,9 +2481,10 @@ end
 
 
 function algoP.CourseScheduleII.TopologicalSort_KahnAlgorithm
-    set output_file "course_schedule_II_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class SolutionBFS:
@@ -1833,6 +2513,20 @@ class SolutionBFS:
         if finish != numCourses:
             return []
         return output[::-1]
+
+examples = [
+    (2, [[1, 0]]),
+    (2, [[1, 0], [0, 1]]),
+    (4, [[1,0],[2,0],[3,1],[3,2]]),
+    (1, []),
+    (3, [[0,1],[1,2]])
+]
+
+solution = Solution()
+
+for i, (numCourses, prereqs) in enumerate(examples, 1):
+    result = solution.findOrder(numCourses, prereqs)
+    print(f"Example {i}: {result}")
 '
 
     echo $template_content > $output_file
@@ -1844,9 +2538,10 @@ end
 
 
 function algoP.CourseScheduleII.TopologicalSort_DFS
-    set output_file "course_schedule_II_dfs_indegree.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class SolutionDFSIndegree:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
@@ -1871,6 +2566,20 @@ class SolutionDFSIndegree:
                 dfs(i)
 
         return output if len(output) == numCourses else []
+
+examples = [
+    (2, [[1, 0]]),
+    (2, [[1, 0], [0, 1]]),
+    (4, [[1,0],[2,0],[3,1],[3,2]]),
+    (1, []),
+    (3, [[0,1],[1,2]])
+]
+
+solution = Solution()
+
+for i, (numCourses, prereqs) in enumerate(examples, 1):
+    result = solution.findOrder(numCourses, prereqs)
+    print(f"Example {i}: {result}")
 '
 
     echo $template_content > $output_file
@@ -1882,9 +2591,10 @@ end
 
 
 function algoP.GraphValidTree.CycleDetection 
-    set output_file "valid_tree_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
@@ -1910,6 +2620,21 @@ class Solution:
             return True
 
         return dfs(0, -1) and len(visit) == n
+
+examples = [
+    (5, [[0,1],[0,2],[0,3],[1,4]]),     # valid tree
+    (5, [[0,1],[1,2],[2,3],[1,3],[1,4]]), # cycle
+    (4, [[0,1],[2,3]]),                # disconnected
+    (1, []),                            # single node
+    (2, [[0,1]])                        # simple tree
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    result = solution.validTree(n, edges)
+    print(f"Example {i}: {result}")
+
 '
 
     echo $template_content > $output_file
@@ -1920,9 +2645,10 @@ class Solution:
 end
 
 function algoP.GraphValidTree.BreadthFirstSearch
-    set output_file "valid_tree_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -1950,6 +2676,21 @@ class Solution:
                 q.append((nei, node))
 
         return len(visit) == n
+
+examples = [
+    (5, [[0,1],[0,2],[0,3],[1,4]]),     # valid tree
+    (5, [[0,1],[1,2],[2,3],[1,3],[1,4]]), # cycle
+    (4, [[0,1],[2,3]]),                # disconnected
+    (1, []),                            # single node
+    (2, [[0,1]])                        # simple tree
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    result = solution.validTree(n, edges)
+    print(f"Example {i}: {result}")
+
 '
 
     echo $template_content > $output_file
@@ -1961,9 +2702,10 @@ end
 
 
 function algoP.GraphValidTree.DisjointSetUnion
-    set output_file "valid_tree_dsu.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class DSU:
     def __init__(self, n):
@@ -1998,6 +2740,21 @@ class Solution:
                 return False
 
         return dsu.comps == 1
+
+examples = [
+    (5, [[0,1],[0,2],[0,3],[1,4]]),     # valid tree
+    (5, [[0,1],[1,2],[2,3],[1,3],[1,4]]), # cycle
+    (4, [[0,1],[2,3]]),                # disconnected
+    (1, []),                            # single node
+    (2, [[0,1]])                        # simple tree
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    result = solution.validTree(n, edges)
+    print(f"Example {i}: {result}")
+
 '
 
     echo $template_content > $output_file
@@ -2009,9 +2766,10 @@ end
 
 
 function algoP.NumberConnectedComponentsUndirectedGraph.DepthFirstSearch
-    set output_file "count_components_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
@@ -2035,6 +2793,20 @@ class Solution:
                 dfs(node)
                 res += 1
         return res
+
+examples = [
+    (5, [[0,1],[1,2],[3,4]]),      # 2 components
+    (5, [[0,1],[1,2],[2,3],[3,4]]),# 1 component
+    (5, []),                       # 5 components
+    (1, []),                       # 1 component
+    (4, [[0,1],[2,3]])             # 2 components
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.countComponents(n, edges))
 '
 
     echo $template_content > $output_file
@@ -2045,9 +2817,10 @@ class Solution:
 end
 
 function algoP.NumberConnectedComponentsUndirectedGraph.BreadthFirstSearch
-    set output_file "count_components_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -2075,6 +2848,20 @@ class Solution:
                 bfs(node)
                 res += 1
         return res
+
+examples = [
+    (5, [[0,1],[1,2],[3,4]]),      # 2 components
+    (5, [[0,1],[1,2],[2,3],[3,4]]),# 1 component
+    (5, []),                       # 5 components
+    (1, []),                       # 1 component
+    (4, [[0,1],[2,3]])             # 2 components
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.countComponents(n, edges))
 '
 
     echo $template_content > $output_file
@@ -2086,9 +2873,10 @@ end
 
 
 function algoP.NumberConnectedComponentsUndirectedGraph.DisjointSetUnion_RankSize
-    set output_file "count_components_dsu.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class DSU:
     def __init__(self, n):
@@ -2121,6 +2909,20 @@ class Solution:
             if dsu.union(u, v):
                 res -= 1
         return res
+
+examples = [
+    (5, [[0,1],[1,2],[3,4]]),      # 2 components
+    (5, [[0,1],[1,2],[2,3],[3,4]]),# 1 component
+    (5, []),                       # 5 components
+    (1, []),                       # 1 component
+    (4, [[0,1],[2,3]])             # 2 components
+]
+
+solution = Solution()
+
+for i, (n, edges) in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.countComponents(n, edges))
 '
 
     echo $template_content > $output_file
@@ -2132,9 +2934,10 @@ end
 
 
 function algoP.RedundantConnection.CycleDetection
-    set output_file "redundant_connection_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
@@ -2160,6 +2963,19 @@ class Solution:
                 return [u, v]
 
         return []
+
+examples = [
+    [[1,2],[1,3],[2,3]],
+    [[1,2],[2,3],[3,4],[1,4],[1,5]],
+    [[1,2],[2,3],[3,1]],
+    [[1,2],[2,3],[3,4],[4,5],[5,2]]
+]
+
+solution = Solution()
+
+for i, edges in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.findRedundantConnection(edges))
 '
 
     echo $template_content > $output_file
@@ -2171,9 +2987,10 @@ end
 
 
 function algoP.RedundantConnection.DepthFirstSearch
-    set output_file "redundant_connection_cycle_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
@@ -2211,6 +3028,19 @@ class Solution:
             if u in cycle and v in cycle:
                 return [u, v]
         return []
+
+examples = [
+    [[1,2],[1,3],[2,3]],
+    [[1,2],[2,3],[3,4],[1,4],[1,5]],
+    [[1,2],[2,3],[3,1]],
+    [[1,2],[2,3],[3,4],[4,5],[5,2]]
+]
+
+solution = Solution()
+
+for i, edges in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.findRedundantConnection(edges))
 '
 
     echo $template_content > $output_file
@@ -2222,9 +3052,10 @@ end
 
 
 function algoP.RedundantConnection.TopologicalSort
-    set output_file "redundant_connection_degree.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -2256,6 +3087,19 @@ class Solution:
             if indegree[u] > 0 and indegree[v] > 0:
                 return [u, v]
         return []
+
+examples = [
+    [[1,2],[1,3],[2,3]],
+    [[1,2],[2,3],[3,4],[1,4],[1,5]],
+    [[1,2],[2,3],[3,1]],
+    [[1,2],[2,3],[3,4],[4,5],[5,2]]
+]
+
+solution = Solution()
+
+for i, edges in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.findRedundantConnection(edges))
 '
 
     echo $template_content > $output_file
@@ -2266,9 +3110,10 @@ class Solution:
 end
 
 function algoP.RedundantConnection.DisjointSetUnion
-    set output_file "redundant_connection_dsu.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
@@ -2297,6 +3142,19 @@ class Solution:
             if not union(u, v):
                 return [u, v]
         return []
+
+examples = [
+    [[1,2],[1,3],[2,3]],
+    [[1,2],[2,3],[3,4],[1,4],[1,5]],
+    [[1,2],[2,3],[3,1]],
+    [[1,2],[2,3],[3,4],[4,5],[5,2]]
+]
+
+solution = Solution()
+
+for i, edges in enumerate(examples, 1):
+    print(f"Example {i}:",
+          solution.findRedundantConnection(edges))
 '
 
     echo $template_content > $output_file
@@ -2307,9 +3165,10 @@ class Solution:
 end
 
 function algoP.ClimbingStairs.Recursion
-    set output_file "climbing_stairs_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def climbStairs(self, n: int) -> int:
         def dfs(i):
             if i >= n:
@@ -2317,6 +3176,13 @@ function algoP.ClimbingStairs.Recursion
             return dfs(i + 1) + dfs(i + 2)
 
         return dfs(0)
+
+examples = [1, 2, 3, 4, 5, 10]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
 '
 
     echo $template_content > $output_file
@@ -2327,9 +3193,10 @@ function algoP.ClimbingStairs.Recursion
 end
 
 function algoP.ClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "climbing_stairs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def climbStairs(self, n: int) -> int:
         cache = [-1] * n
 
@@ -2342,6 +3209,13 @@ function algoP.ClimbingStairs.DynamicProgramming_Top-Down
             return cache[i]
 
         return dfs(0)
+
+examples = [1, 2, 3, 4, 5, 10, 20, 30]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
 '
 
     echo $template_content > $output_file
@@ -2353,9 +3227,10 @@ end
 
 
 function algoP.ClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "climbing_stairs_dp.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def climbStairs(self, n: int) -> int:
         if n <= 2:
             return n
@@ -2367,6 +3242,13 @@ function algoP.ClimbingStairs.DynamicProgramming_Bottom-Up
             dp[i] = dp[i - 1] + dp[i - 2]
 
         return dp[n]
+
+examples = [1, 2, 3, 4, 5, 10, 20, 30]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
 '
 
     echo $template_content > $output_file
@@ -2377,9 +3259,10 @@ function algoP.ClimbingStairs.DynamicProgramming_Bottom-Up
 end
 
 function algoP.ClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "climbing_stairs_fib.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def climbStairs(self, n: int) -> int:
         one, two = 1, 1
 
@@ -2387,6 +3270,13 @@ function algoP.ClimbingStairs.DynamicProgramming_SpaceOptimized
             one, two = one + two, one
 
         return one
+
+examples = [1, 2, 3, 4, 5, 10, 20, 30]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
 '
 
     echo $template_content > $output_file
@@ -2397,9 +3287,10 @@ function algoP.ClimbingStairs.DynamicProgramming_SpaceOptimized
 end
 
 function algoP.ClimbingStairs.MatrixExponentiation
-    set output_file "climbing_stairs_matrix.py"
+    set output_file "maim.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def climbStairs(self, n: int) -> int:
         if n == 1:
             return 1
@@ -2423,6 +3314,42 @@ function algoP.ClimbingStairs.MatrixExponentiation
 
         M = [[1, 1], [1, 0]]
         return power(M, n)[0][0]
+
+examples = [1, 2, 3, 4, 5, 10, 20, 30]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
+'
+
+    echo $template_content > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.ClimbingStairs.Math
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        sqrt5 = math.sqrt(5)
+        phi = (1 + sqrt5) / 2
+        psi = (1 - sqrt5) / 2
+        n += 1
+        return round((phi**n - psi**n) / sqrt5)
+
+examples = [1, 2, 3, 4, 5, 10, 20, 30]
+
+solution = Solution()
+
+for i, n in enumerate(examples, 1):
+    print(f"Example {i}: n={n}, ways={solution.climbStairs(n)}")
 '
 
     echo $template_content > $output_file
@@ -2434,9 +3361,10 @@ end
 
 
 function algoP.MinCostClimbingStairs.Recursion
-    set output_file "min_cost_climbing_stairs_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -2446,6 +3374,20 @@ class Solution:
             return cost[i] + min(dfs(i + 1), dfs(i + 2))
 
         return min(dfs(0), dfs(1))
+
+examples = [
+    [10, 15, 20],
+    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1],
+    [0, 0, 0, 0],
+    [5, 10, 5, 10, 5],
+    [1]
+]
+
+solution = Solution()
+
+for i, cost in enumerate(examples, 1):
+    print(f"Example {i}: cost={cost}, minCost={solution.minCostClimbingStairs(cost)}")
+
 '
 
     echo $template_content > $output_file
@@ -2457,9 +3399,10 @@ end
 
 
 function algoP.MinCostClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "min_cost_climbing_stairs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -2474,6 +3417,20 @@ class Solution:
             return memo[i]
 
         return min(dfs(0), dfs(1))
+
+examples = [
+    [10, 15, 20],
+    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1],
+    [0, 0, 0, 0],
+    [5, 10, 5, 10, 5],
+    [1]
+]
+
+solution = Solution()
+
+for i, cost in enumerate(examples, 1):
+    print(f"Example {i}: cost={cost}, minCost={solution.minCostClimbingStairs(cost)}")
+
 '
 
     echo $template_content > $output_file
@@ -2485,9 +3442,10 @@ end
 
 
 function algoP.MinCostClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "min_cost_climbing_stairs_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -2499,6 +3457,20 @@ class Solution:
                         dp[i - 2] + cost[i - 2])
 
         return dp[n]
+
+examples = [
+    [10, 15, 20],
+    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1],
+    [0, 0, 0, 0],
+    [5, 10, 5, 10, 5],
+    [1]
+]
+
+solution = Solution()
+
+for i, cost in enumerate(examples, 1):
+    print(f"Example {i}: cost={cost}, minCost={solution.minCostClimbingStairs(cost)}")
+
 '
 
     echo $template_content > $output_file
@@ -2509,9 +3481,10 @@ class Solution:
 end
 
 function algoP.MinCostClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "min_cost_climbing_stairs_space.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -2519,6 +3492,20 @@ class Solution:
             cost[i] += min(cost[i + 1], cost[i + 2])
 
         return min(cost[0], cost[1])
+
+examples = [
+    [10, 15, 20],
+    [1, 100, 1, 1, 1, 100, 1, 1, 100, 1],
+    [0, 0, 0, 0],
+    [5, 10, 5, 10, 5],
+    [1]
+]
+
+solution = Solution()
+
+for i, cost in enumerate(examples, 1):
+    print(f"Example {i}: cost={cost}, minCost={solution.minCostClimbingStairs(cost)}")
+
 '
 
     echo $template_content > $output_file
@@ -2553,9 +3540,10 @@ class Solution:
 end
 
 function algoP.HouseRobber.Recursion
-    set output_file "rob_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2566,6 +3554,20 @@ class Solution:
                        nums[i] + dfs(i + 2))
 
         return dfs(0)
+
+examples = [
+    [1,2,3,1],
+    [2,7,9,3,1],
+    [2,1,1,2],
+    [0,0,0,0],
+    [5],
+    [1,2,3,4,5,6,7,8,9,10]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
 '
 
     echo $template_content > $output_file
@@ -2576,9 +3578,10 @@ class Solution:
 end
 
 function algoP.HouseRobber.DynamicProgramming_Top-Down
-    set output_file "rob_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2593,6 +3596,19 @@ class Solution:
             return memo[i]
 
         return dfs(0)
+examples = [
+    [1,2,3,1],
+    [2,7,9,3,1],
+    [2,1,1,2],
+    [0,0,0,0],
+    [5],
+    [1,2,3,4,5,6,7,8,9,10]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
 '
 
     echo $template_content > $output_file
@@ -2603,9 +3619,10 @@ class Solution:
 end
 
 function algoP.HouseRobber.DynamicProgramming_Bottom-Up
-    set output_file "rob_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2622,6 +3639,19 @@ class Solution:
             dp[i] = max(dp[i - 1], nums[i] + dp[i - 2])
 
         return dp[-1]
+examples = [
+    [1,2,3,1],
+    [2,7,9,3,1],
+    [2,1,1,2],
+    [0,0,0,0],
+    [5],
+    [1,2,3,4,5,6,7,8,9,10]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
 '
 
     echo $template_content > $output_file
@@ -2632,9 +3662,10 @@ class Solution:
 end
 
 function algoP.HouseRobber.DynamicProgramming_SpaceOptimized
-    set output_file "rob_space.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2645,6 +3676,20 @@ class Solution:
             rob1 = rob2
             rob2 = temp
         return rob2
+
+examples = [
+    [1,2,3,1],
+    [2,7,9,3,1],
+    [2,1,1,2],
+    [0,0,0,0],
+    [5],
+    [1,2,3,4,5,6,7,8,9,10]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
 '
 
     echo $template_content > $output_file
@@ -2655,9 +3700,10 @@ class Solution:
 end
 
 function algoP.HouseRobberII.Recursion
-    set output_file "robII_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2669,6 +3715,21 @@ class Solution:
             return max(dfs(i + 1, flag),
                        nums[i] + dfs(i + 2, flag or i == 0))
         return max(dfs(0, True), dfs(1, False))
+
+examples = [
+    [2,3,2],
+    [1,2,3,1],
+    [1,2,3,4,5,6],
+    [5],
+    [2,7,9,3,1],
+    [1,3,1,3,100]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
+
 '
 
     echo $template_content > $output_file
@@ -2680,9 +3741,10 @@ end
 
 
 function algoP.HouseRobberII.DynamicProgramming_Top-Down
-    set output_file "robII_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2701,6 +3763,21 @@ class Solution:
             return memo[i][flag]
 
         return max(dfs(0, True), dfs(1, False))
+
+examples = [
+    [2,3,2],
+    [1,2,3,1],
+    [1,2,3,4,5,6],
+    [5],
+    [2,7,9,3,1],
+    [1,3,1,3,100]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
+
 '
 
     echo $template_content > $output_file
@@ -2711,9 +3788,10 @@ class Solution:
 end
 
 function algoP.HouseRobberII.DynamicProgramming_Bottom-Up
-    set output_file "robII_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -2736,6 +3814,21 @@ class Solution:
             dp[i] = max(dp[i - 1], nums[i] + dp[i - 2])
 
         return dp[-1]
+
+examples = [
+    [2,3,2],
+    [1,2,3,1],
+    [1,2,3,4,5,6],
+    [5],
+    [2,7,9,3,1],
+    [1,3,1,3,100]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
+
 '
 
     echo $template_content > $output_file
@@ -2747,9 +3840,10 @@ end
 
 
 function algoP.HouseRobberII.DynamicProgramming_SpaceOptimized
-    set output_file "robII_space.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
 
@@ -2765,6 +3859,21 @@ class Solution:
             rob1 = rob2
             rob2 = newRob
         return rob2
+
+examples = [
+    [2,3,2],
+    [1,2,3,1],
+    [1,2,3,4,5,6],
+    [5],
+    [2,7,9,3,1],
+    [1,3,1,3,100]
+]
+
+solution = Solution()
+
+for i, nums in enumerate(examples, 1):
+    print(f"Example {i}: nums={nums}, maxRob={solution.rob(nums)}")
+
 '
 
     echo $template_content > $output_file
@@ -2777,9 +3886,10 @@ end
 
 
 function algoP.LongestPalindromicSubstring.BruteForce
-    set output_file "longest_palindrome_bf.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestPalindrome(self, s: str) -> str:
         res, resLen = "", 0
 
@@ -2794,6 +3904,23 @@ function algoP.LongestPalindromicSubstring.BruteForce
                     res = s[i : j + 1]
                     resLen = j - i + 1
         return res
+
+examples = [
+    "babad",
+    "cbbd",
+    "a",
+    "ac",
+    "racecar",
+    "forgeeksskeegfor",
+    "abba",
+    "abcde"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', longestPalindrome='{solution.longestPalindrome"(s)"}'")
+
 '
 
     echo $template_content > $output_file
@@ -2804,9 +3931,10 @@ function algoP.LongestPalindromicSubstring.BruteForce
 end
 
 function algoP.LongestPalindromicSubstring.DynamicProgramming
-    set output_file "longest_palindrome_dp.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestPalindrome(self, s: str) -> str:
         resIdx, resLen = 0, 0
         n = len(s)
@@ -2822,6 +3950,22 @@ function algoP.LongestPalindromicSubstring.DynamicProgramming
                         resLen = j - i + 1
 
         return s[resIdx : resIdx + resLen]
+
+examples = [
+    "babad",
+    "cbbd",
+    "a",
+    "ac",
+    "racecar",
+    "forgeeksskeegfor",
+    "abba",
+    "abcde"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', longestPalindrome='{solution.longestPalindrome"(s)"}'")
 '
 
     echo $template_content > $output_file
@@ -2833,9 +3977,10 @@ end
 
 
 function algoP.LongestPalindromicSubstring.TwoPointers
-    set output_file "longest_palindrome_center.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestPalindrome(self, s: str) -> str:
         resIdx = 0
         resLen = 0
@@ -2860,6 +4005,22 @@ function algoP.LongestPalindromicSubstring.TwoPointers
                 r += 1
 
         return s[resIdx : resIdx + resLen]
+
+examples = [
+    "babad",
+    "cbbd",
+    "a",
+    "ac",
+    "racecar",
+    "forgeeksskeegfor",
+    "abba",
+    "abcde"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', longestPalindrome='{solution.longestPalindrome"(s)"}'")
 '
 
     echo $template_content > $output_file
@@ -2871,9 +4032,10 @@ end
 
 
 function algoP.LongestPalindromicSubstring.ManacherAlgorithm
-    set output_file "longest_palindrome_manacher.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestPalindrome(self, s: str) -> str:
         def manacher(s):
             t = "#" + "#".join(s) + "#"
@@ -2893,6 +4055,22 @@ function algoP.LongestPalindromicSubstring.ManacherAlgorithm
         resLen, center_idx = max((v, i) for i, v in enumerate(p))
         resIdx = (center_idx - resLen) // 2
         return s[resIdx : resIdx + resLen]
+
+examples = [
+    "babad",
+    "cbbd",
+    "a",
+    "ac",
+    "racecar",
+    "forgeeksskeegfor",
+    "abba",
+    "abcde"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', longestPalindrome='{solution.longestPalindrome"(s)"}'")
 '
 
     echo $template_content > $output_file
@@ -2904,9 +4082,10 @@ end
 
 
 function algoP.PalindromicSubstrings.BruteForce
-    set output_file "count_pali_bf.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def countSubstrings(self, s: str) -> int:
         res = 0
 
@@ -2919,6 +4098,23 @@ function algoP.PalindromicSubstrings.BruteForce
                 res += (l >= r)
 
         return res
+
+examples = [
+    "abc",
+    "aaa",
+    "abba",
+    "racecar",
+    "a",
+    "abccba",
+    "abcd"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print("Example", i, ": s =", s, ", count =", solution.countSubstrings(s))
+    i += 1
 '
 
     echo $template_content > $output_file
@@ -2930,9 +4126,10 @@ end
 
 
 function algoP.PalindromicSubstrings.DynamicProgramming
-    set output_file "count_pali_dp.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def countSubstrings(self, s: str) -> int:
         n, res = len(s), 0
         dp = [[False] * n for _ in range(n)]
@@ -2944,6 +4141,23 @@ function algoP.PalindromicSubstrings.DynamicProgramming
                     res += 1
 
         return res
+
+examples = [
+    "abc",
+    "aaa",
+    "abba",
+    "racecar",
+    "a",
+    "abccba",
+    "abcd"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print("Example", i, ": s =", s, ", count =", solution.countSubstrings(s))
+    i += 1
 '
 
     echo $template_content > $output_file
@@ -2955,9 +4169,10 @@ end
 
 
 function algoP.PalindromicSubstrings.TwoPointers
-    set output_file "count_pali_center.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def countSubstrings(self, s: str) -> int:
         res = 0
 
@@ -2977,6 +4192,22 @@ function algoP.PalindromicSubstrings.TwoPointers
                 r += 1
 
         return res
+examples = [
+    "abc",
+    "aaa",
+    "abba",
+    "racecar",
+    "a",
+    "abccba",
+    "abcd"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print("Example", i, ": s =", s, ", count =", solution.countSubstrings(s))
+    i += 1
 '
 
     echo $template_content > $output_file
@@ -2987,9 +4218,10 @@ function algoP.PalindromicSubstrings.TwoPointers
 end
 
 function algoP.PalindromicSubstrings.TwoPointers_Optimal
-    set output_file "count_pali_helper.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def countSubstrings(self, s: str) -> int:
         res = 0
 
@@ -3005,6 +4237,23 @@ function algoP.PalindromicSubstrings.TwoPointers_Optimal
             l -= 1
             r += 1
         return res
+
+examples = [
+    "abc",
+    "aaa",
+    "abba",
+    "racecar",
+    "a",
+    "abccba",
+    "abcd"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print("Example", i, ": s =", s, ", count =", solution.countSubstrings(s))
+    i += 1
 '
 
     echo $template_content > $output_file
@@ -3015,9 +4264,10 @@ function algoP.PalindromicSubstrings.TwoPointers_Optimal
 end
 
 function algoP.PalindromicSubstrings.ManacherAlgorithm
-    set output_file "count_pali_manacher.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def countSubstrings(self, s: str) -> int:
 
         def manacher(s):
@@ -3039,6 +4289,23 @@ function algoP.PalindromicSubstrings.ManacherAlgorithm
         for i in p:
             res += (i + 1) // 2
         return res
+
+examples = [
+    "abc",
+    "aaa",
+    "abba",
+    "racecar",
+    "a",
+    "abccba",
+    "abcd"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print("Example", i, ": s =", s, ", count =", solution.countSubstrings(s))
+    i += 1
 '
 
     echo $template_content > $output_file
@@ -3076,9 +4343,10 @@ function algoP.DecodeWays.Recursion
 end
 
 function algoP.DecodeWays.DynamicProgramming_Top-Down
-    set output_file "decode_ways_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def numDecodings(self, s: str) -> int:
         dp = {len(s): 1}
 
@@ -3099,6 +4367,22 @@ function algoP.DecodeWays.DynamicProgramming_Top-Down
             return res
 
         return dfs(0)
+
+examples = [
+    "12",
+    "226",
+    "06",
+    "10",
+    "2101",
+    "11106",
+    "27",
+    "111111"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print("Example", i, ": s =", s, ", decodings =", solution.numDecodings(s))
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3108,9 +4392,10 @@ function algoP.DecodeWays.DynamicProgramming_Top-Down
 end
 
 function algoP.DecodeWays.DynamicProgramming_Bottom-Up
-    set output_file "decode_ways_dp.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def numDecodings(self, s: str) -> int:
         dp = {len(s): 1}
 
@@ -3127,6 +4412,22 @@ function algoP.DecodeWays.DynamicProgramming_Bottom-Up
                 dp[i] += dp[i + 2]
 
         return dp[0]
+
+examples = [
+    "12",
+    "226",
+    "06",
+    "10",
+    "2101",
+    "11106",
+    "27",
+    "111111"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print("Example", i, ": s =", s, ", decodings =", solution.numDecodings(s))
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3136,9 +4437,10 @@ function algoP.DecodeWays.DynamicProgramming_Bottom-Up
 end
 
 function algoP.DecodeWays.DynamicProgramming_SpaceOptimized
-    set output_file "decode_ways_optimized.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def numDecodings(self, s: str) -> int:
         dp = dp2 = 0
         dp1 = 1
@@ -3158,6 +4460,22 @@ function algoP.DecodeWays.DynamicProgramming_SpaceOptimized
             dp, dp1, dp2 = 0, dp, dp1
 
         return dp1
+
+examples = [
+    "12",
+    "226",
+    "06",
+    "10",
+    "2101",
+    "11106",
+    "27",
+    "111111"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print("Example", i, ": s =", s, ", decodings =", solution.numDecodings(s))
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3167,9 +4485,10 @@ function algoP.DecodeWays.DynamicProgramming_SpaceOptimized
 end
 
 function algoP.CoinChange.Recursion
-    set output_file "coin_change_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -3185,6 +4504,27 @@ class Solution:
 
         minCoins = dfs(amount)
         return -1 if minCoins >= 1e9 else minCoins
+
+examples = [
+    ([1, 2, 5], 11),
+    ([2], 3),
+    ([1], 0),
+    ([1], 2),
+    ([2, 5, 10, 1], 27),
+    ([186, 419, 83, 408], 6249)
+]
+
+solution = Solution()
+
+i = 1
+for coins, amount in examples:
+    print(
+        "Example", i,
+        ": coins =", coins,
+        ", amount =", amount,
+        ", minCoins =", solution.coinChange(coins, amount)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3195,9 +4535,10 @@ end
 
 
 function algoP.CoinChange.DynamicProgramming_Top-Down
-    set output_file "coin_change_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -3219,6 +4560,27 @@ class Solution:
 
         minCoins = dfs(amount)
         return -1 if minCoins >= 1e9 else minCoins
+
+examples = [
+    ([1, 2, 5], 11),
+    ([2], 3),
+    ([1], 0),
+    ([1], 2),
+    ([2, 5, 10, 1], 27),
+    ([186, 419, 83, 408], 6249)
+]
+
+solution = Solution()
+
+i = 1
+for coins, amount in examples:
+    print(
+        "Example", i,
+        ": coins =", coins,
+        ", amount =", amount,
+        ", minCoins =", solution.coinChange(coins, amount)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3229,9 +4591,10 @@ end
 
 
 function algoP.CoinChange.DynamicProgramming_Bottom-Up
-    set output_file "coin_change_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -3244,6 +4607,27 @@ class Solution:
                     dp[a] = min(dp[a], 1 + dp[a - c])
 
         return dp[amount] if dp[amount] != amount + 1 else -1
+
+examples = [
+    ([1, 2, 5], 11),
+    ([2], 3),
+    ([1], 0),
+    ([1], 2),
+    ([2, 5, 10, 1], 27),
+    ([186, 419, 83, 408], 6249)
+]
+
+solution = Solution()
+
+i = 1
+for coins, amount in examples:
+    print(
+        "Example", i,
+        ": coins =", coins,
+        ", amount =", amount,
+        ", minCoins =", solution.coinChange(coins, amount)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3254,9 +4638,10 @@ end
 
 
 function algoP.CoinChange.BreadthFirstSearch
-    set output_file "coin_change_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -3283,6 +4668,27 @@ class Solution:
                     q.append(nxt)
 
         return -1
+
+examples = [
+    ([1, 2, 5], 11),
+    ([2], 3),
+    ([1], 0),
+    ([1], 2),
+    ([2, 5, 10, 1], 27),
+    ([186, 419, 83, 408], 6249)
+]
+
+solution = Solution()
+
+i = 1
+for coins, amount in examples:
+    print(
+        "Example", i,
+        ": coins =", coins,
+        ", amount =", amount,
+        ", minCoins =", solution.coinChange(coins, amount)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3292,9 +4698,10 @@ class Solution:
 end
 
 function algoP.MaximumProductSubarray.BruteForce
-    set output_file "max_product_bf.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -3308,6 +4715,28 @@ class Solution:
                 res = max(res, cur)
 
         return res
+
+examples = [
+    [2, 3, -2, 4],
+    [-2, 0, -1],
+    [-2, 3, -4],
+    [0, 2],
+    [3, -1, 4],
+    [-1, -3, -10, 0, 60],
+    [-2, -3, 0, -2, -40],
+    [1],
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxProduct =", solution.maxProduct(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3317,9 +4746,10 @@ class Solution:
 end
 
 function algoP.MaximumProductSubarray.SlidingWindow
-    set output_file "max_product_split.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -3358,6 +4788,28 @@ class Solution:
                     res = max(res, prod)
 
         return res
+
+examples = [
+    [2, 3, -2, 4],
+    [-2, 0, -1],
+    [-2, 3, -4],
+    [0, 2],
+    [3, -1, 4],
+    [-1, -3, -10, 0, 60],
+    [-2, -3, 0, -2, -40],
+    [1],
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxProduct =", solution.maxProduct(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3367,9 +4819,10 @@ class Solution:
 end
 
 function algoP.MaximumProductSubarray.KadaneAlgorithm
-    set output_file "max_product_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -3383,6 +4836,28 @@ class Solution:
             res = max(res, curMax)
 
         return res
+
+examples = [
+    [2, 3, -2, 4],
+    [-2, 0, -1],
+    [-2, 3, -4],
+    [0, 2],
+    [3, -1, 4],
+    [-1, -3, -10, 0, 60],
+    [-2, -3, 0, -2, -40],
+    [1],
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxProduct =", solution.maxProduct(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3392,9 +4867,10 @@ class Solution:
 end
 
 function algoP.MaximumProductSubarray.PrefixSuffix
-    set output_file "max_product_prefix_suffix.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -3407,6 +4883,28 @@ class Solution:
             res = max(res, max(prefix, suffix))
 
         return res
+
+examples = [
+    [2, 3, -2, 4],
+    [-2, 0, -1],
+    [-2, 3, -4],
+    [0, 2],
+    [3, -1, 4],
+    [-1, -3, -10, 0, 60],
+    [-2, -3, 0, -2, -40],
+    [1],
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxProduct =", solution.maxProduct(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3416,9 +4914,10 @@ class Solution:
 end
 
 function algoP.WordBreak.Recursion
-    set output_file "word_break_recursive.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -3434,6 +4933,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3443,9 +4963,10 @@ class Solution:
 end
 
 function algoP.WordBreak.Recursion_HashSet
-    set output_file "word_break_recursive_set.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -3462,6 +4983,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3472,9 +5014,10 @@ end
 
 
 function algoP.WordBreak.DynamicProgramming_Top-Down
-    set output_file "word_break_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -3493,6 +5036,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3503,9 +5067,10 @@ end
 
 
 function algoP.WordBreak.DynamicProgramming_HashSet
-    set output_file "word_break_memo_maxlen.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -3527,6 +5092,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3537,9 +5123,10 @@ end
 
 
 function algoP.WordBreak.DynamicProgramming_Bottom-Up
-    set output_file "word_break_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -3554,6 +5141,27 @@ class Solution:
                     break
 
         return dp[0]
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3564,7 +5172,7 @@ end
 
 
 function algoP.WordBreak.DynamicProgramming
-    set output_file "word_break_trie_dp.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 
@@ -3611,6 +5219,27 @@ class Solution:
                         break
 
         return dp[0]
+
+examples = [
+    ("leetcode", ["leet", "code"]),
+    ("applepenapple", ["apple", "pen"]),
+    ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+    ("cars", ["car", "ca", "rs"]),
+    ("aaaaaaa", ["aaaa", "aaa"]),
+    ("", ["a"]),
+]
+
+solution = Solution()
+
+i = 1
+for s, wordDict in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", wordDict =", wordDict,
+        ", canBreak =", solution.wordBreak(s, wordDict)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3621,9 +5250,10 @@ end
 
 
 function algoP.LongestIncreasingSubsequence.Recursion
-    set output_file "length_of_lis_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -3640,6 +5270,26 @@ class Solution:
             return LIS
 
         return dfs(0, -1)
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3649,9 +5299,10 @@ class Solution:
 end
 
 function algoP.LongestIncreasingSubsequence.DynamicProgramming_Top-DownI
-    set output_file "length_of_lis_dfs_memo2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def lengthOfLIS(self, nums):
         n = len(nums)
         memo = [[-1] * (n + 1) for _ in range(n)]
@@ -3671,6 +5322,26 @@ function algoP.LongestIncreasingSubsequence.DynamicProgramming_Top-DownI
             return LIS
 
         return dfs(0, -1)
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3681,9 +5352,10 @@ end
 
 
 function algoP.LongestIncreasingSubsequence.DynamicProgramming_Top-DownII
-    set output_file "length_of_lis_dfs_memo1d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -3703,6 +5375,26 @@ class Solution:
             return LIS
 
         return max(dfs(i) for i in range(n))
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3713,9 +5405,10 @@ end
 
 
 function algoP.LongestIncreasingSubsequence.DynamicProgramming_Bottom-UpI
-    set output_file "length_of_lis_dp2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def lengthOfLIS(self, nums):
         n = len(nums)
         dp = [[0] * (n + 1) for _ in range(n + 1)]
@@ -3730,6 +5423,26 @@ function algoP.LongestIncreasingSubsequence.DynamicProgramming_Bottom-UpI
                 dp[i][j + 1] = LIS
 
         return dp[0][0]
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3740,9 +5453,10 @@ end
 
 
 function algoP.LongestIncreasingSubsequence.DynamicProgramming_Bottom-UpII
-    set output_file "length_of_lis_dp1d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -3753,6 +5467,26 @@ class Solution:
                 if nums[i] < nums[j]:
                     LIS[i] = max(LIS[i], 1 + LIS[j])
         return max(LIS)
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3762,9 +5496,10 @@ class Solution:
 end
 
 function algoP.LongestIncreasingSubsequence.SegmentTree
-    set output_file "length_of_lis_segment_tree.py"
+    set output_file "main.py"
 
-    set template_content 'from bisect import bisect_left
+    set template_content '
+from bisect import bisect_left
 class SegmentTree:
     def __init__(self, N):
         self.n = N
@@ -3815,6 +5550,26 @@ class Solution:
             segTree.update(num, curLIS)
             LIS = max(LIS, curLIS)
         return LIS
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3825,9 +5580,10 @@ end
 
 
 function algoP.LongestIncreasingSubsequence.DynamicProgramming_BinarySearch
-    set output_file "length_of_lis_bisect.py"
+    set output_file "main.py"
 
-    set template_content 'from bisect import bisect_left
+    set template_content '
+from bisect import bisect_left
 from typing import List
 
 class Solution:
@@ -3846,6 +5602,26 @@ class Solution:
             dp[idx] = nums[i]
 
         return LIS
+
+examples = [
+    [10, 9, 2, 5, 3, 7, 101, 18],
+    [0, 1, 0, 3, 2, 3],
+    [7, 7, 7, 7, 7, 7],
+    [1],
+    [4, 10, 4, 3, 8, 9],
+    [1, 3, 6, 7, 9, 4, 10, 5, 6]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", LIS length =", solution.lengthOfLIS(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3856,9 +5632,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.Recursion
-    set output_file "can_partition_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -3874,6 +5651,27 @@ class Solution:
             return dfs(i + 1, target) or dfs(i + 1, target - nums[i])
 
         return dfs(0, sum(nums) // 2)
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3884,9 +5682,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_Top-Down
-    set output_file "can_partition_dfs_memo2d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -3910,6 +5709,27 @@ class Solution:
             return memo[i][target]
 
         return dfs(0, target)
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3920,9 +5740,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_Bottom-Up
-    set output_file "can_partition_dp2d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -3945,6 +5766,27 @@ class Solution:
                     dp[i][j] = dp[i - 1][j]
 
         return dp[n][target]
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3955,9 +5797,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_SpaceOptimized
-    set output_file "can_partition_dp1d_next.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -3978,6 +5821,27 @@ class Solution:
             dp, nextDp = nextDp, dp
 
         return dp[target]
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -3988,9 +5852,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_HashSet
-    set output_file "can_partition_dp_set.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -4010,6 +5875,27 @@ class Solution:
                 nextDP.add(t)
             dp = nextDP
         return False
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4020,9 +5906,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_Optimal
-    set output_file "can_partition_dp1d_optimized.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -4038,6 +5925,27 @@ class Solution:
                 dp[j] = dp[j] or dp[j - num]
 
         return dp[target]
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4048,9 +5956,10 @@ end
 
 
 function algoP.PartitionEqualSubsetSum.DynamicProgramming_Bitset
-    set output_file "can_partition_bitmask_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
@@ -4065,6 +5974,27 @@ class Solution:
             dp |= dp << num
 
         return (dp & (1 << target)) != 0
+
+examples = [
+    [1, 5, 11, 5],
+    [1, 2, 3, 5],
+    [2, 2, 3, 5],
+    [3, 3, 3, 4, 5],
+    [1, 1],
+    [100],
+    [1, 2, 5]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canPartition =", solution.canPartition(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4074,9 +6004,10 @@ class Solution:
 end
 
 function algoP.InsertInterval.LinearSearch
-    set output_file "insert_interval_linear.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
@@ -4099,6 +6030,28 @@ class Solution:
             i += 1
 
         return res
+
+examples = [
+    ([[1,3],[6,9]], [2,5]),
+    ([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]),
+    ([], [5,7]),
+    ([[1,5]], [2,3]),
+    ([[1,5]], [2,7]),
+    ([[1,5],[6,8]], [0,9]),
+    ([[1,5],[6,8]], [9,10]),
+]
+
+solution = Solution()
+
+i = 1
+for intervals, newInterval in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", newInterval =", newInterval,
+        ", result =", solution.insert(intervals, newInterval)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4109,9 +6062,10 @@ end
 
 
 function algoP.InsertInterval.BinarySearch
-    set output_file "insert_interval_binary_search.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[List[int]]) -> List[List[int]]:
@@ -4138,6 +6092,28 @@ class Solution:
             else:
                 res[-1][1] = max(res[-1][1], interval[1])
         return res
+
+examples = [
+    ([[1,3],[6,9]], [2,5]),
+    ([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]),
+    ([], [5,7]),
+    ([[1,5]], [2,3]),
+    ([[1,5]], [2,7]),
+    ([[1,5],[6,8]], [0,9]),
+    ([[1,5],[6,8]], [9,10]),
+]
+
+solution = Solution()
+
+i = 1
+for intervals, newInterval in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", newInterval =", newInterval,
+        ", result =", solution.insert(intervals, newInterval)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4147,9 +6123,10 @@ class Solution:
 end
 
 function algoP.InsertInterval.Greedy
-    set output_file "insert_interval_one_pass.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
@@ -4168,6 +6145,28 @@ class Solution:
                 ]
         res.append(newInterval)
         return res
+
+examples = [
+    ([[1,3],[6,9]], [2,5]),
+    ([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]),
+    ([], [5,7]),
+    ([[1,5]], [2,3]),
+    ([[1,5]], [2,7]),
+    ([[1,5],[6,8]], [0,9]),
+    ([[1,5],[6,8]], [9,10]),
+]
+
+solution = Solution()
+
+i = 1
+for intervals, newInterval in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", newInterval =", newInterval,
+        ", result =", solution.insert(intervals, newInterval)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4179,9 +6178,10 @@ end
 
 
 function algoP.MergeIntervals.Sorting
-    set output_file "merge_intervals_sort_merge.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -4196,6 +6196,27 @@ class Solution:
             else:
                 output.append([start, end])
         return output
+
+examples = [
+    [[1,3],[2,6],[8,10],[15,18]],
+    [[1,4],[4,5]],
+    [[1,4],[0,2],[3,5]],
+    [[1,4]],
+    [],
+    [[2,3],[4,5],[6,7],[8,9],[1,10]],
+    [[1,4],[5,6],[7,8]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", merged =", solution.merge(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4206,9 +6227,10 @@ end
 
 
 function algoP.MergeIntervals.SweepLineAlgorithm
-    set output_file "merge_intervals_sweep_line.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import defaultdict
 
 class Solution:
@@ -4230,6 +6252,27 @@ class Solution:
                 res.append(interval)
                 interval = []
         return res
+
+examples = [
+    [[1,3],[2,6],[8,10],[15,18]],
+    [[1,4],[4,5]],
+    [[1,4],[0,2],[3,5]],
+    [[1,4]],
+    [],
+    [[2,3],[4,5],[6,7],[8,9],[1,10]],
+    [[1,4],[5,6],[7,8]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", merged =", solution.merge(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4240,9 +6283,10 @@ end
 
 
 function algoP.MergeIntervals.Greedy
-    set output_file "merge_intervals_array_sweep.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -4269,6 +6313,27 @@ class Solution:
             res.append([interval_start, have])
 
         return res
+
+examples = [
+    [[1,3],[2,6],[8,10],[15,18]],
+    [[1,4],[4,5]],
+    [[1,4],[0,2],[3,5]],
+    [[1,4]],
+    [],
+    [[2,3],[4,5],[6,7],[8,9],[1,10]],
+    [[1,4],[5,6],[7,8]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", merged =", solution.merge(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4279,9 +6344,10 @@ end
 
 
 function algoP.NonOverlappingIntervals.Recursion
-    set output_file "erase_overlap_intervals_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4297,6 +6363,26 @@ class Solution:
             return res
 
         return len(intervals) - dfs(0, -1)
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4307,9 +6393,10 @@ end
 
 
 function algoP.NonOverlappingIntervals.DynamicProgramming_Top-Down
-    set output_file "erase_overlap_intervals_dfs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4329,6 +6416,26 @@ class Solution:
             return res
 
         return n - dfs(0)
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4339,9 +6446,10 @@ end
 
 
 function algoP.NonOverlappingIntervals.DynamicProgramming_Bottom-Up
-    set output_file "erase_overlap_intervals_dp_n2.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4356,6 +6464,26 @@ class Solution:
                     dp[i] = max(dp[i], 1 + dp[j])
 
         return n - max(dp)
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4365,9 +6493,10 @@ class Solution:
 end
 
 function algoP.NonOverlappingIntervals.DynamicProgramming_BinarySearch
-    set output_file "erase_overlap_intervals_dp_bs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4394,6 +6523,26 @@ class Solution:
                 dp[i] = max(dp[i - 1], 1 + dp[idx - 1])
 
         return n - dp[n - 1]
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4404,9 +6553,10 @@ end
 
 
 function algoP.NonOverlappingIntervals.Greedy_SortByStart
-    set output_file "erase_overlap_intervals_greedy_start.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4422,6 +6572,26 @@ class Solution:
                 prevEnd = min(end, prevEnd)
 
         return res
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4432,9 +6602,10 @@ end
 
 
 function algoP.NonOverlappingIntervals.Greedy_SortByEnd
-    set output_file "erase_overlap_intervals_greedy_end.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
@@ -4449,6 +6620,26 @@ class Solution:
                 prevEnd = intervals[i][1]
 
         return res
+
+examples = [
+    [[1,2],[2,3],[3,4],[1,3]],
+    [[1,2],[1,2],[1,2]],
+    [[1,2],[2,3]],
+    [],
+    [[1,100],[11,22],[1,11],[2,12]],
+    [[0,2],[1,3],[2,4],[3,5],[4,6]]
+]
+
+solution = Solution()
+
+i = 1
+for intervals in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", min removals =", solution.eraseOverlapIntervals(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4459,17 +6650,15 @@ end
 
 
 function algoP.MeetingRooms.BruteForce
-    set output_file "meeting_rooms_can_attend_bruteforce.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def canAttendMeetings(self, intervals: List[Interval]) -> bool:
@@ -4481,6 +6670,27 @@ class Solution:
                 if min(A.end, B.end) > max(A.start, B.start):
                     return False
         return True
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", canAttend =", solution.canAttendMeetings(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4491,17 +6701,15 @@ end
 
 
 function algoP.MeetingRooms.Sorting
-    set output_file "meeting_rooms_can_attend_sort.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def canAttendMeetings(self, intervals: List[Interval]) -> bool:
@@ -4514,6 +6722,27 @@ class Solution:
             if prev.end > curr.start:
                 return False
         return True
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", canAttend =", solution.canAttendMeetings(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4524,18 +6753,16 @@ end
 
 
 function algoP.MeetingRoomsII.MinHeap
-    set output_file "meeting_rooms_min_heap.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 import heapq
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
@@ -4548,6 +6775,27 @@ class Solution:
             heapq.heappush(min_heap, interval.end)
 
         return len(min_heap)
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", minMeetingRooms =", solution.minMeetingRooms(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4558,18 +6806,16 @@ end
 
 
 function algoP.MeetingRoomsII.SweepLineAlgorithm
-    set output_file "meeting_rooms_sweep_map.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import defaultdict
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
@@ -4585,6 +6831,27 @@ class Solution:
             res = max(res, prev)
 
         return res
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", minMeetingRooms =", solution.minMeetingRooms(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4595,17 +6862,15 @@ end
 
 
 function algoP.MeetingRoomsII.TwoPointers
-    set output_file "meeting_rooms_two_pointers.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
@@ -4624,6 +6889,27 @@ class Solution:
             res = max(res, count)
 
         return res
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", minMeetingRooms =", solution.minMeetingRooms(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4634,17 +6920,15 @@ end
 
 
 function algoP.MeetingRoomsII.Greedy
-    set output_file "meeting_rooms_events.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
-"""
-Definition of Interval:
 class Interval(object):
     def __init__(self, start, end):
         self.start = start
         self.end = end
-"""
 
 class Solution:
     def minMeetingRooms(self, intervals: List[Interval]) -> int:
@@ -4661,6 +6945,27 @@ class Solution:
             res = max(res, count)
 
         return res
+
+examples = [
+    [[0,30],[5,10],[15,20]],
+    [[7,10],[2,4]],
+    [[1,5],[5,10],[10,15]],
+    [[1,10],[10,20],[20,30]],
+    [[1,5],[6,10],[5,6]],
+    []
+]
+
+solution = Solution()
+
+i = 1
+for intervals_list in examples:
+    intervals = [Interval(start, end) for start, end in intervals_list]
+    print(
+        "Example", i,
+        ": intervals =", intervals_list,
+        ", minMeetingRooms =", solution.minMeetingRooms(intervals)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4670,9 +6975,10 @@ class Solution:
 end
 
 function algoP.NetworkDelayTime.DepthFirstSearch
-    set output_file "network_delay_time_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import defaultdict
 
 class Solution:
@@ -4693,6 +6999,82 @@ class Solution:
         dfs(k, 0)
         res = max(dist.values())
         return res if res < float("inf") else -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4703,9 +7085,10 @@ end
 
 
 function algoP.NetworkDelayTime.FloydWarshallAlgorithm
-    set output_file "network_delay_time_floyd_warshall.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -4724,6 +7107,44 @@ class Solution:
 
         res = max(dist[k - 1])
         return res if res < inf else -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4734,9 +7155,10 @@ end
 
 
 function algoP.NetworkDelayTime.BellmanFordAlgorithm
-    set output_file "network_delay_time_bellman_ford.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
@@ -4750,6 +7172,44 @@ class Solution:
 
         res = max(dist)
         return res if res < float("inf") else -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4760,9 +7220,10 @@ end
 
 
 function algoP.NetworkDelayTime.ShortestPathFasterAlgorithm
-    set output_file "network_delay_time_bfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import defaultdict, deque
 
 class Solution:
@@ -4786,6 +7247,44 @@ class Solution:
 
         res = max(dist.values())
         return res if res < float("inf") else -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4796,9 +7295,10 @@ end
 
 
 function algoP.NetworkDelayTime.DijkstraAlgorithm
-    set output_file "network_delay_time_dijkstra.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 import heapq
 import collections
 
@@ -4824,6 +7324,44 @@ class Solution:
                     heapq.heappush(minHeap, (w1 + w2, n2))
 
         return t if len(visit) == n else -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    (
+        [[2,1,1],[2,3,1],[3,4,1]],
+        4,
+        2
+    ),
+    # Example 2
+    (
+        [[1,2,1]],
+        2,
+        1
+    ),
+    # Example 3 (unreachable node)
+    (
+        [[1,2,1]],
+        2,
+        2
+    ),
+    # Example 4
+    (
+        [[1,2,1],[1,3,4],[2,3,2]],
+        3,
+        1
+    )
+]
+
+for i, (times, n, k) in enumerate(examples, 1):
+    print(
+        f"Example {i}:",
+        "times =", times,
+        ", n =", n,
+        ", k =", k,
+        "=> output =", solution.networkDelayTime(times, n, k)
+    )
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4834,9 +7372,10 @@ end
 
 
 function algoP.MinCostConnectPoints.KruskalAlgorithm
-    set output_file "min_cost_connect_points_kruskal.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class DSU:
     def __init__(self, n):
@@ -4876,6 +7415,19 @@ class Solution:
             if dsu.union(u, v):
                 res += dist
         return res
+
+solution = Solution()
+
+examples = [
+    [[0,0],[2,2],[3,10],[5,2],[7,0]],  # expected: 20
+    [[3,12],[-2,5],[-4,1]],            # expected: 18
+    [[0,0],[1,1],[1,0],[-1,1]],        # expected: 4
+    [[-1000000,-1000000],[1000000,1000000]] # expected: 4000000
+]
+
+for i, points in enumerate(examples, 1):
+    cost = solution.minCostConnectPoints(points)
+    print(f"Example {i}: points={points} => minCost={cost}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4886,9 +7438,10 @@ end
 
 
 function algoP.MinCostConnectPoints.PrimAlgorithm
-    set output_file "min_cost_connect_points_prim_heap.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 import heapq
 
 class Solution:
@@ -4916,6 +7469,19 @@ class Solution:
                 if nei not in visit:
                     heapq.heappush(minH, (neiCost, nei))
         return res
+
+solution = Solution()
+
+examples = [
+    [[0,0],[2,2],[3,10],[5,2],[7,0]],  # expected: 20
+    [[3,12],[-2,5],[-4,1]],            # expected: 18
+    [[0,0],[1,1],[1,0],[-1,1]],        # expected: 4
+    [[-1000000,-1000000],[1000000,1000000]] # expected: 4000000
+]
+
+for i, points in enumerate(examples, 1):
+    cost = solution.minCostConnectPoints(points)
+    print(f"Example {i}: points={points} => minCost={cost}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4926,9 +7492,10 @@ end
 
 
 function algoP.MinCostConnectPoints.PrimAlgorithm_Optimal
-    set output_file "min_cost_connect_points_prim_optimized.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
@@ -4955,6 +7522,19 @@ class Solution:
             node = nextNode
 
         return res
+
+solution = Solution()
+
+examples = [
+    [[0,0],[2,2],[3,10],[5,2],[7,0]],  # expected: 20
+    [[3,12],[-2,5],[-4,1]],            # expected: 18
+    [[0,0],[1,1],[1,0],[-1,1]],        # expected: 4
+    [[-1000000,-1000000],[1000000,1000000]] # expected: 4000000
+]
+
+for i, points in enumerate(examples, 1):
+    cost = solution.minCostConnectPoints(points)
+    print(f"Example {i}: points={points} => minCost={cost}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -4965,9 +7545,10 @@ end
 
 
 function algoP.CheapestFlightsWithinStops.DijkstraAlgorithm
-    set output_file "cheapest_flights_dijkstra_k_stops.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 import heapq
 
 class Solution:
@@ -4997,6 +7578,63 @@ class Solution:
                     heapq.heappush(minH, (newCost, nei, stops + 1))
 
         return -1
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    {
+        "n": 4,
+        "flights": [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]],
+        "src": 0,
+        "dst": 3,
+        "k": 1,
+        "expected": 700
+    },
+    # Example 2
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": 200
+    },
+    # Example 3
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 0,
+        "expected": 500
+    },
+    # Example 4 (no path)
+    {
+        "n": 3,
+        "flights": [[0,1,100]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": -1
+    }
+]
+
+for i, ex in enumerate(examples, 1):
+    result = solution.findCheapestPrice(
+        ex["n"],
+        ex["flights"],
+        ex["src"],
+        ex["dst"],
+        ex["k"]
+    )
+    print(f"Example {i}:")
+    print("n =", ex["n"])
+    print("flights =", ex["flights"])
+    print("src =", ex["src"], "dst =", ex["dst"], "k =", ex["k"])
+    print("output =", result, "| expected =", ex["expected"])
+    print("OK" if result == ex["expected"] else "WRONG")
+    print("-" * 40)
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5007,9 +7645,10 @@ end
 
 
 function algoP.CheapestFlightsWithinStops.BellmanFordAlgorithm
-    set output_file "cheapest_flights_bellman_ford.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
@@ -5027,6 +7666,63 @@ class Solution:
             prices = tmp
 
         return -1 if prices[dst] == INF else prices[dst]
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    {
+        "n": 4,
+        "flights": [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]],
+        "src": 0,
+        "dst": 3,
+        "k": 1,
+        "expected": 700
+    },
+    # Example 2
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": 200
+    },
+    # Example 3
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 0,
+        "expected": 500
+    },
+    # Example 4 (no path)
+    {
+        "n": 3,
+        "flights": [[0,1,100]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": -1
+    }
+]
+
+for i, ex in enumerate(examples, 1):
+    result = solution.findCheapestPrice(
+        ex["n"],
+        ex["flights"],
+        ex["src"],
+        ex["dst"],
+        ex["k"]
+    )
+    print(f"Example {i}:")
+    print("n =", ex["n"])
+    print("flights =", ex["flights"])
+    print("src =", ex["src"], "dst =", ex["dst"], "k =", ex["k"])
+    print("output =", result, "| expected =", ex["expected"])
+    print("OK" if result == ex["expected"] else "WRONG")
+    print("-" * 40)
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5037,9 +7733,10 @@ end
 
 
 function algoP.CheapestFlightsWithinStops.ShortestPathFasterAlgorithm
-    set output_file "cheapest_flights_bfs_k_stops.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 from collections import deque
 
 class Solution:
@@ -5066,6 +7763,63 @@ class Solution:
                     q.append((nei, newCost, stops + 1))
 
         return -1 if prices[dst] == INF else prices[dst]
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    {
+        "n": 4,
+        "flights": [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]],
+        "src": 0,
+        "dst": 3,
+        "k": 1,
+        "expected": 700
+    },
+    # Example 2
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": 200
+    },
+    # Example 3
+    {
+        "n": 3,
+        "flights": [[0,1,100],[1,2,100],[0,2,500]],
+        "src": 0,
+        "dst": 2,
+        "k": 0,
+        "expected": 500
+    },
+    # Example 4 (no path)
+    {
+        "n": 3,
+        "flights": [[0,1,100]],
+        "src": 0,
+        "dst": 2,
+        "k": 1,
+        "expected": -1
+    }
+]
+
+for i, ex in enumerate(examples, 1):
+    result = solution.findCheapestPrice(
+        ex["n"],
+        ex["flights"],
+        ex["src"],
+        ex["dst"],
+        ex["k"]
+    )
+    print(f"Example {i}:")
+    print("n =", ex["n"])
+    print("flights =", ex["flights"])
+    print("src =", ex["src"], "dst =", ex["dst"], "k =", ex["k"])
+    print("output =", result, "| expected =", ex["expected"])
+    print("OK" if result == ex["expected"] else "WRONG")
+    print("-" * 40)
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5076,9 +7830,10 @@ end
 
 
 function algoP.MaximumSubarray.BruteForce
-    set output_file "max_subarray_bruteforce.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5089,6 +7844,27 @@ class Solution:
                 cur += nums[j]
                 res = max(res, cur)
         return res
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5099,9 +7875,10 @@ end
 
 
 function algoP.MaximumSubarray.Recursion
-    set output_file "max_subarray_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5112,6 +7889,28 @@ class Solution:
                 return max(0, nums[i] + dfs(i + 1, True))
             return max(dfs(i + 1, False), nums[i] + dfs(i + 1, True))
         return dfs(0, False)
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5121,9 +7920,10 @@ class Solution:
 end
 
 function algoP.MaximumSubarray.DynamicProgramming_Top-Down
-    set output_file "max_subarray_dfs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5142,6 +7942,28 @@ class Solution:
             return memo[i][flag]
 
         return dfs(0, False)
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5152,9 +7974,10 @@ end
 
 
 function algoP.MaximumSubarray.DynamicProgramming_Bottom-Up
-    set output_file "max_subarray_dp2d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5165,6 +7988,29 @@ class Solution:
             dp[i][1] = max(nums[i], nums[i] + dp[i + 1][1])
             dp[i][0] = max(dp[i + 1][0], dp[i][1])
         return dp[0][0]
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5174,9 +8020,10 @@ class Solution:
 end
 
 function algoP.MaximumSubarray.DynamicProgramming_SpaceOptimized
-    set output_file "max_subarray_dp1d.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums):
@@ -5184,6 +8031,28 @@ class Solution:
         for i in range(1, len(nums)):
             dp[i] = max(nums[i], nums[i] + dp[i - 1])
         return max(dp)
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5193,9 +8062,10 @@ class Solution:
 end
 
 function algoP.MaximumSubarray.KadaneAlgorithm
-    set output_file "max_subarray_kadane.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5206,6 +8076,28 @@ class Solution:
             curSum += num
             maxSub = max(maxSub, curSum)
         return maxSub
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5215,9 +8107,10 @@ class Solution:
 end
 
 function algoP.MaximumSubarray.DivideConquer
-    set output_file "max_subarray_divide_conquer.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -5241,6 +8134,28 @@ class Solution:
                        leftSum + nums[m] + rightSum)
 
         return dfs(0, len(nums) - 1)
+
+examples = [
+    [-2,1,-3,4,-1,2,1,-5,4],
+    [1],
+    [5,4,-1,7,8],
+    [-1,-2,-3,-4],
+    [2,-1,2,3,4,-5],
+    [0],
+    [-1,0,-2]
+]
+
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", maxSubArray =", solution.maxSubArray(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5251,9 +8166,10 @@ end
 
 
 function algoP.JumpGame.Recursion
-    set output_file "jump_game_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -5267,6 +8183,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    [2,3,1,1,4],      # True
+    [3,2,1,0,4],      # False
+    [0],              # True
+    [2,0],            # True
+    [1,1,0,1],        # False
+    [2,5,0,0],        # True
+    [1,2,3],          # True
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canJump =", solution.canJump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5276,9 +8213,10 @@ class Solution:
 end
 
 function algoP.JumpGame.DynamicProgramming_Top-Down
-    set output_file "jump_game_dfs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -5301,6 +8239,27 @@ class Solution:
             return False
 
         return dfs(0)
+
+examples = [
+    [2,3,1,1,4],      # True
+    [3,2,1,0,4],      # False
+    [0],              # True
+    [2,0],            # True
+    [1,1,0,1],        # False
+    [2,5,0,0],        # True
+    [1,2,3],          # True
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canJump =", solution.canJump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5311,9 +8270,10 @@ end
 
 
 function algoP.JumpGame.DynamicProgramming_Bottom-Up
-    set output_file "jump_game_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -5328,6 +8288,27 @@ class Solution:
                     dp[i] = True
                     break
         return dp[0]
+
+examples = [
+    [2,3,1,1,4],      # True
+    [3,2,1,0,4],      # False
+    [0],              # True
+    [2,0],            # True
+    [1,1,0,1],        # False
+    [2,5,0,0],        # True
+    [1,2,3],          # True
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canJump =", solution.canJump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5337,9 +8318,10 @@ class Solution:
 end
 
 function algoP.JumpGame.Greedy
-    set output_file "jump_game_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
@@ -5349,6 +8331,27 @@ class Solution:
             if i + nums[i] >= goal:
                 goal = i
         return goal == 0
+
+examples = [
+    [2,3,1,1,4],      # True
+    [3,2,1,0,4],      # False
+    [0],              # True
+    [2,0],            # True
+    [1,1,0,1],        # False
+    [2,5,0,0],        # True
+    [1,2,3],          # True
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", canJump =", solution.canJump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5359,9 +8362,10 @@ end
 
 
 function algoP.JumpGameII.Recursion
-    set output_file "jump_game_ii_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -5378,6 +8382,26 @@ class Solution:
             return res
 
         return dfs(0)
+
+examples = [
+    [2,3,1,1,4],       # 2
+    [2,3,0,1,4],       # 2
+    [1,1,1,1],         # 3
+    [0],               # 0
+    [1,2,3],           # 2
+    [3,2,1,0,4],       # -1 (неможливо дійти)
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", minJumps =", solution.jump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5387,9 +8411,10 @@ class Solution:
 end
 
 function algoP.JumpGameII.DynamicProgramming_Top-Dowт
-    set output_file "jump_game_ii_dfs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -5411,6 +8436,26 @@ class Solution:
             return res
 
         return dfs(0)
+
+examples = [
+    [2,3,1,1,4],       # 2
+    [2,3,0,1,4],       # 2
+    [1,1,1,1],         # 3
+    [0],               # 0
+    [1,2,3],           # 2
+    [3,2,1,0,4],       # -1 (неможливо дійти)
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", minJumps =", solution.jump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5420,9 +8465,10 @@ class Solution:
 end
 
 function algoP.JumpGameII.DynamicProgramming_Bottom-Up
-    set output_file "jump_game_ii_dp.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -5435,6 +8481,26 @@ class Solution:
             for j in range(i + 1, end):
                 dp[i] = min(dp[i], 1 + dp[j])
         return dp[0]
+
+examples = [
+    [2,3,1,1,4],       # 2
+    [2,3,0,1,4],       # 2
+    [1,1,1,1],         # 3
+    [0],               # 0
+    [1,2,3],           # 2
+    [3,2,1,0,4],       # -1 (неможливо дійти)
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", minJumps =", solution.jump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5445,9 +8511,10 @@ end
 
 
 function algoP.JumpGameII.BreadthFirstSearch_Greedy
-    set output_file "jump_game_ii_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -5462,6 +8529,26 @@ class Solution:
             r = farthest
             res += 1
         return res
+
+examples = [
+    [2,3,1,1,4],       # 2
+    [2,3,0,1,4],       # 2
+    [1,1,1,1],         # 3
+    [0],               # 0
+    [1,2,3],           # 2
+    [3,2,1,0,4],       # -1 (неможливо дійти)
+]
+
+solution = Solution()
+
+i = 1
+for nums in examples:
+    print(
+        "Example", i,
+        ": nums =", nums,
+        ", minJumps =", solution.jump(nums)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5472,9 +8559,10 @@ end
 
 
 function algoP.GasStation.BruteForce
-    set output_file "gas_station_bruteforce.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
@@ -5495,6 +8583,27 @@ class Solution:
             if j == i:
                 return i
         return -1
+
+examples = [
+    ([1,2,3,4,5], [3,4,5,1,2]),   # 3
+    ([2,3,4], [3,4,3]),           # -1
+    ([5], [4]),                   # 0
+    ([4,5,2,6,5,3], [3,2,7,3,2,9]), # -1
+    ([3,3,4], [3,4,4]),           # -1
+    ([2,0,0], [0,1,1])            # 0
+]
+
+solution = Solution()
+
+i = 1
+for gas, cost in examples:
+    print(
+        "Example", i,
+        ": gas =", gas,
+        ", cost =", cost,
+        ", startIndex =", solution.canCompleteCircuit(gas, cost)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5505,9 +8614,10 @@ end
 
 
 function algoP.GasStation.TwoPointers
-    set output_file "gas_station_two_pointers.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
@@ -5524,6 +8634,27 @@ class Solution:
                 end += 1
 
         return start if tank >= 0 else -1
+
+examples = [
+    ([1,2,3,4,5], [3,4,5,1,2]),   # 3
+    ([2,3,4], [3,4,3]),           # -1
+    ([5], [4]),                   # 0
+    ([4,5,2,6,5,3], [3,2,7,3,2,9]), # -1
+    ([3,3,4], [3,4,4]),           # -1
+    ([2,0,0], [0,1,1])            # 0
+]
+
+solution = Solution()
+
+i = 1
+for gas, cost in examples:
+    print(
+        "Example", i,
+        ": gas =", gas,
+        ", cost =", cost,
+        ", startIndex =", solution.canCompleteCircuit(gas, cost)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5534,9 +8665,10 @@ end
 
 
 function algoP.GasStation.Greedy
-    set output_file "gas_station_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
@@ -5552,6 +8684,27 @@ class Solution:
                 res = i + 1
 
         return res
+
+examples = [
+    ([1,2,3,4,5], [3,4,5,1,2]),   # 3
+    ([2,3,4], [3,4,3]),           # -1
+    ([5], [4]),                   # 0
+    ([4,5,2,6,5,3], [3,2,7,3,2,9]), # -1
+    ([3,3,4], [3,4,4]),           # -1
+    ([2,0,0], [0,1,1])            # 0
+]
+
+solution = Solution()
+
+i = 1
+for gas, cost in examples:
+    print(
+        "Example", i,
+        ": gas =", gas,
+        ", cost =", cost,
+        ", startIndex =", solution.canCompleteCircuit(gas, cost)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5562,7 +8715,7 @@ end
 
 
 function algoP.HandOfStraights.Sorting
-    set output_file "hand_of_straights_sort_counter.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 from collections import Counter
@@ -5582,6 +8735,28 @@ class Solution:
                         return False
                     count[x] -= 1
         return True
+
+examples = [
+    ([1,2,3,6,2,3,4,7,8], 3),   # True
+    ([1,2,3,4,5], 4),           # False
+    ([1,2,3,4], 2),             # True
+    ([8,10,12], 3),             # False
+    ([1,1,2,2,3,3], 3),         # True
+    ([1,2,3,4,6,7,8,9], 4),     # True
+    ([1,2,3,4,5,6], 1),         # True
+]
+
+solution = Solution()
+
+i = 1
+for hand, groupSize in examples:
+    print(
+        "Example", i,
+        ": hand =", hand,
+        ", groupSize =", groupSize,
+        ", result =", solution.isNStraightHand(hand, groupSize)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5592,7 +8767,7 @@ end
 
 
 function algoP.HandOfStraights.Heap
-    set output_file "hand_of_straights_heap.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 from collections import Counter
@@ -5618,6 +8793,28 @@ class Solution:
                         return False
                     heapq.heappop(minH)
         return True
+
+examples = [
+    ([1,2,3,6,2,3,4,7,8], 3),   # True
+    ([1,2,3,4,5], 4),           # False
+    ([1,2,3,4], 2),             # True
+    ([8,10,12], 3),             # False
+    ([1,1,2,2,3,3], 3),         # True
+    ([1,2,3,4,6,7,8,9], 4),     # True
+    ([1,2,3,4,5,6], 1),         # True
+]
+
+solution = Solution()
+
+i = 1
+for hand, groupSize in examples:
+    print(
+        "Example", i,
+        ": hand =", hand,
+        ", groupSize =", groupSize,
+        ", result =", solution.isNStraightHand(hand, groupSize)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5627,7 +8824,7 @@ class Solution:
 end
 
 function algoP.HandOfStraights.OrderedMap
-    set output_file "hand_of_straights_open_groups.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 from collections import Counter, deque
@@ -5654,6 +8851,28 @@ class Solution:
                 open_groups -= q.popleft()
 
         return open_groups == 0
+
+examples = [
+    ([1,2,3,6,2,3,4,7,8], 3),   # True
+    ([1,2,3,4,5], 4),           # False
+    ([1,2,3,4], 2),             # True
+    ([8,10,12], 3),             # False
+    ([1,1,2,2,3,3], 3),         # True
+    ([1,2,3,4,6,7,8,9], 4),     # True
+    ([1,2,3,4,5,6], 1),         # True
+]
+
+solution = Solution()
+
+i = 1
+for hand, groupSize in examples:
+    print(
+        "Example", i,
+        ": hand =", hand,
+        ", groupSize =", groupSize,
+        ", result =", solution.isNStraightHand(hand, groupSize)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5663,7 +8882,7 @@ class Solution:
 end
 
 function algoP.HandOfStraights.HashMap
-    set output_file "hand_of_straights_backward_expand.py"
+    set output_file "main.py"
 
     set template_content 'from typing import List
 from collections import Counter
@@ -5687,6 +8906,28 @@ class Solution:
                     count[x] -= 1
                 start += 1
         return True
+
+examples = [
+    ([1,2,3,6,2,3,4,7,8], 3),   # True
+    ([1,2,3,4,5], 4),           # False
+    ([1,2,3,4], 2),             # True
+    ([8,10,12], 3),             # False
+    ([1,1,2,2,3,3], 3),         # True
+    ([1,2,3,4,6,7,8,9], 4),     # True
+    ([1,2,3,4,5,6], 1),         # True
+]
+
+solution = Solution()
+
+i = 1
+for hand, groupSize in examples:
+    print(
+        "Example", i,
+        ": hand =", hand,
+        ", groupSize =", groupSize,
+        ", result =", solution.isNStraightHand(hand, groupSize)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5696,9 +8937,10 @@ class Solution:
 end
 
 function algoP.MergeTripletsFormTarget.Greedy
-    set output_file "merge_triplets_set_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
@@ -5713,6 +8955,41 @@ class Solution:
                     good.add(i)
 
         return len(good) == 3
+
+examples = [
+    (
+        [[2,5,3],[1,8,4],[1,7,5]],
+        [2,7,5]
+    ),
+    (
+        [[3,4,5],[4,5,6]],
+        [3,2,5]
+    ),
+    (
+        [[2,5,3],[2,3,4],[1,2,5],[2,5,5]],
+        [2,5,5]
+    ),
+    (
+        [[1,1,1],[2,2,2],[3,3,3]],
+        [3,3,3]
+    ),
+    (
+        [[1,2,3],[3,2,1]],
+        [3,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for triplets, target in examples:
+    print(
+        "Example", i,
+        ": triplets =", triplets,
+        ", target =", target,
+        ", result =", solution.mergeTriplets(triplets, target)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5722,9 +8999,10 @@ class Solution:
 end
 
 function algoP.MergeTripletsFormTarget.Greedy_Optimal
-    set output_file "merge_triplets_boolean_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
@@ -5742,6 +9020,41 @@ class Solution:
                 return True
 
         return False
+
+examples = [
+    (
+        [[2,5,3],[1,8,4],[1,7,5]],
+        [2,7,5]
+    ),
+    (
+        [[3,4,5],[4,5,6]],
+        [3,2,5]
+    ),
+    (
+        [[2,5,3],[2,3,4],[1,2,5],[2,5,5]],
+        [2,5,5]
+    ),
+    (
+        [[1,1,1],[2,2,2],[3,3,3]],
+        [3,3,3]
+    ),
+    (
+        [[1,2,3],[3,2,1]],
+        [3,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for triplets, target in examples:
+    print(
+        "Example", i,
+        ": triplets =", triplets,
+        ", target =", target,
+        ", result =", solution.mergeTriplets(triplets, target)
+    )
+    i += 1
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5751,11 +9064,10 @@ class Solution:
 end
 
 
-function algoP.PartitionLabels.TwoPointers
-    set output_file "partition_labels_greedy.py"
+function algoP.PartitionLabels.TwoPointers_Greedy
+    set output_file "main.py"
 
-    set template_content 'from typing import List
-
+    set template_content '
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
         lastIndex = {}
@@ -5763,9 +9075,7 @@ class Solution:
             lastIndex[c] = i
 
         res = []
-        size = 0
-        end = 0
-
+        size = end = 0
         for i, c in enumerate(s):
             size += 1
             end = max(end, lastIndex[c])
@@ -5773,8 +9083,27 @@ class Solution:
             if i == end:
                 res.append(size)
                 size = 0
-
         return res
+examples = [
+    "ababcbacadefegdehijhklij",
+    "eccbbbbdec",
+    "caedbdedda",
+    "abc",
+    "aaaa",
+    "abac"
+]
+
+solution = Solution()
+
+i = 1
+for s in examples:
+    print(
+        "Example", i,
+        ": s =", s,
+        ", partitions =", solution.partitionLabels(s)
+    )
+    i += 1
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5785,9 +9114,10 @@ end
 
 
 function algoP.ValidParenthesisString.Recursion
-    set output_file "valid_parenthesis_string_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         def dfs(i, open):
             if open < 0:
@@ -5805,6 +9135,26 @@ function algoP.ValidParenthesisString.Recursion
                         dfs(i + 1, open - 1))
 
         return dfs(0, 0)
+
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
+
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5814,10 +9164,13 @@ function algoP.ValidParenthesisString.Recursion
 end
 
 
-function algoP.ValidParenthesisString.DynamicProgramming_Top-Down
-    set output_file "valid_parenthesis_string_dfs_memo.py"
 
-    set template_content 'class Solution:
+
+function algoP.ValidParenthesisString.DynamicProgramming_Top-Down
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         n = len(s)
         memo = {}
@@ -5843,6 +9196,24 @@ function algoP.ValidParenthesisString.DynamicProgramming_Top-Down
             return res
 
         return dfs(0, 0)
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5853,9 +9224,10 @@ end
 
 
 function algoP.ValidParenthesisString.DynamicProgramming_Bottom-Up
-    set output_file "valid_parenthesis_string_dp_2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         n = len(s)
         dp = [[False] * (n + 1) for _ in range(n + 1)]
@@ -5873,6 +9245,24 @@ function algoP.ValidParenthesisString.DynamicProgramming_Bottom-Up
                     dp[i][open] = dp[i + 1][open - 1]
 
         return dp[0][0]
+
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5883,9 +9273,10 @@ end
 
 
 function algoP.ValidParenthesisString.DynamicProgramming_SpaceOptimized
-    set output_file "valid_parenthesis_string_dp_1d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         n = len(s)
         dp = [False] * (n + 1)
@@ -5905,6 +9296,23 @@ function algoP.ValidParenthesisString.DynamicProgramming_SpaceOptimized
             dp = new_dp
 
         return dp[0]
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5914,9 +9322,10 @@ function algoP.ValidParenthesisString.DynamicProgramming_SpaceOptimized
 end
 
 function algoP.ValidParenthesisString.Stack
-    set output_file "valid_parenthesis_string_stack.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         left = []
         star = []
@@ -5939,6 +9348,24 @@ function algoP.ValidParenthesisString.Stack
                 return False
 
         return not left
+
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5949,9 +9376,10 @@ end
 
 
 function algoP.ValidParenthesisString.Greedy
-    set output_file "valid_parenthesis_string_greedy.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def checkValidString(self, s: str) -> bool:
         leftMin = leftMax = 0
 
@@ -5972,6 +9400,24 @@ function algoP.ValidParenthesisString.Greedy
                 leftMin = 0
 
         return leftMin == 0
+
+examples = [
+    "()",
+    "(*)",
+    "(*))",
+    "(*()",
+    "((*)",
+    "(*))(",
+    "(((******))",
+    "*",
+    "((*))",
+    "())"
+]
+
+solution = Solution()
+
+for i, s in enumerate(examples, 1):
+    print(f"Example {i}: s='{s}', valid={solution.checkValidString(s)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -5981,9 +9427,10 @@ function algoP.ValidParenthesisString.Greedy
 end
 
 function algoP.SingleNumber.BruteForce
-    set output_file "single_number_bruteforce.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -5995,6 +9442,19 @@ class Solution:
                     break
             if flag:
                 return nums[i]
+
+sol = Solution()
+
+examples = [
+    [2, 2, 1],           # 1
+    [4, 1, 2, 1, 2],     # 4
+    [1],                 # 1
+    [7, 3, 5, 3, 7],     # 5
+    [10, 10, 20, 20, 30] # 30
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> singleNumber = {sol.singleNumber(nums)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6004,9 +9464,10 @@ class Solution:
 end
 
 function algoP.SingleNumber.HashSet
-    set output_file "single_number_hashset.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -6017,6 +9478,19 @@ class Solution:
             else:
                 seen.add(num)
         return list(seen)[0]
+
+sol = Solution()
+
+examples = [
+    [2, 2, 1],           # 1
+    [4, 1, 2, 1, 2],     # 4
+    [1],                 # 1
+    [7, 3, 5, 3, 7],     # 5
+    [10, 10, 20, 20, 30] # 30
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> singleNumber = {sol.singleNumber(nums)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6026,9 +9500,10 @@ class Solution:
 end
 
 function algoP.SingleNumber.Sorting
-    set output_file "single_number_sorting.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -6040,6 +9515,19 @@ class Solution:
             else:
                 return nums[i]
         return nums[i]
+
+sol = Solution()
+
+examples = [
+    [2, 2, 1],           # 1
+    [4, 1, 2, 1, 2],     # 4
+    [1],                 # 1
+    [7, 3, 5, 3, 7],     # 5
+    [10, 10, 20, 20, 30] # 30
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> singleNumber = {sol.singleNumber(nums)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6050,9 +9538,10 @@ end
 
 
 function algoP.SingleNumber.BitManipulation
-    set output_file "single_number_xor.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -6060,6 +9549,19 @@ class Solution:
         for num in nums:
             res ^= num
         return res
+
+sol = Solution()
+
+examples = [
+    [2, 2, 1],           # 1
+    [4, 1, 2, 1, 2],     # 4
+    [1],                 # 1
+    [7, 3, 5, 3, 7],     # 5
+    [10, 10, 20, 20, 30] # 30
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> singleNumber = {sol.singleNumber(nums)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6070,15 +9572,28 @@ end
 
 
 function algoP.NumberOneBits.BitMaskI
-    set output_file "hamming_weight_fixedbits.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def hammingWeight(self, n: int) -> int:
         res = 0
         for i in range(32):
             if (1 << i) & n:
                 res += 1
         return res
+sol = Solution()
+
+examples = [
+    0b00000000000000000000000000001011, # 3
+    0b00000000000000000000000010000000, # 1
+    0b11111111111111111111111111111101, # 31
+    0b0,                                # 0
+    0b1,                                # 1
+]
+
+for n in examples:
+    print(f"n = {bin(n)}, hammingWeight = {sol.hammingWeight(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6088,15 +9603,28 @@ function algoP.NumberOneBits.BitMaskI
 end
 
 function algoP.NumberOneBits.BitMaskII
-    set output_file "hamming_weight_bitshift.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def hammingWeight(self, n: int) -> int:
         res = 0
         while n:
             res += 1 if n & 1 else 0
             n >>= 1
         return res
+sol = Solution()
+
+examples = [
+    0b00000000000000000000000000001011, # 3
+    0b00000000000000000000000010000000, # 1
+    0b11111111111111111111111111111101, # 31
+    0b0,                                # 0
+    0b1,                                # 1
+]
+
+for n in examples:
+    print(f"n = {bin(n)}, hammingWeight = {sol.hammingWeight(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6106,15 +9634,29 @@ function algoP.NumberOneBits.BitMaskII
 end
 
 function algoP.NumberOneBits.BitMask_Optimal
-    set output_file "hamming_weight_kernighan.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def hammingWeight(self, n: int) -> int:
         res = 0
         while n:
             n &= n - 1
             res += 1
         return res
+
+sol = Solution()
+
+examples = [
+    0b00000000000000000000000000001011, # 3
+    0b00000000000000000000000010000000, # 1
+    0b11111111111111111111111111111101, # 31
+    0b0,                                # 0
+    0b1,                                # 1
+]
+
+for n in examples:
+    print(f"n = {bin(n)}, hammingWeight = {sol.hammingWeight(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6124,11 +9666,25 @@ function algoP.NumberOneBits.BitMask_Optimal
 end
 
 function algoP.NumberOneBits.BuiltInFunction
-    set output_file "hamming_weight_builtin.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def hammingWeight(self, n: int) -> int:
         return bin(n).count("1")
+
+sol = Solution()
+
+examples = [
+    0b00000000000000000000000000001011, # 3
+    0b00000000000000000000000010000000, # 1
+    0b11111111111111111111111111111101, # 31
+    0b0,                                # 0
+    0b1,                                # 1
+]
+
+for n in examples:
+    print(f"n = {bin(n)}, hammingWeight = {sol.hammingWeight(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6138,9 +9694,10 @@ function algoP.NumberOneBits.BuiltInFunction
 end
 
 function algoP.CountingBits.BitManipulationI
-    set output_file "count_bits_fixedbits.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -6152,6 +9709,19 @@ class Solution:
                     one += 1
             res.append(one)
         return res
+
+sol = Solution()
+
+examples = [
+    2,   # [0,1,1]
+    5,   # [0,1,1,2,1,2]
+    0,   # [0]
+    1,   # [0,1]
+    10,  # [0,1,1,2,1,2,2,3,1,2,2]
+]
+
+for n in examples:
+    print(f"n = {n} -> countBits = {sol.countBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6161,9 +9731,10 @@ class Solution:
 end
 
 function algoP.CountingBits.BitManipulationII
-    set output_file "count_bits_kernighan.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -6174,6 +9745,19 @@ class Solution:
                 res[i] += 1
                 num &= (num - 1)
         return res
+
+sol = Solution()
+
+examples = [
+    2,   # [0,1,1]
+    5,   # [0,1,1,2,1,2]
+    0,   # [0]
+    1,   # [0,1]
+    10,  # [0,1,1,2,1,2,2,3,1,2,2]
+]
+
+for n in examples:
+    print(f"n = {n} -> countBits = {sol.countBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6183,13 +9767,27 @@ class Solution:
 end
 
 function algoP.CountingBits.In-BuiltFunction
-    set output_file "count_bits_builtin.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
         return [bin(i).count("1") for i in range(n + 1)]
+
+sol = Solution()
+
+examples = [
+    2,   # [0,1,1]
+    5,   # [0,1,1,2,1,2]
+    0,   # [0]
+    1,   # [0,1]
+    10,  # [0,1,1,2,1,2,2,3,1,2,2]
+]
+
+for n in examples:
+    print(f"n = {n} -> countBits = {sol.countBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6200,9 +9798,10 @@ end
 
 
 function algoP.CountingBits.BitManipulationDP
-    set output_file "count_bits_dp_offset.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -6214,6 +9813,19 @@ class Solution:
                 offset = i
             dp[i] = 1 + dp[i - offset]
         return dp
+
+sol = Solution()
+
+examples = [
+    2,   # [0,1,1]
+    5,   # [0,1,1,2,1,2]
+    0,   # [0]
+    1,   # [0,1]
+    10,  # [0,1,1,2,1,2,2,3,1,2,2]
+]
+
+for n in examples:
+    print(f"n = {n} -> countBits = {sol.countBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6223,9 +9835,10 @@ class Solution:
 end
 
 function algoP.CountingBits.BitManipulation_Optimal
-    set output_file "count_bits_dp_shift.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def countBits(self, n: int) -> List[int]:
@@ -6233,6 +9846,19 @@ class Solution:
         for i in range(n + 1):
             dp[i] = dp[i >> 1] + (i & 1)
         return dp
+
+sol = Solution()
+
+examples = [
+    2,   # [0,1,1]
+    5,   # [0,1,1,2,1,2]
+    0,   # [0]
+    1,   # [0,1]
+    10,  # [0,1,1,2,1,2,2,3,1,2,2]
+]
+
+for n in examples:
+    print(f"n = {n} -> countBits = {sol.countBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6243,9 +9869,10 @@ end
 
 
 function algoP.ReverseBits.BruteForce
-    set output_file "reverse_bits_string.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def reverseBits(self, n: int) -> int:
         binary = ""
         for i in range(32):
@@ -6260,6 +9887,18 @@ function algoP.ReverseBits.BruteForce
                 res |= (1 << i)
 
         return res
+
+sol = Solution()
+
+examples = [
+    0b00000010100101000001111010011100, # 43261596
+    0b11111111111111111111111111111101, # 4294967293
+    0b0,                               # 0
+    0b1,                               # 2147483648
+]
+
+for n in examples:
+    print(f"n = {n} -> reverseBits = {sol.reverseBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6270,15 +9909,28 @@ end
 
 
 function algoP.ReverseBits.BitManipulation
-    set output_file "reverse_bits_shift.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def reverseBits(self, n: int) -> int:
         res = 0
         for i in range(32):
             bit = (n >> i) & 1
             res += (bit << (31 - i))
         return res
+
+sol = Solution()
+
+examples = [
+    0b00000010100101000001111010011100, # 43261596
+    0b11111111111111111111111111111101, # 4294967293
+    0b0,                               # 0
+    0b1,                               # 2147483648
+]
+
+for n in examples:
+    print(f"n = {n} -> reverseBits = {sol.reverseBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6289,9 +9941,10 @@ end
 
 
 function algoP.ReverseBits.BitManipulation_Optimal
-    set output_file "reverse_bits_dc.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def reverseBits(self, n: int) -> int:
         res = n
         res = (res >> 16) | ((res << 16) & 0xFFFFFFFF)
@@ -6300,6 +9953,18 @@ function algoP.ReverseBits.BitManipulation_Optimal
         res = ((res & 0xcccccccc) >> 2) | ((res & 0x33333333) << 2)
         res = ((res & 0xaaaaaaaa) >> 1) | ((res & 0x55555555) << 1)
         return res & 0xFFFFFFFF
+
+sol = Solution()
+
+examples = [
+    0b00000010100101000001111010011100, # 43261596
+    0b11111111111111111111111111111101, # 4294967293
+    0b0,                               # 0
+    0b1,                               # 2147483648
+]
+
+for n in examples:
+    print(f"n = {n} -> reverseBits = {sol.reverseBits(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6309,9 +9974,10 @@ function algoP.ReverseBits.BitManipulation_Optimal
 end
 
 function algoP.MissingNumber.Sorting
-    set output_file "missing_number_sort.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -6321,6 +9987,20 @@ class Solution:
             if nums[i] != i:
                 return i
         return n
+
+sol = Solution()
+
+examples = [
+    [3, 0, 1],        # 2
+    [0, 1],           # 2
+    [9,6,4,2,3,5,7,0,1], # 8
+    [0],              # 1
+    [1],              # 0
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> missingNumber = {sol.missingNumber(nums)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6331,9 +10011,10 @@ end
 
 
 function algoP.MissingNumber.HashSet
-    set output_file "missing_number_hashset.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -6342,6 +10023,20 @@ class Solution:
         for i in range(n + 1):
             if i not in num_set:
                 return i
+
+sol = Solution()
+
+examples = [
+    [3, 0, 1],        # 2
+    [0, 1],           # 2
+    [9,6,4,2,3,5,7,0,1], # 8
+    [0],              # 1
+    [1],              # 0
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> missingNumber = {sol.missingNumber(nums)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6351,9 +10046,10 @@ class Solution:
 end
 
 function algoP.MissingNumber.BitwiseXOR
-    set output_file "missing_number_xor.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -6362,6 +10058,20 @@ class Solution:
         for i in range(n):
             xorr ^= i ^ nums[i]
         return xorr
+
+sol = Solution()
+
+examples = [
+    [3, 0, 1],        # 2
+    [0, 1],           # 2
+    [9,6,4,2,3,5,7,0,1], # 8
+    [0],              # 1
+    [1],              # 0
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> missingNumber = {sol.missingNumber(nums)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6371,9 +10081,10 @@ class Solution:
 end
 
 function algoP.MissingNumber.Math
-    set output_file "missing_number_sum.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -6381,6 +10092,20 @@ class Solution:
         for i in range(len(nums)):
             res += i - nums[i]
         return res
+
+sol = Solution()
+
+examples = [
+    [3, 0, 1],        # 2
+    [0, 1],           # 2
+    [9,6,4,2,3,5,7,0,1], # 8
+    [0],              # 1
+    [1],              # 0
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> missingNumber = {sol.missingNumber(nums)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6391,11 +10116,25 @@ end
 
 
 function algoP.SumTwoIntegers.BruteForce
-    set output_file "sum_of_two_integers_builtin.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def getSum(self, a: int, b: int) -> int:
         return a + b
+
+sol = Solution()
+
+examples = [
+    (1, 2),       # 3
+    (-1, 1),      # 0
+    (0, 0),       # 0
+    (-5, -7),     # -12
+    (123, 456),   # 579
+]
+
+for a, b in examples:
+    print(f"a = {a}, b = {b} -> getSum = {sol.getSum(a, b)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6406,9 +10145,10 @@ end
 
 
 function algoP.SumTwoIntegers.BitManipulation
-    set output_file "sum_of_two_integers_bit_by_bit.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def getSum(self, a: int, b: int) -> int:
         carry = 0
         res = 0
@@ -6426,6 +10166,19 @@ function algoP.SumTwoIntegers.BitManipulation
             res = ~(res ^ mask)
 
         return res
+
+sol = Solution()
+
+examples = [
+    (1, 2),       # 3
+    (-1, 1),      # 0
+    (0, 0),       # 0
+    (-5, -7),     # -12
+    (123, 456),   # 579
+]
+
+for a, b in examples:
+    print(f"a = {a}, b = {b} -> getSum = {sol.getSum(a, b)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6435,9 +10188,10 @@ function algoP.SumTwoIntegers.BitManipulation
 end
 
 function algoP.SumTwoIntegers.BitManipulation_Optimal
-    set output_file "sum_of_two_integers_bitwise.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def getSum(self, a: int, b: int) -> int:
         mask = 0xFFFFFFFF
         max_int = 0x7FFFFFFF
@@ -6448,6 +10202,20 @@ function algoP.SumTwoIntegers.BitManipulation_Optimal
             b = carry & mask
 
         return a if a <= max_int else ~(a ^ mask)
+
+
+sol = Solution()
+
+examples = [
+    (1, 2),       # 3
+    (-1, 1),      # 0
+    (0, 0),       # 0
+    (-5, -7),     # -12
+    (123, 456),   # 579
+]
+
+for a, b in examples:
+    print(f"a = {a}, b = {b} -> getSum = {sol.getSum(a, b)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6459,9 +10227,10 @@ end
 
 
 function algoP.ReverseInteger.BruteForce
-    set output_file "reverse_integer_string.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def reverse(self, x: int) -> int:
         org = x
         x = abs(x)
@@ -6473,6 +10242,21 @@ function algoP.ReverseInteger.BruteForce
         if res < -(1 << 31) or res > (1 << 31) - 1:
             return 0
         return res
+
+sol = Solution()
+
+examples = [
+    123,            # 321
+    -123,           # -321
+    120,            # 21
+    0,              # 0
+    1534236469,     # 0 (переполнение)
+    -2147483412,    # -2143847412
+]
+
+for x in examples:
+    print(f"x = {x} -> reverse = {sol.reverse(x)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6482,9 +10266,10 @@ function algoP.ReverseInteger.BruteForce
 end
 
 function algoP.ReverseInteger.Recursion
-    set output_file "reverse_integer_recursive.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def reverse(self, x: int) -> int:
         def rec(n: int, rev: int) -> int:
             if n == 0:
@@ -6498,6 +10283,21 @@ function algoP.ReverseInteger.Recursion
         if res < -(1 << 31) or res > (1 << 31) - 1:
             return 0
         return res
+
+sol = Solution()
+
+examples = [
+    123,            # 321
+    -123,           # -321
+    120,            # 21
+    0,              # 0
+    1534236469,     # 0 (переполнение)
+    -2147483412,    # -2143847412
+]
+
+for x in examples:
+    print(f"x = {x} -> reverse = {sol.reverse(x)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6507,9 +10307,10 @@ function algoP.ReverseInteger.Recursion
 end
 
 function algoP.ReverseInteger.Iteration
-    set output_file "reverse_integer_iterative.py"
+    set output_file "main.py"
 
-    set template_content 'import math
+    set template_content '
+import math
 
 class Solution:
     def reverse(self, x: int) -> int:
@@ -6529,6 +10330,21 @@ class Solution:
             res = res * 10 + digit
 
         return res
+
+sol = Solution()
+
+examples = [
+    123,            # 321
+    -123,           # -321
+    120,            # 21
+    0,              # 0
+    1534236469,     # 0 (переполнение)
+    -2147483412,    # -2143847412
+]
+
+for x in examples:
+    print(f"x = {x} -> reverse = {sol.reverse(x)}")
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6538,9 +10354,10 @@ class Solution:
 end
 
 function algoP.RotateImage.BruteForce
-    set output_file "rotate_image_extra_matrix.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
@@ -6554,6 +10371,34 @@ class Solution:
         for i in range(n):
             for j in range(n):
                 matrix[i][j] = rotated[i][j]
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [ 1,  2,  3,  4],
+    [ 5,  6,  7,  8],
+    [ 9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6563,9 +10408,10 @@ class Solution:
 end
 
 function algoP.RotateImage.RotateByFourCells
-    set output_file "rotate_image_in_place.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
@@ -6584,6 +10430,34 @@ class Solution:
 
             l += 1
             r -= 1
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [ 1,  2,  3,  4],
+    [ 5,  6,  7,  8],
+    [ 9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6594,9 +10468,10 @@ end
 
 
 function algoP.RotateImage.ReverseAndTranspose
-    set output_file "rotate_image_reverse_transpose.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
@@ -6608,6 +10483,34 @@ class Solution:
         for i in range(n):
             for j in range(i + 1, n):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
+matrix = [
+    [ 1,  2,  3,  4],
+    [ 5,  6,  7,  8],
+    [ 9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+Solution().rotate(matrix)
+print(matrix)
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6618,9 +10521,10 @@ end
 
 
 function algoP.SpiralMatrix.Recursion
-    set output_file "spiral_matrix_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -6640,6 +10544,18 @@ class Solution:
 
         dfs(m, n, 0, -1, 0, 1)
         return res
+
+sol = Solution()
+
+examples = [
+    [[1,2,3],[4,5,6],[7,8,9]],        # 3x3
+    [[1,2,3,4],[5,6,7,8],[9,10,11,12]], # 3x4
+    [[1]],                             # 1x1
+    [[1,2],[3,4]],                     # 2x2
+]
+
+for matrix in examples:
+    print(f"matrix = {matrix} -> spiralOrder = {sol.spiralOrder(matrix)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6650,9 +10566,10 @@ end
 
 
 function algoP.SpiralMatrix.Iteration
-    set output_file "spiral_matrix_boundary.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -6681,6 +10598,18 @@ class Solution:
             left += 1
 
         return res
+
+sol = Solution()
+
+examples = [
+    [[1,2,3],[4,5,6],[7,8,9]],        # 3x3
+    [[1,2,3,4],[5,6,7,8],[9,10,11,12]], # 3x4
+    [[1]],                             # 1x1
+    [[1,2],[3,4]],                     # 2x2
+]
+
+for matrix in examples:
+    print(f"matrix = {matrix} -> spiralOrder = {sol.spiralOrder(matrix)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6691,9 +10620,10 @@ end
 
 
 function algoP.SpiralMatrix.Iteration_Optimal
-    set output_file "spiral_matrix_directions.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -6712,6 +10642,18 @@ class Solution:
             d = (d + 1) % 4
 
         return res
+
+sol = Solution()
+
+examples = [
+    [[1,2,3],[4,5,6],[7,8,9]],        # 3x3
+    [[1,2,3,4],[5,6,7,8],[9,10,11,12]], # 3x4
+    [[1]],                             # 1x1
+    [[1,2],[3,4]],                     # 2x2
+]
+
+for matrix in examples:
+    print(f"matrix = {matrix} -> spiralOrder = {sol.spiralOrder(matrix)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6752,9 +10694,10 @@ end
 
 
 function algoP.SetMatrixZeroes.BruteForce
-    set output_file "set_matrix_zeroes_copy.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -6772,6 +10715,20 @@ class Solution:
         for r in range(ROWS):
             for c in range(COLS):
                 matrix[r][c] = mark[r][c]
+
+sol = Solution()
+
+examples = [
+    [[1,1,1],[1,0,1],[1,1,1]], 
+    [[0,1,2,0],[3,4,5,2],[1,3,1,5]], 
+    [[1,2,3],[4,5,6],[7,8,9]], 
+    [[0]], 
+    [[1,0]]
+]
+
+for matrix in examples:
+    sol.setZeroes(matrix)
+    print(f"setZeroes -> {matrix}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6782,9 +10739,10 @@ end
 
 
 function algoP.SetMatrixZeroes.Iteration
-    set output_file "set_matrix_zeroes_mark.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -6802,6 +10760,20 @@ class Solution:
             for c in range(COLS):
                 if rows[r] or cols[c]:
                     matrix[r][c] = 0
+
+sol = Solution()
+
+examples = [
+    [[1,1,1],[1,0,1],[1,1,1]], 
+    [[0,1,2,0],[3,4,5,2],[1,3,1,5]], 
+    [[1,2,3],[4,5,6],[7,8,9]], 
+    [[0]], 
+    [[1,0]]
+]
+
+for matrix in examples:
+    sol.setZeroes(matrix)
+    print(f"setZeroes -> {matrix}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6812,8 +10784,9 @@ end
 
 
 function algoP.SetMatrixZeroes.Iteration_SpaceOptimized
-    set output_file "set_matrix_zeroes_inplace.py"
-    set template_content 'from typing import List
+    set output_file "main.py"
+    set template_content '
+from typing import List
 
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
@@ -6841,6 +10814,20 @@ class Solution:
         if rowZero:
             for c in range(COLS):
                 matrix[0][c] = 0
+
+sol = Solution()
+
+examples = [
+    [[1,1,1],[1,0,1],[1,1,1]], 
+    [[0,1,2,0],[3,4,5,2],[1,3,1,5]], 
+    [[1,2,3],[4,5,6],[7,8,9]], 
+    [[0]], 
+    [[1,0]]
+]
+
+for matrix in examples:
+    sol.setZeroes(matrix)
+    print(f"setZeroes -> {matrix}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6850,9 +10837,10 @@ class Solution:
 end
 
 function algoP.Non-CyclicalNumber.HashSet
-    set output_file "happy_number_set.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isHappy(self, n: int) -> bool:
         visit = set()
 
@@ -6870,6 +10858,13 @@ function algoP.Non-CyclicalNumber.HashSet
             output += digit * digit
             n = n // 10
         return output
+
+sol = Solution()
+
+examples = [19, 2, 7, 4, 1, 20]
+
+for n in examples:
+    print(f"n = {n} -> isHappy = {sol.isHappy(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6880,9 +10875,10 @@ end
 
 
 function algoP.Non-CyclicalNumber.FastAndSlowPointersI
-    set output_file "happy_number_floyd.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isHappy(self, n: int) -> bool:
         slow, fast = n, self.sumOfSquares(n)
 
@@ -6898,6 +10894,13 @@ function algoP.Non-CyclicalNumber.FastAndSlowPointersI
             output += digit * digit
             n = n // 10
         return output
+
+sol = Solution()
+
+examples = [19, 2, 7, 4, 1, 20]
+
+for n in examples:
+    print(f"n = {n} -> isHappy = {sol.isHappy(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6907,9 +10910,10 @@ function algoP.Non-CyclicalNumber.FastAndSlowPointersI
 end
 
 function algoP.Non-CyclicalNumber.FastAndSlowPointersII
-    set output_file "happy_number_brent.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isHappy(self, n: int) -> bool:
         slow, fast = n, self.sumOfSquares(n)
         power = lam = 1
@@ -6930,6 +10934,13 @@ function algoP.Non-CyclicalNumber.FastAndSlowPointersII
             output += digit * digit
             n = n // 10
         return output
+
+sol = Solution()
+
+examples = [19, 2, 7, 4, 1, 20]
+
+for n in examples:
+    print(f"n = {n} -> isHappy = {sol.isHappy(n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -6940,9 +10951,10 @@ end
 
 
 function algoP.PlusOne.Recursion
-    set output_file "plus_one_recursive.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
@@ -6964,9 +10976,10 @@ end
 
 
 function algoP.PlusOne.IterationI
-    set output_file "plus_one_reverse.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
@@ -6998,9 +11011,10 @@ end
 
 
 function algoP.PlusOne.IterationII
-    set output_file "plus_one_backward.py"
+    set output_file "main.py"
 
-    set template_content 'from typing import List
+    set template_content '
+from typing import List
 
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
@@ -7022,9 +11036,10 @@ end
 
 
 function algoP.Pow.BruteForce
-    set output_file "my_pow_iterative.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def myPow(self, x: float, n: int) -> float:
         if x == 0:
             return 0
@@ -7035,6 +11050,21 @@ function algoP.Pow.BruteForce
         for i in range(abs(n)):
             res *= x
         return res if n >= 0 else 1 / res
+
+sol = Solution()
+
+examples = [
+    (2.0, 10),
+    (2.0, -2),
+    (2.1, 3),
+    (0.0, 5),
+    (5.0, 0),
+    (-2.0, 3),
+    (-2.0, 4),
+]
+
+for x, n in examples:
+    print(f"x={x}, n={n} -> {sol.myPow(x, n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7044,9 +11074,10 @@ function algoP.Pow.BruteForce
 end
 
 function algoP.Pow.BinaryExponentiation_Recursive
-    set output_file "my_pow_recursive.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def myPow(self, x: float, n: int) -> float:
         def helper(x, n):
             if x == 0:
@@ -7059,6 +11090,21 @@ function algoP.Pow.BinaryExponentiation_Recursive
 
         res = helper(x, abs(n))
         return res if n >= 0 else 1 / res
+
+sol = Solution()
+
+examples = [
+    (2.0, 10),
+    (2.0, -2),
+    (2.1, 3),
+    (0.0, 5),
+    (5.0, 0),
+    (-2.0, 3),
+    (-2.0, 4),
+]
+
+for x, n in examples:
+    print(f"x={x}, n={n} -> {sol.myPow(x, n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7068,9 +11114,10 @@ function algoP.Pow.BinaryExponentiation_Recursive
 end
 
 function algoP.Pow.BinaryExponentiation_Iterative
-    set output_file "my_pow_fast_iterative.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def myPow(self, x: float, n: int) -> float:
         if x == 0:
             return 0
@@ -7087,6 +11134,21 @@ function algoP.Pow.BinaryExponentiation_Iterative
             power >>= 1
 
         return res if n >= 0 else 1 / res
+
+sol = Solution()
+
+examples = [
+    (2.0, 10),
+    (2.0, -2),
+    (2.1, 3),
+    (0.0, 5),
+    (5.0, 0),
+    (-2.0, 3),
+    (-2.0, 4),
+]
+
+for x, n in examples:
+    print(f"x={x}, n={n} -> {sol.myPow(x, n)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7096,66 +11158,13 @@ function algoP.Pow.BinaryExponentiation_Iterative
 end
 
 
-function algoP.
-    set output_file "multiply_strings.py"
-
-    set template_content 'class Solution:
-    def multiply(self, num1: str, num2: str) -> str:
-        if num1 == "0" or num2 == "0":
-            return "0"
-
-        if len(num1) < len(num2):
-            return self.multiply(num2, num1)
-
-        res, zero = "", 0
-        for i in range(len(num2) - 1, -1, -1):
-            cur = self.mul(num1, num2[i], zero)
-            res = self.add(res, cur)
-            zero += 1
-
-        return res
-
-    def mul(self, s: str, d: str, zero: int) -> str:
-        i, carry = len(s) - 1, 0
-        d = int(d)
-        cur = []
-
-        while i >= 0 or carry:
-            n = int(s[i]) if i >= 0 else 0
-            prod = n * d + carry
-            cur.append(str(prod % 10))
-            carry = prod // 10
-            i -= 1
-
-        return ''.join(cur[::-1]) + "0" * zero
-
-    def add(self, num1: str, num2: str) -> str:
-        i, j, carry = len(num1) - 1, len(num2) - 1, 0
-        res = []
-
-        while i >= 0 or j >= 0 or carry:
-            n1 = int(num1[i]) if i >= 0 else 0
-            n2 = int(num2[j]) if j >= 0 else 0
-            total = n1 + n2 + carry
-            res.append(str(total % 10))
-            carry = total // 10
-            i -= 1
-            j -= 1
-
-        return "".join(res[::-1])
-'
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
 
 function algoP.MultiplyStrings.MultiplicationAddition
-    set output_file "multiply_strings_recursive.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         if num1 == "0" or num2 == "0":
             return "0"
@@ -7199,6 +11208,20 @@ function algoP.MultiplyStrings.MultiplicationAddition
             j -= 1
 
         return "".join(res[::-1])
+
+sol = Solution()
+
+examples = [
+    ("2", "3"),
+    ("123", "456"),
+    ("999", "9"),
+    ("0", "12345"),
+    ("100", "100"),
+    ("123456789", "987654321"),
+]
+
+for a, b in examples:
+    print(f"{a} * {b} = {sol.multiply(a, b)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7209,9 +11232,10 @@ end
 
 
 function algoP.MultiplyStrings.Multiplication
-    set output_file "multiply_strings_iterative.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         if "0" in [num1, num2]:
             return "0"
@@ -7230,86 +11254,20 @@ function algoP.MultiplyStrings.Multiplication
             beg += 1
         res = map(str, res[beg:])
         return "".join(res)
-'
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
+sol = Solution()
 
-function algoP.DetectSquares.HashMapI
-    set output_file "detect_squares_bruteforce.py"
+examples = [
+    ("2", "3"),
+    ("123", "456"),
+    ("999", "9"),
+    ("0", "12345"),
+    ("100", "100"),
+    ("123456789", "987654321"),
+]
 
-    set template_content 'from typing import List
-from collections import defaultdict
-
-class CountSquares:
-    def __init__(self):
-        self.ptsCount = defaultdict(int)
-        self.pts = []
-
-    def add(self, point: List[int]) -> None:
-        self.ptsCount[tuple(point)] += 1
-        self.pts.append(point)
-
-    def count(self, point: List[int]) -> int:
-        res = 0
-        px, py = point
-
-        for x, y in self.pts:
-            if x == px or y == py:
-                continue
-            if abs(px - x) != abs(py - y):
-                continue
-
-            res += (self.ptsCount[(x, py)] *
-                    self.ptsCount[(px, y)])
-        return res
-'
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.DetectSquares.HashMapII
-    set output_file "detect_squares_optimized.py"
-
-    set template_content 'from typing import List
-from collections import defaultdict
-
-class CountSquares:
-    def __init__(self):
-        self.ptsCount = defaultdict(lambda: defaultdict(int))
-
-    def add(self, point: List[int]) -> None:
-        x, y = point
-        self.ptsCount[x][y] += 1
-
-    def count(self, point: List[int]) -> int:
-        res = 0
-        x1, y1 = point
-
-        for y2 in self.ptsCount[x1]:
-            side = y2 - y1
-            if side == 0:
-                continue
-
-            x3 = x1 + side
-            x4 = x1 - side
-
-            res += (self.ptsCount[x1][y2] *
-                    self.ptsCount[x3][y1] *
-                    self.ptsCount[x3][y2])
-
-            res += (self.ptsCount[x1][y2] *
-                    self.ptsCount[x4][y1] *
-                    self.ptsCount[x4][y2])
-        return res
+for a, b in examples:
+    print(f"{a} * {b} = {sol.multiply(a, b)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7322,9 +11280,10 @@ end
 
 
 function algoP.UniquePaths.Recursion
-    set output_file "unique_paths_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         def dfs(i, j):
             if i == m - 1 and j == n - 1:
@@ -7334,6 +11293,20 @@ function algoP.UniquePaths.Recursion
             return dfs(i + 1, j) + dfs(i, j + 1)
 
         return dfs(0, 0)
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7342,9 +11315,10 @@ function algoP.UniquePaths.Recursion
 end
 
 function algoP.UniquePaths.DynamicProgramming_Top-Down
-    set output_file "unique_paths_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         memo = [[-1] * n for _ in range(m)]
 
@@ -7360,6 +11334,19 @@ function algoP.UniquePaths.DynamicProgramming_Top-Down
             return memo[i][j]
 
         return dfs(0, 0)
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7369,9 +11356,10 @@ end
 
 
 function algoP.UniquePaths.DynamicProgramming_Bottom-Up
-    set output_file "unique_paths_dp_2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         dp = [[0] * (n + 1) for _ in range(m + 1)]
         dp[m - 1][n - 1] = 1
@@ -7381,6 +11369,19 @@ function algoP.UniquePaths.DynamicProgramming_Bottom-Up
                 dp[i][j] += dp[i + 1][j] + dp[i][j + 1]
 
         return dp[0][0]
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7389,9 +11390,10 @@ function algoP.UniquePaths.DynamicProgramming_Bottom-Up
 end
 
 function algoP.UniquePaths.DynamicProgramming_SpaceOptimized
-    set output_file "unique_paths_rolling_row.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         row = [1] * n
 
@@ -7402,6 +11404,19 @@ function algoP.UniquePaths.DynamicProgramming_SpaceOptimized
             row = newRow
 
         return row[0]
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7410,9 +11425,10 @@ function algoP.UniquePaths.DynamicProgramming_SpaceOptimized
 end
 
 function algoP.UniquePaths.DynamicProgramming_Optimal
-    set output_file "unique_paths_dp_1d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         dp = [1] * n
 
@@ -7421,6 +11437,19 @@ function algoP.UniquePaths.DynamicProgramming_Optimal
                 dp[j] += dp[j + 1]
 
         return dp[0]
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7429,9 +11458,10 @@ function algoP.UniquePaths.DynamicProgramming_Optimal
 end
 
 function algoP.UniquePaths.Math
-    set output_file "unique_paths_math.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         if m == 1 or n == 1:
             return 1
@@ -7446,6 +11476,19 @@ function algoP.UniquePaths.Math
             j += 1
 
         return res
+
+Solution().uniquePaths(3, 2)
+# 3
+Solution().uniquePaths(3, 3)
+# 6
+Solution().uniquePaths(1, 1)
+# 1
+Solution().uniquePaths(1, 5)
+# 1
+Solution().uniquePaths(2, 3)
+# 3
+Solution().uniquePaths(3, 7)
+# 28
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7455,9 +11498,10 @@ end
 
 
 function algoP.LongestCommonSubsequence.Recursion
-    set output_file "lcs_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         def dfs(i, j):
             if i == len(text1) or j == len(text2):
@@ -7467,6 +11511,18 @@ function algoP.LongestCommonSubsequence.Recursion
             return max(dfs(i + 1, j), dfs(i, j + 1))
 
         return dfs(0, 0)
+
+Solution().longestCommonSubsequence("abcde", "ace")
+# 3
+Solution().longestCommonSubsequence("abc", "abc")
+# 3
+Solution().longestCommonSubsequence("abc", "def")
+# 0
+Solution().longestCommonSubsequence("aggtab", "gxtxayb")
+# 4
+Solution().longestCommonSubsequence("abcba", "abcbcba")
+# 5
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7475,9 +11531,10 @@ function algoP.LongestCommonSubsequence.Recursion
 end
 
 function algoP.LongestCommonSubsequence.DynamicProgramming_Top-Down
-    set output_file "lcs_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         memo = {}
 
@@ -7495,6 +11552,18 @@ function algoP.LongestCommonSubsequence.DynamicProgramming_Top-Down
             return memo[(i, j)]
 
         return dfs(0, 0)
+
+Solution().longestCommonSubsequence("abcde", "ace")
+# 3
+Solution().longestCommonSubsequence("abc", "abc")
+# 3
+Solution().longestCommonSubsequence("abc", "def")
+# 0
+Solution().longestCommonSubsequence("aggtab", "gxtxayb")
+# 4
+Solution().longestCommonSubsequence("abcba", "abcbcba")
+# 5
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7504,9 +11573,10 @@ end
 
 
 function algoP.LongestCommonSubsequence.DynamicProgramming_Bottom-Up
-    set output_file "lcs_dp_2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         dp = [[0] * (len(text2) + 1) for _ in range(len(text1) + 1)]
 
@@ -7518,6 +11588,18 @@ function algoP.LongestCommonSubsequence.DynamicProgramming_Bottom-Up
                     dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
 
         return dp[0][0]
+
+Solution().longestCommonSubsequence("abcde", "ace")
+# 3
+Solution().longestCommonSubsequence("abc", "abc")
+# 3
+Solution().longestCommonSubsequence("abc", "def")
+# 0
+Solution().longestCommonSubsequence("aggtab", "gxtxayb")
+# 4
+Solution().longestCommonSubsequence("abcba", "abcbcba")
+# 5
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7527,9 +11609,10 @@ end
 
 
 function algoP.LongestCommonSubsequence.DynamicProgramming_SpaceOptimized
-    set output_file "lcs_dp_2rows.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         if len(text1) < len(text2):
             text1, text2 = text2, text1
@@ -7546,6 +11629,18 @@ function algoP.LongestCommonSubsequence.DynamicProgramming_SpaceOptimized
             prev, curr = curr, prev
 
         return prev[0]
+
+Solution().longestCommonSubsequence("abcde", "ace")
+# 3
+Solution().longestCommonSubsequence("abc", "abc")
+# 3
+Solution().longestCommonSubsequence("abc", "def")
+# 0
+Solution().longestCommonSubsequence("aggtab", "gxtxayb")
+# 4
+Solution().longestCommonSubsequence("abcba", "abcbcba")
+# 5
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7557,7 +11652,8 @@ end
 function algoP.LongestCommonSubsequence.DynamicProgramming_Optimal
     set output_file "lcs_dp_1d.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         if len(text1) < len(text2):
             text1, text2 = text2, text1
@@ -7575,6 +11671,18 @@ function algoP.LongestCommonSubsequence.DynamicProgramming_Optimal
                 prev = temp
 
         return dp[0]
+
+Solution().longestCommonSubsequence("abcde", "ace")
+# 3
+Solution().longestCommonSubsequence("abc", "abc")
+# 3
+Solution().longestCommonSubsequence("abc", "def")
+# 0
+Solution().longestCommonSubsequence("aggtab", "gxtxayb")
+# 4
+Solution().longestCommonSubsequence("abcba", "abcbcba")
+# 5
+
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7584,10 +11692,13 @@ end
 
 
 
-function algoP.BestTimeBuySellStockwithCooldown.Recursion
-    set output_file "stock_cooldown_dfs.py"
+function algoP.BestTimetoBuyandSellStockwithCooldown.Recursion
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         def dfs(i, buying):
             if i >= len(prices):
@@ -7602,6 +11713,20 @@ function algoP.BestTimeBuySellStockwithCooldown.Recursion
                 return max(sell, cooldown)
 
         return dfs(0, True)
+
+sol = Solution()
+
+examples = [
+    [1, 2, 3, 0, 2],
+    [1, 2, 4],
+    [2, 1, 4],
+    [5, 4, 3, 2, 1],
+    [1],
+    [1, 2, 3, 0, 2, 4]
+]
+
+for prices in examples:
+    print(f"prices = {prices} -> maxProfit = {sol.maxProfit(prices)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7610,10 +11735,13 @@ function algoP.BestTimeBuySellStockwithCooldown.Recursion
 end
 
 
-function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Top-Down
-    set output_file "stock_cooldown_memo.py"
+function algoP.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Top-Down
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         dp = {}
 
@@ -7634,6 +11762,20 @@ function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Top-Down
             return dp[(i, buying)]
 
         return dfs(0, True)
+
+sol = Solution()
+
+examples = [
+    [1, 2, 3, 0, 2],
+    [1, 2, 4],
+    [2, 1, 4],
+    [5, 4, 3, 2, 1],
+    [1],
+    [1, 2, 3, 0, 2, 4]
+]
+
+for prices in examples:
+    print(f"prices = {prices} -> maxProfit = {sol.maxProfit(prices)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7642,10 +11784,13 @@ function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Top-Down
 end
 
 
-function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Bottom-Up
-    set output_file "stock_cooldown_dp_2d.py"
+function algoP.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Bottom-Up
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         dp = [[0] * 2 for _ in range(n + 2)]
@@ -7661,6 +11806,20 @@ function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Bottom-Up
             )
 
         return dp[0][1]
+
+sol = Solution()
+
+examples = [
+    [1, 2, 3, 0, 2],
+    [1, 2, 4],
+    [2, 1, 4],
+    [5, 4, 3, 2, 1],
+    [1],
+    [1, 2, 3, 0, 2, 4]
+]
+
+for prices in examples:
+    print(f"prices = {prices} -> maxProfit = {sol.maxProfit(prices)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7668,10 +11827,13 @@ function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Bottom-Up
     set_color normal
 end
 
-function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Bottom-Up
-    set output_file "stock_cooldown_dp_optimized.py"
+function algoP.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Bottom-Up
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
         dp1_buy = dp1_sell = 0
@@ -7685,6 +11847,20 @@ function algoP.BestTimeBuySellStockwithCooldown.DynamicProgramming_Bottom-Up
             dp1_buy, dp1_sell = dp_buy, dp_sell
 
         return dp1_buy
+
+sol = Solution()
+
+examples = [
+    [1, 2, 3, 0, 2],
+    [1, 2, 4],
+    [2, 1, 4],
+    [5, 4, 3, 2, 1],
+    [1],
+    [1, 2, 3, 0, 2, 4]
+]
+
+for prices in examples:
+    print(f"prices = {prices} -> maxProfit = {sol.maxProfit(prices)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7694,9 +11870,12 @@ end
 
 
 function algoP.CoinChangeII.Recursion
-    set output_file "coin_change_2_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         coins.sort()
 
@@ -7712,6 +11891,19 @@ function algoP.CoinChangeII.Recursion
             return res
 
         return dfs(0, amount)
+
+sol = Solution()
+
+examples = [
+    (5, [1, 2, 5]),
+    (3, [2]),
+    (10, [10]),
+    (0, [1, 2, 3]),
+    (4, [1, 2, 3])
+]
+
+for amount, coins in examples:
+    print(f"amount = {amount}, coins = {coins} -> ways = {sol.change(amount, coins)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7721,9 +11913,12 @@ end
 
 
 function algoP.CoinChangeII.DynamicProgramming_Top-Down
-    set output_file "coin_change_2_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         coins.sort()
         memo = [[-1] * (amount + 1) for _ in range(len(coins))]
@@ -7744,6 +11939,19 @@ function algoP.CoinChangeII.DynamicProgramming_Top-Down
             return res
 
         return dfs(0, amount)
+
+sol = Solution()
+
+examples = [
+    (5, [1, 2, 5]),
+    (3, [2]),
+    (10, [10]),
+    (0, [1, 2, 3]),
+    (4, [1, 2, 3])
+]
+
+for amount, coins in examples:
+    print(f"amount = {amount}, coins = {coins} -> ways = {sol.change(amount, coins)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7753,9 +11961,12 @@ end
 
 
 function algoP.CoinChangeII.DynamicProgramming_Bottom-Up
-    set output_file "coin_change_2_dp_2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         n = len(coins)
         dp = [[0] * (amount + 1) for _ in range(n + 1)]
@@ -7770,6 +11981,19 @@ function algoP.CoinChangeII.DynamicProgramming_Bottom-Up
                     dp[i][a] += dp[i][a - coins[i]]
 
         return dp[0][amount]
+
+sol = Solution()
+
+examples = [
+    (5, [1, 2, 5]),
+    (3, [2]),
+    (10, [10]),
+    (0, [1, 2, 3]),
+    (4, [1, 2, 3])
+]
+
+for amount, coins in examples:
+    print(f"amount = {amount}, coins = {coins} -> ways = {sol.change(amount, coins)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7779,9 +12003,12 @@ end
 
 
 function algoP.CoinChangeII.DynamicProgramming_SpaceOptimized
-    set output_file "coin_change_2_dp_rolling.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         dp = [0] * (amount + 1)
         dp[0] = 1
@@ -7793,6 +12020,19 @@ function algoP.CoinChangeII.DynamicProgramming_SpaceOptimized
             dp = nextDP
 
         return dp[amount]
+
+sol = Solution()
+
+examples = [
+    (5, [1, 2, 5]),
+    (3, [2]),
+    (10, [10]),
+    (0, [1, 2, 3]),
+    (4, [1, 2, 3])
+]
+
+for amount, coins in examples:
+    print(f"amount = {amount}, coins = {coins} -> ways = {sol.change(amount, coins)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7802,9 +12042,12 @@ end
 
 
 function algoP.CoinChangeII.DynamicProgramming_Optimal
-    set output_file "coin_change_2_dp_1d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         dp = [0] * (amount + 1)
         dp[0] = 1
@@ -7814,6 +12057,19 @@ function algoP.CoinChangeII.DynamicProgramming_Optimal
                 dp[a] += dp[a - coin]
 
         return dp[amount]
+
+sol = Solution()
+
+examples = [
+    (5, [1, 2, 5]),
+    (3, [2]),
+    (10, [10]),
+    (0, [1, 2, 3]),
+    (4, [1, 2, 3])
+]
+
+for amount, coins in examples:
+    print(f"amount = {amount}, coins = {coins} -> ways = {sol.change(amount, coins)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7823,9 +12079,12 @@ end
 
 
 function algoP.TargetSum.Recursion
-    set output_file "target_sum_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         def backtrack(i, total):
             if i == len(nums):
@@ -7835,6 +12094,19 @@ function algoP.TargetSum.Recursion
                     backtrack(i + 1, total - nums[i]))
 
         return backtrack(0, 0)
+
+sol = Solution()
+
+examples = [
+    ([1, 1, 1, 1, 1], 3),
+    ([1], 1),
+    ([1], -1),
+    ([1, 2], 1),
+    ([0, 0, 0, 0], 0)
+]
+
+for nums, target in examples:
+    print(f"nums = {nums}, target = {target} -> ways = {sol.findTargetSumWays(nums, target)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7844,9 +12116,12 @@ end
 
 
 function algoP.TargetSum.DynamicProgramming_Top-Down
-    set output_file "target_sum_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         dp = {}
 
@@ -7861,6 +12136,19 @@ function algoP.TargetSum.DynamicProgramming_Top-Down
             return dp[(i, total)]
 
         return backtrack(0, 0)
+
+sol = Solution()
+
+examples = [
+    ([1, 1, 1, 1, 1], 3),
+    ([1], 1),
+    ([1], -1),
+    ([1, 2], 1),
+    ([0, 0, 0, 0], 0)
+]
+
+for nums, target in examples:
+    print(f"nums = {nums}, target = {target} -> ways = {sol.findTargetSumWays(nums, target)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7869,9 +12157,11 @@ function algoP.TargetSum.DynamicProgramming_Top-Down
 end
 
 function algoP.TargetSum.DynamicProgramming_Bottom-Up
-    set output_file "target_sum_dp_2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         from collections import defaultdict
 
@@ -7885,6 +12175,19 @@ function algoP.TargetSum.DynamicProgramming_Bottom-Up
                 dp[i + 1][total - nums[i]] += count
 
         return dp[n][target]
+
+sol = Solution()
+
+examples = [
+    ([1, 1, 1, 1, 1], 3),
+    ([1], 1),
+    ([1], -1),
+    ([1, 2], 1),
+    ([0, 0, 0, 0], 0)
+]
+
+for nums, target in examples:
+    print(f"nums = {nums}, target = {target} -> ways = {sol.findTargetSumWays(nums, target)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -7894,9 +12197,11 @@ end
 
 
 function algoP.TargetSum.DynamicProgramming_SpaceOptimized
-    set output_file "target_sum_dp_1d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         from collections import defaultdict
 
@@ -7911,19 +12216,34 @@ function algoP.TargetSum.DynamicProgramming_SpaceOptimized
             dp = next_dp
 
         return dp[target]
+
+sol = Solution()
+
+examples = [
+    ([1, 1, 1, 1, 1], 3),
+    ([1], 1),
+    ([1], -1),
+    ([1, 2], 1),
+    ([0, 0, 0, 0], 0)
+]
+
+for nums, target in examples:
+    print(f"nums = {nums}, target = {target} -> ways = {sol.findTargetSumWays(nums, target)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 
 
 function algoP.InterleavingString.Recursion
-    set output_file "interleaving_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
 
         def dfs(i, j, k):
@@ -7941,17 +12261,35 @@ function algoP.InterleavingString.Recursion
             return False
 
         return dfs(0, 0, 0)
+
+sol = Solution()
+
+examples = [
+    ("aabcc", "dbbca", "aadbbcbcac"),  # True
+    ("aabcc", "dbbca", "aadbbbaccc"),  # False
+    ("", "", ""),                      # True
+    ("", "abc", "abc"),                # True
+    ("abc", "", "abc"),                # True
+    ("ab", "cd", "acbd"),              # True
+    ("ab", "cd", "abcd"),              # True
+    ("ab", "cd", "abdc")               # True
+]
+
+for s1, s2, s3 in examples:
+    print(f"s1='{s1}', s2='{s2}', s3='{s3}' -> {sol.isInterleave(s1, s2, s3)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 function algoP.InterleavingString.DynamicProgramming_Top-Down
-    set output_file "interleaving_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         if len(s1) + len(s2) != len(s3):
             return False
@@ -7973,18 +12311,36 @@ function algoP.InterleavingString.DynamicProgramming_Top-Down
             return res
 
         return dfs(0, 0, 0)
+
+sol = Solution()
+
+examples = [
+    ("aabcc", "dbbca", "aadbbcbcac"),  # True
+    ("aabcc", "dbbca", "aadbbbaccc"),  # False
+    ("", "", ""),                      # True
+    ("", "abc", "abc"),                # True
+    ("abc", "", "abc"),                # True
+    ("ab", "cd", "acbd"),              # True
+    ("ab", "cd", "abcd"),              # True
+    ("ab", "cd", "abdc")               # True
+]
+
+for s1, s2, s3 in examples:
+    print(f"s1='{s1}', s2='{s2}', s3='{s3}' -> {sol.isInterleave(s1, s2, s3)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 
 function algoP.InterleavingString.DynamicProgramming_Bottom-Up
-    set output_file "interleaving_dp2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         if len(s1) + len(s2) != len(s3):
             return False
@@ -7999,17 +12355,35 @@ function algoP.InterleavingString.DynamicProgramming_Bottom-Up
                 if j < len(s2) and s2[j] == s3[i + j] and dp[i][j + 1]:
                     dp[i][j] = True
         return dp[0][0]
+
+sol = Solution()
+
+examples = [
+    ("aabcc", "dbbca", "aadbbcbcac"),  # True
+    ("aabcc", "dbbca", "aadbbbaccc"),  # False
+    ("", "", ""),                      # True
+    ("", "abc", "abc"),                # True
+    ("abc", "", "abc"),                # True
+    ("ab", "cd", "acbd"),              # True
+    ("ab", "cd", "abcd"),              # True
+    ("ab", "cd", "abdc")               # True
+]
+
+for s1, s2, s3 in examples:
+    print(f"s1='{s1}', s2='{s2}', s3='{s3}' -> {sol.isInterleave(s1, s2, s3)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 function algoP.InterleavingString.DynamicProgramming_SpaceOptimized
-    set output_file "interleaving_dp1d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         m, n = len(s1), len(s2)
         if m + n != len(s3):
@@ -8031,18 +12405,36 @@ function algoP.InterleavingString.DynamicProgramming_SpaceOptimized
                     nextDp[j] = True
             dp = nextDp
         return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("aabcc", "dbbca", "aadbbcbcac"),  # True
+    ("aabcc", "dbbca", "aadbbbaccc"),  # False
+    ("", "", ""),                      # True
+    ("", "abc", "abc"),                # True
+    ("abc", "", "abc"),                # True
+    ("ab", "cd", "acbd"),              # True
+    ("ab", "cd", "abcd"),              # True
+    ("ab", "cd", "abdc")               # True
+]
+
+for s1, s2, s3 in examples:
+    print(f"s1='{s1}', s2='{s2}', s3='{s3}' -> {sol.isInterleave(s1, s2, s3)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 
 function algoP.InterleavingString.DynamicProgramming_Optimal
-    set output_file "interleaving_dp1d_opt.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         m, n = len(s1), len(s2)
         if m + n != len(s3):
@@ -8064,19 +12456,37 @@ function algoP.InterleavingString.DynamicProgramming_Optimal
                 dp[j] = res
                 nextDp = dp[j]
         return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("aabcc", "dbbca", "aadbbcbcac"),  # True
+    ("aabcc", "dbbca", "aadbbbaccc"),  # False
+    ("", "", ""),                      # True
+    ("", "abc", "abc"),                # True
+    ("abc", "", "abc"),                # True
+    ("ab", "cd", "acbd"),              # True
+    ("ab", "cd", "abcd"),              # True
+    ("ab", "cd", "abdc")               # True
+]
+
+for s1, s2, s3 in examples:
+    print(f"s1='{s1}', s2='{s2}', s3='{s3}' -> {sol.isInterleave(s1, s2, s3)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
     echo "$output_file created"
     set_color normal
+    cat $output_file
 end
 
 
 
 function algoP.EditDistance.Recursion
-    set output_file "edit_distance_dfs.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
 
@@ -8092,6 +12502,20 @@ function algoP.EditDistance.Recursion
             return res + 1
 
         return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("horse", "ros"),          # 3
+    ("intention", "execution"),# 5
+    ("abc", "abc"),             # 0
+    ("abc", "def"),             # 3
+    ("", "abc"),                # 3
+    ("abc", ""),                # 3
+]
+
+for w1, w2 in examples:
+    print(f"word1='{w1}', word2='{w2}' -> minDistance = {sol.minDistance(w1, w2)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8100,9 +12524,10 @@ function algoP.EditDistance.Recursion
 end
 
 function algoP.EditDistance.DynamicProgramming_Top-Down
-    set output_file "edit_distance_memo.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
         dp = {}
@@ -8124,6 +12549,20 @@ function algoP.EditDistance.DynamicProgramming_Top-Down
             return dp[(i, j)]
 
         return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("horse", "ros"),          # 3
+    ("intention", "execution"),# 5
+    ("abc", "abc"),             # 0
+    ("abc", "def"),             # 3
+    ("", "abc"),                # 3
+    ("abc", ""),                # 3
+]
+
+for w1, w2 in examples:
+    print(f"word1='{w1}', word2='{w2}' -> minDistance = {sol.minDistance(w1, w2)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8132,9 +12571,10 @@ function algoP.EditDistance.DynamicProgramming_Top-Down
 end
 
 function algoP.EditDistance.DynamicProgramming_Bottom-Up
-    set output_file "edit_distance_dp2d.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         dp = [[float("inf")] * (len(word2) + 1) for _ in range(len(word1) + 1)]
 
@@ -8150,6 +12590,20 @@ function algoP.EditDistance.DynamicProgramming_Bottom-Up
                 else:
                     dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j + 1], dp[i + 1][j + 1])
         return dp[0][0]
+
+sol = Solution()
+
+examples = [
+    ("horse", "ros"),          # 3
+    ("intention", "execution"),# 5
+    ("abc", "abc"),             # 0
+    ("abc", "def"),             # 3
+    ("", "abc"),                # 3
+    ("abc", ""),                # 3
+]
+
+for w1, w2 in examples:
+    print(f"word1='{w1}', word2='{w2}' -> minDistance = {sol.minDistance(w1, w2)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8159,9 +12613,10 @@ end
 
 
 function algoP.EditDistance.DynamicProgramming_SpaceOptimized
-    set output_file "edit_distance_dp1d_v1.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
         if m < n:
@@ -8184,6 +12639,20 @@ function algoP.EditDistance.DynamicProgramming_SpaceOptimized
             dp = nextDp[:]
 
         return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("horse", "ros"),          # 3
+    ("intention", "execution"),# 5
+    ("abc", "abc"),             # 0
+    ("abc", "def"),             # 3
+    ("", "abc"),                # 3
+    ("abc", ""),                # 3
+]
+
+for w1, w2 in examples:
+    print(f"word1='{w1}', word2='{w2}' -> minDistance = {sol.minDistance(w1, w2)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8193,9 +12662,10 @@ end
 
 
 function algoP.EditDistance.DynamicProgramming_Optimal
-    set output_file "edit_distance_dp1d_v2.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
         if m < n:
@@ -8215,6 +12685,20 @@ function algoP.EditDistance.DynamicProgramming_Optimal
                     dp[j] = 1 + min(dp[j], dp[j + 1], nextDp)
                 nextDp = temp
         return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("horse", "ros"),          # 3
+    ("intention", "execution"),# 5
+    ("abc", "abc"),             # 0
+    ("abc", "def"),             # 3
+    ("", "abc"),                # 3
+    ("abc", ""),                # 3
+]
+
+for w1, w2 in examples:
+    print(f"word1='{w1}', word2='{w2}' -> minDistance = {sol.minDistance(w1, w2)}")
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8224,9 +12708,10 @@ end
 
 
 function algoP.DetectSquares.HashMapI
-    set output_file "count_squares_list.py"
+    set output_file "main.py"
 
-    set template_content 'from collections import defaultdict
+    set template_content '
+from collections import defaultdict
 from typing import List
 
 class CountSquares:
@@ -8246,6 +12731,17 @@ class CountSquares:
                 continue
             res += self.ptsCount[(x, py)] * self.ptsCount[(px, y)]
         return res
+
+cs = CountSquares()
+
+cs.add([3, 10])
+cs.add([11, 2])
+cs.add([3, 2])
+cs.add([11, 10])
+
+print(cs.count([11, 2]))   # 1
+print(cs.count([3, 10]))   # 1
+print(cs.count([5, 5]))    # 0
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8255,9 +12751,10 @@ end
 
 
 function algoP.DetectSquares.HashMapII
-    set output_file "count_squares_dict.py"
+    set output_file "main.py"
 
-    set template_content 'from collections import defaultdict
+    set template_content '
+from collections import defaultdict
 from typing import List
 
 class CountSquares:
@@ -8282,6 +12779,17 @@ class CountSquares:
             res += (self.ptsCount[x1][y2] * self.ptsCount[x4][y1] *
                     self.ptsCount[x4][y2])
         return res
+
+cs = CountSquares()
+
+cs.add([3, 10])
+cs.add([11, 2])
+cs.add([3, 2])
+cs.add([11, 10])
+
+print(cs.count([11, 2]))   # 1
+print(cs.count([3, 10]))   # 1
+print(cs.count([5, 5]))    # 0
 '
     echo $template_content > $output_file
     set_color FFAD8D
@@ -8653,9 +13161,10 @@ func main() {
 end
 
 function algoP.MissingNumber
-    set output_file "get_missing_number.py"
+    set output_file "main.py"
 
-    set template_content 'def get_missing_number(lst):
+    set template_content '
+def get_missing_number(lst):
     return set(range(1, lst[-1] + 1)) - set(lst)
 
 l = list(range(1, 100))
@@ -8669,7 +13178,7 @@ print(get_missing_number(l))  # 50
 end
 
 function algoG.MissingNumber
-    set output_file "get_missing_number.go"
+    set output_file "main.go"
 
     set template_content 'package main
 

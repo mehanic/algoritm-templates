@@ -1,14 +1,23 @@
 function algoP.ContainsDuplicate.BruteForce
-    set output_file "ContainsDuplicate.Brute_Force_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 if nums[i] == nums[j]:
                     return True
         return False
-"
+s = Solution()
+print(s.hasDuplicate([1, 2, 3, 1]))  # True
+print(s.hasDuplicate([5, 7, 5]))     # True
+print(s.hasDuplicate([1, 2, 3, 4]))  # False
+print(s.hasDuplicate([]))            # False
+print(s.hasDuplicate([10]))          # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -19,16 +28,26 @@ end
 
 
 function algoP.ContainsDuplicate.Sorting
-    set output_file "ContainsDuplicate.Sort_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         nums.sort()
         for i in range(1, len(nums)):
             if nums[i] == nums[i - 1]:
                 return True
         return False
-"
+
+s = Solution()
+print(s.hasDuplicate([1, 2, 3, 1]))  # True
+print(s.hasDuplicate([5, 7, 5]))     # True
+print(s.hasDuplicate([1, 2, 3, 4]))  # False
+print(s.hasDuplicate([]))            # False
+print(s.hasDuplicate([10]))          # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -39,9 +58,12 @@ end
 
 
 function algoP.ContainsDuplicate.HashSet
-    set output_file "ContainsDuplicate.SetAdd_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         seen = set()
         for num in nums:
@@ -49,7 +71,14 @@ function algoP.ContainsDuplicate.HashSet
                 return True
             seen.add(num)
         return False
-"
+
+s = Solution()
+print(s.hasDuplicate([1, 2, 3, 1]))  # True
+print(s.hasDuplicate([5, 7, 5]))     # True
+print(s.hasDuplicate([1, 2, 3, 4]))  # False
+print(s.hasDuplicate([]))            # False
+print(s.hasDuplicate([10]))          # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -59,12 +88,22 @@ function algoP.ContainsDuplicate.HashSet
 end
 
 function algoP.ContainsDuplicate.HashSetLength
-    set output_file "ContainsDuplicate.SetLen_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
-"
+
+s = Solution()
+print(s.hasDuplicate([1, 2, 3, 1]))  # True
+print(s.hasDuplicate([5, 7, 5]))     # True
+print(s.hasDuplicate([1, 2, 3, 4]))  # False
+print(s.hasDuplicate([]))            # False
+print(s.hasDuplicate([10]))          # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -75,15 +114,24 @@ end
 
 
 function algoP.ValidAnagram.Sorting
-    set output_file "IsAnagram.Sorted_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
 
         return sorted(s) == sorted(t)
-"
+
+s = Solution()
+print(s.isAnagram("anagram", "nagaram"))  # True
+print(s.isAnagram("rat", "car"))          # False
+print(s.isAnagram("hello", "helloo"))     # False
+print(s.isAnagram("listen", "listen"))    # True
+print(s.isAnagram("aabbcc", "baccab"))    # True
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -94,9 +142,9 @@ end
 
 
 function algoP.ValidAnagram.HashMap
-    set output_file "IsAnagram.HashMap_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content 'class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
@@ -107,7 +155,15 @@ function algoP.ValidAnagram.HashMap
             countS[s[i]] = 1 + countS.get(s[i], 0)
             countT[t[i]] = 1 + countT.get(t[i], 0)
         return countS == countT
-"
+
+s = Solution()
+print(s.isAnagram("anagram", "nagaram"))  # True
+print(s.isAnagram("rat", "car"))          # False
+print(s.isAnagram("hello", "helloo"))     # False
+print(s.isAnagram("listen", "listen"))    # True
+print(s.isAnagram("aabbcc", "baccab"))    # True
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -118,9 +174,10 @@ end
 
 
 function algoP.ValidAnagram.HashTable_UsingArray
-    set output_file "IsAnagram.Array26_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
@@ -134,7 +191,18 @@ function algoP.ValidAnagram.HashTable_UsingArray
             if val != 0:
                 return False
         return True
-"
+
+s = Solution()
+
+print(s.isAnagram("anagram", "nagaram"))   # True
+print(s.isAnagram("listen", "silent"))     # True
+print(s.isAnagram("aabbcc", "baccab"))     # True
+print(s.isAnagram("abc", "cba"))           # True
+print(s.isAnagram("zzz", "zzz"))            # True
+print(s.isAnagram("abc", "ab"))             # False
+print(s.isAnagram("abc", "abd"))            # False
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -145,16 +213,24 @@ end
 
 
 function algoP.GroupAnagrams.Sorting
-    set output_file "GroupAnagrams.Sorted_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+from collections import defaultdict
+
+class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         res = defaultdict(list)
         for s in strs:
             sortedS = ''.join(sorted(s))
             res[sortedS].append(s)
         return list(res.values())
-"
+
+s = Solution()
+print(s.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -165,9 +241,13 @@ end
 
 
 function algoP.GroupAnagrams.HashTable
-    set output_file "GroupAnagrams.Count_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+from collections import defaultdict
+
+class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         res = defaultdict(list)
         for s in strs:
@@ -176,7 +256,14 @@ function algoP.GroupAnagrams.HashTable
                 count[ord(c) - ord('a')] += 1
             res[tuple(count)].append(s)
         return list(res.values())
-"
+
+s = Solution()
+print(s.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+print(s.groupAnagrams([""]))
+print(s.groupAnagrams(["a"]))
+print(s.groupAnagrams(["abc","bca","cab","xyz","zyx"]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -187,9 +274,10 @@ end
 
 
 function algoP.TopKFrequentElements.Sorting
-    set output_file "TopKFrequent.Sort_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = {}
         for num in nums:
@@ -204,7 +292,15 @@ function algoP.TopKFrequentElements.Sorting
         while len(res) < k:
             res.append(arr.pop()[1])
         return res
-"
+
+s = Solution()
+
+print(s.topKFrequent([1,1,1,2,2,3], 2))  # [1, 2]
+print(s.topKFrequent([1], 1))            # [1]
+print(s.topKFrequent([4,4,4,6,6,7], 1))  # [4]
+print(s.topKFrequent([5,5,6,6], 2))      # [5, 6]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -215,9 +311,12 @@ end
 
 
 function algoP.TopKFrequentElements.Min-Heap
-    set output_file "TopKFrequent.Heap_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = {}
         for num in nums:
@@ -233,7 +332,15 @@ function algoP.TopKFrequentElements.Min-Heap
         for i in range(k):
             res.append(heapq.heappop(heap)[1])
         return res
-"
+
+s = Solution()
+
+print(s.topKFrequent([1,1,1,2,2,3], 2))  # [1, 2] або [2,1]
+print(s.topKFrequent([1], 1))            # [1]
+print(s.topKFrequent([4,4,4,6,6,7], 1))  # [4]
+print(s.topKFrequent([5,5,6,6], 2))      # [5,6] або [6,5]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -243,10 +350,12 @@ function algoP.TopKFrequentElements.Min-Heap
 end
 
 
-function algoP.EncodeandDecodeStrings.EncodingDecoding
-    set output_file "TopKFrequent.Bucket_Python.py"
+function algoP.TopKFrequentElements.BucketSort
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+
+class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
@@ -262,7 +371,14 @@ function algoP.EncodeandDecodeStrings.EncodingDecoding
                 res.append(num)
                 if len(res) == k:
                     return res
-"
+
+s = Solution()
+print(s.topKFrequent([1, 1, 1, 2, 2, 3], 2))
+print(s.topKFrequent([1], 1))
+print(s.topKFrequent([4, 4, 4, 6, 6, 7], 1))
+print(s.topKFrequent([5, 5, 6, 6], 2))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -272,10 +388,76 @@ function algoP.EncodeandDecodeStrings.EncodingDecoding
 end
 
 
-function algoP.EncodeandDecodeStrings.EncodingDecoding_Optimal
-    set output_file "EncodeDecode.Sizes_Python.py"
 
-    set template_content "class Solution:
+function algoP.EncodeandDecodeStrings.EncodingDecoding_Optimal
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        for s in strs:
+            res += str(len(s)) + "#" + s
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        res = []
+        i = 0
+
+        while i < len(s):
+            j = i
+            while s[j] != '#':
+                j += 1
+            length = int(s[i:j])
+            i = j + 1
+            j = i + length
+            res.append(s[i:j])
+            i = j
+
+        return res
+
+s = Solution()
+
+encoded = s.encode(["hello", "world"])
+print(encoded)
+decoded = s.decode(encoded)
+print(decoded)
+
+encoded = s.encode(["a#b", "c##d"])
+print(encoded)
+decoded = s.decode(encoded)
+print(decoded)
+
+encoded = s.encode(["", "abc", ""])
+print(encoded)
+decoded = s.decode(encoded)
+print(decoded)
+
+encoded = s.encode(["leetcode"])
+print(encoded)
+decoded = s.decode(encoded)
+print(decoded)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+
+function algoP.EncodeandDecodeStrings.EncodingDecoding
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
     def encode(self, strs: List[str]) -> str:
         if not strs:
             return \"\"
@@ -306,7 +488,35 @@ function algoP.EncodeandDecodeStrings.EncodingDecoding_Optimal
             res.append(s[i:i + sz])
             i += sz
         return res
-"
+
+strs = ["hello","world"]
+sln = Solution()
+encoded = sln.encode(strs)
+decoded = sln.decode(encoded)
+
+print("Original:", strs)
+print("Encoded:", encoded)
+print("Decoded:", decoded)
+
+strs = []
+encoded = sln.encode(strs)
+decoded = sln.decode(encoded)
+print(encoded)  # ""
+print(decoded)  # []
+
+strs = ["a", "bc", "def"]
+encoded = sln.encode(strs)
+decoded = sln.decode(encoded)
+print("Encoded:", encoded)
+print("Decoded:", decoded)
+
+strs = ["12,34","5"]
+encoded = sln.encode(strs)
+decoded = sln.decode(encoded)
+print("Encoded:", encoded)
+print("Decoded:", decoded)
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -317,9 +527,10 @@ end
 
 
 function algoP.ProductsofArrayExceptSelf.BruteForce
-    set output_file "ProductExceptSelf.BruteForce_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         res = [0] * n
@@ -333,7 +544,12 @@ function algoP.ProductsofArrayExceptSelf.BruteForce
 
             res[i] = prod
         return res
-"
+
+s = Solution()
+print(s.productExceptSelf([1,2,3,4]))
+print(s.productExceptSelf([-1,1,0,-3,3]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -344,9 +560,10 @@ end
 
 
 function algoP.ProductsofArrayExceptSelf.Division
-    set output_file "ProductExceptSelf.MathZeros_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         prod, zero_cnt = 1, 0
         for num in nums:
@@ -361,6 +578,17 @@ function algoP.ProductsofArrayExceptSelf.Division
             if zero_cnt: res[i] = 0 if c else prod
             else: res[i] = prod // c
         return res
+
+s = Solution()
+print(s.productExceptSelf([1,2,3,4]))
+# [24, 12, 8, 6]
+
+print(s.productExceptSelf([-1,1,0,-3,3]))
+# [0, 0, 9, 0, 0]
+
+print(s.productExceptSelf([0,0,3,4]))
+# [0, 0, 0, 0]
+
 "
 
     echo "$template_content" > $output_file
@@ -372,9 +600,10 @@ end
 
 
 function algoP.ProductsofArrayExceptSelf.PrefixSuffix
-    set output_file "ProductExceptSelf.PrefixSuffixArrays_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         res = [0] * n
@@ -389,6 +618,11 @@ function algoP.ProductsofArrayExceptSelf.PrefixSuffix
         for i in range(n):
             res[i] = pref[i] * suff[i]
         return res
+
+s = Solution()
+print(s.productExceptSelf([1,2,3,4]))
+# [24, 12, 8, 6]
+
 "
 
     echo "$template_content" > $output_file
@@ -400,9 +634,10 @@ end
 
 
 function algoP.ProductsofArrayExceptSelf.Prefix_SuffixOptimal
-    set output_file "ProductExceptSelf.Optimal_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = [1] * (len(nums))
 
@@ -415,6 +650,14 @@ function algoP.ProductsofArrayExceptSelf.Prefix_SuffixOptimal
             res[i] *= postfix
             postfix *= nums[i]
         return res
+
+s = Solution()
+print(s.productExceptSelf([1,2,3,4]))
+# [24, 12, 8, 6]
+
+print(s.productExceptSelf([-1,1,0,-3,3]))
+# [0, 0, 9, 0, 0]
+
 "
 
     echo "$template_content" > $output_file
@@ -426,9 +669,10 @@ end
 
 
 function algoP.ValidSudoku.BruteForce
-    set output_file "IsValidSudoku.SetsIterative_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         for row in range(9):
             seen = set()
@@ -460,6 +704,37 @@ function algoP.ValidSudoku.BruteForce
                         return False
                     seen.add(board[row][col])
         return True
+
+board = [
+    ["5","3",".",".","7",".",".",".","."],
+    ["6",".",".","1","9","5",".",".","."],
+    [".","9","8",".",".",".",".","6","."],
+    ["8",".",".",".","6",".",".",".","3"],
+    ["4",".",".","8",".","3",".",".","1"],
+    ["7",".",".",".","2",".",".",".","6"],
+    [".","6",".",".",".",".","2","8","."],
+    [".",".",".","4","1","9",".",".","5"],
+    [".",".",".",".","8",".",".","7","9"]
+]
+
+s = Solution()
+print(s.isValidSudoku(board))
+
+board[0][1] = "5"  # duplicate '5' in first row
+print(s.isValidSudoku(board))
+# False
+
+board[0][1] = "3"  # reset
+board[1][0] = "5"  # duplicate '5' in first column
+print(s.isValidSudoku(board))
+# False
+
+board[1][0] = "6"  # reset
+board[1][1] = "9"  # duplicate '9' in top-left 3x3 square
+print(s.isValidSudoku(board))
+# False
+
+
 "
 
     echo "$template_content" > $output_file
@@ -471,9 +746,10 @@ end
 
 
 function algoP.ValidSudoku.HashSet_OnePass
-    set output_file "IsValidSudoku.HashSets_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         cols = defaultdict(set)
         rows = defaultdict(set)
@@ -493,6 +769,36 @@ function algoP.ValidSudoku.HashSet_OnePass
                 squares[(r // 3, c // 3)].add(board[r][c])
 
         return True
+
+board = [
+    ["5","3",".",".","7",".",".",".","."],
+    ["6",".",".","1","9","5",".",".","."],
+    [".","9","8",".",".",".",".","6","."],
+    ["8",".",".",".","6",".",".",".","3"],
+    ["4",".",".","8",".","3",".",".","1"],
+    ["7",".",".",".","2",".",".",".","6"],
+    [".","6",".",".",".",".","2","8","."],
+    [".",".",".","4","1","9",".",".","5"],
+    [".",".",".",".","8",".",".","7","9"]
+]
+
+s = Solution()
+print(s.isValidSudoku(board))
+
+board[0][1] = "5"  # duplicate '5' in first row
+print(s.isValidSudoku(board))
+# False
+
+board[0][1] = "3"  # reset
+board[1][0] = "5"  # duplicate '5' in first column
+print(s.isValidSudoku(board))
+# False
+
+board[1][0] = "6"  # reset
+board[1][1] = "9"  # duplicate '9' in top-left 3x3 square
+print(s.isValidSudoku(board))
+# False
+
 "
 
     echo "$template_content" > $output_file
@@ -504,9 +810,10 @@ end
 
 
 function algoP.ValidSudoku.Bitmask
-    set output_file "IsValidSudoku.Bitmask_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rows = [0] * 9
         cols = [0] * 9
@@ -530,6 +837,36 @@ function algoP.ValidSudoku.Bitmask
                 squares[(r // 3) * 3 + (c // 3)] |= (1 << val)
 
         return True
+
+board = [
+    ["5","3",".",".","7",".",".",".","."],
+    ["6",".",".","1","9","5",".",".","."],
+    [".","9","8",".",".",".",".","6","."],
+    ["8",".",".",".","6",".",".",".","3"],
+    ["4",".",".","8",".","3",".",".","1"],
+    ["7",".",".",".","2",".",".",".","6"],
+    [".","6",".",".",".",".","2","8","."],
+    [".",".",".","4","1","9",".",".","5"],
+    [".",".",".",".","8",".",".","7","9"]
+]
+
+s = Solution()
+print(s.isValidSudoku(board))
+
+board[0][1] = "5"  # duplicate '5' in first row
+print(s.isValidSudoku(board))
+# False
+
+board[0][1] = "3"  # reset
+board[1][0] = "5"  # duplicate '5' in first column
+print(s.isValidSudoku(board))
+# False
+
+board[1][0] = "6"  # reset
+board[1][1] = "9"  # duplicate '9' in top-left 3x3 square
+print(s.isValidSudoku(board))
+# False
+
 "
 
     echo "$template_content" > $output_file
@@ -541,9 +878,10 @@ end
 
 
 function algoP.LongestConsecutiveSequence.BruteForce
-    set output_file "LongestConsecutive.BrutishSet_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         res = 0
         store = set(nums)
@@ -555,6 +893,17 @@ function algoP.LongestConsecutiveSequence.BruteForce
                 curr += 1
             res = max(res, streak)
         return res
+
+s = Solution()
+print(s.longestConsecutive([100, 4, 200, 1, 3, 2]))
+# 4  -> sequence: [1,2,3,4]
+
+print(s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# 9  -> sequence: [0,1,2,3,4,5,6,7,8]
+
+print(s.longestConsecutive([]))
+# 0
+
 "
 
     echo "$template_content" > $output_file
@@ -566,9 +915,10 @@ end
 
 
 function algoP.LongestConsecutiveSequence.Sorting
-    set output_file "LongestConsecutive.Sorting_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         if not nums:
             return 0
@@ -587,6 +937,17 @@ function algoP.LongestConsecutiveSequence.Sorting
             curr += 1
             res = max(res, streak)
         return res
+
+s = Solution()
+print(s.longestConsecutive([100, 4, 200, 1, 3, 2]))
+# 4
+
+print(s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# 9
+
+print(s.longestConsecutive([]))
+# 0
+
 "
 
     echo "$template_content" > $output_file
@@ -598,9 +959,10 @@ end
 
 
 function algoP.LongestConsecutiveSequence.HashSet
-    set output_file "LongestConsecutive.OptimalStartCheck_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         numSet = set(nums)
         longest = 0
@@ -612,6 +974,13 @@ function algoP.LongestConsecutiveSequence.HashSet
                     length += 1
                 longest = max(length, longest)
         return longest
+s = Solution()
+print(s.longestConsecutive([100, 4, 200, 1, 3, 2]))
+# 4
+
+print(s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# 9
+
 "
 
     echo "$template_content" > $output_file
@@ -623,9 +992,10 @@ end
 
 
 function algoP.LongestConsecutiveSequence.HashMap
-    set output_file "LongestConsecutive.UnionFindMap_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         mp = defaultdict(int)
         res = 0
@@ -637,6 +1007,14 @@ function algoP.LongestConsecutiveSequence.HashMap
                 mp[num + mp[num + 1]] = mp[num]
                 res = max(res, mp[num])
         return res
+
+s = Solution()
+print(s.longestConsecutive([100, 4, 200, 1, 3, 2]))
+# 4
+
+print(s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# 9
+
 "
 
     echo "$template_content" > $output_file
@@ -648,15 +1026,29 @@ end
 
 
 function algoP.ValidPalindrome.ReverseString
-    set output_file "ValidPalindrome.BuildString_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isPalindrome(self, s: str) -> bool:
         newStr = ''
         for c in s:
             if c.isalnum():
                 newStr += c.lower()
         return newStr == newStr[::-1]
+
+s = Solution()
+print(s.isPalindrome("A man, a plan, a canal: Panama"))
+# True
+print(s.isPalindrome("race a car"))
+# False
+print(s.isPalindrome(""))
+# True
+print(s.isPalindrome("x"))
+# True
+print(s.isPalindrome("0P"))
+# False
+
 "
 
     echo "$template_content" > $output_file
@@ -668,9 +1060,10 @@ end
 
 
 function algoP.ValidPalindrome.TwoPointers
-    set output_file "ValidPalindrome.TwoPointers_Python.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isPalindrome(self, s: str) -> bool:
         l, r = 0, len(s) - 1
 
@@ -688,6 +1081,18 @@ function algoP.ValidPalindrome.TwoPointers
         return (ord('A') <= ord(c) <= ord('Z') or
                 ord('a') <= ord(c) <= ord('z') or
                 ord('0') <= ord(c) <= ord('9'))
+
+s = Solution()
+print(s.isPalindrome("A man, a plan, a canal: Panama"))
+# True
+print(s.isPalindrome("race a car"))
+# False
+print(s.isPalindrome(""))
+# True
+print(s.isPalindrome("x"))
+# True
+print(s.isPalindrome("0P"))
+# False
 "
 
     echo "$template_content" > $output_file
@@ -699,7 +1104,7 @@ end
 
 
 function algoP.TwoIntegerSumII.BruteForce
-    set output_file "TwoSumSorted.Brute_Force.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
@@ -707,7 +1112,18 @@ function algoP.TwoIntegerSumII.BruteForce
             for j in range(i + 1, len(numbers)):
                 if numbers[i] + numbers[j] == target:
                     return [i + 1, j + 1]
-        return []"
+        return []
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))
+# [1, 2]
+
+print(s.twoSum([2,3,4], 6))
+# [1, 3]
+
+print(s.twoSum([-1,0], -1))
+# [1, 2]
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -717,10 +1133,11 @@ function algoP.TwoIntegerSumII.BruteForce
 end
 
 
-function algoP.TwoIntegerSumII.HashMap
-    set output_file "TwoSumSorted.Binary_Search.py"
+function algoP.TwoIntegerSumII.BinarySearch
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         for i in range(len(numbers)):
             l, r = i + 1, len(numbers) - 1
@@ -733,7 +1150,16 @@ function algoP.TwoIntegerSumII.HashMap
                     l = mid + 1
                 else:
                     r = mid - 1
-        return []"
+        return []
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))
+# [1, 2]
+
+print(s.twoSum([2,3,4], 6))
+# [1, 3]
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -744,9 +1170,10 @@ end
 
 
 function algoP.TwoIntegerSumII.HashMap
-    set output_file "TwoSumSorted.HashMap.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         mp = defaultdict(int)
         for i in range(len(numbers)):
@@ -754,7 +1181,16 @@ function algoP.TwoIntegerSumII.HashMap
             if mp[tmp]:
                 return [mp[tmp], i + 1]
             mp[numbers[i]] = i + 1
-        return []"
+        return []
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))
+# [1, 2]
+
+print(s.twoSum([2,3,4], 6))
+# [1, 3]
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -765,9 +1201,10 @@ end
 
 
 function algoP.TwoIntegerSumII.TwoPointers
-    set output_file "TwoSumSorted.Two_Pointers.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         l, r = 0, len(numbers) - 1
         while l < r:
@@ -778,7 +1215,18 @@ function algoP.TwoIntegerSumII.TwoPointers
                 l += 1
             else:
                 return [l + 1, r + 1]
-        return []"
+        return []
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))
+# [1, 2]
+
+print(s.twoSum([2,3,4], 6))
+# [1, 3]
+
+print(s.twoSum([-1,0], -1))
+# [1, 2]
+     
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -789,9 +1237,10 @@ end
 
 
 function algoP.3Sum.BruteForce
-    set output_file "ThreeSum.Brute_Force.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         res = set()
         nums.sort()
@@ -801,7 +1250,19 @@ function algoP.3Sum.BruteForce
                     if nums[i] + nums[j] + nums[k] == 0:
                         tmp = [nums[i], nums[j], nums[k]]
                         res.add(tuple(tmp))
-        return [list(i) for i in res]"
+        return [list(i) for i in res]
+
+s = Solution()
+print(s.threeSum([-1, 0, 1, 2, -1, -4]))
+# [[-1, -1, 2], [-1, 0, 1]]
+
+print(s.threeSum([0, 1, 1]))
+# []
+
+print(s.threeSum([0, 0, 0]))
+# [[0, 0, 0]]
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -812,7 +1273,7 @@ end
 
 
 function algoP.3Sum.HashMap
-    set output_file "ThreeSum.HashMap.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -837,7 +1298,18 @@ function algoP.3Sum.HashMap
 
             for j in range(i + 1, len(nums)):
                 count[nums[j]] += 1
-        return res"
+        return res
+s = Solution()
+print(s.threeSum([-1, 0, 1, 2, -1, -4]))
+# [[-1, -1, 2], [-1, 0, 1]]
+
+print(s.threeSum([0, 1, 1]))
+# []
+
+print(s.threeSum([0, 0, 0]))
+# [[0, 0, 0]]
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -848,7 +1320,7 @@ end
 
 
 function algoP.3Sum.TwoPointers
-    set output_file "ThreeSum.Two_Pointers.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -887,7 +1359,7 @@ end
 
 
 function algoP.ContainerWithMostWater.BruteForce
-    set output_file "MaxArea.Brute_Force.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def maxArea(self, heights: List[int]) -> int:
@@ -895,7 +1367,21 @@ function algoP.ContainerWithMostWater.BruteForce
         for i in range(len(heights)):
             for j in range(i + 1, len(heights)):
                 res = max(res, min(heights[i], heights[j]) * (j - i))
-        return res"
+        return res
+s = Solution()
+print(s.maxArea([1,8,6,2,5,4,8,3,7]))
+# 49
+
+print(s.maxArea([1,1]))
+# 1
+
+print(s.maxArea([4,3,2,1,4]))
+# 16
+
+print(s.maxArea([1,2,1]))
+# 2
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -906,7 +1392,7 @@ end
 
 
 function algoP.ContainerWithMostWater.TwoPointers
-    set output_file "MaxArea.Two_Pointers.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def maxArea(self, heights: List[int]) -> int:
@@ -920,7 +1406,22 @@ function algoP.ContainerWithMostWater.TwoPointers
                 l += 1
             else:
                 r -= 1
-        return res"
+        return res
+
+s = Solution()
+print(s.maxArea([1,8,6,2,5,4,8,3,7]))
+# 49
+
+print(s.maxArea([1,1]))
+# 1
+
+print(s.maxArea([4,3,2,1,4]))
+# 16
+
+print(s.maxArea([1,2,1]))
+# 2
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -931,15 +1432,26 @@ end
 
 
 function algoP.ValidParentheses.BruteForce
-    set output_file "ValidParentheses.Replace.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def isValid(self, s: str) -> bool:
         while '()' in s or '{}' in s or '[]' in s:
             s = s.replace('()', '')
             s = s.replace('{}', '')
             s = s.replace('[]', '')
-        return s == ''"
+        return s == ''
+        
+s = Solution()
+print(s.isValid('()'))        # True
+print(s.isValid('()[]{}'))    # True
+print(s.isValid('(]'))        # False
+print(s.isValid('([)]'))      # False
+print(s.isValid('{[]}'))      # True
+print(s.isValid(''))          # True
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -949,9 +1461,10 @@ function algoP.ValidParentheses.BruteForce
 end
 
 function algoP.ValidParentheses.Stack
-    set output_file "ValidParentheses.Stack.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
         closeToOpen = { ")": "(", "]": "[", "}": "{" }
@@ -965,7 +1478,17 @@ function algoP.ValidParentheses.Stack
             else:
                 stack.append(c)
 
-        return True if not stack else False'
+        return True if not stack else False
+
+s = Solution()
+print(s.isValid("()"))        # True
+print(s.isValid("()[]{}"))    # True
+print(s.isValid("(]"))        # False
+print(s.isValid("([)]"))      # False
+print(s.isValid("{[]}"))      # True
+print(s.isValid(""))          # True
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -976,9 +1499,10 @@ end
 
 
 function algoP.MinimumStack.BruteForce
-    set output_file "MinStack.Brute_Force.py"
+    set output_file "main.py"
 
-    set template_content "class MinStack:
+    set template_content "
+class MinStack:
 
     def __init__(self):
         self.stack = []
@@ -1003,7 +1527,18 @@ function algoP.MinimumStack.BruteForce
         while len(tmp):
             self.stack.append(tmp.pop())
 
-        return mini"
+        return mini
+minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+
+print(minStack.getMin())  # -3
+minStack.pop()
+print(minStack.top())     # 0
+print(minStack.getMin())  # -2
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1014,7 +1549,7 @@ end
 
 
 function algoP.MinimumStack.TwoStacks
-    set output_file "MinStack.Two_Stacks.py"
+    set output_file "main.py"
 
     set template_content "class MinStack:
     def __init__(self):
@@ -1034,7 +1569,18 @@ function algoP.MinimumStack.TwoStacks
         return self.stack[-1]
 
     def getMin(self) -> int:
-        return self.minStack[-1]"
+        return self.minStack[-1]
+minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+
+print(minStack.getMin())  # -3
+minStack.pop()
+print(minStack.top())     # 0
+print(minStack.getMin())  # -2
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1045,7 +1591,7 @@ end
 
 
 function algoP.MinimumStack.OneStack
-    set output_file "MinStack.Encoded_Diff.py"
+    set output_file "main.py"
 
     set template_content "class MinStack:
     def __init__(self):
@@ -1078,7 +1624,19 @@ function algoP.MinimumStack.OneStack
             return self.min
 
     def getMin(self) -> int:
-        return self.min"
+        return self.min
+        
+minStack = MinStack()
+minStack.push(-2)
+minStack.push(0)
+minStack.push(-3)
+
+print(minStack.getMin())  # -3
+minStack.pop()
+print(minStack.top())     # 0
+print(minStack.getMin())  # -2
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1088,9 +1646,12 @@ function algoP.MinimumStack.OneStack
 end
 
 function algoP.EvaluateReversePolishNotation.BruteForce 
-    set output_file "EvalRPN.ReplaceList.py"
+    set output_file "main"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         while len(tokens) > 1:
             for i in range(len(tokens)):
@@ -1107,7 +1668,22 @@ function algoP.EvaluateReversePolishNotation.BruteForce
                         result = int(a / b)
                     tokens = tokens[:i-2] + [str(result)] + tokens[i+1:]
                     break
-        return int(tokens[0])'
+        return int(tokens[0])
+examples = [
+    (["2", "1", "+", "3", "*"], 9),
+    (["4", "13", "5", "/", "+"], 6),
+    (["10","6","9","3","+","-11","*","/","*","17","+","5","+"], 22),
+    (["-4","2","/"], -2),
+    (["3","-4","*","2","/"], -6)
+]
+
+s = Solution()
+for tokens, expected in examples:
+    result = s.evalRPN(tokens.copy())  # .copy() щоб не змінювати оригінал
+    print(result == expected, "=>", result)
+
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1118,9 +1694,12 @@ end
 
 
 function algoP.EvaluateReversePolishNotation.DoublyLinkedList
-    set output_file "EvalRPN.DoublyLinkedList.py"
+    set output_file "main.py"
 
-    set template_content 'class DoublyLinkedList:
+    set template_content '
+from typing import List
+
+class DoublyLinkedList:
     def __init__(self, val, next=None, prev=None):
         self.val = val
         self.next = next
@@ -1156,7 +1735,22 @@ class Solution:
             ans = int(head.val)
             head = head.next
 
-        return ans'
+        return ans
+
+examples = [
+    (["2", "1", "+", "3", "*"], 9),
+    (["4", "13", "5", "/", "+"], 6),
+    (["10","6","9","3","+","-11","*","/","*","17","+","5","+"], 22),
+    (["-4","2","/"], -2),
+    (["3","-4","*","2","/"], -6)
+]
+
+s = Solution()
+for tokens, expected in examples:
+    result = s.evalRPN(tokens.copy())  # .copy() щоб не змінювати оригінал
+    print(result == expected, "=>", result)
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1167,9 +1761,12 @@ end
 
 
 function algoP.EvaluateReversePolishNotation.Recursion
-    set output_file "EvalRPN.RecursiveDFS.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         def dfs():
             token = tokens.pop()
@@ -1188,7 +1785,22 @@ function algoP.EvaluateReversePolishNotation.Recursion
             elif token == "/":
                 return int(left / right)
 
-        return dfs()'
+        return dfs()
+        
+examples = [
+    (["2", "1", "+", "3", "*"], 9),
+    (["4", "13", "5", "/", "+"], 6),
+    (["10","6","9","3","+","-11","*","/","*","17","+","5","+"], 22),
+    (["-4","2","/"], -2),
+    (["3","-4","*","2","/"], -6)
+]
+
+s = Solution()
+for tokens, expected in examples:
+    result = s.evalRPN(tokens.copy())  # .copy() щоб не змінювати оригінал
+    print(result == expected, "=>", result)
+        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1199,9 +1811,12 @@ end
 
 
 function algoP.EvaluateReversePolishNotation.Stack
-    set output_file "EvalRPN.Stack.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
         for c in tokens:
@@ -1217,7 +1832,22 @@ function algoP.EvaluateReversePolishNotation.Stack
                 stack.append(int(float(b) / a))
             else:
                 stack.append(int(c))
-        return stack[0]'
+        return stack[0]
+        
+examples = [
+    (["2", "1", "+", "3", "*"], 9),
+    (["4", "13", "5", "/", "+"], 6),
+    (["10","6","9","3","+","-11","*","/","*","17","+","5","+"], 22),
+    (["-4","2","/"], -2),
+    (["3","-4","*","2","/"], -6)
+]
+
+s = Solution()
+for tokens, expected in examples:
+    result = s.evalRPN(tokens.copy())  # .copy() щоб не змінювати оригінал
+    print(result == expected, "=>", result)
+        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1228,7 +1858,7 @@ end
 
 
 function algoP.DailyTemperatures.BruteForce
-    set output_file "DailyTemperatures.Brute_Force.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -1245,7 +1875,20 @@ function algoP.DailyTemperatures.BruteForce
                 count += 1
             count = 0 if j == n else count
             res.append(count)
-        return res"
+        return res
+examples = [
+    ([73,74,75,71,69,72,76,73], [1,1,4,2,1,1,0,0]),
+    ([30,40,50,60], [1,1,1,0]),
+    ([30,60,90], [1,1,0]),
+    ([90,80,70,60], [0,0,0,0])
+]
+
+s = Solution()
+for temps, expected in examples:
+    result = s.dailyTemperatures(temps)
+    print(result == expected, "=>", result)
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1256,9 +1899,10 @@ end
 
 
 function algoP.DailyTemperatures.Stack
-    set output_file "DailyTemperatures.Stack.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         res = [0] * len(temperatures)
         stack = []  # pair: [temp, index]
@@ -1268,7 +1912,20 @@ function algoP.DailyTemperatures.Stack
                 stackT, stackInd = stack.pop()
                 res[stackInd] = i - stackInd
             stack.append((t, i))
-        return res"
+        return res
+examples = [
+    ([73,74,75,71,69,72,76,73], [1,1,4,2,1,1,0,0]),
+    ([30,40,50,60], [1,1,1,0]),
+    ([30,60,90], [1,1,0]),
+    ([90,80,70,60], [0,0,0,0])
+]
+
+s = Solution()
+for temps, expected in examples:
+    result = s.dailyTemperatures(temps)
+    print(result == expected, "=>", result)
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1279,9 +1936,10 @@ end
 
 
 function algoP.DailyTemperatures.DynamicProgramming
-    set output_file "DailyTemperatures.Reverse.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         n = len(temperatures)
         res = [0] * n
@@ -1296,7 +1954,20 @@ function algoP.DailyTemperatures.DynamicProgramming
 
             if j < n:
                 res[i] = j - i
-        return res"
+        return res
+examples = [
+    ([73,74,75,71,69,72,76,73], [1,1,4,2,1,1,0,0]),
+    ([30,40,50,60], [1,1,1,0]),
+    ([30,60,90], [1,1,0]),
+    ([90,80,70,60], [0,0,0,0])
+]
+
+s = Solution()
+for temps, expected in examples:
+    result = s.dailyTemperatures(temps)
+    print(result == expected, "=>", result)
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1306,9 +1977,10 @@ function algoP.DailyTemperatures.DynamicProgramming
 end
 
 function algoP.CarFleet.Stack
-    set output_file "CarFleet.Stack.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         pair = [(p, s) for p, s in zip(position, speed)]
         pair.sort(reverse=True)
@@ -1317,7 +1989,21 @@ function algoP.CarFleet.Stack
             stack.append((target - p) / s)
             if len(stack) >= 2 and stack[-1] <= stack[-2]:
                 stack.pop()
-        return len(stack)"
+        return len(stack)
+
+examples = [
+    (12, [10,8,0,5,3], [2,4,1,1,3], 3),
+    (10, [3], [3], 1),
+    (100, [0,2,4], [4,2,1], 1),
+    (100, [0,20,50,70], [5,5,5,5], 4)
+]
+
+s = Solution()
+for target, pos, speed, expected in examples:
+    result = s.carFleet(target, pos, speed)
+    print(result == expected, "=>", result)
+
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1328,9 +2014,10 @@ end
 
 
 function algoP.CarFleet.Iteration
-    set output_file "CarFleet.FleetCount.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         pair = [(p, s) for p, s in zip(position, speed)]
         pair.sort(reverse=True)
@@ -1343,7 +2030,20 @@ function algoP.CarFleet.Iteration
             if currTime > prevTime:
                 fleets += 1
                 prevTime = currTime
-        return fleets"
+        return fleets
+examples = [
+    (12, [10,8,0,5,3], [2,4,1,1,3], 3),
+    (10, [3], [3], 1),
+    (100, [0,2,4], [4,2,1], 1),
+    (100, [0,20,50,70], [5,5,5,5], 4)
+]
+
+s = Solution()
+for target, pos, speed, expected in examples:
+    result = s.carFleet(target, pos, speed)
+    print(result == expected, "=>", result)
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1353,7 +2053,7 @@ function algoP.CarFleet.Iteration
 end
 
 function algoP.BinarySearch.RecursiveBinarySearch
-    set output_file "BinarySearch.Recursive.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def binary_search(self, l: int, r: int, nums: List[int], target: int) -> int:
@@ -1368,7 +2068,16 @@ function algoP.BinarySearch.RecursiveBinarySearch
         return self.binary_search(l, m - 1, nums, target)
 
     def search(self, nums: List[int], target: int) -> int:
-        return self.binary_search(0, len(nums) - 1, nums, target)"
+        return self.binary_search(0, len(nums) - 1, nums, target)
+nums = [1, 2, 2, 3, 4, 5]
+targets = [2, 3, 6]
+
+s = Solution()  # твоя реалізація Binary Search
+
+for t in targets:
+    print("search", t, "->", s.search(nums, t))
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1379,7 +2088,7 @@ end
 
 
 function algoP.BinarySearch.IterativeBinarySearch
-    set output_file "BinarySearch.Iterative.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -1395,7 +2104,16 @@ function algoP.BinarySearch.IterativeBinarySearch
                 l = m + 1
             else:
                 return m
-        return -1"
+        return -1
+nums = [1, 2, 2, 3, 4, 5]
+targets = [2, 3, 6]
+
+s = Solution()  # твоя реалізація Binary Search
+
+for t in targets:
+    print("search", t, "->", s.search(nums, t))
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1406,7 +2124,7 @@ end
 
 
 function algoP.BinarySearch.UpperBound
-    set output_file "BinarySearch.UpperBound.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -1418,7 +2136,17 @@ function algoP.BinarySearch.UpperBound
                 r = m
             elif nums[m] <= target:
                 l = m + 1
-        return l - 1 if (l and nums[l - 1] == target) else -1"
+        return l - 1 if (l and nums[l - 1] == target) else -1
+        
+nums = [1, 2, 2, 3, 4, 5]
+targets = [2, 3, 6]
+
+s = Solution()  # твоя реалізація Binary Search
+
+for t in targets:
+    print("search", t, "->", s.search(nums, t))
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1429,7 +2157,7 @@ end
 
 
 function algoP.BinarySearch.LowerBound
-    set output_file "BinarySearch.LowerBound.py"
+    set output_file "main.py"
 
     set template_content "class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -1441,7 +2169,16 @@ function algoP.BinarySearch.LowerBound
                 r = m
             elif nums[m] < target:
                 l = m + 1
-        return l if (l < len(nums) and nums[l] == target) else -1"
+        return l if (l < len(nums) and nums[l] == target) else -1
+nums = [1, 2, 2, 3, 4, 5]
+targets = [2, 3, 6]
+
+s = Solution()  # твоя реалізація Binary Search
+
+for t in targets:
+    print("search", t, "->", s.search(nums, t))
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1452,13 +2189,22 @@ end
 
 
 function algoP.BinarySearch.Built-InFunction
-    set output_file "BinarySearch.Bisect.py"
+    set output_file "main.py"
 
     set template_content "import bisect
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         index = bisect.bisect_left(nums, target)
-        return index if index < len(nums) and nums[index] == target else -1"
+        return index if index < len(nums) and nums[index] == target else -1
+nums = [1, 2, 2, 3, 4, 5]
+targets = [2, 3, 6]
+
+s = Solution()  # твоя реалізація Binary Search
+
+for t in targets:
+    print("search", t, "->", s.search(nums, t))
+        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1469,15 +2215,34 @@ end
 
 
 function algoP.Search2DMatrix.BruteForce
-    set output_file "SearchMatrix.Brute_Force.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         for r in range(len(matrix)):
             for c in range(len(matrix[0])):
                 if matrix[r][c] == target:
                     return True
-        return False"
+        return False
+matrices = [
+    [[1,3,5,7],[10,11,16,20],[23,30,34,50]],
+    [[1,2,3],[4,5,6],[7,8,9]]
+]
+
+targets = [3, 13, 5, 8, 50, 0]
+
+s = Solution()
+for mat in matrices:
+    print("Matrix:")
+    for row in mat:
+        print(row)
+    for t in targets:
+        print("search", t, "->", s.searchMatrix(mat, t))
+    print("-" * 30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1488,9 +2253,12 @@ end
 
 
 function algoP.Search2DMatrix.StaircaseSearch
-    set output_file "SearchMatrix.Stepwise.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
         r, c = 0, n - 1
@@ -1502,7 +2270,23 @@ function algoP.Search2DMatrix.StaircaseSearch
                 r += 1
             else:
                 return True
-        return False"
+        return False
+matrices = [
+    [[1,3,5,7],[10,11,16,20],[23,30,34,50]],
+    [[1,2,3],[4,5,6],[7,8,9]]
+]
+
+targets = [3, 13, 5, 8, 50, 0]
+
+s = Solution()
+for mat in matrices:
+    print("Matrix:")
+    for row in mat:
+        print(row)
+    for t in targets:
+        print("search", t, "->", s.searchMatrix(mat, t))
+    print("-" * 30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1513,9 +2297,12 @@ end
 
 
 function algoP.Search2DMatrix.BinarySearch
-    set output_file "SearchMatrix.RowBinary.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         ROWS, COLS = len(matrix), len(matrix[0])
 
@@ -1541,7 +2328,23 @@ function algoP.Search2DMatrix.BinarySearch
                 r = m - 1
             else:
                 return True
-        return False"
+        return False
+matrices = [
+    [[1,3,5,7],[10,11,16,20],[23,30,34,50]],
+    [[1,2,3],[4,5,6],[7,8,9]]
+]
+
+targets = [3, 13, 5, 8, 50, 0]
+
+s = Solution()
+for mat in matrices:
+    print("Matrix:")  # текст у лапках
+    for row in mat:
+        print(row)
+    for t in targets:
+        print("search", t, "->", s.searchMatrix(mat, t))
+    print("-" * 30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1552,9 +2355,12 @@ end
 
 
 function algoP.Search2DMatrix.BinarySearch_OnePass
-    set output_file "SearchMatrix.FlatBinary.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         ROWS, COLS = len(matrix), len(matrix[0])
 
@@ -1568,7 +2374,23 @@ function algoP.Search2DMatrix.BinarySearch_OnePass
                 r = m - 1
             else:
                 return True
-        return False"
+        return False
+matrices = [
+    [[1,3,5,7],[10,11,16,20],[23,30,34,50]],
+    [[1,2,3],[4,5,6],[7,8,9]]
+]
+
+targets = [3, 13, 5, 8, 50, 0]
+
+s = Solution()
+for mat in matrices:
+    print("Matrix:")
+    for row in mat:
+        print(row)
+    for t in targets:
+        print("search", t, "->", s.searchMatrix(mat, t))
+    print("-" * 30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1579,9 +2401,12 @@ end
 
 
 function algoP.KokoEatingBananas.BruteForce
-    set output_file "MinEatingSpeed.Brute_Force.py"
+    set output_file "main.py"
 
-    set template_content "import math
+    set template_content '
+import math
+from typing import List
+
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         speed = 1
@@ -1593,7 +2418,20 @@ class Solution:
             if totalTime <= h:
                 return speed
             speed += 1
-        return speed"
+        return speed
+test_cases = [
+    ([3,6,7,11], 8, 4),
+    ([30,11,23,4,20], 5, 30),
+    ([30,11,23,4,20], 6, 23),
+]
+
+for piles, h, expected in test_cases:
+    s1 = SolutionBruteForce()
+    s2 = SolutionBinarySearch()
+    print("BruteForce ->", s1.minEatingSpeed(piles, h), "Expected:", expected)
+    print("BinarySearch ->", s2.minEatingSpeed(piles, h), "Expected:", expected)
+    print("-"*30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1604,9 +2442,12 @@ end
 
 
 function algoP.KokoEatingBananas.BinarySearch
-    set output_file "MinEatingSpeed.BinarySearch.py"
+    set output_file "main.py"
 
-    set template_content "import math
+    set template_content '
+from typing import List
+import math
+
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         l, r = 1, max(piles)
@@ -1623,7 +2464,20 @@ class Solution:
                 r = k - 1
             else:
                 l = k + 1
-        return res"
+        return res
+test_cases = [
+    ([3,6,7,11], 8, 4),
+    ([30,11,23,4,20], 5, 30),
+    ([30,11,23,4,20], 6, 23),
+]
+
+for piles, h, expected in test_cases:
+    s1 = SolutionBruteForce()
+    s2 = SolutionBinarySearch()
+    print("BruteForce ->", s1.minEatingSpeed(piles, h), "Expected:", expected)
+    print("BinarySearch ->", s2.minEatingSpeed(piles, h), "Expected:", expected)
+    print("-"*30)        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1634,14 +2488,36 @@ end
 
 
 function algoP.SearchinRotatedSortedArray.BruteForce
-    set output_file "SearchRotatedArray.Linear.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def search(self, nums: List[int], target: int) -> int:
         for i in range(len(nums)):
             if nums[i] == target:
                 return i
-        return -1"
+        return -1
+tests = [
+    ([4,5,6,7,0,1,2], 0, 4),
+    ([4,5,6,7,0,1,2], 3, -1),
+    ([1], 0, -1),
+    ([1], 1, 0),
+    ([3,1], 1, 1),
+    ([5,1,3], 3, 2),
+]
+
+s = Solution()
+for nums, target, expected in tests:
+    result = s.search(nums, target)
+    print(
+        "nums:", nums,
+        "target:", target,
+        "->", result,
+        "expected:", expected
+    )        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1652,9 +2528,12 @@ end
 
 
 function algoP.SearchinRotatedSortedArray.BinarySearch
-    set output_file "SearchRotatedArray.BinarySeparate.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
 
@@ -1682,7 +2561,27 @@ function algoP.SearchinRotatedSortedArray.BinarySearch
         if result != -1:
             return result
 
-        return binary_search(pivot, len(nums) - 1)"
+        return binary_search(pivot, len(nums) - 1)
+tests = [
+    ([4,5,6,7,0,1,2], 0, 4),
+    ([4,5,6,7,0,1,2], 3, -1),
+    ([1], 0, -1),
+    ([1], 1, 0),
+    ([3,1], 1, 1),
+    ([5,1,3], 3, 2),
+]
+
+s = Solution()
+for nums, target, expected in tests:
+    result = s.search(nums, target)
+    print(
+        "nums:", nums,
+        "target:", target,
+        "->", result,
+        "expected:", expected
+    )        
+        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1693,9 +2592,12 @@ end
 
 
 function algoP.SearchinRotatedSortedArray.BinarySearch_TwoPass
-    set output_file "SearchRotatedArray.BinaryAdjusted.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
 
@@ -1723,7 +2625,26 @@ function algoP.SearchinRotatedSortedArray.BinarySearch_TwoPass
             else:
                 r = m - 1
 
-        return -1"
+        return -1
+tests = [
+    ([4,5,6,7,0,1,2], 0, 4),
+    ([4,5,6,7,0,1,2], 3, -1),
+    ([1], 0, -1),
+    ([1], 1, 0),
+    ([3,1], 1, 1),
+    ([5,1,3], 3, 2),
+]
+
+s = Solution()
+for nums, target, expected in tests:
+    result = s.search(nums, target)
+    print(
+        "nums:", nums,
+        "target:", target,
+        "->", result,
+        "expected:", expected
+    )        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1734,9 +2655,12 @@ end
 
 
 function algoP.SearchinRotatedSortedArray.BinarySearch_OnePass
-    set output_file "SearchRotatedArray.BinaryInline.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
 
@@ -1756,7 +2680,26 @@ function algoP.SearchinRotatedSortedArray.BinarySearch_OnePass
                     r = mid - 1
                 else:
                     l = mid + 1
-        return -1"
+        return -1
+tests = [
+    ([4,5,6,7,0,1,2], 0, 4),
+    ([4,5,6,7,0,1,2], 3, -1),
+    ([1], 0, -1),
+    ([1], 1, 0),
+    ([3,1], 1, 1),
+    ([5,1,3], 3, 2),
+]
+
+s = Solution()
+for nums, target, expected in tests:
+    result = s.search(nums, target)
+    print(
+        "nums:", nums,
+        "target:", target,
+        "->", result,
+        "expected:", expected
+    )        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1767,9 +2710,10 @@ end
 
 
 function algoP.TimeBasedKeyValueStore.BruteForce
-    set output_file "TimeMap.Linear.py"
+    set output_file "main.py"
 
-    set template_content "class TimeMap:
+    set template_content '
+class TimeMap:
 
     def __init__(self):
         self.keyStore = {}
@@ -1783,13 +2727,49 @@ function algoP.TimeBasedKeyValueStore.BruteForce
 
     def get(self, key: str, timestamp: int) -> str:
         if key not in self.keyStore:
-            return \"\"
+            return ""
         seen = 0
 
         for time in self.keyStore[key]:
             if time <= timestamp:
                 seen = max(seen, time)
-        return \"\" if seen == 0 else self.keyStore[key][seen][-1]"
+        return "" if seen == 0 else self.keyStore[key][seen][-1]
+
+
+tm = TimeMap()
+
+# Додаємо значення для ключа "foo"
+tm.set("foo", "bar1", 1)
+tm.set("foo", "bar2", 2)
+tm.set("foo", "bar3", 2)
+tm.set("foo", "bar4", 5)
+
+# Додаємо значення для ключа "baz"
+tm.set("baz", "x1", 3)
+tm.set("baz", "x2", 4)
+tm.set("baz", "x3", 4)
+tm.set("baz", "x4", 6)
+
+# Додаємо значення для ключа "qux"
+tm.set("qux", "q1", 1)
+
+# === Тестові запити ===
+print(tm.get("foo", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("foo", 2))  # "bar3" (останнє значення для timestamp 2)
+print(tm.get("foo", 4))  # "bar2" ??? ні, тут треба уважно: найбільший ≤ 4 → 2 → "bar3"
+print(tm.get("foo", 5))  # "bar4" (timestamp 5)
+print(tm.get("foo", 6))  # "bar4" (timestamp 5 ≤ 6)
+
+print(tm.get("baz", 2))  # "" (немає timestamp ≤ 2)
+print(tm.get("baz", 4))  # "x3" (останнє значення для timestamp 4)
+print(tm.get("baz", 5))  # "x3" (найбільший timestamp ≤ 5 → 4 → "x3")
+print(tm.get("baz", 6))  # "x4" (timestamp 6)
+
+print(tm.get("qux", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("qux", 1))  # "q1"
+print(tm.get("qux", 10)) # "q1" (єдине значення)
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1800,10 +2780,11 @@ end
 
 
 function algoP.TimeBasedKeyValueStore.BinarySearch_SortedMap
-    set output_file "TimeMap.SortedDict.py"
+    set output_file "main.py"
 
-    set template_content "from sortedcontainers import SortedDict
+    set template_content '
 from collections import defaultdict
+from sortedcontainers import SortedDict
 
 class TimeMap:
     def __init__(self):
@@ -1814,7 +2795,7 @@ class TimeMap:
 
     def get(self, key: str, timestamp: int) -> str:
         if key not in self.m:
-            return \"\"
+            return ""
 
         timestamps = self.m[key]
         idx = timestamps.bisect_right(timestamp) - 1
@@ -1822,7 +2803,42 @@ class TimeMap:
         if idx >= 0:
             closest_time = timestamps.iloc[idx]
             return timestamps[closest_time]
-        return \"\""
+        return ""
+
+tm = TimeMap()
+
+# Додаємо значення для ключа "foo"
+tm.set("foo", "bar1", 1)
+tm.set("foo", "bar2", 2)
+tm.set("foo", "bar3", 2)
+tm.set("foo", "bar4", 5)
+
+# Додаємо значення для ключа "baz"
+tm.set("baz", "x1", 3)
+tm.set("baz", "x2", 4)
+tm.set("baz", "x3", 4)
+tm.set("baz", "x4", 6)
+
+# Додаємо значення для ключа "qux"
+tm.set("qux", "q1", 1)
+
+# === Тестові запити ===
+print(tm.get("foo", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("foo", 2))  # "bar3" (останнє значення для timestamp 2)
+print(tm.get("foo", 4))  # "bar2" ??? ні, тут треба уважно: найбільший ≤ 4 → 2 → "bar3"
+print(tm.get("foo", 5))  # "bar4" (timestamp 5)
+print(tm.get("foo", 6))  # "bar4" (timestamp 5 ≤ 6)
+
+print(tm.get("baz", 2))  # "" (немає timestamp ≤ 2)
+print(tm.get("baz", 4))  # "x3" (останнє значення для timestamp 4)
+print(tm.get("baz", 5))  # "x3" (найбільший timestamp ≤ 5 → 4 → "x3")
+print(tm.get("baz", 6))  # "x4" (timestamp 6)
+
+print(tm.get("qux", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("qux", 1))  # "q1"
+print(tm.get("qux", 10)) # "q1" (єдине значення)
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1833,9 +2849,10 @@ end
 
 
 function algoP.TimeBasedKeyValueStore.BinarySearch_Array
-    set output_file "TimeMap.BinarySearch.py"
+    set output_file "main.py"
 
-    set template_content "class TimeMap:
+    set template_content '
+class TimeMap:
 
     def __init__(self):
         self.keyStore = {}  # key : list of [val, timestamp]
@@ -1846,7 +2863,7 @@ function algoP.TimeBasedKeyValueStore.BinarySearch_Array
         self.keyStore[key].append([value, timestamp])
 
     def get(self, key: str, timestamp: int) -> str:
-        res, values = \"\", self.keyStore.get(key, [])
+        res, values = "", self.keyStore.get(key, [])
         l, r = 0, len(values) - 1
         while l <= r:
             m = (l + r) // 2
@@ -1855,7 +2872,42 @@ function algoP.TimeBasedKeyValueStore.BinarySearch_Array
                 l = m + 1
             else:
                 r = m - 1
-        return res"
+        return res
+
+tm = TimeMap()
+
+# Додаємо значення для ключа "foo"
+tm.set("foo", "bar1", 1)
+tm.set("foo", "bar2", 2)
+tm.set("foo", "bar3", 2)
+tm.set("foo", "bar4", 5)
+
+# Додаємо значення для ключа "baz"
+tm.set("baz", "x1", 3)
+tm.set("baz", "x2", 4)
+tm.set("baz", "x3", 4)
+tm.set("baz", "x4", 6)
+
+# Додаємо значення для ключа "qux"
+tm.set("qux", "q1", 1)
+
+# === Тестові запити ===
+print(tm.get("foo", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("foo", 2))  # "bar3" (останнє значення для timestamp 2)
+print(tm.get("foo", 4))  # "bar2" ??? ні, тут треба уважно: найбільший ≤ 4 → 2 → "bar3"
+print(tm.get("foo", 5))  # "bar4" (timestamp 5)
+print(tm.get("foo", 6))  # "bar4" (timestamp 5 ≤ 6)
+
+print(tm.get("baz", 2))  # "" (немає timestamp ≤ 2)
+print(tm.get("baz", 4))  # "x3" (останнє значення для timestamp 4)
+print(tm.get("baz", 5))  # "x3" (найбільший timestamp ≤ 5 → 4 → "x3")
+print(tm.get("baz", 6))  # "x4" (timestamp 6)
+
+print(tm.get("qux", 0))  # "" (немає timestamp ≤ 0)
+print(tm.get("qux", 1))  # "q1"
+print(tm.get("qux", 10)) # "q1" (єдине значення)
+   
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1864,10 +2916,13 @@ function algoP.TimeBasedKeyValueStore.BinarySearch_Array
     cat $output_file
 end
 
-function algoP.BestTimeBuySellStock.BruteForce
-    set output_file "MaxProfit.Bruteforce.py"
+function algoP.BestTimeToBuyAndSellStock.BruteForce 
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         res = 0
         for i in range(len(prices)):
@@ -1875,7 +2930,12 @@ function algoP.BestTimeBuySellStock.BruteForce
             for j in range(i + 1, len(prices)):
                 sell  = prices[j]
                 res = max(res, sell - buy)
-        return res"
+        return res
+sol = Solution()
+print(sol.maxProfit([7,1,5,3,6,4]))  # 5 (купили за 1, продали за 6)
+print(sol.maxProfit([7,6,4,3,1]))    # 0 (немає прибутку)
+print(sol.maxProfit([1,2,3,4,5]))    # 4 (купили за 1, продали за 5)        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -1885,10 +2945,13 @@ function algoP.BestTimeBuySellStock.BruteForce
 end
 
 
-function algoP.BestTimeBuySellStock.TwoPointers
-    set output_file "MaxProfit.TwoPointer.py"
+function algoP.BestTimeToBuyAndSellStock.TwoPointers
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+from typing import List
+
+class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         l, r = 0, 1
         maxP = 0
@@ -1900,124 +2963,11 @@ function algoP.BestTimeBuySellStock.TwoPointers
             else:
                 l = r
             r += 1
-        return maxP"
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.BestTimeBuySellStock.DynamicProgramming
-    set output_file "MaxProfit.MinBuy.py"
-
-    set template_content "class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        maxP = 0
-        minBuy = prices[0]
-
-        for sell in prices:
-            maxP = max(maxP, sell - minBuy)
-            minBuy = min(minBuy, sell)
-        return maxP"
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-function algoP.LongestSubstringWithoutRepeatingCharacters.BruteForce
-    set output_file "LongestSubstring.Bruteforce.py"
-
-    set template_content "class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        res = 0
-        for i in range(len(s)):
-            charSet = set()
-            for j in range(i, len(s)):
-                if s[j] in charSet:
-                    break
-                charSet.add(s[j])
-            res = max(res, len(charSet))
-        return res"
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.LongestSubstringWithoutRepeatingCharacters.SlidingWindow
-    set output_file "LongestSubstring.SlidingWindow.py"
-
-    set template_content "class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        charSet = set()
-        l = 0
-        res = 0
-
-        for r in range(len(s)):
-            while s[r] in charSet:
-                charSet.remove(s[l])
-                l += 1
-            charSet.add(s[r])
-            res = max(res, r - l + 1)
-        return res"
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.LongestSubstringWithoutRepeatingCharacters.SlidingWindow_Optimal
-    set output_file "LongestSubstring.Hashmap.py"
-
-    set template_content "class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        mp = {}
-        l = 0
-        res = 0
-
-        for r in range(len(s)):
-            if s[r] in mp:
-                l = max(mp[s[r]] + 1, l)
-            mp[s[r]] = r
-            res = max(res, r - l + 1)
-        return res"
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.LongestSubstringWithoutRepeatingCharacters.BruteForce
-    set output_file "3-longest-substring-without-repeating-characters-brutetest.py"
-
-    set template_content "from typing import List
-
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        res = 0
-        for i in range(len(s)):
-            charSet = set()
-            for j in range(i, len(s)):
-                if s[j] in charSet:
-                    break
-                charSet.add(s[j])
-            res = max(res, len(charSet))
-        return res
+        return maxP
+sol = Solution()
+print(sol.maxProfit([7,1,5,3,6,4]))  # 5 (купили за 1, продали за 6)
+print(sol.maxProfit([7,6,4,3,1]))    # 0 (немає прибутку)
+print(sol.maxProfit([1,2,3,4,5]))    # 4 (купили за 1, продали за 5)        
 "
 
     echo "$template_content" > $output_file
@@ -2028,9 +2978,67 @@ class Solution:
 end
 
 
-function algoP.LongestSubstringWithoutRepeatingCharacters.List
-    set file_name "3-longest-substring-without-repeating-characters-set.py"
-    set template_content 'from typing import List
+function algoP.BestTimeToBuyAndSellStock.DynamicProgramming
+    set output_file "main.py"
+
+    set template_content "
+from typing import List
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maxP = 0
+        minBuy = prices[0]
+
+        for sell in prices:
+            maxP = max(maxP, sell - minBuy)
+            minBuy = min(minBuy, sell)
+        return maxP
+sol = Solution()
+print(sol.maxProfit([7,1,5,3,6,4]))  # 5 (купили за 1, продали за 6)
+print(sol.maxProfit([7,6,4,3,1]))    # 0 (немає прибутку)
+print(sol.maxProfit([1,2,3,4,5]))    # 4 (купили за 1, продали за 5)        
+"
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LongestSubstringWithoutRepeatingCharacters.BruteForce
+    set output_file "main.py"
+
+    set template_content "
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        res = 0
+        for i in range(len(s)):
+            charSet = set()
+            for j in range(i, len(s)):
+                if s[j] in charSet:
+                    break
+                charSet.add(s[j])
+            res = max(res, len(charSet))
+        return res
+sol = Solution()
+print(sol.lengthOfLongestSubstring("abcabcbb"))  # 3 ("abc")
+print(sol.lengthOfLongestSubstring("bbbbb"))     # 1 ("b")
+print(sol.lengthOfLongestSubstring("pwwkew"))    # 3 ("wke")        
+"
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.LongestSubstringWithoutRepeatingCharacters.SlidingWindow
+    set output_file "main.py"
+
+    set template_content "
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         charSet = set()
@@ -2044,6 +3052,73 @@ class Solution:
             charSet.add(s[r])
             res = max(res, r - l + 1)
         return res
+sol = Solution()
+print(sol.lengthOfLongestSubstring("abcabcbb"))  # 3 ("abc")
+print(sol.lengthOfLongestSubstring("bbbbb"))     # 1 ("b")
+print(sol.lengthOfLongestSubstring("pwwkew"))    # 3 ("wke")        
+"
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.LongestSubstringWithoutRepeatingCharacters.SlidingWindow_Optimal
+    set output_file "main.py"
+
+    set template_content "
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        mp = {}
+        l = 0
+        res = 0
+
+        for r in range(len(s)):
+            if s[r] in mp:
+                l = max(mp[s[r]] + 1, l)
+            mp[s[r]] = r
+            res = max(res, r - l + 1)
+        return res
+sol = Solution()
+print(sol.lengthOfLongestSubstring("abcabcbb"))  # 3 ("abc")
+print(sol.lengthOfLongestSubstring("bbbbb"))     # 1 ("b")
+print(sol.lengthOfLongestSubstring("pwwkew"))    # 3 ("wke")        
+"
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.LongestSubstringWithoutRepeatingCharacters.List
+    set file_name "main.py"
+    set template_content '
+from typing import List
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        charSet = set()
+        l = 0
+        res = 0
+
+        for r in range(len(s)):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            charSet.add(s[r])
+            res = max(res, r - l + 1)
+        return res
+
+sol = Solution()
+print(sol.lengthOfLongestSubstring("abcabcbb"))  # 3
+print(sol.lengthOfLongestSubstring("bbbbb"))     # 1
+print(sol.lengthOfLongestSubstring("pwwkew"))    # 3
 '
 
     echo "$template_content" > $output_file
@@ -2054,9 +3129,10 @@ class Solution:
 end
 
 function algoP.LongestSubstringWithoutRepeatingCharacters.Set
-    set file_name "3-longest-substring-without-repeating-characters-map.py"
+    set file_name "main.py"
 
-    set template_content "from typing import List
+    set template_content "
+from typing import List
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -2080,9 +3156,10 @@ end
 
 
 function algoP.LongestRepeatingCharacterReplacement.Bruteforce
-    set output_file "CharacterReplacement.Bruteforce.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         res = 0
         for i in range(len(s)):
@@ -2092,7 +3169,11 @@ function algoP.LongestRepeatingCharacterReplacement.Bruteforce
                 maxf = max(maxf, count[s[j]])
                 if (j - i + 1) - maxf <= k:
                     res = max(res, j - i + 1)
-        return res"
+        return res
+sol = Solution()
+print(sol.characterReplacement("ABAB", 2))     # 4 ("AAAA" або "BBBB")
+print(sol.characterReplacement("AABABBA", 1))  # 4 ("AABA" або "ABBA")        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2102,9 +3183,10 @@ function algoP.LongestRepeatingCharacterReplacement.Bruteforce
 end
 
 function algoP.LongestRepeatingCharacterReplacement.SlidingWindow
-    set output_file "CharacterReplacement.ByChar.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         res = 0
         charSet = set(s)
@@ -2121,7 +3203,11 @@ function algoP.LongestRepeatingCharacterReplacement.SlidingWindow
                     l += 1
 
                 res = max(res, r - l + 1)
-        return res"
+        return res
+sol = Solution()
+print(sol.characterReplacement("ABAB", 2))     # 4 ("AAAA" або "BBBB")
+print(sol.characterReplacement("AABABBA", 1))  # 4 ("AABA" або "ABBA")        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2132,9 +3218,10 @@ end
 
 
 function algoP.LongestRepeatingCharacterReplacement.SlidingWindow_Optimal
-    set output_file "CharacterReplacement.SlidingWindow.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content "
+class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         count = {}
         res = 0
@@ -2150,7 +3237,11 @@ function algoP.LongestRepeatingCharacterReplacement.SlidingWindow_Optimal
                 l += 1
             res = max(res, r - l + 1)
 
-        return res"
+        return res
+sol = Solution()
+print(sol.characterReplacement("ABAB", 2))     # 4 ("AAAA" або "BBBB")
+print(sol.characterReplacement("AABABBA", 1))  # 4 ("AABA" або "ABBA")        
+"
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2161,9 +3252,10 @@ end
 
 
 function algoP.PermutationinString.Bruteforce
-    set output_file "CheckInclusion.Bruteforce.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         s1 = sorted(s1)
 
@@ -2173,7 +3265,12 @@ function algoP.PermutationinString.Bruteforce
                 subStr = sorted(subStr)
                 if subStr == s1:
                     return True
-        return False"
+        return False
+        
+sol = Solution()
+print(sol.checkInclusion("ab", "eidbaooo"))  # True ("ba")
+print(sol.checkInclusion("ab", "eidboaoo"))  # False        
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2184,9 +3281,10 @@ end
 
 
 function algoP.PermutationinString.HashTable
-    set output_file "CheckInclusion.CountsBruteforce.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         count1 = {}
         for c in s1:
@@ -2203,7 +3301,12 @@ function algoP.PermutationinString.HashTable
                     cur += 1
                 if cur == need:
                     return True
-        return False"
+        return False
+        
+sol = Solution()
+print(sol.checkInclusion("ab", "eidbaooo"))  # True
+print(sol.checkInclusion("ab", "eidboaoo"))  # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2214,9 +3317,9 @@ end
 
 
 function algoP.PermutationinString.SlidingWindow
-    set output_file "CheckInclusion.SlidingWindow.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content 'class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         if len(s1) > len(s2):
             return False
@@ -2249,7 +3352,11 @@ function algoP.PermutationinString.SlidingWindow
             elif s1Count[index] - 1 == s2Count[index]:
                 matches -= 1
             l += 1
-        return matches == 26"
+        return matches == 26
+sol = Solution()
+print(sol.checkInclusion("ab", "eidbaooo"))  # True
+print(sol.checkInclusion("ab", "eidboaoo"))  # False
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2260,9 +3367,9 @@ end
 
 
 function algoP.ReverseLinkedList.Recursion 
-    set output_file "ReverseList.Recursive.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
 from typing import Optional
 
 class ListNode:
@@ -2282,7 +3389,16 @@ class Solution:
         head.next = None
 
         return newHead
-"
+
+head = ListNode(1, ListNode(2, ListNode(3)))
+sol = Solution()
+new_head = sol.reverseList(head)
+
+curr = new_head
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+'
     echo "$template_content" > $output_file
     set_color FFAD8D
     echo "$output_file created"
@@ -2292,9 +3408,9 @@ end
 
 
 function algoP.ReverseLinkedList.Iteration 
-    set output_file "ReverseList.Iterative.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -2310,7 +3426,15 @@ class Solution:
             prev = curr
             curr = temp
         return prev
-"
+
+head = ListNode(1, ListNode(2, ListNode(3)))
+sol = Solution()
+new_head = sol.reverseList(head)
+
+curr = new_head
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2321,11 +3445,11 @@ end
 
 
 function algoP.MergeTwoSortedLinkedLists.Recursion
-    set output_file "MergeTwoSortedLinkedLists.Recursion.py"
+    set output_file "main.py"
 
-    set template_content "from typing import Optional
+    set template_content '
+from typing import Optional
 
-# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -2343,7 +3467,16 @@ class Solution:
         else:
             list2.next = self.mergeTwoLists(list1, list2.next)
             return list2
-"
+list1 = ListNode(1, ListNode(2, ListNode(4)))
+list2 = ListNode(1, ListNode(3, ListNode(4)))
+
+sol = Solution()
+merged = sol.mergeTwoLists(list1, list2)
+
+curr = merged
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2354,10 +3487,11 @@ end
 
 
 function algoP.MergeTwoSortedLinkedLists.Iteration
-    set output_file "MergeTwoSortedLinkedLists.Iteration.py"
+    set output_file "main.py"
 
-    set template_content "from typing import Optional
-# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -2378,7 +3512,17 @@ class Solution:
 
         node.next = list1 or list2
         return dummy.next
-"
+
+sol = Solution()
+list1 = ListNode(1, ListNode(2, ListNode(4)))
+list2 = ListNode(1, ListNode(3, ListNode(4)))
+merged = sol.mergeTwoLists(list1, list2) 
+
+curr = merged
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2389,9 +3533,9 @@ end
 
 
 function algoP.LinkedListCycleDetection.HashSet
-    set output_file "HasCycle.HashSet.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2406,8 +3550,20 @@ class Solution:
                 return True
             seen.add(cur)
             cur = cur.next
-        return False"
+        return False
 
+a = ListNode(3)
+b = ListNode(2)
+c = ListNode(0)
+d = ListNode(-4)
+a.next = b
+b.next = c
+c.next = d
+d.next = b 
+
+sol = Solution()
+print(sol.hasCycle(a))  # True
+'
     echo "$template_content" > $output_file
     set_color FFAD8D
     echo "$output_file created"
@@ -2417,9 +3573,9 @@ end
 
 
 function algoP.LinkedListCycleDetection.FastAndSlowPointers
-    set output_file "HasCycle.TwoPointers.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2434,7 +3590,20 @@ class Solution:
             fast = fast.next.next
             if slow == fast:
                 return True
-        return False"
+        return False
+
+a = ListNode(3)
+b = ListNode(2)
+c = ListNode(0)
+d = ListNode(-4)
+a.next = b
+b.next = c
+c.next = d
+d.next = b
+
+sol = Solution()
+print(sol.hasCycle(a))     
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2445,9 +3614,11 @@ end
 
 
 function algoP.ReorderLinkedList.BruteForce
-    set output_file "ReorderList.Array.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2474,7 +3645,30 @@ class Solution:
             j -= 1
 
         nodes[i].next = None
-"
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+sol.reorderList(head)
+print_list(head)  # 1 -> 5 -> 2 -> 4 -> 3 -> None
+
+head = ListNode(1, ListNode(2))
+sol.reorderList(head)
+print_list(head)  # 1 -> 2 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+sol.reorderList(head)
+print_list(head)  # 10 -> 40 -> 20 -> 30 -> None
+
+head = ListNode(42)
+sol.reorderList(head)
+print_list(head)  # 42 -> None
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2485,9 +3679,11 @@ end
 
 
 function algoP.ReorderLinkedList.Recursion
-    set output_file "ReorderList.Recursion.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2515,7 +3711,29 @@ class Solution:
             return tmp
 
         head = rec(head, head.next)
-"
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+sol.reorderList(head)
+print_list(head)  # 1 -> 5 -> 2 -> 4 -> 3 -> None
+
+head = ListNode(1, ListNode(2))
+sol.reorderList(head)
+print_list(head)  # 1 -> 2 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+sol.reorderList(head)
+print_list(head)  # 10 -> 40 -> 20 -> 30 -> None
+
+head = ListNode(42)
+sol.reorderList(head)
+print_list(head)  # 42 -> None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2526,9 +3744,11 @@ end
 
 
 function algoP.ReorderLinkedList.ReverseAndMerge
-    set output_file "ReorderList.Optimal.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2555,7 +3775,33 @@ class Solution:
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-"
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+sol.reorderList(head)
+print_list(head)  # 1 -> 5 -> 2 -> 4 -> 3 -> None
+
+
+head = ListNode(1, ListNode(2))
+sol.reorderList(head)
+print_list(head)  # 1 -> 2 -> None
+
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+sol.reorderList(head)
+print_list(head)  # 10 -> 40 -> 20 -> 30 -> None
+
+
+head = ListNode(42)
+sol.reorderList(head)
+print_list(head)  # 42 -> None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2566,9 +3812,11 @@ end
 
 
 function algoP.RemoveNodeFromEndLinkedList.BruteForce
-    set output_file "RemoveNthFromEnd.Array.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
     def __init__(self, val=0, next=None):
            self.val = val
@@ -2588,7 +3836,30 @@ class Solution:
 
         nodes[removeIndex - 1].next = nodes[removeIndex].next
         return head
-"
+
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+head = sol.removeNthFromEnd(head, 2)  # видалити 2-й з кінця (4)
+print_list(head)  # 1 -> 2 -> 3 -> 5 -> None
+
+head = ListNode(1, ListNode(2))
+head = sol.removeNthFromEnd(head, 1)  # видалити останній
+print_list(head)  # 1 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+head = sol.removeNthFromEnd(head, 4)  # видалити перший
+print_list(head)  # 20 -> 30 -> 40 -> None
+
+head = ListNode(42)
+head = sol.removeNthFromEnd(head, 1)  # видалити єдиний
+print_list(head)  # None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2599,9 +3870,11 @@ end
 
 
 function algoP.RemoveNodeFromEndLinkedList.Iteration_TwoPass
-    set output_file "RemoveNthFromEnd.Count.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2627,7 +3900,29 @@ class Solution:
             cur = cur.next
 
         return head
-"
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+head = sol.removeNthFromEnd(head, 2)  # видалити 2-й з кінця (4)
+print_list(head)  # 1 -> 2 -> 3 -> 5 -> None
+
+head = ListNode(1, ListNode(2))
+head = sol.removeNthFromEnd(head, 1)  # видалити останній
+print_list(head)  # 1 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+head = sol.removeNthFromEnd(head, 4)  # видалити перший
+print_list(head)  # 20 -> 30 -> 40 -> None
+
+head = ListNode(42)
+head = sol.removeNthFromEnd(head, 1)  # видалити єдиний
+print_list(head)  # None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2637,9 +3932,11 @@ class Solution:
 end
 
 function algoP.RemoveNodeFromEndLinkedList.Recursion
-    set output_file "RemoveNthFromEnd.Recursion.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
  class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2658,7 +3955,30 @@ class Solution:
 
     def removeNthFromEnd(self, head, n):
         return self.rec(head, [n])
-"
+
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+head = sol.removeNthFromEnd(head, 2)  # видалити 2-й з кінця (4)
+print_list(head)  # 1 -> 2 -> 3 -> 5 -> None
+
+head = ListNode(1, ListNode(2))
+head = sol.removeNthFromEnd(head, 1)  # видалити останній
+print_list(head)  # 1 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+head = sol.removeNthFromEnd(head, 4)  # видалити перший
+print_list(head)  # 20 -> 30 -> 40 -> None
+
+head = ListNode(42)
+head = sol.removeNthFromEnd(head, 1)  # видалити єдиний
+print_list(head)  # None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2669,9 +3989,11 @@ end
 
 
 function algoP.RemoveNodeFromEndLinkedList.TwoPointers
-    set output_file "RemoveNthFromEnd.TwoPointers.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2693,7 +4015,30 @@ class Solution:
 
         left.next = left.next.next
         return dummy.next
-"
+
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" -> " if curr.next else " -> None\n")
+        curr = curr.next
+
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+sol = Solution()
+head = sol.removeNthFromEnd(head, 2)  # видалити 2-й з кінця (4)
+print_list(head)  # 1 -> 2 -> 3 -> 5 -> None
+
+head = ListNode(1, ListNode(2))
+head = sol.removeNthFromEnd(head, 1)  # видалити останній
+print_list(head)  # 1 -> None
+
+head = ListNode(10, ListNode(20, ListNode(30, ListNode(40))))
+head = sol.removeNthFromEnd(head, 4)  # видалити перший
+print_list(head)  # 20 -> 30 -> 40 -> None
+
+head = ListNode(42)
+head = sol.removeNthFromEnd(head, 1)  # видалити єдиний
+print_list(head)  # None
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2703,11 +4048,11 @@ class Solution:
 end
 
 function algoP.CopyLinkedListwithRandomPointer.Recursion_HashMap
-    set output_file "CopyRandomList.RecursionMap.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for a Node.
+    set template_content '
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = x
         self.next = next
         self.random = random
@@ -2716,7 +4061,7 @@ class Solution:
     def __init__(self):
         self.map = {}
 
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         if head is None:
             return None
         if head in self.map:
@@ -2727,7 +4072,35 @@ class Solution:
         copy.next = self.copyRandomList(head.next)
         copy.random = self.map.get(head.random)
         return copy
-"
+
+node3 = Node(3)
+node2 = Node(2, next=node3)
+node1 = Node(1, next=node2)
+
+node1.random = node3  # 1.random -> 3
+node2.random = node1  # 2.random -> 1
+node3.random = node2  # 3.random -> 2
+
+head = node1
+
+sol = Solution()
+copied_head = sol.copyRandomList(head)
+
+def print_list(head):
+    curr = head
+    while curr:
+        random_val = curr.random.val if curr.random else None
+        print(f"Node({curr.val}, Random:{random_val})", end=" -> ")
+        curr = curr.next
+    print("None")
+
+print_list(copied_head)
+
+print(head is copied_head)          # False
+print(head.next is copied_head.next) # False
+print(head.random.val == copied_head.random.val)  # True
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2738,17 +4111,17 @@ end
 
 
 function algoP.CopyLinkedListwithRandomPointer.HashMap_TwoPass
-    set output_file "CopyRandomList.DictTwoPass.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for a Node.
+    set template_content '
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = x
         self.next = next
         self.random = random
 
 class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         oldToCopy = {None: None}
 
         cur = head
@@ -2764,7 +4137,33 @@ class Solution:
             cur = cur.next
 
         return oldToCopy[head]
-"
+node3 = Node(3)
+node2 = Node(2, next=node3)
+node1 = Node(1, next=node2)
+
+node1.random = node3  # 1.random -> 3
+node2.random = node1  # 2.random -> 1
+node3.random = node2  # 3.random -> 2
+
+head = node1
+
+sol = Solution()
+copied_head = sol.copyRandomList(head)
+
+def print_list(head):
+    curr = head
+    while curr:
+        random_val = curr.random.val if curr.random else None
+        print(f"Node({curr.val}, Random:{random_val})", end=" -> ")
+        curr = curr.next
+    print("None")
+
+print_list(copied_head)
+
+print(head is copied_head)          # False
+print(head.next is copied_head.next) # False
+print(head.random.val == copied_head.random.val)  # True
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2775,17 +4174,18 @@ end
 
 
 function algoP.CopyLinkedListwithRandomPointer.HashMap_OnePass
-    set output_file "CopyRandomList.DefaultDict.py"
+    set output_file "main.py"
 
-    set template_content "import collections
+    set template_content '
+import collections
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = x
         self.next = next
         self.random = random
 
 class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         oldToCopy = collections.defaultdict(lambda: Node(0))
         oldToCopy[None] = None
 
@@ -2797,7 +4197,33 @@ class Solution:
             cur = cur.next
 
         return oldToCopy[head]
-"
+
+node3 = Node(3)
+node2 = Node(2, next=node3)
+node1 = Node(1, next=node2)
+
+node1.random = node3  # 1.random -> 3
+node2.random = node1  # 2.random -> 1
+node3.random = node2  # 3.random -> 2
+
+head = node1
+sol = Solution()
+copied_head = sol.copyRandomList(head)
+
+def print_list(head):
+    curr = head
+    while curr:
+        random_val = curr.random.val if curr.random else None
+        print(f"Node({curr.val}, Random:{random_val})", end=" -> ")
+        curr = curr.next
+    print("None")
+
+print_list(copied_head)
+
+print(head is copied_head)          # False
+print(head.next is copied_head.next) # False
+print(head.random.val == copied_head.random.val)  # True
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2808,17 +4234,17 @@ end
 
 
 function algoP.CopyLinkedListwithRandomPointer.SpaceOptimized-I
-    set output_file "CopyRandomList.InterleaveClassic.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for a Node.
+    set template_content '
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = x
         self.next = next
         self.random = random
 
 class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         if head is None:
             return None
 
@@ -2846,7 +4272,34 @@ class Solution:
             l1 = l1.next
 
         return newHead
-"
+
+node3 = Node(3)
+node2 = Node(2, next=node3)
+node1 = Node(1, next=node2)
+
+node1.random = node3  # 1.random -> 3
+node2.random = node1  # 2.random -> 1
+node3.random = node2  # 3.random -> 2
+
+head = node1
+
+sol = Solution()
+copied_head = sol.copyRandomList(head)
+
+def print_list(head):
+    curr = head
+    while curr:
+        random_val = curr.random.val if curr.random else None
+        print(f"Node({curr.val}, Random:{random_val})", end=" -> ")
+        curr = curr.next
+    print("None")
+
+print_list(copied_head)
+
+print(head is copied_head)          # False
+print(head.next is copied_head.next) # False
+print(head.random.val == copied_head.random.val)  # True
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2857,17 +4310,17 @@ end
 
 
 function algoP.CopyLinkedListwithRandomPointer.SpaceOptimized-II
-    set output_file "CopyRandomList.RandomChainTrick.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for a Node.
+    set template_content '
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+    def __init__(self, x: int, next: "Node" = None, random: "Node" = None):
         self.val = x
         self.next = next
         self.random = random
 
 class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         if head is None:
             return None
 
@@ -2894,7 +4347,33 @@ class Solution:
             l1 = l1.next
 
         return newHead
-"
+
+node3 = Node(3)
+node2 = Node(2, next=node3)
+node1 = Node(1, next=node2)
+
+node1.random = node3  # 1.random -> 3
+node2.random = node1  # 2.random -> 1
+node3.random = node2  # 3.random -> 2
+
+head = node1
+sol = Solution()
+copied_head = sol.copyRandomList(head)
+
+def print_list(head):
+    curr = head
+    while curr:
+        random_val = curr.random.val if curr.random else None
+        print(f"Node({curr.val}, Random:{random_val})", end=" -> ")
+        curr = curr.next
+    print("None")
+
+print_list(copied_head)
+
+print(head is copied_head)          # False
+print(head.next is copied_head.next) # False
+print(head.random.val == copied_head.random.val)  # True
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2905,10 +4384,10 @@ end
 
 
 function algoP.AddTwoNumbers.Recursion
+    set output_file "main.py"
+    set template_content '
+from typing import Optional
 
-    set output_file "AddTwoNumbers.Recursive.py"
-
-    set template_content "# Definition for singly-linked list.
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2933,7 +4412,31 @@ class Solution:
 
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         return self.add(l1, l2, 0)
-"
+
+l1 = ListNode(2, ListNode(4, ListNode(3)))  # 2 -> 4 -> 3
+l2 = ListNode(5, ListNode(6, ListNode(4)))  # 5 -> 6 -> 4
+
+sol = Solution()
+result = sol.addTwoNumbers(l1, l2)
+
+# Print result safely
+curr = result
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+
+l1 = ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9)))))))
+l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
+
+sol = Solution()
+result = sol.addTwoNumbers(l1, l2)
+
+curr = result
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2944,9 +4447,11 @@ end
 
 
 function algoP.AddTwoNumbers.Iteration
-    set output_file "AddTwoNumbers.Iterative.py"
+    set output_file "main.py"
 
-    set template_content "# Definition for singly-linked list.
+    set template_content '
+from typing import Optional
+
 class ListNode:
      def __init__(self, val=0, next=None):
          self.val = val
@@ -2972,7 +4477,30 @@ class Solution:
             l2 = l2.next if l2 else None
 
         return dummy.next
-"
+
+l1 = ListNode(2, ListNode(4, ListNode(3)))  # 2 -> 4 -> 3
+l2 = ListNode(5, ListNode(6, ListNode(4)))  # 5 -> 6 -> 4
+
+sol = Solution()
+result = sol.addTwoNumbers(l1, l2)
+
+curr = result
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+
+l1 = ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9)))))))
+l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
+
+sol = Solution()
+result = sol.addTwoNumbers(l1, l2)
+
+curr = result
+while curr:
+    print(curr.val, end=" -> " if curr.next else " -> None\n")
+    curr = curr.next
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -2982,16 +4510,35 @@ class Solution:
 end
 
 function algoP.FindtheDuplicateNumber.Sorting
-    set output_file "FindDuplicate.Sort.py"
+    set output_file "main.py"
 
-    set template_content "class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         nums.sort()
         for i in range(len(nums) - 1):
             if nums[i] == nums[i + 1]:
                 return nums[i]
         return -1
-"
+
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -3003,9 +4550,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.HashSet
-    set output_file "FindDuplicate.Set.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         seen = set()
         for num in nums:
@@ -3013,6 +4563,20 @@ function algoP.FindtheDuplicateNumber.HashSet
                 return num
             seen.add(num)
         return -1
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution)       
 '
 
     echo "$template_content" > $output_file
@@ -3024,9 +4588,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.Array
-    set output_file "FindDuplicate.FrequencyArray.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         seen = [0] * len(nums)
         for num in nums:
@@ -3034,6 +4601,20 @@ function algoP.FindtheDuplicateNumber.Array
                 return num
             seen[num - 1] = 1
         return -1
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
 '
 
     echo "$template_content" > $output_file
@@ -3045,9 +4626,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.NegativeMarking
-    set output_file "FindDuplicate.MarkNegative.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         for num in nums:
             idx = abs(num) - 1
@@ -3055,6 +4639,21 @@ function algoP.FindtheDuplicateNumber.NegativeMarking
                 return abs(num)
             nums[idx] *= -1
         return -1
+
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
 '
 
     echo "$template_content" > $output_file
@@ -3066,9 +4665,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.BinarySearch
-    set output_file "FindDuplicate.BinarySearch.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         n = len(nums)
         low, high = 1, n - 1
@@ -3081,6 +4683,21 @@ function algoP.FindtheDuplicateNumber.BinarySearch
             else:
                 high = mid
         return low
+
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
 '
 
     echo "$template_content" > $output_file
@@ -3092,9 +4709,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.BitManipulation
-    set output_file "FindDuplicate.BitCount.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         n = len(nums)
         res = 0
@@ -3112,6 +4732,21 @@ function algoP.FindtheDuplicateNumber.BitManipulation
             if x > y:
                 res |= mask
         return res
+
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
 '
 
     echo "$template_content" > $output_file
@@ -3123,9 +4758,12 @@ end
 
 
 function algoP.FindtheDuplicateNumber.FastAndSlowPointers
-    set output_file "FindDuplicate.Floyd.py"
+    set output_file "main.py"
 
-    set template_content 'class Solution:
+    set template_content '
+from typing import List
+
+class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         slow, fast = 0, 0
         while True:
@@ -3140,6 +4778,21 @@ function algoP.FindtheDuplicateNumber.FastAndSlowPointers
             slow2 = nums[slow2]
             if slow == slow2:
                 return slow
+
+nums_list = [
+    [1, 3, 4, 2, 2],          # duplicate = 2
+    [3, 1, 3, 4, 2],          # duplicate = 3
+    [1, 1],                   # duplicate = 1
+    [1, 1, 2],                # duplicate = 1
+    [2, 2, 2, 2, 2],          # duplicate = 2
+]
+
+def test_solution(SolutionClass):
+    for nums in nums_list:
+        sol = SolutionClass()
+        print(f"Input: {nums}, Duplicate: {sol.findDuplicate(nums)}")
+
+test_solution(Solution) 
 '
 
     echo "$template_content" > $output_file
@@ -3151,9 +4804,10 @@ end
 
 
 function algoP.LRUCache.BruteForce
-    set output_file "LRUCache.List.py"
+    set output_file "main.py"
 
-    set template_content 'class LRUCache:
+    set template_content '
+class LRUCache:
 
     def __init__(self, capacity: int):
         self.cache = []
@@ -3179,6 +4833,18 @@ function algoP.LRUCache.BruteForce
             self.cache.pop(0)
 
         self.cache.append([key, value])
+
+cache = LRUCache(2)
+
+cache.put(1, 1)        # cache: {1=1}
+cache.put(2, 2)        # cache: {1=1, 2=2}
+print(cache.get(1))    # повертає 1, cache: {2=2, 1=1}
+cache.put(3, 3)        # видаляє ключ 2, cache: {1=1, 3=3}
+print(cache.get(2))    # повертає -1 (не існує)
+cache.put(4, 4)        # видаляє ключ 1, cache: {3=3, 4=4}
+print(cache.get(1))    # повертає -1 (не існує)
+print(cache.get(3))    # повертає 3
+print(cache.get(4))    # повертає 4
 '
 
     echo "$template_content" > $output_file
@@ -3190,9 +4856,10 @@ end
 
 
 function algoP.LRUCache.DoublyLinkedList
-    set output_file "LRUCache.CustomDLL.py"
+    set output_file "main.py"
 
-    set template_content 'class Node:
+    set template_content '
+class Node:
     def __init__(self, key, val):
         self.key, self.val = key, val
         self.prev = self.next = None
@@ -3232,6 +4899,18 @@ class LRUCache:
             lru = self.left.next
             self.remove(lru)
             del self.cache[lru.key]
+
+cache = LRUCache(2)
+
+cache.put(1, 1)        # cache: {1=1}
+cache.put(2, 2)        # cache: {1=1, 2=2}
+print(cache.get(1))    # повертає 1, cache: {2=2, 1=1}
+cache.put(3, 3)        # видаляє ключ 2, cache: {1=1, 3=3}
+print(cache.get(2))    # повертає -1 (не існує)
+cache.put(4, 4)        # видаляє ключ 1, cache: {3=3, 4=4}
+print(cache.get(1))    # повертає -1 (не існує)
+print(cache.get(3))    # повертає 3
+print(cache.get(4))    # повертає 4
 '
 
     echo "$template_content" > $output_file
@@ -3242,10 +4921,11 @@ class LRUCache:
 end
 
 
-function algoP.LRUCache.Built-InDataStructure
-    set output_file "LRUCache.OrderedDict.py"
+function algoP.LRUCache.BuiltInDataStructure
+    set output_file "main.py"
 
-    set template_content 'from collections import OrderedDict
+    set template_content '
+from collections import OrderedDict
 
 class LRUCache:
 
@@ -3266,6 +4946,18 @@ class LRUCache:
 
         if len(self.cache) > self.cap:
             self.cache.popitem(last=False)
+
+cache = LRUCache(2)
+
+cache.put(1, 1)        # cache: {1=1}
+cache.put(2, 2)        # cache: {1=1, 2=2}
+print(cache.get(1))    # повертає 1, cache: {2=2, 1=1}
+cache.put(3, 3)        # видаляє ключ 2, cache: {1=1, 3=3}
+print(cache.get(2))    # повертає -1 (не існує)
+cache.put(4, 4)        # видаляє ключ 1, cache: {3=3, 4=4}
+print(cache.get(1))    # повертає -1 (не існує)
+print(cache.get(3))    # повертає 3
+print(cache.get(4))    # повертає 4
 '
 
     echo "$template_content" > $output_file
@@ -3277,16 +4969,17 @@ end
 
 
 function algoP.InvertBinaryTree.BreadthFirstSearch
-    set output_file "InvertTree.BFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from collections import deque
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
          self.right = right
-
-from collections import deque
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -3301,6 +4994,83 @@ class Solution:
             if node.right:
                 queue.append(node.right)
         return root
+
+
+
+
+
+root = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+
+root = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+#         4
+#       /   \
+#      2     7
+#     / \   / \
+#    1   3 6   9
+
+#         4
+#       /   \
+#      7     2
+#     / \   / \
+#    9   6 3   1
+
+
+root1 = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+res1 = sol.invertTree(root1)
+print("Inverted tree 1:")
+print_tree(res1)
+
+root2 = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+res2 = sol.invertTree(root2)
+print("Inverted tree 2:")
+print_tree(res2)
+
 '
 
     echo "$template_content" > $output_file
@@ -3312,9 +5082,10 @@ end
 
 
 function algoP.InvertBinaryTree.DepthFirstSearch
-    set output_file "InvertTree.DFSRecursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -3331,6 +5102,85 @@ class Solution:
         self.invertTree(root.right)
 
         return root
+
+root = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+
+root = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+
+root = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+#         4
+#       /   \
+#      2     7
+#     / \   / \
+#    1   3 6   9
+
+#         4
+#       /   \
+#      7     2
+#     / \   / \
+#    9   6 3   1
+
+
+root1 = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+res1 = sol.invertTree(root1)
+print("Inverted tree 1:")
+print_tree(res1)
+
+root2 = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+res2 = sol.invertTree(root2)
+print("Inverted tree 2:")
+print_tree(res2)
+
+
 '
 
     echo "$template_content" > $output_file
@@ -3343,9 +5193,12 @@ end
 
 
 function algoP.InvertBinaryTree.IterativeDFS
-    set output_file "InvertTree.DFSStack.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+from collections import deque
+
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -3365,6 +5218,84 @@ class Solution:
             if node.right:
                 stack.append(node.right)
         return root
+
+root = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+
+root = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+
+root = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+
+sol = Solution()
+res = sol.invertTree(root)
+
+def print_tree(root):
+    if not root:
+        return
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.val, end=" ")
+        if node.left: queue.append(node.left)
+        if node.right: queue.append(node.right)
+    print()
+
+print_tree(res)
+
+#         4
+#       /   \
+#      2     7
+#     / \   / \
+#    1   3 6   9
+
+#         4
+#       /   \
+#      7     2
+#     / \   / \
+#    9   6 3   1
+
+
+root1 = TreeNode(4,
+        TreeNode(2, TreeNode(1), TreeNode(3)),
+        TreeNode(7, TreeNode(6), TreeNode(9))
+    )
+res1 = sol.invertTree(root1)
+print("Inverted tree 1:")
+print_tree(res1)
+
+root2 = TreeNode(10,
+        TreeNode(5, TreeNode(2), TreeNode(7)),
+        TreeNode(15, None, TreeNode(20))
+    )
+res2 = sol.invertTree(root2)
+print("Inverted tree 2:")
+print_tree(res2)
+
 '
 
     echo "$template_content" > $output_file
@@ -3375,11 +5306,13 @@ class Solution:
 end
 
 
-function algo.MaximumDepthBinaryTree.RecursiveDFS
-    set output_file "MaxDepth.Recursive.py"
+function algoP.MaximumDepthBinaryTree.RecursiveDFS
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3390,6 +5323,35 @@ class Solution:
         if not root:
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+# ======= Example 1 =======
+#      3
+#     / \
+#    9  20
+#       / \
+#      15  7
+tree1 = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+sol = Solution()
+print(sol.maxDepth(tree1))  # Output: 3
+
+# ======= Example 2 =======
+#      1
+#     /
+#    2
+#   /
+#  3
+tree2 = TreeNode(1, TreeNode(2, TreeNode(3)))
+print(sol.maxDepth(tree2))  # Output: 3
+
+# ======= Example 3 =======
+# Single node
+tree3 = TreeNode(42)
+print(sol.maxDepth(tree3))  # Output: 1
+
+# ======= Example 4 =======
+# Empty tree
+tree4 = None
+print(sol.maxDepth(tree4))  # Output: 0
 '
 
     echo "$template_content" > $output_file
@@ -3401,9 +5363,11 @@ end
 
 
 function algoP.MaximumDepthBinaryTree.IterativeDFS_Stack
-    set output_file "MaxDepth.DFSStack.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -3422,6 +5386,35 @@ class Solution:
                 stack.append([node.left, depth + 1])
                 stack.append([node.right, depth + 1])
         return res
+
+# ======= Example 1 =======
+#      3
+#     / \
+#    9  20
+#       / \
+#      15  7
+tree1 = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+sol = Solution()
+print(sol.maxDepth(tree1))  # Output: 3
+
+# ======= Example 2 =======
+#      1
+#     /
+#    2
+#   /
+#  3
+tree2 = TreeNode(1, TreeNode(2, TreeNode(3)))
+print(sol.maxDepth(tree2))  # Output: 3
+
+# ======= Example 3 =======
+# Single node
+tree3 = TreeNode(42)
+print(sol.maxDepth(tree3))  # Output: 1
+
+# ======= Example 4 =======
+# Empty tree
+tree4 = None
+print(sol.maxDepth(tree4))  # Output: 0
 '
 
     echo "$template_content" > $output_file
@@ -3433,16 +5426,17 @@ end
 
 
 function algoP.MaximumDepthBinaryTree.BreadthFirstSearch
-    set output_file "MaxDepth.BFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+from collections import deque
+
  class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
          self.right = right
-
-from collections import deque
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -3460,6 +5454,34 @@ class Solution:
                     q.append(node.right)
             level += 1
         return level
+# ======= Example 1 =======
+#      3
+#     / \
+#    9  20
+#       / \
+#      15  7
+tree1 = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+sol = Solution()
+print(sol.maxDepth(tree1))  # Output: 3
+
+# ======= Example 2 =======
+#      1
+#     /
+#    2
+#   /
+#  3
+tree2 = TreeNode(1, TreeNode(2, TreeNode(3)))
+print(sol.maxDepth(tree2))  # Output: 3
+
+# ======= Example 3 =======
+# Single node
+tree3 = TreeNode(42)
+print(sol.maxDepth(tree3))  # Output: 1
+
+# ======= Example 4 =======
+# Empty tree
+tree4 = None
+print(sol.maxDepth(tree4))  # Output: 0
 '
 
     echo "$template_content" > $output_file
@@ -3471,10 +5493,12 @@ end
 
 
 function algoP.DiameterofBinaryTree.BruteForce
-    set output_file "DiameterOfBinaryTree.Recursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -3496,6 +5520,41 @@ class Solution:
         if not root:
             return 0
         return 1 + max(self.maxHeight(root.left), self.maxHeight(root.right))
+
+
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \     
+    # 4   5    
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Diameter of tree 1:", sol.diameterOfBinaryTree(root1))
+
+    #     10
+    #    /  \
+    #   5    15
+    #  /      \
+    # 2        20
+
+
+root2 = TreeNode(10,
+                 TreeNode(5, TreeNode(2)),
+                 TreeNode(15, None, TreeNode(20)))
+
+print("Diameter of tree 2:", sol.diameterOfBinaryTree(root2))
+
+
+#42
+root3 = TreeNode(42)
+print("Diameter of tree 3:", sol.diameterOfBinaryTree(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3506,10 +5565,12 @@ class Solution:
 end
 
 function algoP.DiameterofBinaryTree.DepthFirstSearch
-    set output_file "DiameterOfBinaryTree.DFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3530,6 +5591,40 @@ class Solution:
 
         dfs(root)
         return res
+
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \     
+    # 4   5    
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Diameter of tree 1:", sol.diameterOfBinaryTree(root1))
+
+    #     10
+    #    /  \
+    #   5    15
+    #  /      \
+    # 2        20
+
+
+root2 = TreeNode(10,
+                 TreeNode(5, TreeNode(2)),
+                 TreeNode(15, None, TreeNode(20)))
+
+print("Diameter of tree 2:", sol.diameterOfBinaryTree(root2))
+
+
+#42
+root3 = TreeNode(42)
+print("Diameter of tree 3:", sol.diameterOfBinaryTree(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3541,10 +5636,12 @@ end
 
 
 function algoP.DiameterofBinaryTree.IterativeDFS
-    set output_file "DiameterOfBinaryTree.Iterative.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+
+from typing import Optional
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3569,6 +5666,40 @@ class Solution:
                            max(leftHeight + rightHeight, leftDiameter, rightDiameter))
 
         return mp[root][1]
+
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \     
+    # 4   5    
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Diameter of tree 1:", sol.diameterOfBinaryTree(root1))
+
+    #     10
+    #    /  \
+    #   5    15
+    #  /      \
+    # 2        20
+
+
+root2 = TreeNode(10,
+                 TreeNode(5, TreeNode(2)),
+                 TreeNode(15, None, TreeNode(20)))
+
+print("Diameter of tree 2:", sol.diameterOfBinaryTree(root2))
+
+
+#42
+root3 = TreeNode(42)
+print("Diameter of tree 3:", sol.diameterOfBinaryTree(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3645,10 +5776,11 @@ class Solution:
 end
 
 function algoP.BalancedBinaryTree.BruteForce
-    set output_file "IsBalanced.RecursiveTopDown.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3669,6 +5801,38 @@ class Solution:
         if not root:
             return 0
         return 1 + max(self.height(root.left), self.height(root.right))
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \
+    # 4   5
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Tree 1 is balanced:", sol.isBalanced(root1))
+
+    #     1
+    #    /
+    #   2
+    #  /
+    # 3
+
+root2 = TreeNode(1,
+                 TreeNode(2, TreeNode(3)))
+
+print("Tree 2 is balanced:", sol.isBalanced(root2))
+
+ #  42
+
+root3 = TreeNode(42)
+
+print("Tree 3 is balanced:", sol.isBalanced(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3680,10 +5844,11 @@ end
 
 
 function algoP.BalancedBinaryTree.DepthFirstSearch
-    set output_file "IsBalanced.RecursiveBottomUp.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3700,6 +5865,38 @@ class Solution:
             return [balanced, 1 + max(left[1], right[1])]
 
         return dfs(root)[0]
+
+   #     1
+    #    / \
+    #   2   3
+    #  / \
+    # 4   5
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Tree 1 is balanced:", sol.isBalanced(root1))
+
+    #     1
+    #    /
+    #   2
+    #  /
+    # 3
+
+root2 = TreeNode(1,
+                 TreeNode(2, TreeNode(3)))
+
+print("Tree 2 is balanced:", sol.isBalanced(root2))
+
+ #  42
+
+root3 = TreeNode(42)
+
+print("Tree 3 is balanced:", sol.isBalanced(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3710,9 +5907,10 @@ class Solution:
 end
 
 function algoP.BalancedBinaryTree.IterativeDFS
-    set output_file "IsBalanced.Iterative.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+
  class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -3747,6 +5945,38 @@ class Solution:
                     node = node.right
 
         return True
+
+   #     1
+    #    / \
+    #   2   3
+    #  / \
+    # 4   5
+
+
+root1 = TreeNode(1,
+                 TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3))
+
+sol = Solution()
+print("Tree 1 is balanced:", sol.isBalanced(root1))
+
+    #     1
+    #    /
+    #   2
+    #  /
+    # 3
+
+root2 = TreeNode(1,
+                 TreeNode(2, TreeNode(3)))
+
+print("Tree 2 is balanced:", sol.isBalanced(root2))
+
+ #  42
+
+root3 = TreeNode(42)
+
+print("Tree 3 is balanced:", sol.isBalanced(root3))
+
 '
 
     echo "$template_content" > $output_file
@@ -3758,10 +5988,12 @@ end
 
 
 function algoP.SameBinaryTree.DepthFirstSearch
-    set output_file "IsSameTree.Recursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3775,6 +6007,57 @@ class Solution:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         else:
             return False
+
+#     1           1
+#    / \         / \
+#   2   3       2   3
+
+p1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+sol = Solution()
+print(sol.isSameTree(p1, q1))  # True
+
+#     1           1
+#    / \         / \
+#   2   3       2   4
+
+p2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(4))
+
+print(sol.isSameTree(p2, q2))  # False
+
+#     1           1
+#    /             \
+#   2               2
+
+p3 = TreeNode(1,
+              TreeNode(2),
+              None)
+
+q3 = TreeNode(1,
+              None,
+              TreeNode(2))
+
+print(sol.isSameTree(p3, q3))  # False
+print(sol.isSameTree(None, None))  # True
+
+p5 = TreeNode(1)
+q5 = None
+print(sol.isSameTree(None, None))  # True
+
+print(sol.isSameTree(p5, q5))  # False
+
 '
 
     echo "$template_content" > $output_file
@@ -3786,10 +6069,12 @@ end
 
 
 function algoP.SameBinaryTree.IterativeDFS
-    set output_file "IsSameTree.IterativeStack.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3811,6 +6096,56 @@ class Solution:
             stack.append((node1.left, node2.left))
 
         return True
+
+#     1           1
+#    / \         / \
+#   2   3       2   3
+
+p1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+sol = Solution()
+print(sol.isSameTree(p1, q1))  # True
+
+#     1           1
+#    / \         / \
+#   2   3       2   4
+
+p2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(4))
+
+print(sol.isSameTree(p2, q2))  # False
+
+#     1           1
+#    /             \
+#   2               2
+
+p3 = TreeNode(1,
+              TreeNode(2),
+              None)
+
+q3 = TreeNode(1,
+              None,
+              TreeNode(2))
+
+print(sol.isSameTree(p3, q3))  # False
+print(sol.isSameTree(None, None))  # True
+
+p5 = TreeNode(1)
+q5 = None
+print(sol.isSameTree(None, None))  # True
+
+print(sol.isSameTree(p5, q5))  # False
 '
 
     echo "$template_content" > $output_file
@@ -3822,10 +6157,12 @@ end
 
 
 function algoP.SameBinaryTree.BreadthFirstSearch
-    set output_file "IsSameTree.IterativeQueue.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3854,6 +6191,56 @@ class Solution:
                 q2.append(nodeQ.right)
 
         return True
+
+#     1           1
+#    / \         / \
+#   2   3       2   3
+
+p1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q1 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+sol = Solution()
+print(sol.isSameTree(p1, q1))  # True
+
+#     1           1
+#    / \         / \
+#   2   3       2   4
+
+p2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(3))
+
+q2 = TreeNode(1,
+              TreeNode(2),
+              TreeNode(4))
+
+print(sol.isSameTree(p2, q2))  # False
+
+#     1           1
+#    /             \
+#   2               2
+
+p3 = TreeNode(1,
+              TreeNode(2),
+              None)
+
+q3 = TreeNode(1,
+              None,
+              TreeNode(2))
+
+print(sol.isSameTree(p3, q3))  # False
+print(sol.isSameTree(None, None))  # True
+
+p5 = TreeNode(1)
+q5 = None
+print(sol.isSameTree(None, None))  # True
+
+print(sol.isSameTree(p5, q5))  # False
 '
 
     echo "$template_content" > $output_file
@@ -3865,10 +6252,12 @@ end
 
 
 function algoP.SubtreeofAnotherTree.DepthFirstSearch
-    set output_file "IsSubtree.Recursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3894,6 +6283,78 @@ class Solution:
             return (self.sameTree(root.left, subRoot.left) and
                     self.sameTree(root.right, subRoot.right))
         return False
+
+    #     3
+    #    / \
+    #   4   5
+    #  / \
+    # 1   2
+
+    #   4
+    #  / \
+    # 1   2
+
+root = TreeNode(3,
+        TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+        ),
+        TreeNode(5)
+)
+
+subRoot = TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+)
+
+sol = Solution()
+print(sol.isSubtree(root, subRoot))  # True
+
+    #     3
+    #    / \
+    #   4   5
+    #  / \
+    # 1   2
+    #    /
+    #   0
+
+    #   4
+    #  / \
+    # 1   2
+
+root = TreeNode(3,
+        TreeNode(4,
+            TreeNode(1),
+            TreeNode(2,
+                TreeNode(0)
+            )
+        ),
+        TreeNode(5)
+)
+
+subRoot = TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+)
+
+print(sol.isSubtree(root, subRoot))  # False
+
+
+root = TreeNode(1)
+subRoot = None
+print(sol.isSubtree(root, subRoot))  # True
+
+root = TreeNode(1,
+        TreeNode(2),
+        TreeNode(3)
+)
+
+subRoot = TreeNode(1,
+            TreeNode(2),
+            TreeNode(3)
+)
+print(sol.isSubtree(root, subRoot))  # True
+
 '
 
     echo "$template_content" > $output_file
@@ -3905,10 +6366,12 @@ end
 
 
 function algoP.SubtreeofAnotherTree.SerializationAndPatternMatching
-    set output_file "IsSubtree.ZFunction.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -3945,6 +6408,79 @@ class Solution:
             if z_values[i] == sub_len:
                 return True
         return False
+
+    #     3
+    #    / \
+    #   4   5
+    #  / \
+    # 1   2
+
+    #   4
+    #  / \
+    # 1   2
+
+root = TreeNode(3,
+        TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+        ),
+        TreeNode(5)
+)
+
+subRoot = TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+)
+
+sol = Solution()
+print(sol.isSubtree(root, subRoot))  # True
+
+    #     3
+    #    / \
+    #   4   5
+    #  / \
+    # 1   2
+    #    /
+    #   0
+
+    #   4
+    #  / \
+    # 1   2
+
+root = TreeNode(3,
+        TreeNode(4,
+            TreeNode(1),
+            TreeNode(2,
+                TreeNode(0)
+            )
+        ),
+        TreeNode(5)
+)
+
+subRoot = TreeNode(4,
+            TreeNode(1),
+            TreeNode(2)
+)
+
+print(sol.isSubtree(root, subRoot))  # False
+
+
+root = TreeNode(1)
+subRoot = None
+print(sol.isSubtree(root, subRoot))  # True
+
+root = TreeNode(1,
+        TreeNode(2),
+        TreeNode(3)
+)
+
+subRoot = TreeNode(1,
+            TreeNode(2),
+            TreeNode(3)
+)
+print(sol.isSubtree(root, subRoot))  # True
+
+
 '
 
     echo "$template_content" > $output_file
@@ -3956,9 +6492,9 @@ end
 
 
 function algoP.LowestCommonAncestorBinarySearchTree.Recursion
-    set output_file "LCA.BST.Recursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -3975,6 +6511,75 @@ class Solution:
             return self.lowestCommonAncestor(root.right, p, q)
         else:
             return root
+
+    #     6
+    #    / \
+    #   2   8
+    #  / \ / \
+    # 0  4 7  9
+    #   / \
+    #  3   5
+
+root = TreeNode(6,
+        TreeNode(2,
+            TreeNode(0),
+            TreeNode(4,
+                TreeNode(3),
+                TreeNode(5)
+            )
+        ),
+        TreeNode(8,
+            TreeNode(7),
+            TreeNode(9)
+        )
+)
+
+p = TreeNode(2)
+q = TreeNode(8)
+
+sol = Solution()
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 6
+
+    #     6
+    #    / \
+    #   2   8
+    #  / \
+    # 0   4
+    #    / \
+    #   3   5
+
+p = TreeNode(2)
+q = TreeNode(4)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 2
+
+
+    #     6
+    #    / \
+    #   2   8
+    #      /
+    #     7
+
+p = TreeNode(3)
+q = TreeNode(5)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 4
+
+p = TreeNode(2)
+q = TreeNode(3)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 2
+
+p = TreeNode(0)
+q = TreeNode(9)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 6
+
 '
 
     echo "$template_content" > $output_file
@@ -3986,9 +6591,9 @@ end
 
 
 function algoP.LowestCommonAncestorBinarySearchTree.Iteration
-    set output_file "LCA.BST.Iterative.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -4006,6 +6611,74 @@ class Solution:
                 cur = cur.left
             else:
                 return cur
+
+    #     6
+    #    / \
+    #   2   8
+    #  / \ / \
+    # 0  4 7  9
+    #   / \
+    #  3   5
+
+root = TreeNode(6,
+        TreeNode(2,
+            TreeNode(0),
+            TreeNode(4,
+                TreeNode(3),
+                TreeNode(5)
+            )
+        ),
+        TreeNode(8,
+            TreeNode(7),
+            TreeNode(9)
+        )
+)
+
+p = TreeNode(2)
+q = TreeNode(8)
+
+sol = Solution()
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 6
+
+    #     6
+    #    / \
+    #   2   8
+    #  / \
+    # 0   4
+    #    / \
+    #   3   5
+
+p = TreeNode(2)
+q = TreeNode(4)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 2
+
+
+    #     6
+    #    / \
+    #   2   8
+    #      /
+    #     7
+
+p = TreeNode(3)
+q = TreeNode(5)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 4
+
+p = TreeNode(2)
+q = TreeNode(3)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 2
+
+p = TreeNode(0)
+q = TreeNode(9)
+
+res = sol.lowestCommonAncestor(root, p, q)
+print(res.val)  # 6
 '
 
     echo "$template_content" > $output_file
@@ -4017,10 +6690,13 @@ end
 
 
 function algoP.BinaryTreeLevelOrderTraversal.DepthFirstSearch
-    set output_file "LevelOrder.DFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4042,6 +6718,70 @@ class Solution:
 
         dfs(root, 0)
         return res
+
+    #     3
+    #    / \
+    #   9  20
+    #      / \
+    #     15  7
+
+root = TreeNode(3,
+        TreeNode(9),
+        TreeNode(20,
+            TreeNode(15),
+            TreeNode(7)
+        )
+)
+
+sol = Solution()
+print(sol.levelOrder(root))
+
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \ / \
+    # 4  5 6  7
+
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(4),
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            TreeNode(6),
+            TreeNode(7)
+        )
+)
+
+print(sol.levelOrder(root))
+
+    # 1
+    #  \
+    #   2
+    #    \
+    #     3
+
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.levelOrder(root))
+
+
+root = TreeNode(42)
+print(sol.levelOrder(root))
+
+root = None
+print(sol.levelOrder(root))
+
+# []
 '
 
     echo "$template_content" > $output_file
@@ -4053,9 +6793,12 @@ end
 
 
 function algoP.BinaryTreeLevelOrderTraversal.BreadthFirstSearch
-    set output_file "LevelOrder.BFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -4084,6 +6827,71 @@ class Solution:
                 res.append(level)
 
         return res
+
+    #     3
+    #    / \
+    #   9  20
+    #      / \
+    #     15  7
+
+root = TreeNode(3,
+        TreeNode(9),
+        TreeNode(20,
+            TreeNode(15),
+            TreeNode(7)
+        )
+)
+
+sol = Solution()
+print(sol.levelOrder(root))
+
+
+    #     1
+    #    / \
+    #   2   3
+    #  / \ / \
+    # 4  5 6  7
+
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(4),
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            TreeNode(6),
+            TreeNode(7)
+        )
+)
+
+print(sol.levelOrder(root))
+
+    # 1
+    #  \
+    #   2
+    #    \
+    #     3
+
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.levelOrder(root))
+
+
+root = TreeNode(42)
+print(sol.levelOrder(root))
+
+root = None
+print(sol.levelOrder(root))
+
+# []
+
 '
 
     echo "$template_content" > $output_file
@@ -4094,90 +6902,16 @@ class Solution:
 end
 
 
-function algoP.BinaryTreeLevelOrderTraversal.DepthFirstSearch
-    set output_file "LevelOrder.DFS.py"
-
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
-
-class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        res = []
-
-        def dfs(node, depth):
-            if not node:
-                return
-            if len(res) == depth:
-                res.append([])
-
-            res[depth].append(node.val)
-            dfs(node.left, depth + 1)
-            dfs(node.right, depth + 1)
-
-        dfs(root, 0)
-        return res
-'
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.BinaryTreeLevelOrderTraversal.BreadthFirstSearch
-    set output_file "LevelOrder.BFS.py"
-
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
-
-import collections
-
-class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        res = []
-
-        q = collections.deque()
-        if root:
-            q.append(root)
-
-        while q:
-            qLen = len(q)
-            level = []
-            for i in range(qLen):
-                node = q.popleft()
-                if node:
-                    level.append(node.val)
-                    q.append(node.left)
-                    q.append(node.right)
-            if level:
-                res.append(level)
-
-        return res
-'
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
 
 function algoP.CountGoodNodesBinaryTree.DepthFirstSearch
-    set output_file "RightSideView.DFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4198,6 +6932,87 @@ class Solution:
 
         dfs(root, 0)
         return res
+
+    #     1
+    #    / \
+    #   2   3
+    #    \   \
+    #     5   4
+
+root = TreeNode(1,
+        TreeNode(2,
+            None,
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            None,
+            TreeNode(4)
+        )
+)
+
+sol = Solution()
+print(sol.rightSideView(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #  / \   / \
+    # 3   7 12  18
+
+root = TreeNode(10,
+        TreeNode(5,
+            TreeNode(3),
+            TreeNode(7)
+        ),
+        TreeNode(15,
+            TreeNode(12),
+            TreeNode(18)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+root = TreeNode(7)
+print(sol.rightSideView(root))
+
+
+root = None
+print(sol.rightSideView(root))
+
+
 '
 
     echo "$template_content" > $output_file
@@ -4209,10 +7024,13 @@ end
 
 
 function algoP.CountGoodNodesBinaryTree.BreadthFirstSearch
-    set output_file "RightSideView.BFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4238,6 +7056,84 @@ class Solution:
             if rightSide:
                 res.append(rightSide.val)
         return res
+
+    #     1
+    #    / \
+    #   2   3
+    #    \   \
+    #     5   4
+
+root = TreeNode(1,
+        TreeNode(2,
+            None,
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            None,
+            TreeNode(4)
+        )
+)
+
+sol = Solution()
+print(sol.rightSideView(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #  / \   / \
+    # 3   7 12  18
+
+root = TreeNode(10,
+        TreeNode(5,
+            TreeNode(3),
+            TreeNode(7)
+        ),
+        TreeNode(15,
+            TreeNode(12),
+            TreeNode(18)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+root = TreeNode(7)
+print(sol.rightSideView(root))
+
+root = None
+print(sol.rightSideView(root))
+
 '
 
     echo "$template_content" > $output_file
@@ -4247,85 +7143,17 @@ class Solution:
     cat $output_file
 end
 
-
-function algoP.CountGoodNodesBinaryTree.DepthFirstSearch
-    set output_file "GoodNodes.DFS.py"
-
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
-
-class Solution:
-    def goodNodes(self, root: TreeNode) -> int:
-
-        def dfs(node, maxVal):
-            if not node:
-                return 0
-
-            res = 1 if node.val >= maxVal else 0
-            maxVal = max(maxVal, node.val)
-            res += dfs(node.left, maxVal)
-            res += dfs(node.right, maxVal)
-            return res
-
-        return dfs(root, root.val)
-'
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoP.CountGoodNodesBinaryTree.BreadthFirstSearch
-    set output_file "GoodNodes.BFS.py"
-
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
-
-from collections import deque
-
-class Solution:
-    def goodNodes(self, root: TreeNode) -> int:
-        res = 0
-        q = deque()
-        q.append((root, -float("inf")))
-
-        while q:
-            node, maxval = q.popleft()
-            if node.val >= maxval:
-                res += 1
-
-            if node.left:
-                q.append((node.left, max(maxval, node.val)))
-            if node.right:
-                q.append((node.right, max(maxval, node.val)))
-
-        return res
-'
-
-    echo "$template_content" > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
 
 function algoP.ValidBinarySearchTree.BruteForce
-    set output_file "IsValidBST.Lambda.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4352,6 +7180,69 @@ class Solution:
             return False
         return (self.isValid(root.left, limit, check) and
                 self.isValid(root.right, limit, check))
+
+    #     5
+    #    / \
+    #   3   7
+    #  / \   \
+    # 2   4   8
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2),
+            TreeNode(4)
+        ),
+        TreeNode(7,
+            None,
+            TreeNode(8)
+        )
+)
+
+sol = Solution()
+print(sol.isValidBST(root))
+
+    #     5
+    #    / \
+    #   3   7
+    #      /
+    #     4  
+
+
+root = TreeNode(5,
+        TreeNode(3),
+        TreeNode(7,
+            TreeNode(4),
+            None
+        )
+)
+
+print(sol.isValidBST(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #       /  \
+    #      6   20   
+
+root = TreeNode(1)
+print(sol.isValidBST(root))
+
+    # 2
+    #  \
+    #   2
+
+
+root = TreeNode(2,
+        None,
+        TreeNode(2)
+)
+
+print(sol.isValidBST(root))
+
+root = None
+print(sol.isValidBST(root))
+
 '
 
     echo "$template_content" > $output_file
@@ -4363,10 +7254,13 @@ end
 
 
 function algoP.ValidBinarySearchTree.DepthFirstSearch
-    set output_file "IsValidBST.Recursive.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4385,6 +7279,69 @@ class Solution:
             )
 
         return valid(root, float("-inf"), float("inf"))
+
+    #     5
+    #    / \
+    #   3   7
+    #  / \   \
+    # 2   4   8
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2),
+            TreeNode(4)
+        ),
+        TreeNode(7,
+            None,
+            TreeNode(8)
+        )
+)
+
+sol = Solution()
+print(sol.isValidBST(root))
+
+    #     5
+    #    / \
+    #   3   7
+    #      /
+    #     4  
+
+
+root = TreeNode(5,
+        TreeNode(3),
+        TreeNode(7,
+            TreeNode(4),
+            None
+        )
+)
+
+print(sol.isValidBST(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #       /  \
+    #      6   20   
+
+root = TreeNode(1)
+print(sol.isValidBST(root))
+
+    # 2
+    #  \
+    #   2
+
+
+root = TreeNode(2,
+        None,
+        TreeNode(2)
+)
+
+print(sol.isValidBST(root))
+
+root = None
+print(sol.isValidBST(root))
+
 '
 
     echo "$template_content" > $output_file
@@ -4395,10 +7352,13 @@ class Solution:
 end
 
 function algoP.ValidBinarySearchTree.BreadthFirstSearch
-    set output_file "IsValidBST.BFS.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4423,6 +7383,69 @@ class Solution:
                 q.append((node.right, node.val, right))
 
         return True
+
+    #     5
+    #    / \
+    #   3   7
+    #  / \   \
+    # 2   4   8
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2),
+            TreeNode(4)
+        ),
+        TreeNode(7,
+            None,
+            TreeNode(8)
+        )
+)
+
+sol = Solution()
+print(sol.isValidBST(root))
+
+    #     5
+    #    / \
+    #   3   7
+    #      /
+    #     4  
+
+
+root = TreeNode(5,
+        TreeNode(3),
+        TreeNode(7,
+            TreeNode(4),
+            None
+        )
+)
+
+print(sol.isValidBST(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #       /  \
+    #      6   20   
+
+root = TreeNode(1)
+print(sol.isValidBST(root))
+
+    # 2
+    #  \
+    #   2
+
+
+root = TreeNode(2,
+        None,
+        TreeNode(2)
+)
+
+print(sol.isValidBST(root))
+
+root = None
+print(sol.isValidBST(root))
+
 '
 
     echo "$template_content" > $output_file
@@ -4434,10 +7457,13 @@ end
 
 
 function algoP.KthSmallestIntegerinBST.BruteForce
-    set output_file "KthSmallest.DFS.Sort.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4457,6 +7483,66 @@ class Solution:
         dfs(root)
         arr.sort()
         return arr[k - 1]
+
+    #     3
+    #    / \
+    #   1   4
+    #    \
+    #     2
+
+root = TreeNode(3,
+        TreeNode(1,
+            None,
+            TreeNode(2)
+        ),
+        TreeNode(4)
+)
+
+sol = Solution()
+
+print(sol.kthSmallest(root, 1))  # 1
+print(sol.kthSmallest(root, 2))  # 2
+print(sol.kthSmallest(root, 3))  # 3
+print(sol.kthSmallest(root, 4))  # 4
+
+
+#         5
+#        / \
+#       3   6
+#      / \
+#     2   4
+#    /
+#   1
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2,
+                TreeNode(1),
+                None
+            ),
+            TreeNode(4)
+        ),
+        TreeNode(6)
+)
+
+print(sol.kthSmallest(root, 3))
+
+print(sol.kthSmallest(root, 6))
+
+root = TreeNode(10)
+print(sol.kthSmallest(root, 1))
+
+    #     2
+    #    / \
+    #   3   1
+
+root = TreeNode(2,
+        TreeNode(3),
+        TreeNode(1)
+)
+
+print(sol.kthSmallest(root, 2))
+
 '
 
     echo "$template_content" > $output_file
@@ -4467,10 +7553,13 @@ class Solution:
 end
 
 function algoP.KthSmallestIntegerinBST.InorderTraversal
-    set output_file "KthSmallest.DFS.Inorder.py"
+    set output_file "main"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4489,6 +7578,65 @@ class Solution:
 
         dfs(root)
         return arr[k - 1]
+
+    #     3
+    #    / \
+    #   1   4
+    #    \
+    #     2
+
+root = TreeNode(3,
+        TreeNode(1,
+            None,
+            TreeNode(2)
+        ),
+        TreeNode(4)
+)
+
+sol = Solution()
+
+print(sol.kthSmallest(root, 1))  # 1
+print(sol.kthSmallest(root, 2))  # 2
+print(sol.kthSmallest(root, 3))  # 3
+print(sol.kthSmallest(root, 4))  # 4
+
+
+#         5
+#        / \
+#       3   6
+#      / \
+#     2   4
+#    /
+#   1
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2,
+                TreeNode(1),
+                None
+            ),
+            TreeNode(4)
+        ),
+        TreeNode(6)
+)
+
+print(sol.kthSmallest(root, 3))
+
+print(sol.kthSmallest(root, 6))
+
+root = TreeNode(10)
+print(sol.kthSmallest(root, 1))
+
+    #     2
+    #    / \
+    #   3   1
+
+root = TreeNode(2,
+        TreeNode(3),
+        TreeNode(1)
+)
+
+print(sol.kthSmallest(root, 2))
 '
 
     echo "$template_content" > $output_file
@@ -4500,9 +7648,12 @@ end
 
 
 function algoP.KthSmallestIntegerinBST.RecursiveDFS_Optimal
-    set output_file "KthSmallest.DFS.Inorder.EarlyExit.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+from typing import List
+
  class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -4527,6 +7678,65 @@ class Solution:
 
         dfs(root)
         return res
+
+    #     3
+    #    / \
+    #   1   4
+    #    \
+    #     2
+
+root = TreeNode(3,
+        TreeNode(1,
+            None,
+            TreeNode(2)
+        ),
+        TreeNode(4)
+)
+
+sol = Solution()
+
+print(sol.kthSmallest(root, 1))  # 1
+print(sol.kthSmallest(root, 2))  # 2
+print(sol.kthSmallest(root, 3))  # 3
+print(sol.kthSmallest(root, 4))  # 4
+
+
+#         5
+#        / \
+#       3   6
+#      / \
+#     2   4
+#    /
+#   1
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2,
+                TreeNode(1),
+                None
+            ),
+            TreeNode(4)
+        ),
+        TreeNode(6)
+)
+
+print(sol.kthSmallest(root, 3))
+
+print(sol.kthSmallest(root, 6))
+
+root = TreeNode(10)
+print(sol.kthSmallest(root, 1))
+
+    #     2
+    #    / \
+    #   3   1
+
+root = TreeNode(2,
+        TreeNode(3),
+        TreeNode(1)
+)
+
+print(sol.kthSmallest(root, 2))
 '
 
     echo "$template_content" > $output_file
@@ -4538,9 +7748,12 @@ end
 
 
 function algoP.KthSmallestIntegerinBST.IterativeDFS_Optimal
-    set output_file "KthSmallest.Iterative.Stack.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
+    set template_content '
+from typing import Optional
+from typing import List
+
  class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
@@ -4561,6 +7774,65 @@ class Solution:
             if k == 0:
                 return curr.val
             curr = curr.right
+
+    #     3
+    #    / \
+    #   1   4
+    #    \
+    #     2
+
+root = TreeNode(3,
+        TreeNode(1,
+            None,
+            TreeNode(2)
+        ),
+        TreeNode(4)
+)
+
+sol = Solution()
+
+print(sol.kthSmallest(root, 1))  # 1
+print(sol.kthSmallest(root, 2))  # 2
+print(sol.kthSmallest(root, 3))  # 3
+print(sol.kthSmallest(root, 4))  # 4
+
+
+#         5
+#        / \
+#       3   6
+#      / \
+#     2   4
+#    /
+#   1
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2,
+                TreeNode(1),
+                None
+            ),
+            TreeNode(4)
+        ),
+        TreeNode(6)
+)
+
+print(sol.kthSmallest(root, 3))
+
+print(sol.kthSmallest(root, 6))
+
+root = TreeNode(10)
+print(sol.kthSmallest(root, 1))
+
+    #     2
+    #    / \
+    #   3   1
+
+root = TreeNode(2,
+        TreeNode(3),
+        TreeNode(1)
+)
+
+print(sol.kthSmallest(root, 2))
 '
 
     echo "$template_content" > $output_file
@@ -4571,10 +7843,13 @@ class Solution:
 end
 
 function algoP.KthSmallestIntegerinBST.MorrisTraversal
-    set output_file "KthSmallest.Morris.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4606,6 +7881,65 @@ class Solution:
                     curr = curr.right
 
         return -1
+
+    #     3
+    #    / \
+    #   1   4
+    #    \
+    #     2
+
+root = TreeNode(3,
+        TreeNode(1,
+            None,
+            TreeNode(2)
+        ),
+        TreeNode(4)
+)
+
+sol = Solution()
+
+print(sol.kthSmallest(root, 1))  # 1
+print(sol.kthSmallest(root, 2))  # 2
+print(sol.kthSmallest(root, 3))  # 3
+print(sol.kthSmallest(root, 4))  # 4
+
+
+#         5
+#        / \
+#       3   6
+#      / \
+#     2   4
+#    /
+#   1
+
+root = TreeNode(5,
+        TreeNode(3,
+            TreeNode(2,
+                TreeNode(1),
+                None
+            ),
+            TreeNode(4)
+        ),
+        TreeNode(6)
+)
+
+print(sol.kthSmallest(root, 3))
+
+print(sol.kthSmallest(root, 6))
+
+root = TreeNode(10)
+print(sol.kthSmallest(root, 1))
+
+    #     2
+    #    / \
+    #   3   1
+
+root = TreeNode(2,
+        TreeNode(3),
+        TreeNode(1)
+)
+
+print(sol.kthSmallest(root, 2))
 '
 
     echo "$template_content" > $output_file
@@ -4619,8 +7953,11 @@ end
 function algoP.ConstructBinaryTreefromPreorderInorderTraversal.DepthFirstSearch
     set output_file "BuildTree.Recursive.Basic.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4636,6 +7973,62 @@ class Solution:
         root.left = self.buildTree(preorder[1 : mid + 1], inorder[:mid])
         root.right = self.buildTree(preorder[mid + 1 :], inorder[mid + 1 :])
         return root
+
+preorder = [3, 9, 20, 15, 7]
+inorder  = [9, 3, 15, 20, 7]
+
+    #     3
+    #    / \
+    #   9   20
+    #      /  \
+    #     15   7
+
+sol = Solution()
+root = sol.buildTree(preorder, inorder)
+
+from collections import deque
+
+def print_tree(root):
+    q = deque([root])
+    while q:
+        node = q.popleft()
+        if node:
+            print(node.val, end=" ")
+            q.append(node.left)
+            q.append(node.right)
+    print()
+
+print_tree(root)
+
+
+preorder = [1]
+inorder  = [1]
+
+root = sol.buildTree(preorder, inorder)
+print(root.val)
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+preorder = [1, 2, 3]
+inorder  = [3, 2, 1]
+
+root = sol.buildTree(preorder, inorder)
+print_tree(root)
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+print(sol.buildTree([], []))
+
+index = {val: i for i, val in enumerate(inorder)}
+
 '
 
     echo "$template_content" > $output_file
@@ -4648,10 +8041,13 @@ end
 
 
 function algoP.ConstructBinaryTreefromPreorderInorderTraversal.HashMap_DepthFirstSearch
-    set output_file "BuildTree.Recursive.Dict.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4675,6 +8071,60 @@ class Solution:
             return root
 
         return dfs(0, len(inorder) - 1)
+preorder = [3, 9, 20, 15, 7]
+inorder  = [9, 3, 15, 20, 7]
+
+    #     3
+    #    / \
+    #   9   20
+    #      /  \
+    #     15   7
+
+sol = Solution()
+root = sol.buildTree(preorder, inorder)
+
+from collections import deque
+
+def print_tree(root):
+    q = deque([root])
+    while q:
+        node = q.popleft()
+        if node:
+            print(node.val, end=" ")
+            q.append(node.left)
+            q.append(node.right)
+    print()
+
+print_tree(root)
+
+
+preorder = [1]
+inorder  = [1]
+
+root = sol.buildTree(preorder, inorder)
+print(root.val)
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+preorder = [1, 2, 3]
+inorder  = [3, 2, 1]
+
+root = sol.buildTree(preorder, inorder)
+print_tree(root)
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+print(sol.buildTree([], []))
+
+index = {val: i for i, val in enumerate(inorder)}
 '
 
     echo "$template_content" > $output_file
@@ -4686,10 +8136,13 @@ end
 
 
 function algoP.ConstructBinaryTreefromPreorderInorderTraversal.DepthFirst_SearchOptimal
-    set output_file "BuildTree.Recursive.Limit.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4712,6 +8165,60 @@ class Solution:
             root.right = dfs(limit)
             return root
         return dfs(float("inf"))
+preorder = [3, 9, 20, 15, 7]
+inorder  = [9, 3, 15, 20, 7]
+
+    #     3
+    #    / \
+    #   9   20
+    #      /  \
+    #     15   7
+
+sol = Solution()
+root = sol.buildTree(preorder, inorder)
+
+from collections import deque
+
+def print_tree(root):
+    q = deque([root])
+    while q:
+        node = q.popleft()
+        if node:
+            print(node.val, end=" ")
+            q.append(node.left)
+            q.append(node.right)
+    print()
+
+print_tree(root)
+
+
+preorder = [1]
+inorder  = [1]
+
+root = sol.buildTree(preorder, inorder)
+print(root.val)
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+preorder = [1, 2, 3]
+inorder  = [3, 2, 1]
+
+root = sol.buildTree(preorder, inorder)
+print_tree(root)
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+print(sol.buildTree([], []))
+
+index = {val: i for i, val in enumerate(inorder)}
 '
 
     echo "$template_content" > $output_file
@@ -4723,10 +8230,13 @@ end
 
 
 function algoP.ConstructBinaryTreefromPreorderInorderTraversal.MorrisTraversal
-    set output_file "BuildTree.Iterative.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for a binary tree node.
- class TreeNode:
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
          self.left = left
@@ -4753,6 +8263,60 @@ class Solution:
                 j += 1
 
         return head.right
+preorder = [3, 9, 20, 15, 7]
+inorder  = [9, 3, 15, 20, 7]
+
+    #     3
+    #    / \
+    #   9   20
+    #      /  \
+    #     15   7
+
+sol = Solution()
+root = sol.buildTree(preorder, inorder)
+
+from collections import deque
+
+def print_tree(root):
+    q = deque([root])
+    while q:
+        node = q.popleft()
+        if node:
+            print(node.val, end=" ")
+            q.append(node.left)
+            q.append(node.right)
+    print()
+
+print_tree(root)
+
+
+preorder = [1]
+inorder  = [1]
+
+root = sol.buildTree(preorder, inorder)
+print(root.val)
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+preorder = [1, 2, 3]
+inorder  = [3, 2, 1]
+
+root = sol.buildTree(preorder, inorder)
+print_tree(root)
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+print(sol.buildTree([], []))
+
+index = {val: i for i, val in enumerate(inorder)}
 '
 
     echo "$template_content" > $output_file
@@ -4763,10 +8327,11 @@ class Solution:
 end
 
 
-function algoP.ImplementTrie_PrefixTree.PrefixTreeArray
-    set output_file "Trie.FixedArray.py"
+function algoP.ImplementTriePrefixTree.PrefixTreeArray
+    set output_file "main.py"
 
-    set template_content 'class TrieNode:
+    set template_content '
+class TrieNode:
     def __init__(self):
         self.children = [None] * 26
         self.endOfWord = False
@@ -4801,6 +8366,50 @@ class PrefixTree:
                 return False
             cur = cur.children[i]
         return True
+
+trie = PrefixTree()
+trie.insert("apple")
+
+print(trie.search("apple"))    # True
+print(trie.search("app"))      # False
+print(trie.startsWith("app"))  # True
+
+trie.insert("app")
+print(trie.search("app"))      # True
+
+trie = PrefixTree()
+
+words = ["dog", "door", "dorm", "cat"]
+
+for w in words:
+    trie.insert(w)
+
+print(trie.search("dog"))      # True
+print(trie.search("do"))       # False
+print(trie.startsWith("do"))   # True
+print(trie.startsWith("dor"))  # True
+print(trie.startsWith("cow"))  # False
+
+
+trie = PrefixTree()
+# c
+# └── a
+#     └── r (end)
+#         └── d (end)
+trie.insert("car")
+trie.insert("card")
+trie.insert("care")
+
+print(trie.search("car"))    # True
+print(trie.search("card"))   # True
+print(trie.search("care"))   # True
+print(trie.search("ca"))     # False
+
+print(trie.startsWith("ca"))   # True
+print(trie.startsWith("car"))  # True
+print(trie.startsWith("care")) # True
+
+
 '
 
     echo "$template_content" > $output_file
@@ -4812,8 +8421,8 @@ end
 
 
 
-function algoP.ImplementTrie_PrefixTree.PrefixTree_HashMap
-    set output_file "Trie.Dictionary.py"
+function algoP.ImplementTriePrefixTree.PrefixTree_HashMap
+    set output_file "main.py"
 
     set template_content 'class TrieNode:
     def __init__(self):
@@ -4847,6 +8456,48 @@ class PrefixTree:
                 return False
             cur = cur.children[c]
         return True
+
+trie = PrefixTree()
+trie.insert("apple")
+
+print(trie.search("apple"))    # True
+print(trie.search("app"))      # False
+print(trie.startsWith("app"))  # True
+
+trie.insert("app")
+print(trie.search("app"))      # True
+
+trie = PrefixTree()
+
+words = ["dog", "door", "dorm", "cat"]
+
+for w in words:
+    trie.insert(w)
+
+print(trie.search("dog"))      # True
+print(trie.search("do"))       # False
+print(trie.startsWith("do"))   # True
+print(trie.startsWith("dor"))  # True
+print(trie.startsWith("cow"))  # False
+
+
+trie = PrefixTree()
+# c
+# └── a
+#     └── r (end)
+#         └── d (end)
+trie.insert("car")
+trie.insert("card")
+trie.insert("care")
+
+print(trie.search("car"))    # True
+print(trie.search("card"))   # True
+print(trie.search("care"))   # True
+print(trie.search("ca"))     # False
+
+print(trie.startsWith("ca"))   # True
+print(trie.startsWith("car"))  # True
+print(trie.startsWith("care")) # True
 '
 
     echo "$template_content" > $output_file
@@ -4857,10 +8508,11 @@ class PrefixTree:
 end
 
 
-function algo.DesignAddSearchWordDataStructure.BruteForce
-    set output_file "WordDictionary.List.py"
+function algo.DesignAddandSearchWordDataStructure.BruteForce
+    set output_file "main.py"
 
-    set template_content 'class WordDictionary:
+    set template_content '
+class WordDictionary:
 
     def __init__(self):
         self.store = []
@@ -4881,6 +8533,50 @@ function algo.DesignAddSearchWordDataStructure.BruteForce
             if i == len(w):
                 return True
         return False
+
+wd = WordDictionary()
+
+wd.addWord("bad")
+wd.addWord("dad")
+wd.addWord("mad")
+
+print(wd.search("pad"))  # False
+print(wd.search("bad"))  # True
+print(wd.search(".ad"))  # True
+print(wd.search("b.."))  # True
+
+wd = WordDictionary()
+
+wd.addWord("a")
+wd.addWord("ab")
+wd.addWord("abc")
+
+print(wd.search("."))     # True   ("a")
+print(wd.search(".."))    # True   ("ab")
+print(wd.search("..."))   # True   ("abc")
+print(wd.search("....")) # False
+
+wd = WordDictionary()
+
+wd.addWord("cat")
+wd.addWord("car")
+wd.addWord("cut")
+
+print(wd.search("c.t"))  # True  (cat, cut)
+print(wd.search("ca."))  # True  (cat, car)
+print(wd.search("c.."))  # True
+print(wd.search("..t"))  # True
+print(wd.search("..r"))  # True
+
+wd = WordDictionary()
+
+print(wd.search("a"))   # False (ще нічого не додано)
+
+wd.addWord("a")
+print(wd.search("a"))   # True
+print(wd.search("."))   # True
+print(wd.search("b"))   # False
+
 '
 
     echo "$template_content" > $output_file
@@ -4891,10 +8587,11 @@ function algo.DesignAddSearchWordDataStructure.BruteForce
 end
 
 
-function algo.DesignAddSearchWordDataStructure.DepthFirstSearch
-    set output_file "WordDictionary.Trie.py"
+function algo.DesignAddandSearchWordDataStructure.DepthFirstSearch
+    set output_file "main.py"
 
-    set template_content 'class TrieNode:
+    set template_content '
+class TrieNode:
     def __init__(self):
         self.children = {}
         self.word = False
@@ -4929,6 +8626,50 @@ class WordDictionary:
             return cur.word
 
         return dfs(0, self.root)
+
+wd = WordDictionary()
+
+wd.addWord("bad")
+wd.addWord("dad")
+wd.addWord("mad")
+
+print(wd.search("pad"))  # False
+print(wd.search("bad"))  # True
+print(wd.search(".ad"))  # True
+print(wd.search("b.."))  # True
+
+wd = WordDictionary()
+
+wd.addWord("a")
+wd.addWord("ab")
+wd.addWord("abc")
+
+print(wd.search("."))     # True   ("a")
+print(wd.search(".."))    # True   ("ab")
+print(wd.search("..."))   # True   ("abc")
+print(wd.search("....")) # False
+
+wd = WordDictionary()
+
+wd.addWord("cat")
+wd.addWord("car")
+wd.addWord("cut")
+
+print(wd.search("c.t"))  # True  (cat, cut)
+print(wd.search("ca."))  # True  (cat, car)
+print(wd.search("c.."))  # True
+print(wd.search("..t"))  # True
+print(wd.search("..r"))  # True
+
+wd = WordDictionary()
+
+print(wd.search("a"))   # False (ще нічого не додано)
+
+wd.addWord("a")
+print(wd.search("a"))   # True
+print(wd.search("."))   # True
+print(wd.search("b"))   # False
+
 '
 
     echo "$template_content" > $output_file
@@ -4940,9 +8681,10 @@ end
 
 
 function algoP.Subsets.Backtracking
-    set output_file "subsets.dfs.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for subsets using DFS (backtracking)
+    set template_content '
+
 
 class Solution:
     def subsets(self, nums):
@@ -4960,6 +8702,27 @@ class Solution:
 
         dfs(0)
         return res
+
+# fs(0)
+#  ├─ take 1 → dfs(1)
+#  │   ├─ take 2 → [1,2]
+#  │   └─ skip 2 → [1]
+#  └─ skip 1 → dfs(1)
+#      ├─ take 2 → [2]
+#      └─ skip 2 → []
+
+sol = Solution()
+print(sol.subsets([1, 2]))
+
+sol = Solution()
+print(sol.subsets([1, 2, 3]))
+
+sol = Solution()
+print(sol.subsets([5]))
+
+sol = Solution()
+print(sol.subsets([]))
+
 '
 
     echo "$template_content" > $output_file
@@ -4971,9 +8734,9 @@ end
 
 
 function algo.Subsets.Iteration
-    set output_file "subsets.iter.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for subsets using iterative method
+    set template_content '
 
 class Solution:
     def subsets(self, nums):
@@ -4983,6 +8746,18 @@ class Solution:
             res += [subset + [num] for subset in res]
 
         return res
+
+sol = Solution()
+print(sol.subsets([1, 2]))
+
+sol = Solution()
+print(sol.subsets([1, 2, 3]))
+
+sol = Solution()
+print(sol.subsets([5]))
+
+sol = Solution()
+print(sol.subsets([]))
 '
 
     echo "$template_content" > $output_file
@@ -4994,9 +8769,9 @@ end
 
 
 function algoP.Subsets.BitManipulation
-    set output_file "subsets.bitmask.py"
+    set output_file "main.py"
 
-    set template_content '# Definition for subsets using bitmask
+    set template_content '
 
 class Solution:
     def subsets(self, nums):
@@ -5006,6 +8781,17 @@ class Solution:
             subset = [nums[j] for j in range(n) if (i & (1 << j))]
             res.append(subset)
         return res
+sol = Solution()
+print(sol.subsets([1, 2]))
+
+sol = Solution()
+print(sol.subsets([1, 2, 3]))
+
+sol = Solution()
+print(sol.subsets([5]))
+
+sol = Solution()
+print(sol.subsets([]))
 '
 
     echo "$template_content" > $output_file
@@ -5016,9 +8802,9 @@ class Solution:
 end
 
 function algoP.CombinationSum.Backtracking
-    set output_file "CombinationSumDFS1.py"
+    set output_file "main.py"
 
-    set template_content '# Combination Sum — DFS with include/exclude
+    set template_content '
 
 class Solution:
     def combinationSum(self, nums, target):
@@ -5038,6 +8824,18 @@ class Solution:
 
         dfs(0, [], 0)
         return res
+
+sol = Solution()
+print(sol.combinationSum([2,3,6,7], 7))
+
+sol = Solution()
+print(sol.combinationSum([2,3,5], 8))
+
+sol = Solution()
+print(sol.combinationSum([2], 1))
+
+sol = Solution()
+print(sol.combinationSum([1], 2))
 '
 
     echo "$template_content" > $output_file
@@ -5049,9 +8847,9 @@ end
 
 
 function algoP.CombinationSum.Backtracking_Optimal
-    set output_file "CombinationSum.DFS2.py"
+    set output_file "main.py"
 
-    set template_content '# Combination Sum — DFS with for-loop + pruning
+    set template_content '
 
 class Solution:
     def combinationSum(self, nums, target):
@@ -5072,6 +8870,19 @@ class Solution:
 
         dfs(0, [], 0)
         return res
+
+sol = Solution()
+print(sol.combinationSum([2,3,6,7], 7))
+
+sol = Solution()
+print(sol.combinationSum([2,3,5], 8))
+
+sol = Solution()
+print(sol.combinationSum([2], 1))
+
+sol = Solution()
+print(sol.combinationSum([1], 2))
+
 '
 
     echo "$template_content" > $output_file
@@ -5082,9 +8893,9 @@ class Solution:
 end
 
 function algoP.CombinationSumII.BruteForce
-    set output_file "CombinationSum2.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Combination Sum II — solution using set to avoid duplicates
+    set template_content '
 
 class Solution:
     def combinationSum2(self, candidates, target):
@@ -5106,7 +8917,20 @@ class Solution:
 
         generate_subsets(0, [], 0)
         return [list(combination) for combination in res]
-"
+
+sol = Solution()
+print(sol.combinationSum2([10,1,2,7,6,1,5], 8))
+
+sol = Solution()
+print(sol.combinationSum2([2,5,2,1,2], 5))
+
+sol = Solution()
+print(sol.combinationSum2([3,3,3], 2))
+
+sol = Solution()
+print(sol.combinationSum2([1,1,1,1], 2))
+
+'
 
     echo "$template_content" > $output_file
 
@@ -5118,9 +8942,9 @@ class Solution:
 end
 
 function algoP.CombinationSumII.Backtracking
-    set output_file "CombinationSum2.SKIPDUP.py"
+    set output_file "main.py"
 
-    set template_content "# Combination Sum II — skip duplicates by advancing index
+    set template_content '
 
 class Solution:
     def combinationSum2(self, candidates, target):
@@ -5144,7 +8968,19 @@ class Solution:
 
         dfs(0, [], 0)
         return res
-"
+
+sol = Solution()
+print(sol.combinationSum2([10,1,2,7,6,1,5], 8))
+
+sol = Solution()
+print(sol.combinationSum2([2,5,2,1,2], 5))
+
+sol = Solution()
+print(sol.combinationSum2([3,3,3], 2))
+
+sol = Solution()
+print(sol.combinationSum2([1,1,1,1], 2))
+'
 
     echo "$template_content" > $output_file
 
@@ -5157,10 +8993,9 @@ end
 
 
 function algoP.CombinationSumII.Backtracking_HashMap
-    set output_file "CombinationSum2.COUNTMAP.py"
+    set output_file "main.py"
 
-    set template_content "# Combination Sum II — using frequency map
-
+    set template_content "
 from collections import defaultdict
 
 class Solution:
@@ -5193,6 +9028,18 @@ class Solution:
             cur.pop()
 
         self.backtrack(nums, target, cur, i + 1)
+
+sol = Solution()
+print(sol.combinationSum2([10,1,2,7,6,1,5], 8))
+
+sol = Solution()
+print(sol.combinationSum2([2,5,2,1,2], 5))
+
+sol = Solution()
+print(sol.combinationSum2([3,3,3], 2))
+
+sol = Solution()
+print(sol.combinationSum2([1,1,1,1], 2))
 "
 
     echo "$template_content" > $output_file
@@ -5205,10 +9052,9 @@ class Solution:
 end
 
 function algo.CombinationSumII.Backtracking_Optimal
-    set output_file "CombinationSum2.FORLOOP.py"
+    set output_file "main.py"
 
-    set template_content "# Combination Sum II — classic sorted + skip dup in loop
-
+    set template_content '
 class Solution:
     def combinationSum2(self, candidates, target):
         res = []
@@ -5230,7 +9076,19 @@ class Solution:
 
         dfs(0, [], 0)
         return res
-"
+
+sol = Solution()
+print(sol.combinationSum2([10,1,2,7,6,1,5], 8))
+
+sol = Solution()
+print(sol.combinationSum2([2,5,2,1,2], 5))
+
+sol = Solution()
+print(sol.combinationSum2([3,3,3], 2))
+
+sol = Solution()
+print(sol.combinationSum2([1,1,1,1], 2))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5241,9 +9099,9 @@ end
 
 
 function algoP.Permutations.Recursion
-    set output_file "Permute.RECURSIVE_INSERT.py"
+    set output_file "main.py"
 
-    set template_content "# Permutations — recursive insert method
+    set template_content '
 
 class Solution:
     def permute(self, nums):
@@ -5258,7 +9116,15 @@ class Solution:
                 p_copy.insert(i, nums[0])
                 res.append(p_copy)
         return res
-"
+
+sol = Solution()
+print(sol.permute([1, 2, 3]))
+
+print(sol.permute([1, 2]))
+print(sol.permute([7]))
+print(sol.permute([]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5269,9 +9135,9 @@ end
 
 
 function algoP.Permutations.Iteration
-    set output_file "Permute.ITERATIVE_INSERT.py"
+    set output_file "main.py"
 
-    set template_content "# Permutations — iterative insert method
+    set template_content '
 
 class Solution:
     def permute(self, nums):
@@ -5285,7 +9151,14 @@ class Solution:
                     new_perms.append(p_copy)
             perms = new_perms
         return perms
-"
+
+sol = Solution()
+print(sol.permute([1, 2, 3]))
+
+print(sol.permute([1, 2]))
+print(sol.permute([7]))
+print(sol.permute([]))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5294,9 +9167,9 @@ class Solution:
     cat $output_file
 end
 function algoP.Permutations.Backtracking
-    set output_file "Permute.BACKTRACK_BOOL.py"
+    set output_file "main.py"
 
-    set template_content "# Permutations — backtracking with boolean used-array
+    set template_content '
 
 class Solution:
     def permute(self, nums):
@@ -5315,7 +9188,13 @@ class Solution:
                 self.backtrack(perm, nums, pick)
                 perm.pop()
                 pick[i] = False
-"
+sol = Solution()
+print(sol.permute([1, 2, 3]))
+
+print(sol.permute([1, 2]))
+print(sol.permute([7]))
+print(sol.permute([]))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5326,9 +9205,9 @@ end
 
 
 function algoP.Permutations.Backtracking_BitMask
-    set output_file "Permute.BACKTRACK_MASK.py"
+    set output_file "main.py"
 
-    set template_content "# Permutations — bitmask backtracking
+    set template_content '
 
 class Solution:
     def permute(self, nums):
@@ -5345,7 +9224,14 @@ class Solution:
                 perm.append(nums[i])
                 self.backtrack(perm, nums, mask | (1 << i))
                 perm.pop()
-"
+
+sol = Solution()
+print(sol.permute([1, 2, 3]))
+
+print(sol.permute([1, 2]))
+print(sol.permute([7]))
+print(sol.permute([]))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5355,9 +9241,9 @@ class Solution:
 end
 
 function algoP.Permutations.Backtracking_Optimal
-    set output_file "Permute.SWAP.py"
+    set output_file "main.py"
 
-    set template_content "# Permutations — swap method (in-place)
+    set template_content '
 
 class Solution:
     def permute(self, nums):
@@ -5373,7 +9259,14 @@ class Solution:
             nums[idx], nums[i] = nums[i], nums[idx]
             self.backtrack(nums, idx + 1)
             nums[idx], nums[i] = nums[i], nums[idx]
-"
+
+sol = Solution()
+print(sol.permute([1, 2, 3]))
+
+print(sol.permute([1, 2]))
+print(sol.permute([7]))
+print(sol.permute([]))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5384,9 +9277,9 @@ end
 
 
 function algoP.SubsetsII.BruteForce 
-    set output_file "SubsetsWithDup.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Subsets II — using set to avoid duplicates
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5406,7 +9299,19 @@ class Solution:
         nums.sort()
         backtrack(0, [])
         return [list(s) for s in res]
-"
+
+
+
+sol = Solution()
+print(sol.subsetsWithDup([1,2,2]))
+
+print(sol.subsetsWithDup([2,2,2]))
+
+print(sol.subsetsWithDup([1,2,3]))
+
+print(sol.subsetsWithDup([5]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5417,9 +9322,9 @@ end
 
 
 function algoP.SubsetsII.Backtracking-I
-    set output_file "SubsetsWithDup.SkipDupRecursive.py"
+    set output_file "main.py"
 
-    set template_content "# Subsets II — backtracking skip duplicates
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5442,7 +9347,17 @@ class Solution:
 
         backtrack(0, [])
         return res
-"
+
+sol = Solution()
+print(sol.subsetsWithDup([1,2,2]))
+
+print(sol.subsetsWithDup([2,2,2]))
+
+print(sol.subsetsWithDup([1,2,3]))
+
+print(sol.subsetsWithDup([5]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5452,9 +9367,9 @@ class Solution:
 end
 
 function algoP.SubsetsII.Backtracking-II
-    set output_file "SubsetsWithDup.ForLoopBacktrack.py"
+    set output_file "main.py"
 
-    set template_content "# Subsets II — for-loop backtracking skip duplicates
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5473,7 +9388,17 @@ class Solution:
 
         backtrack(0, [])
         return res
-"
+
+sol = Solution()
+print(sol.subsetsWithDup([1,2,2]))
+
+print(sol.subsetsWithDup([2,2,2]))
+
+print(sol.subsetsWithDup([1,2,3]))
+
+print(sol.subsetsWithDup([5]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5485,9 +9410,9 @@ end
 
 
 function algoP.SubsetsII.Iteration
-    set output_file "SubsetsWithDup.Iterative.py"
+    set output_file "main.py"
 
-    set template_content "# Subsets II — iterative method skip duplicates
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5505,7 +9430,17 @@ class Solution:
                 res.append(tmp)
 
         return res
-"
+
+sol = Solution()
+print(sol.subsetsWithDup([1,2,2]))
+
+print(sol.subsetsWithDup([2,2,2]))
+
+print(sol.subsetsWithDup([1,2,3]))
+
+print(sol.subsetsWithDup([5]))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5516,9 +9451,9 @@ end
 
 
 function algoP.GenerateParentheses.BruteForce
-    set output_file "GenerateParenthesis.Bruteforce.py"
+    set output_file "main.py"
 
-    set template_content "# Generate Parentheses — brute force validation
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5528,7 +9463,7 @@ class Solution:
         def valid(s: str):
             open = 0
             for c in s:
-                open += 1 if c == '(' else -1
+                open += 1 if c == "(" else -1
                 if open < 0:
                     return False
             return open == 0
@@ -5538,12 +9473,22 @@ class Solution:
                 if valid(s):
                     res.append(s)
                 return
-            dfs(s + '(')
-            dfs(s + ')')
+            dfs(s + "(")
+            dfs(s + ")")
 
-        dfs('')
+        dfs("")
         return res
-"
+
+sol = Solution()
+print(sol.generateParenthesis(1))
+
+print(sol.generateParenthesis(2))
+
+print(sol.generateParenthesis(3))
+
+print(sol.generateParenthesis(0))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5554,9 +9499,9 @@ end
 
 
 function algoP.GenerateParentheses.Backtracking
-    set output_file "GenerateParenthesis.Backtracking.py"
+    set output_file "main.py"
 
-    set template_content "# Generate Parentheses — backtracking method
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5566,20 +9511,29 @@ class Solution:
 
         def backtrack(openN, closedN):
             if openN == closedN == n:
-                res.append(''.join(stack))
+                res.append("".join(stack))
                 return
             if openN < n:
-                stack.append('(')
+                stack.append("(")
                 backtrack(openN + 1, closedN)
                 stack.pop()
             if closedN < openN:
-                stack.append(')')
+                stack.append(")")
                 backtrack(openN, closedN + 1)
                 stack.pop()
 
         backtrack(0, 0)
         return res
-"
+
+sol = Solution()
+print(sol.generateParenthesis(1))
+
+print(sol.generateParenthesis(2))
+
+print(sol.generateParenthesis(3))
+
+print(sol.generateParenthesis(0))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5590,24 +9544,33 @@ end
 
 
 function algoP.GenerateParentheses.DynamicProgramming
-    set output_file "GenerateParenthesis.DP.py"
+    set output_file "main.py"
 
-    set template_content "# Generate Parentheses — dynamic programming method
+    set template_content '
 from typing import List
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         res = [[] for _ in range(n + 1)]
-        res[0] = ['']
+        res[0] = [""]
 
         for k in range(1, n + 1):
             for i in range(k):
                 for left in res[i]:
                     for right in res[k - i - 1]:
-                        res[k].append('(' + left + ')' + right)
+                        res[k].append("(" + left + ")" + right)
 
         return res[n]
-"
+
+sol = Solution()
+print(sol.generateParenthesis(1))
+
+print(sol.generateParenthesis(2))
+
+print(sol.generateParenthesis(3))
+
+print(sol.generateParenthesis(0))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5618,9 +9581,9 @@ end
 
 
 function algoP.WordSearch.Backtracking_HashSet
-    set output_file "WordSearch.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Word Search — backtracking with hash set
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5651,7 +9614,31 @@ class Solution:
                 if dfs(r, c, 0):
                     return True
         return False
-"
+
+board = [
+    ["A","B","C","E"],
+    ["S","F","C","S"],
+    ["A","D","E","E"]
+]
+
+sol = Solution()
+print(sol.exist(board, "ABCCED"))  # True
+print(sol.exist(board, "SEE"))     # True
+print(sol.exist(board, "ABCB"))    # False
+
+board = [["a","b","c","d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "acbd"))   # False
+
+board = [["a"], ["b"], ["c"], ["d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "abdc"))   # False
+
+board = [["a"]]
+print(sol.exist(board, "a"))  # True
+print(sol.exist(board, "b"))  # False
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5662,9 +9649,9 @@ end
 
 
 function algoP.WordSearch.Backtracking_VisitedArray
-    set output_file "WordSearch.VISITED.py"
+    set output_file "main.py"
 
-    set template_content "# Word Search — backtracking with visited array
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5692,7 +9679,31 @@ class Solution:
                 if dfs(r, c, 0):
                     return True
         return False
-"
+
+board = [
+    ["A","B","C","E"],
+    ["S","F","C","S"],
+    ["A","D","E","E"]
+]
+
+sol = Solution()
+print(sol.exist(board, "ABCCED"))  # True
+print(sol.exist(board, "SEE"))     # True
+print(sol.exist(board, "ABCB"))    # False
+
+board = [["a","b","c","d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "acbd"))   # False
+
+board = [["a"], ["b"], ["c"], ["d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "abdc"))   # False
+
+board = [["a"]]
+print(sol.exist(board, "a"))  # True
+print(sol.exist(board, "b"))  # False
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5703,9 +9714,9 @@ end
 
 
 function algoP.WordSearch.Backtracking_Optimal
-    set output_file "WordSearch.INPLACE.py"
+    set output_file "main.py"
 
-    set template_content "# Word Search — backtracking in-place marking
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5716,10 +9727,10 @@ class Solution:
             if i == len(word):
                 return True
             if (r < 0 or c < 0 or r >= ROWS or c >= COLS or
-                word[i] != board[r][c] or board[r][c] == '#'):
+                word[i] != board[r][c] or board[r][c] == "#"):
                 return False
 
-            board[r][c] = '#'
+            board[r][c] = "#"
             res = (dfs(r + 1, c, i + 1) or
                    dfs(r - 1, c, i + 1) or
                    dfs(r, c + 1, i + 1) or
@@ -5732,7 +9743,31 @@ class Solution:
                 if dfs(r, c, 0):
                     return True
         return False
-"
+
+board = [
+    ["A","B","C","E"],
+    ["S","F","C","S"],
+    ["A","D","E","E"]
+]
+
+sol = Solution()
+print(sol.exist(board, "ABCCED"))  # True
+print(sol.exist(board, "SEE"))     # True
+print(sol.exist(board, "ABCB"))    # False
+
+board = [["a","b","c","d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "acbd"))   # False
+
+board = [["a"], ["b"], ["c"], ["d"]]
+print(sol.exist(board, "abcd"))   # True
+print(sol.exist(board, "abdc"))   # False
+
+board = [["a"]]
+print(sol.exist(board, "a"))  # True
+print(sol.exist(board, "b"))  # False
+
+'
 
     echo "$template_content" > $output_file
 
@@ -5744,9 +9779,9 @@ class Solution:
 end
 
 function algoP.PalindromePartitioning.Backtracking-I
-    set output_file "Partition.DFS1.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Palindrome Partitioning — backtracking with set
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5775,7 +9810,26 @@ class Solution:
                 return False
             l, r = l + 1, r - 1
         return True
-"
+
+sol = Solution()
+
+s1 = "aab"
+print(sol.partition(s1))
+# Очікуваний результат: [['a', 'a', 'b'], ['aa', 'b']]
+
+s2 = "a"
+print(sol.partition(s2))
+# [['a']]
+
+s3 = "abba"
+print(sol.partition(s3))
+# [['a', 'b', 'b', 'a'], ['a', 'bb', 'a'], ['abba']]
+
+s4 = "abc"
+print(sol.partition(s4))
+# [['a', 'b', 'c']]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5788,7 +9842,7 @@ end
 function algoP.PalindromePartitioning.Backtracking-II
     set output_file "Partition.DFS2.SET.py"
 
-    set template_content "# Palindrome Partitioning — backtracking (for loop)
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5814,7 +9868,26 @@ class Solution:
                 return False
             l, r = l + 1, r - 1
         return True
-"
+
+sol = Solution()
+
+s1 = "aab"
+print(sol.partition(s1))
+# Очікуваний результат: [['a', 'a', 'b'], ['aa', 'b']]
+
+s2 = "a"
+print(sol.partition(s2))
+# [['a']]
+
+s3 = "abba"
+print(sol.partition(s3))
+# [['a', 'b', 'b', 'a'], ['a', 'bb', 'a'], ['abba']]
+
+s4 = "abc"
+print(sol.partition(s4))
+# [['a', 'b', 'c']]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5826,9 +9899,9 @@ end
 
 
 function algoP.PalindromePartitioning.BacktrackingDP
-    set output_file "Partition.DP1.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Palindrome Partitioning — DP + backtracking
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5855,7 +9928,26 @@ class Solution:
 
         dfs(0)
         return res
-"
+
+sol = Solution()
+
+s1 = "aab"
+print(sol.partition(s1))
+# Очікуваний результат: [['a', 'a', 'b'], ['aa', 'b']]
+
+s2 = "a"
+print(sol.partition(s2))
+# [['a']]
+
+s3 = "abba"
+print(sol.partition(s3))
+# [['a', 'b', 'b', 'a'], ['a', 'bb', 'a'], ['abba']]
+
+s4 = "abc"
+print(sol.partition(s4))
+# [['a', 'b', 'c']]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5866,9 +9958,9 @@ end
 
 
 function algoP.PalindromePartitioning.Recursion
-    set output_file "Partition.DP2.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Palindrome Partitioning — DP + recursion
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5895,7 +9987,26 @@ class Solution:
             return ret
 
         return dfs(0)
-"
+
+sol = Solution()
+
+s1 = "aab"
+print(sol.partition(s1))
+# Очікуваний результат: [['a', 'a', 'b'], ['aa', 'b']]
+
+s2 = "a"
+print(sol.partition(s2))
+# [['a']]
+
+s3 = "abba"
+print(sol.partition(s3))
+# [['a', 'b', 'b', 'a'], ['a', 'bb', 'a'], ['abba']]
+
+s4 = "abc"
+print(sol.partition(s4))
+# [['a', 'b', 'c']]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5905,23 +10016,23 @@ class Solution:
 end
 
 function algoP.LetterCombinationsofPhoneNumber.Backtracking
-    set output_file "LetterCombinations.BACKTRACK.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Letter Combinations of a Phone Number — backtracking
+    set template_content '
 from typing import List
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         res = []
         digitToChar = {
-            \"2\": \"abc\",
-            \"3\": \"def\",
-            \"4\": \"ghi\",
-            \"5\": \"jkl\",
-            \"6\": \"mno\",
-            \"7\": \"qprs\",
-            \"8\": \"tuv\",
-            \"9\": \"wxyz\",
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "qprs",
+            "8": "tuv",
+            "9": "wxyz",
         }
 
         def backtrack(i, curStr):
@@ -5932,10 +10043,41 @@ class Solution:
                 backtrack(i + 1, curStr + c)
 
         if digits:
-            backtrack(0, \"\")
+            backtrack(0, "")
 
         return res
-"
+
+sol = Solution()
+
+digits1 = "23"
+print(sol.letterCombinations(digits1))
+# ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+
+digits2 = ""
+print(sol.letterCombinations(digits2))
+# []
+
+digits3 = "7"
+print(sol.letterCombinations(digits3))
+# ['q', 'p', 'r', 's']  
+
+digits4 = "79"
+print(sol.letterCombinations(digits4))
+# ['qw', 'qx', 'qy', 'qz', 'pw', 'px', 'py', 'pz', 'rw', 'rx', 'ry', 'rz', 'sw', 'sx', 'sy', 'sz']
+
+
+# DFS first sign "2":
+
+#              ""
+#           /    |    \
+#          a      b     c  
+#         /|\    /|\   /|\
+# DFS second sign "3":
+#       a       b      c
+#     / | \   / | \   / | \
+#    ad ae af bd be bf cd ce cf  
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5946,9 +10088,9 @@ end
 
 
 function algoP.LetterCombinationsofPhoneNumber.Iteration
-    set output_file "LetterCombinations.ITERATIVE.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Letter Combinations of a Phone Number — iterative
+    set template_content '
 from typing import List
 
 class Solution:
@@ -5956,16 +10098,16 @@ class Solution:
         if not digits:
             return []
 
-        res = [\"\"] 
+        res = [""]
         digitToChar = {
-            \"2\": \"abc\",
-            \"3\": \"def\",
-            \"4\": \"ghi\",
-            \"5\": \"jkl\",
-            \"6\": \"mno\",
-            \"7\": \"qprs\",
-            \"8\": \"tuv\",
-            \"9\": \"wxyz\",
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "qprs",
+            "8": "tuv",
+            "9": "wxyz",
         }
 
         for digit in digits:
@@ -5975,7 +10117,38 @@ class Solution:
                     tmp.append(curStr + c)
             res = tmp
         return res
-"
+
+sol = Solution()
+
+digits1 = "23"
+print(sol.letterCombinations(digits1))
+# ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+
+digits2 = ""
+print(sol.letterCombinations(digits2))
+# []
+
+digits3 = "7"
+print(sol.letterCombinations(digits3))
+# ['q', 'p', 'r', 's']  
+
+digits4 = "79"
+print(sol.letterCombinations(digits4))
+# ['qw', 'qx', 'qy', 'qz', 'pw', 'px', 'py', 'pz', 'rw', 'rx', 'ry', 'rz', 'sw', 'sx', 'sy', 'sz']
+
+
+# DFS first sign "2":
+
+#              ""
+#           /    |    \
+#          a      b     c  
+#         /|\    /|\   /|\
+# DFS second sign "3":
+#       a       b      c
+#     / | \   / | \   / | \
+#    ad ae af bd be bf cd ce cf  
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -5986,9 +10159,9 @@ end
 
 
 function algoP.KthLargestElementinStream.Sorting
-    set output_file "KthLargest.SORT.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Kth Largest Element in a Stream — sorting method
+    set template_content '
 from typing import List
 
 class KthLargest:
@@ -6000,7 +10173,15 @@ class KthLargest:
         self.arr.append(val)
         self.arr.sort()
         return self.arr[len(self.arr) - self.k]
-"
+
+kth = KthLargest(3, [4, 5, 8, 2])
+
+print(kth.add(3))   # Додаємо 3 -> [2,3,4,5,8] -> 3-тє найбільше = 4
+print(kth.add(5))   # Додаємо 5 -> [2,3,4,5,5,8] -> 3-тє найбільше = 5
+print(kth.add(10))  # Додаємо 10 -> [2,3,4,5,5,8,10] -> 3-тє найбільше = 8
+print(kth.add(9))   # Додаємо 9 -> [2,3,4,5,5,8,9,10] -> 3-тє найбільше = 9
+print(kth.add(4))   # Додаємо 4 -> [2,3,4,4,5,5,8,9,10] -> 3-тє найбільше = 8
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6011,9 +10192,9 @@ end
 
 
 function algoP.KthLargestElementinStream.Min-Heap
-    set output_file "KthLargest.MINHEAP.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Kth Largest Element in a Stream — min-heap method
+    set template_content '
 from typing import List
 import heapq
 
@@ -6030,7 +10211,15 @@ class KthLargest:
         if len(self.minHeap) > self.k:
             heapq.heappop(self.minHeap)
         return self.minHeap[0]
-"
+
+kth = KthLargest(3, [4, 5, 8, 2])
+
+print(kth.add(3))   # Додаємо 3 -> [2,3,4,5,8] -> 3-тє найбільше = 4
+print(kth.add(5))   # Додаємо 5 -> [2,3,4,5,5,8] -> 3-тє найбільше = 5
+print(kth.add(10))  # Додаємо 10 -> [2,3,4,5,5,8,10] -> 3-тє найбільше = 8
+print(kth.add(9))   # Додаємо 9 -> [2,3,4,5,5,8,9,10] -> 3-тє найбільше = 9
+print(kth.add(4))   # Додаємо 4 -> [2,3,4,4,5,5,8,9,10] -> 3-тє найбільше = 8
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6040,9 +10229,9 @@ class KthLargest:
 end
 
 function algoP.LastStoneWeight.Sorting
-    set output_file "LastStoneWeight.SORT1.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Last Stone Weight — sorting method
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6053,7 +10242,17 @@ class Solution:
             if cur:
                 stones.append(cur)
         return stones[0] if stones else 0
-"
+
+stones = [2, 7, 4, 1, 8, 1]
+print(Solution().lastStoneWeight([2,7,4,1,8,1]))  # 1
+stones = [1]
+print(Solution().lastStoneWeight([1]))  # 1
+stones = [3, 3]
+print(Solution().lastStoneWeight([3,3]))  # 0
+stones = [10, 4, 2, 10]
+print(Solution().lastStoneWeight([10,4,2,10]))  # 2
+
+'
     echo "$template_content" > $output_file
     set_color FFAD8D
     echo "$output_file created"
@@ -6063,9 +10262,9 @@ end
 
 
 function algoP.LastStoneWeight.BinarySearch
-    set output_file "LastStoneWeight.SORT2.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Last Stone Weight — binary search insert method
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6092,7 +10291,15 @@ class Solution:
                 stones[pos] = cur
 
         return stones[0] if n > 0 else 0
-"
+stones = [2, 7, 4, 1, 8, 1]
+print(Solution().lastStoneWeight([2,7,4,1,8,1]))  # 1
+stones = [1]
+print(Solution().lastStoneWeight([1]))  # 1
+stones = [3, 3]
+print(Solution().lastStoneWeight([3,3]))  # 0
+stones = [10, 4, 2, 10]
+print(Solution().lastStoneWeight([10,4,2,10]))  # 2
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6103,9 +10310,9 @@ end
 
 
 function algoP.LastStoneWeight.Heap
-    set output_file "LastStoneWeight.HEAP.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Last Stone Weight — heap method (max-heap via min-heap)
+    set template_content '
 from typing import List
 import heapq
 
@@ -6122,7 +10329,16 @@ class Solution:
                 heapq.heappush(stones, first - second)
 
         return -stones[0] if stones else 0
-"
+
+stones = [2, 7, 4, 1, 8, 1]
+print(Solution().lastStoneWeight([2,7,4,1,8,1]))  # 1
+stones = [1]
+print(Solution().lastStoneWeight([1]))  # 1
+stones = [3, 3]
+print(Solution().lastStoneWeight([3,3]))  # 0
+stones = [10, 4, 2, 10]
+print(Solution().lastStoneWeight([10,4,2,10]))  # 2
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6132,9 +10348,9 @@ class Solution:
 end
 
 function algoP.LastStoneWeight.BucketSort
-    set output_file "LastStoneWeight.BUCKET.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Last Stone Weight — bucket sort method
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6167,7 +10383,15 @@ class Solution:
             first = max(first - second, second)
 
         return first
-"
+stones = [2, 7, 4, 1, 8, 1]
+print(Solution().lastStoneWeight([2,7,4,1,8,1]))  # 1
+stones = [1]
+print(Solution().lastStoneWeight([1]))  # 1
+stones = [3, 3]
+print(Solution().lastStoneWeight([3,3]))  # 0
+stones = [10, 4, 2, 10]
+print(Solution().lastStoneWeight([10,4,2,10]))  # 2
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6177,17 +10401,40 @@ class Solution:
 end
 
 
-function algoP.KClosestPointsOrigin.Sorting
-    set output_file "KClosest.SORT.SET.py"
+function algoP.KClosestPointstoOrigin.Sorting
+    set output_file "main.py"
 
-    set template_content "# K Closest Points to Origin — sorting method
+    set template_content '
 from typing import List
 
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         points.sort(key=lambda p: p[0]**2 + p[1]**2)
         return points[:k]
-"
+
+sol = Solution()
+
+# Example 1
+points = [[1,3], [-2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[-2, 2]]
+
+# Example 2
+points = [[3,3], [5,-1], [-2,4]]
+k = 2
+print(sol.kClosest(points, k))      # [[3,3], [-2,4]] (order may vary)
+
+# Example 3 (all points same distance)
+points = [[1,0], [0,1], [-1,0], [0,-1]]
+k = 4
+print(sol.kClosest(points, k))      # any order is OK
+
+# Example 4 (single point)
+points = [[2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[2,2]]
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6197,10 +10444,10 @@ class Solution:
 end
 
 
-function algoP.KClosestPointsOrigin.Min-Heap
-    set output_file "KClosest.MINHEAP.SET.py"
+function algoP.KClosestPointstoOrigin.Min-Heap
+    set output_file "main.py"
 
-    set template_content "# K Closest Points to Origin — min-heap method
+    set template_content '
 from typing import List
 import heapq
 
@@ -6219,7 +10466,29 @@ class Solution:
             k -= 1
 
         return res
-"
+
+sol = Solution()
+
+# Example 1
+points = [[1,3], [-2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[-2, 2]]
+
+# Example 2
+points = [[3,3], [5,-1], [-2,4]]
+k = 2
+print(sol.kClosest(points, k))      # [[3,3], [-2,4]] (order may vary)
+
+# Example 3 (all points same distance)
+points = [[1,0], [0,1], [-1,0], [0,-1]]
+k = 4
+print(sol.kClosest(points, k))      # any order is OK
+
+# Example 4 (single point)
+points = [[2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[2,2]]
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6229,10 +10498,10 @@ class Solution:
 end
 
 
-function algoP.KClosestPointsOrigin.MaxHeap
-    set output_file "KClosest.MAXHEAP.SET.py"
+function algoP.KClosestPointstoOrigin.MaxHeap
+    set output_file "main.py"
 
-    set template_content "# K Closest Points to Origin — max-heap method
+    set template_content '
 from typing import List
 import heapq
 
@@ -6251,7 +10520,28 @@ class Solution:
             res.append([x, y])
 
         return res
-"
+sol = Solution()
+
+# Example 1
+points = [[1,3], [-2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[-2, 2]]
+
+# Example 2
+points = [[3,3], [5,-1], [-2,4]]
+k = 2
+print(sol.kClosest(points, k))      # [[3,3], [-2,4]] (order may vary)
+
+# Example 3 (all points same distance)
+points = [[1,0], [0,1], [-1,0], [0,-1]]
+k = 4
+print(sol.kClosest(points, k))      # any order is OK
+
+# Example 4 (single point)
+points = [[2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[2,2]]
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6260,10 +10550,10 @@ class Solution:
     cat $output_file
 end
 
-function algoP.KClosestPointsOrigin.QuickSelect
-    set output_file "KClosest.QUICKSELECT.SET.py"
+function algoP.KClosestPointstoOrigin.QuickSelect
+    set output_file "main.py"
 
-    set template_content "# K Closest Points to Origin — QuickSelect method
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6292,7 +10582,28 @@ class Solution:
                 R = pivot - 1
 
         return points[:k]
-"
+sol = Solution()
+
+# Example 1
+points = [[1,3], [-2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[-2, 2]]
+
+# Example 2
+points = [[3,3], [5,-1], [-2,4]]
+k = 2
+print(sol.kClosest(points, k))      # [[3,3], [-2,4]] (order may vary)
+
+# Example 3 (all points same distance)
+points = [[1,0], [0,1], [-1,0], [0,-1]]
+k = 4
+print(sol.kClosest(points, k))      # any order is OK
+
+# Example 4 (single point)
+points = [[2,2]]
+k = 1
+print(sol.kClosest(points, k))      # [[2,2]]
+'
     echo "$template_content" > $output_file
     set_color FFAD8D
     echo "$output_file created"
@@ -6302,16 +10613,39 @@ end
 
 
 function algoP.KthLargestElementinArray.Sorting
-    set output_file "FindKthLargest.SORT.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Find Kth Largest Element in Array — sorting method
+    set template_content '
 from typing import List
 
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         nums.sort()
         return nums[len(nums) - k]
-"
+
+sol = Solution()
+
+nums = [3, 2, 1, 5, 6, 4]
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 4
+nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 5
+print(sol.findKthLargest(nums, 4))  # 4
+
+nums = [-1, -3, -2, -4]
+
+print(sol.findKthLargest(nums, 1))  # -1
+print(sol.findKthLargest(nums, 2))  # -2
+print(sol.findKthLargest(nums, 4))  # -4
+nums = [10, 9, 8, 7, 6, 5]
+
+print(sol.findKthLargest(nums, 1))  # 10
+print(sol.findKthLargest(nums, 6))  # 5
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6321,16 +10655,39 @@ class Solution:
 end
 
 function algoP.KthLargestElementinArray.Min-Heap
-    set output_file "FindKthLargest.NLARGEST.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Find Kth Largest Element in Array — heapq.nlargest
+    set template_content '
 from typing import List
 import heapq
 
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return heapq.nlargest(k, nums)[-1]
-"
+
+sol = Solution()
+
+nums = [3, 2, 1, 5, 6, 4]
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 4
+nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 5
+print(sol.findKthLargest(nums, 4))  # 4
+
+nums = [-1, -3, -2, -4]
+
+print(sol.findKthLargest(nums, 1))  # -1
+print(sol.findKthLargest(nums, 2))  # -2
+print(sol.findKthLargest(nums, 4))  # -4
+nums = [10, 9, 8, 7, 6, 5]
+
+print(sol.findKthLargest(nums, 1))  # 10
+print(sol.findKthLargest(nums, 6))  # 5
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6340,9 +10697,9 @@ class Solution:
 end
 
 function algoP.KthLargestElementinArray.QuickSelect
-    set output_file "FindKthLargest.QUICKSELECT.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Find Kth Largest Element in Array — QuickSelect
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6365,7 +10722,30 @@ class Solution:
                 return nums[p]
 
         return quickSelect(0, len(nums) - 1)
-"
+
+sol = Solution()
+
+nums = [3, 2, 1, 5, 6, 4]
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 4
+nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 5
+print(sol.findKthLargest(nums, 4))  # 4
+
+nums = [-1, -3, -2, -4]
+
+print(sol.findKthLargest(nums, 1))  # -1
+print(sol.findKthLargest(nums, 2))  # -2
+print(sol.findKthLargest(nums, 4))  # -4
+nums = [10, 9, 8, 7, 6, 5]
+
+print(sol.findKthLargest(nums, 1))  # 10
+print(sol.findKthLargest(nums, 6))  # 5
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6375,9 +10755,9 @@ class Solution:
 end
 
 function algoP.KthLargestElementinArray.QuickSelect_Optimal
-    set output_file "FindKthLargest.QUICKSELECT2.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Find Kth Largest Element in Array — QuickSelect Optimal
+    set template_content '
 from typing import List
 
 class Solution:
@@ -6431,7 +10811,31 @@ class Solution:
 
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return self.quickSelect(nums, k - 1)
-"
+
+sol = Solution()
+
+nums = [3, 2, 1, 5, 6, 4]
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 4
+nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+
+print(sol.findKthLargest(nums, 1))  # 6
+print(sol.findKthLargest(nums, 2))  # 5
+print(sol.findKthLargest(nums, 3))  # 5
+print(sol.findKthLargest(nums, 4))  # 4
+
+nums = [-1, -3, -2, -4]
+
+print(sol.findKthLargest(nums, 1))  # -1
+print(sol.findKthLargest(nums, 2))  # -2
+print(sol.findKthLargest(nums, 4))  # -4
+nums = [10, 9, 8, 7, 6, 5]
+
+print(sol.findKthLargest(nums, 1))  # 10
+print(sol.findKthLargest(nums, 6))  # 5
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6440,16 +10844,16 @@ class Solution:
     cat $output_file
 end
 function algoP.TaskScheduler.BruteForce
-    set output_file "LeastInterval.GREEDY.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Task Scheduler — brute force greedy
+    set template_content '
 from typing import List
 
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = [0] * 26
         for task in tasks:
-            count[ord(task) - ord('A')] += 1
+            count[ord(task) - ord("A")] += 1
 
         arr = []
         for i in range(26):
@@ -6474,7 +10878,27 @@ class Solution:
                     arr.pop(maxi)
             processed.append(cur)
         return time
-"
+tasks = ["A","A","A","B","B","B"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","B","B","B"]
+n = 0
+print(Solution().leastInterval(tasks, n))
+
+tasks = ["A","A","A","A"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","B","C","D"]
+n = 3
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","A","B","C","D"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = []
+n = 5
+print(Solution().leastInterval(tasks, n))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6485,9 +10909,9 @@ end
 
 
 function algoP.TaskScheduler.Max-Heap
-    set output_file "LeastInterval.HEAP.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Task Scheduler — max heap + cooldown
+    set template_content '
 from typing import List
 from collections import Counter, deque
 import heapq
@@ -6515,7 +10939,27 @@ class Solution:
                 heapq.heappush(maxHeap, q.popleft()[0])
 
         return time
-"
+
+tasks = ["A","A","A","B","B","B"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","B","B","B"]
+n = 0
+print(Solution().leastInterval(tasks, n))
+
+tasks = ["A","A","A","A"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","B","C","D"]
+n = 3
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","A","B","C","D"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = []
+n = 5
+print(Solution().leastInterval(tasks, n))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6526,16 +10970,16 @@ end
 
 
 function algoP.TaskScheduler.Greedy
-    set output_file "LeastInterval.IDLE.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Task Scheduler — greedy method
+    set template_content '
 from typing import List
 
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = [0] * 26
         for task in tasks:
-            count[ord(task) - ord('A')] += 1
+            count[ord(task) - ord("A")] += 1
 
         count.sort()
         maxf = count[25]
@@ -6545,7 +10989,26 @@ class Solution:
             idle -= min(maxf - 1, count[i])
 
         return max(0, idle) + len(tasks)
-"
+tasks = ["A","A","A","B","B","B"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","B","B","B"]
+n = 0
+print(Solution().leastInterval(tasks, n))
+
+tasks = ["A","A","A","A"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","B","C","D"]
+n = 3
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","A","B","C","D"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = []
+n = 5
+print(Solution().leastInterval(tasks, n))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6556,23 +11019,43 @@ end
 
 
 function algoP.TaskScheduler.Math
-    set output_file "LeastInterval.FORMULA.SET.py"
+    set output_file "main.py"
 
-    set template_content "# Task Scheduler — formula method
+    set template_content '
 from typing import List
 
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = [0] * 26
         for task in tasks:
-            count[ord(task) - ord('A')] += 1
+            count[ord(task) - ord("A")] += 1
 
         maxf = max(count)
         maxCount = sum(1 for i in count if i == maxf)
 
         time = (maxf - 1) * (n + 1) + maxCount
         return max(len(tasks), time)
-"
+
+tasks = ["A","A","A","B","B","B"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","B","B","B"]
+n = 0
+print(Solution().leastInterval(tasks, n))
+
+tasks = ["A","A","A","A"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","B","C","D"]
+n = 3
+print(Solution().leastInterval(tasks, n))
+tasks = ["A","A","A","A","B","C","D"]
+n = 2
+print(Solution().leastInterval(tasks, n))
+tasks = []
+n = 5
+print(Solution().leastInterval(tasks, n))
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6581,10 +11064,12 @@ class Solution:
     cat $output_file
 end
 
-function algoP.DesignTwitter.Sorting
-    set output_file "Twitter.SIMPLE.SET.py"
 
-    set template_content "from collections import defaultdict
+function algoP.DesignTwitter.Sorting
+    set output_file "main.py"
+
+    set template_content '
+from collections import defaultdict
 
 class Twitter:
     def __init__(self):
@@ -6609,7 +11094,48 @@ class Twitter:
 
     def unfollow(self, followerId: int, followeeId: int) -> None:
         self.followMap[followerId].discard(followeeId)
-"
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+twitter.unfollow(1, 2)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+for i in range(15):
+    twitter.postTweet(1, i)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 101)
+twitter.postTweet(2, 102)
+twitter.postTweet(3, 103)
+
+twitter.follow(1, 2)
+twitter.follow(1, 3)
+
+print(twitter.getNewsFeed(1))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6619,9 +11145,10 @@ class Twitter:
 end
 
 function algoP.DesignTwitter.Heap
-    set output_file "Twitter.HEAP.SET.py"
+    set output_file "main.py"
 
-    set template_content "from collections import defaultdict
+    set template_content '
+from collections import defaultdict
 import heapq
 
 class Twitter:
@@ -6660,7 +11187,47 @@ class Twitter:
     def unfollow(self, followerId: int, followeeId: int) -> None:
         if followeeId in self.followMap[followerId]:
             self.followMap[followerId].remove(followeeId)
-"
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+twitter.unfollow(1, 2)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+for i in range(15):
+    twitter.postTweet(1, i)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 101)
+twitter.postTweet(2, 102)
+twitter.postTweet(3, 103)
+
+twitter.follow(1, 2)
+twitter.follow(1, 3)
+
+print(twitter.getNewsFeed(1))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -6670,9 +11237,10 @@ class Twitter:
 end
 
 function algoP.DesignTwitter.Heap_Optimal
-    set output_file "Twitter.HEAP_LIMIT.SET.py"
+    set output_file "main.py"
 
-    set template_content "from collections import defaultdict
+    set template_content '
+from collections import defaultdict
 import heapq
 
 class Twitter:
@@ -6711,7 +11279,47 @@ class Twitter:
     def unfollow(self, followerId: int, followeeId: int) -> None:
         if followeeId in self.followMap[followerId]:
             self.followMap[followerId].remove(followeeId)
-"
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 5)
+twitter.follow(1, 2)
+twitter.postTweet(2, 6)
+twitter.unfollow(1, 2)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+for i in range(15):
+    twitter.postTweet(1, i)
+
+print(twitter.getNewsFeed(1))
+
+twitter = Twitter()
+
+twitter.postTweet(1, 101)
+twitter.postTweet(2, 102)
+twitter.postTweet(3, 103)
+
+twitter.follow(1, 2)
+twitter.follow(1, 3)
+
+print(twitter.getNewsFeed(1))
+
+'
 
     echo "$template_content" > $output_file
     set_color FFAD8D
@@ -8466,7 +13074,7 @@ end
 
 
 function algoP.Basic.PowIterMap
-    set output_file "PowIterMap.py"
+    set output_file "main.py"
 
     set template_content "# ----------------
 # pow() examples
@@ -10530,9 +15138,10 @@ end
 
 
 function algoP.Basic.IfElseElif
-    set output_file "IfElse_Nested.py"
+    set output_file "main.py"
 
-    set template_content "# Example 1: Age-based ordering
+    set template_content "
+# Example 1: Age-based ordering
 age = 30
 
 if age >= 21:
@@ -12436,53 +17045,74 @@ end
 
 
 function algoP.NumberofIslands.DepthFirstSearch
-    set output_file "num_islands_dfs.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import \"fmt\"
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        ROWS, COLS = len(grid), len(grid[0])
+        islands = 0
 
-func numIslandsDFS(grid [][]byte) int {
-    rows := len(grid)
-    if rows == 0 {
-        return 0
-    }
-    cols := len(grid[0])
-    islands := 0
+        def dfs(r, c):
+            if (r < 0 or c < 0 or r >= ROWS or
+                c >= COLS or grid[r][c] == "0"
+            ):
+                return
 
-    var dfs func(r, c int)
-    dfs = func(r, c int) {
-        if r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == '0' {
-            return
-        }
-        grid[r][c] = '0'
-        directions := [][]int{{1,0},{-1,0},{0,1},{0,-1}}
-        for _, d := range directions {
-            dfs(r + d[0], c + d[1])
-        }
-    }
+            grid[r][c] = "0"
+            for dr, dc in directions:
+                dfs(r + dr, c + dc)
 
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == '1' {
-                dfs(r, c)
-                islands++
-            }
-        }
-    }
-    return islands
-}
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == "1":
+                    dfs(r, c)
+                    islands += 1
 
-func main() {
-    grid := [][]byte{
-        {'1','1','0','0','0'},
-        {'1','1','0','0','0'},
-        {'0','0','1','0','0'},
-        {'0','0','0','1','1'},
-    }
-    fmt.Println(\"Number of islands:\", numIslandsDFS(grid))
-}
-"
+        return islands
+
+grid = [
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["0","0","0"],
+    ["0","0","0"],
+    ["0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","0","1"],
+    ["0","1","0"],
+    ["1","0","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [["1","1","0","1","0","1"]]
+print(Solution().numIslands(grid))
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12492,61 +17122,74 @@ func main() {
 end
 
 function algoP.NumberofIslands.BreadthFirstSearch
-    set output_file "num_islands_bfs.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import (
-    \"container/list\"
-    \"fmt\"
-)
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        ROWS, COLS = len(grid), len(grid[0])
+        islands = 0
 
-func numIslandsBFS(grid [][]byte) int {
-    rows := len(grid)
-    if rows == 0 {
-        return 0
-    }
-    cols := len(grid[0])
-    islands := 0
-    directions := [][]int{{1,0},{-1,0},{0,1},{0,-1}}
+        def dfs(r, c):
+            if (r < 0 or c < 0 or r >= ROWS or
+                c >= COLS or grid[r][c] == "0"
+            ):
+                return
 
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == '1' {
-                islands++
-                grid[r][c] = '0'
-                q := list.New()
-                q.PushBack([2]int{r, c})
+            grid[r][c] = "0"
+            for dr, dc in directions:
+                dfs(r + dr, c + dc)
 
-                for q.Len() > 0 {
-                    e := q.Front()
-                    pos := e.Value.([2]int)
-                    q.Remove(e)
-                    for _, d := range directions {
-                        nr, nc := pos[0]+d[0], pos[1]+d[1]
-                        if nr < 0 || nc < 0 || nr >= rows || nc >= cols || grid[nr][nc] == '0' {
-                            continue
-                        }
-                        grid[nr][nc] = '0'
-                        q.PushBack([2]int{nr, nc})
-                    }
-                }
-            }
-        }
-    }
-    return islands
-}
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == "1":
+                    dfs(r, c)
+                    islands += 1
 
-func main() {
-    grid := [][]byte{
-        {'1','1','0','0','0'},
-        {'1','1','0','0','0'},
-        {'0','0','1','0','0'},
-        {'0','0','0','1','1'},
-    }
-    fmt.Println(\"Number of islands:\", numIslandsBFS(grid))
-}
-"
+        return islands
+
+grid = [
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["0","0","0"],
+    ["0","0","0"],
+    ["0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","0","1"],
+    ["0","1","0"],
+    ["1","0","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [["1","1","0","1","0","1"]]
+print(Solution().numIslands(grid))
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12556,88 +17199,102 @@ func main() {
 end
 
 function algoP.NumberofIslands.DisjointSetUnion
-    set output_file "num_islands_dsu.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import \"fmt\"
 
-type DSU struct {
-    parent []int
-    size   []int
-}
+class DSU:
+    def __init__(self, n):
+        self.Parent = list(range(n + 1))
+        self.Size = [1] * (n + 1)
 
-func NewDSU(n int) *DSU {
-    parent := make([]int, n)
-    size := make([]int, n)
-    for i := 0; i < n; i++ {
-        parent[i] = i
-        size[i] = 1
-    }
-    return &DSU{parent, size}
-}
+    def find(self, node):
+        if self.Parent[node] != node:
+            self.Parent[node] = self.find(self.Parent[node])
+        return self.Parent[node]
 
-func (d *DSU) Find(x int) int {
-    if d.parent[x] != x {
-        d.parent[x] = d.Find(d.parent[x])
-    }
-    return d.parent[x]
-}
+    def union(self, u, v):
+        pu = self.find(u)
+        pv = self.find(v)
+        if pu == pv:
+            return False
+        if self.Size[pu] >= self.Size[pv]:
+            self.Size[pu] += self.Size[pv]
+            self.Parent[pv] = pu
+        else:
+            self.Size[pv] += self.Size[pu]
+            self.Parent[pu] = pv
+        return True
 
-func (d *DSU) Union(x, y int) bool {
-    px, py := d.Find(x), d.Find(y)
-    if px == py {
-        return false
-    }
-    if d.size[px] >= d.size[py] {
-        d.size[px] += d.size[py]
-        d.parent[py] = px
-    } else {
-        d.size[py] += d.size[px]
-        d.parent[px] = py
-    }
-    return true
-}
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        ROWS, COLS = len(grid), len(grid[0])
+        dsu = DSU(ROWS * COLS)
 
-func numIslandsDSU(grid [][]byte) int {
-    rows, cols := len(grid), len(grid[0])
-    dsu := NewDSU(rows * cols)
-    directions := [][2]int{{1,0},{-1,0},{0,1},{0,-1}}
-    islands := 0
+        def index(r, c):
+            return r * COLS + c
 
-    index := func(r, c int) int {
-        return r*cols + c
-    }
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        islands = 0
 
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == '1' {
-                islands++
-                for _, d := range directions {
-                    nr, nc := r+d[0], c+d[1]
-                    if nr < 0 || nc < 0 || nr >= rows || nc >= cols || grid[nr][nc] == '0' {
-                        continue
-                    }
-                    if dsu.Union(index(r, c), index(nr, nc)) {
-                        islands--
-                    }
-                }
-            }
-        }
-    }
-    return islands
-}
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == "1":
+                    islands += 1
+                    for dr, dc in directions:
+                        nr, nc = r + dr, c + dc
+                        if (nr < 0 or nc < 0 or nr >= ROWS or
+                            nc >= COLS or grid[nr][nc] == "0"
+                        ):
+                            continue
 
-func main() {
-    grid := [][]byte{
-        {'1','1','0','0','0'},
-        {'1','1','0','0','0'},
-        {'0','0','1','0','0'},
-        {'0','0','0','1','1'},
-    }
-    fmt.Println(\"Number of islands:\", numIslandsDSU(grid))
-}
-"
+                        if dsu.union(index(r, c), index(nr, nc)):
+                            islands -= 1
+
+        return islands
+
+grid = [
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["0","0","0"],
+    ["0","0","0"],
+    ["0","0","0"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [
+    ["1","0","1"],
+    ["0","1","0"],
+    ["1","0","1"]
+]
+
+print(Solution().numIslands(grid))
+
+grid = [["1","1","0","1","0","1"]]
+print(Solution().numIslands(grid))
+
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12648,60 +17305,65 @@ end
 
 
 function algoP.MaxAreaofIsland.DepthFirstSearch
-    set output_file "max_area_island_dfs.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import \"fmt\"
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        ROWS, COLS = len(grid), len(grid[0])
+        visit = set()
 
-func maxAreaOfIslandDFS(grid [][]int) int {
-    rows := len(grid)
-    if rows == 0 {
-        return 0
-    }
-    cols := len(grid[0])
-    visit := make(map[[2]int]bool)
-    directions := [][]int{{1,0},{-1,0},{0,1},{0,-1}}
+        def dfs(r, c):
+            if (r < 0 or r == ROWS or c < 0 or
+                c == COLS or grid[r][c] == 0 or
+                (r, c) in visit
+            ):
+                return 0
+            visit.add((r, c))
+            return (1 + dfs(r + 1, c) +
+                        dfs(r - 1, c) +
+                        dfs(r, c + 1) +
+                        dfs(r, c - 1))
 
-    var dfs func(r, c int) int
-    dfs = func(r, c int) int {
-        if r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == 0 || visit[[2]int{r, c}] {
-            return 0
-        }
-        visit[[2]int{r, c}] = true
-        area := 1
-        for _, d := range directions {
-            area += dfs(r+d[0], c+d[1])
-        }
+        area = 0
+        for r in range(ROWS):
+            for c in range(COLS):
+                area = max(area, dfs(r, c))
         return area
-    }
 
-    maxArea := 0
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == 1 && !visit[[2]int{r, c}] {
-                maxArea = max(maxArea, dfs(r, c))
-            }
-        }
-    }
-    return maxArea
-}
+grid = [
+    [0,0,1,0,0],
+    [0,1,1,1,0],
+    [0,0,1,0,0],
+    [1,1,0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+# 5
 
-func max(a, b int) int {
-    if a > b { return a }
-    return b
-}
+grid = [
+    [1,1,1],
+    [1,1,1],
+    [1,1,1]
+]
 
-func main() {
-    grid := [][]int{
-        {0,1,0,0,1},
-        {1,1,0,0,0},
-        {0,0,1,1,0},
-        {0,0,0,1,1},
-    }
-    fmt.Println(\"Max area of island:\", maxAreaOfIslandDFS(grid))
-}
-"
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [1,0,1],
+    [0,1,0],
+    [1,0,1]
+]
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [0,0,0],
+    [0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12711,63 +17373,73 @@ func main() {
 end
 
 function algoP.MaxAreaofIsland.BreadthFirstSearch
-    set output_file "max_area_island_bfs.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import (
-    \"container/list\"
-    \"fmt\"
-)
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        ROWS, COLS = len(grid), len(grid[0])
+        area = 0
 
-func maxAreaOfIslandBFS(grid [][]int) int {
-    rows := len(grid)
-    if rows == 0 { return 0 }
-    cols := len(grid[0])
-    directions := [][]int{{1,0},{-1,0},{0,1},{0,-1}}
-    maxArea := 0
+        def bfs(r, c):
+            q = deque()
+            grid[r][c] = 0
+            q.append((r, c))
+            res = 1
 
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == 1 {
-                area := 1
-                grid[r][c] = 0
-                q := list.New()
-                q.PushBack([2]int{r, c})
+            while q:
+                row, col = q.popleft()
+                for dr, dc in directions:
+                    nr, nc = dr + row, dc + col
+                    if (nr < 0 or nc < 0 or nr >= ROWS or
+                        nc >= COLS or grid[nr][nc] == 0
+                    ):
+                        continue
+                    q.append((nr, nc))
+                    grid[nr][nc] = 0
+                    res += 1
+            return res
 
-                for q.Len() > 0 {
-                    e := q.Front()
-                    pos := e.Value.([2]int)
-                    q.Remove(e)
-                    for _, d := range directions {
-                        nr, nc := pos[0]+d[0], pos[1]+d[1]
-                        if nr < 0 || nc < 0 || nr >= rows || nc >= cols || grid[nr][nc] == 0 {
-                            continue
-                        }
-                        grid[nr][nc] = 0
-                        area++
-                        q.PushBack([2]int{nr, nc})
-                    }
-                }
-                if area > maxArea {
-                    maxArea = area
-                }
-            }
-        }
-    }
-    return maxArea
-}
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == 1:
+                    area = max(area, bfs(r, c))
 
-func main() {
-    grid := [][]int{
-        {0,1,0,0,1},
-        {1,1,0,0,0},
-        {0,0,1,1,0},
-        {0,0,0,1,1},
-    }
-    fmt.Println(\"Max area of island:\", maxAreaOfIslandBFS(grid))
-}
-"
+        return area
+
+grid = [
+    [0,0,1,0,0],
+    [0,1,1,1,0],
+    [0,0,1,0,0],
+    [1,1,0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+# 5
+
+grid = [
+    [1,1,1],
+    [1,1,1],
+    [1,1,1]
+]
+
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [1,0,1],
+    [0,1,0],
+    [1,0,1]
+]
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [0,0,0],
+    [0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12777,88 +17449,95 @@ func main() {
 end
 
 function algoP.MaxAreaofIsland.DisjointSetUnion
-    set output_file "max_area_island_dsu.go"
+    set output_file "main.py"
 
-    set template_content "package main
+    set template_content '
+from typing import Optional
+from typing import List
 
-import \"fmt\"
+class DSU:
+    def __init__(self, n):
+        self.Parent = list(range(n + 1))
+        self.Size = [1] * (n + 1)
 
-type DSU struct {
-    parent []int
-    size   []int
-}
+    def find(self, node):
+        if self.Parent[node] != node:
+            self.Parent[node] = self.find(self.Parent[node])
+        return self.Parent[node]
 
-func NewDSU(n int) *DSU {
-    parent := make([]int, n)
-    size := make([]int, n)
-    for i := 0; i < n; i++ {
-        parent[i] = i
-        size[i] = 1
-    }
-    return &DSU{parent, size}
-}
+    def union(self, u, v):
+        pu = self.find(u)
+        pv = self.find(v)
+        if pu == pv:
+            return False
+        if self.Size[pu] >= self.Size[pv]:
+            self.Size[pu] += self.Size[pv]
+            self.Parent[pv] = pu
+        else:
+            self.Size[pv] += self.Size[pu]
+            self.Parent[pu] = pv
+        return True
 
-func (d *DSU) Find(x int) int {
-    if d.parent[x] != x {
-        d.parent[x] = d.Find(d.parent[x])
-    }
-    return d.parent[x]
-}
+    def getSize(self, node):
+        par = self.find(node)
+        return self.Size[par]
 
-func (d *DSU) Union(x, y int) bool {
-    px, py := d.Find(x), d.Find(y)
-    if px == py { return false }
-    if d.size[px] >= d.size[py] {
-        d.size[px] += d.size[py]
-        d.parent[py] = px
-    } else {
-        d.size[py] += d.size[px]
-        d.parent[px] = py
-    }
-    return true
-}
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        ROWS, COLS = len(grid), len(grid[0])
+        dsu = DSU(ROWS * COLS)
 
-func (d *DSU) GetSize(x int) int {
-    return d.size[d.Find(x)]
-}
+        def index(r, c):
+            return r * COLS + c
 
-func maxAreaOfIslandDSU(grid [][]int) int {
-    rows, cols := len(grid), len(grid[0])
-    dsu := NewDSU(rows * cols)
-    directions := [][2]int{{1,0},{-1,0},{0,1},{0,-1}}
-    maxArea := 0
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        area = 0
 
-    index := func(r, c int) int { return r*cols + c }
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == 1:
+                    for dr, dc in directions:
+                        nr, nc = r + dr, c + dc
+                        if (nr < 0 or nc < 0 or nr >= ROWS or
+                            nc >= COLS or grid[nr][nc] == 0
+                        ):
+                            continue
 
-    for r := 0; r < rows; r++ {
-        for c := 0; c < cols; c++ {
-            if grid[r][c] == 1 {
-                for _, d := range directions {
-                    nr, nc := r+d[0], c+d[1]
-                    if nr < 0 || nc < 0 || nr >= rows || nc >= cols || grid[nr][nc] == 0 {
-                        continue
-                    }
-                    dsu.Union(index(r,c), index(nr,nc))
-                }
-                if dsu.GetSize(index(r,c)) > maxArea {
-                    maxArea = dsu.GetSize(index(r,c))
-                }
-            }
-        }
-    }
-    return maxArea
-}
+                        dsu.union(index(r, c), index(nr, nc))
 
-func main() {
-    grid := [][]int{
-        {0,1,0,0,1},
-        {1,1,0,0,0},
-        {0,0,1,1,0},
-        {0,0,0,1,1},
-    }
-    fmt.Println(\"Max area of island:\", maxAreaOfIslandDSU(grid))
-}
-"
+                    area = max(area, dsu.getSize(index(r, c)))
+
+        return area
+
+grid = [
+    [0,0,1,0,0],
+    [0,1,1,1,0],
+    [0,0,1,0,0],
+    [1,1,0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+# 5
+
+grid = [
+    [1,1,1],
+    [1,1,1],
+    [1,1,1]
+]
+
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [1,0,1],
+    [0,1,0],
+    [1,0,1]
+]
+print(Solution().maxAreaOfIsland(grid))
+grid = [
+    [0,0,0],
+    [0,0,0]
+]
+print(Solution().maxAreaOfIsland(grid))
+
+'
 
     echo $template_content > $output_file
     set_color FFAD8D
@@ -12867,3 +17546,4954 @@ func main() {
     cat $output_file
 end
 
+
+function algoP.TrappingRainWater.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        n = len(height)
+        res = 0
+
+        for i in range(n):
+            leftMax = rightMax = height[i]
+
+            for j in range(i):
+                leftMax = max(leftMax, height[j])
+            for j in range(i + 1, n):
+                rightMax = max(rightMax, height[j])
+
+            res += min(leftMax, rightMax) - height[i]
+        return res
+
+examples = [
+    ([0,1,0,2,1,0,1,3,2,1,2,1], 6),
+    ([4,2,0,3,2,5], 9),
+    ([1,0,2,1,0,1,3], 5),
+    ([2,0,2], 2),
+    ([3,0,0,2,0,4], 10)
+]
+
+s = Solution()
+for height, expected in examples:
+    result = s.trap(height)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.TrappingRainWater.PrefixSuffixArrays
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        if n == 0:
+            return 0
+
+        leftMax = [0] * n
+        rightMax = [0] * n
+
+        leftMax[0] = height[0]
+        for i in range(1, n):
+            leftMax[i] = max(leftMax[i - 1], height[i])
+
+        rightMax[n - 1] = height[n - 1]
+        for i in range(n - 2, -1, -1):
+            rightMax[i] = max(rightMax[i + 1], height[i])
+
+        res = 0
+        for i in range(n):
+            res += min(leftMax[i], rightMax[i]) - height[i]
+        return res
+
+examples = [
+    ([0,1,0,2,1,0,1,3,2,1,2,1], 6),
+    ([4,2,0,3,2,5], 9),
+    ([1,0,2,1,0,1,3], 5),
+    ([2,0,2], 2),
+    ([3,0,0,2,0,4], 10)
+]
+
+s = Solution()
+for height, expected in examples:
+    result = s.trap(height)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.TrappingRainWater.Stack
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        stack = []
+        res = 0
+
+        for i in range(len(height)):
+            while stack and height[i] >= height[stack[-1]]:
+                mid = height[stack.pop()]
+                if stack:
+                    right = height[i]
+                    left = height[stack[-1]]
+                    h = min(right, left) - mid
+                    w = i - stack[-1] - 1
+                    res += h * w
+            stack.append(i)
+        return res
+examples = [
+    ([0,1,0,2,1,0,1,3,2,1,2,1], 6),
+    ([4,2,0,3,2,5], 9),
+    ([1,0,2,1,0,1,3], 5),
+    ([2,0,2], 2),
+    ([3,0,0,2,0,4], 10)
+]
+
+s = Solution()
+for height, expected in examples:
+    result = s.trap(height)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.TrappingRainWater.TwoPointers
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+
+        l, r = 0, len(height) - 1
+        leftMax, rightMax = height[l], height[r]
+        res = 0
+        while l < r:
+            if leftMax < rightMax:
+                l += 1
+                leftMax = max(leftMax, height[l])
+                res += leftMax - height[l]
+            else:
+                r -= 1
+                rightMax = max(rightMax, height[r])
+                res += rightMax - height[r]
+        return res
+
+examples = [
+    ([0,1,0,2,1,0,1,3,2,1,2,1], 6),
+    ([4,2,0,3,2,5], 9),
+    ([1,0,2,1,0,1,3], 5),
+    ([2,0,2], 2),
+    ([3,0,0,2,0,4], 10)
+]
+
+s = Solution()
+for height, expected in examples:
+    result = s.trap(height)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LargestRectangleInHistogram.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        maxArea = 0
+
+        for i in range(n):
+            height = heights[i]
+
+            rightMost = i + 1
+            while rightMost < n and heights[rightMost] >= height:
+                rightMost += 1
+
+            leftMost = i
+            while leftMost >= 0 and heights[leftMost] >= height:
+                leftMost -= 1
+
+            rightMost -= 1
+            leftMost += 1
+            maxArea = max(maxArea, height * (rightMost - leftMost + 1))
+        return maxArea
+
+examples = [
+    ([2,1,5,6,2,3], 10),
+    ([2,4], 4),
+    ([2,1,2], 3),
+    ([6,2,5,4,5,1,6], 12),
+    ([1,1,1,1,1], 5)
+]
+
+s = Solution()
+for heights, expected in examples:
+    result = s.largestRectangleArea(heights)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LargestRectangleInHistogram.DivideAndConquer
+    set output_file "main.py"
+
+    set template_content '
+class MinIdx_Segtree:
+    def __init__(self, N, A):
+        self.n = N
+        self.INF = int(1e9)
+        self.A = A
+        while (self.n & (self.n - 1)) != 0:
+            self.A.append(self.INF)
+            self.n += 1
+        self.tree = [0] * (2 * self.n)
+        self.build()
+
+    def build(self):
+        for i in range(self.n):
+            self.tree[self.n + i] = i
+        for j in range(self.n - 1, 0, -1):
+            a = self.tree[j << 1]
+            b = self.tree[(j << 1) + 1]
+            if self.A[a] <= self.A[b]:
+                self.tree[j] = a
+            else:
+                self.tree[j] = b
+
+    def update(self, i, val):
+        self.A[i] = val
+        j = (self.n + i) >> 1
+        while j >= 1:
+            a = self.tree[j << 1]
+            b = self.tree[(j << 1) + 1]
+            if self.A[a] <= self.A[b]:
+                self.tree[j] = a
+            else:
+                self.tree[j] = b
+            j >>= 1
+
+    def query(self, ql, qh):
+        return self._query(1, 0, self.n - 1, ql, qh)
+
+    def _query(self, node, l, h, ql, qh):
+        if ql > h or qh < l:
+            return self.INF
+        if l >= ql and h <= qh:
+            return self.tree[node]
+        a = self._query(node << 1, l, (l + h) >> 1, ql, qh)
+        b = self._query((node << 1) + 1, ((l + h) >> 1) + 1, h, ql, qh)
+        if a == self.INF:
+            return b
+        if b == self.INF:
+            return a
+        return a if self.A[a] <= self.A[b] else b
+
+class Solution:
+    def getMaxArea(self, heights, l, r, st):
+        if l > r:
+            return 0
+        if l == r:
+            return heights[l]
+        minIdx = st.query(l, r)
+        return max(max(self.getMaxArea(heights, l, minIdx - 1, st),
+                       self.getMaxArea(heights, minIdx + 1, r, st)),
+                   (r - l + 1) * heights[minIdx])
+
+    def largestRectangleArea(self, heights):
+        n = len(heights)
+        st = MinIdx_Segtree(n, heights)
+        return self.getMaxArea(heights, 0, n - 1, st)
+
+examples = [
+    ([2,1,5,6,2,3], 10),
+    ([2,4], 4),
+    ([2,1,2], 3),
+    ([6,2,5,4,5,1,6], 12),
+    ([1,1,1,1,1], 5)
+]
+
+s = Solution()
+for heights, expected in examples:
+    result = s.largestRectangleArea(heights)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LargestRectangleInHistogram.Stack
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        n = len(heights)
+        stack = []
+
+        leftMost = [-1] * n
+        for i in range(n):
+            while stack and heights[stack[-1]] >= heights[i]:
+                stack.pop()
+            if stack:
+                leftMost[i] = stack[-1]
+            stack.append(i)
+
+        stack = []
+        rightMost = [n] * n
+        for i in range(n - 1, -1, -1):
+            while stack and heights[stack[-1]] >= heights[i]:
+                stack.pop()
+            if stack:
+                rightMost[i] = stack[-1]
+            stack.append(i)
+
+        maxArea = 0
+        for i in range(n):
+            leftMost[i] += 1
+            rightMost[i] -= 1
+            maxArea = max(maxArea, heights[i] * (rightMost[i] - leftMost[i] + 1))
+        return maxArea
+
+examples = [
+    ([2,1,5,6,2,3], 10),
+    ([2,4], 4),
+    ([2,1,2], 3),
+    ([6,2,5,4,5,1,6], 12),
+    ([1,1,1,1,1], 5)
+]
+
+s = Solution()
+for heights, expected in examples:
+    result = s.largestRectangleArea(heights)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LargestRectangleInHistogram.Stack_OnePass
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        maxArea = 0
+        stack = []  # pair: (index, height)
+
+        for i, h in enumerate(heights):
+            start = i
+            while stack and stack[-1][1] > h:
+                index, height = stack.pop()
+                maxArea = max(maxArea, height * (i - index))
+                start = index
+            stack.append((start, h))
+
+        for i, h in stack:
+            maxArea = max(maxArea, h * (len(heights) - i))
+        return maxArea
+
+examples = [
+    ([2,1,5,6,2,3], 10),
+    ([2,4], 4),
+    ([2,1,2], 3),
+    ([6,2,5,4,5,1,6], 12),
+    ([1,1,1,1,1], 5)
+]
+
+s = Solution()
+for heights, expected in examples:
+    result = s.largestRectangleArea(heights)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.LargestRectangleInHistogram.StackOptimal
+    set output_file "main.py"
+
+    set template_content '
+func largestRectangleArea(heights []int) int {
+    n := len(heights)
+    maxArea := 0
+    stack := make([]int, 0)
+
+    for i := 0; i <= n; i++ {
+        for len(stack) > 0 && (i == n || heights[stack[len(stack)-1]] >= heights[i]) {
+            height := heights[stack[len(stack)-1]]
+            stack = stack[:len(stack)-1]
+
+            width := i
+            if len(stack) > 0 {
+                width = i - stack[len(stack)-1] - 1
+            }
+
+            area := height * width
+            if area > maxArea {
+                maxArea = area
+            }
+        }
+        if i < n {
+            stack = append(stack, i)
+        }
+    }
+
+    return maxArea
+}
+
+examples = [
+    ([2,1,5,6,2,3], 10),
+    ([2,4], 4),
+    ([2,1,2], 3),
+    ([6,2,5,4,5,1,6], 12),
+    ([1,1,1,1,1], 5)
+]
+
+s = Solution()
+for heights, expected in examples:
+    result = s.largestRectangleArea(heights)
+    print(result == expected, "=>", result)
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MedianTwoSortedArrays.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        len1 = len(nums1)
+        len2 = len(nums2)
+        merged = nums1 + nums2
+        merged.sort()
+
+        totalLen = len(merged)
+        if totalLen % 2 == 0:
+            return (merged[totalLen // 2 - 1] + merged[totalLen // 2]) / 2.0
+        else:
+            return merged[totalLen // 2]
+
+sol = Solution()
+print(sol.findMedianSortedArrays([1,3], [2]))          # 2.0
+print(sol.findMedianSortedArrays([1,2], [3,4]))        # 2.5
+print(sol.findMedianSortedArrays([], [1]))             # 1.0
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MedianTwoSortedArrays.TwoPointers
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMedianSortedArrays(self, nums1, nums2):
+        len1, len2 = len(nums1), len(nums2)
+        i = j = 0
+        median1 = median2 = 0
+
+        for count in range((len1 + len2) // 2 + 1):
+            median2 = median1
+            if i < len1 and j < len2:
+                if nums1[i] > nums2[j]:
+                    median1 = nums2[j]
+                    j += 1
+                else:
+                    median1 = nums1[i]
+                    i += 1
+            elif i < len1:
+                median1 = nums1[i]
+                i += 1
+            else:
+                median1 = nums2[j]
+                j += 1
+
+        if (len1 + len2) % 2 == 1:
+            return float(median1)
+        else:
+            return (median1 + median2) / 2.0
+
+sol = Solution()
+print(sol.findMedianSortedArrays([1,3], [2]))          # 2.0
+print(sol.findMedianSortedArrays([1,2], [3,4]))        # 2.5
+print(sol.findMedianSortedArrays([], [1]))             # 1.0
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MedianTwoSortedArrays.BinarySearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def get_kth(self, a: List[int], m: int, b: List[int], n: int, k: int, a_start: int = 0, b_start: int = 0) -> int:
+        if m > n:
+            return self.get_kth(b, n, a, m, k, b_start, a_start)
+        if m == 0:
+            return b[b_start + k - 1]
+        if k == 1:
+            return min(a[a_start], b[b_start])
+
+        i = min(m, k // 2)
+        j = min(n, k // 2)
+
+        if a[a_start + i - 1] > b[b_start + j - 1]:
+            return self.get_kth(a, m, b, n - j, k - j, a_start, b_start + j)
+        else:
+            return self.get_kth(a, m - i, b, n, k - i, a_start + i, b_start)
+
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        left = (len(nums1) + len(nums2) + 1) // 2
+        right = (len(nums1) + len(nums2) + 2) // 2
+        return (self.get_kth(nums1, len(nums1), nums2, len(nums2), left) +
+                self.get_kth(nums1, len(nums1), nums2, len(nums2), right)) / 2.0
+
+sol = Solution()
+print(sol.findMedianSortedArrays([1,3], [2]))          # 2.0
+print(sol.findMedianSortedArrays([1,2], [3,4]))        # 2.5
+print(sol.findMedianSortedArrays([], [1]))             # 1.0
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MedianTwoSortedArrays.BinarySearchOptimal
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        A, B = nums1, nums2
+        total = len(nums1) + len(nums2)
+        half = total // 2
+
+        if len(B) < len(A):
+            A, B = B, A
+
+        l, r = 0, len(A) - 1
+        while True:
+            i = (l + r) // 2
+            j = half - i - 2
+
+            Aleft = A[i] if i >= 0 else float("-infinity")
+            Aright = A[i + 1] if (i + 1) < len(A) else float("infinity")
+            Bleft = B[j] if j >= 0 else float("-infinity")
+            Bright = B[j + 1] if (j + 1) < len(B) else float("infinity")
+
+            if Aleft <= Bright and Bleft <= Aright:
+                if total % 2:
+                    return min(Aright, Bright)
+                return (max(Aleft, Bleft) + min(Aright, Bright)) / 2
+            elif Aleft > Bright:
+                r = i - 1
+            else:
+                l = i + 1
+
+sol = Solution()
+print(sol.findMedianSortedArrays([1,3], [2]))          # 2.0
+print(sol.findMedianSortedArrays([1,2], [3,4]))        # 2.5
+print(sol.findMedianSortedArrays([], [1]))             # 1.0
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MinimumWindowSubstring.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if t == "":
+            return ""
+
+        countT = {}
+        for c in t:
+            countT[c] = 1 + countT.get(c, 0)
+
+        res, resLen = [-1, -1], float("infinity")
+        for i in range(len(s)):
+            countS = {}
+            for j in range(i, len(s)):
+                countS[s[j]] = 1 + countS.get(s[j], 0)
+
+                flag = True
+                for c in countT:
+                    if countT[c] > countS.get(c, 0):
+                        flag = False
+                        break
+
+                if flag and (j - i + 1) < resLen:
+                    resLen = j - i + 1
+                    res = [i, j]
+
+        l, r = res
+        return s[l : r + 1] if resLen != float("infinity") else ""
+
+sol = Solution()
+print(sol.minWindow("ADOBECODEBANC", "ABC"))  # "BANC"
+print(sol.minWindow("a", "a"))                # "a"
+print(sol.minWindow("a", "aa"))               # ""
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.MinimumWindowSubstring.SlidingWindow
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if t == "":
+            return ""
+
+        countT, window = {}, {}
+        for c in t:
+            countT[c] = 1 + countT.get(c, 0)
+
+        have, need = 0, len(countT)
+        res, resLen = [-1, -1], float("infinity")
+        l = 0
+        for r in range(len(s)):
+            c = s[r]
+            window[c] = 1 + window.get(c, 0)
+
+            if c in countT and window[c] == countT[c]:
+                have += 1
+
+            while have == need:
+                if (r - l + 1) < resLen:
+                    res = [l, r]
+                    resLen = r - l + 1
+
+                window[s[l]] -= 1
+                if s[l] in countT and window[s[l]] < countT[s[l]]:
+                    have -= 1
+                l += 1
+        l, r = res
+        return s[l : r + 1] if resLen != float("infinity") else ""
+
+sol = Solution()
+print(sol.minWindow("ADOBECODEBANC", "ABC"))  # "BANC"
+print(sol.minWindow("a", "a"))                # "a"
+print(sol.minWindow("a", "aa"))               # ""
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.SlidingWindowMaximum.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        output = []
+
+        for i in range(len(nums) - k + 1):
+            maxi = nums[i]
+            for j in range(i, i + k):
+                maxi = max(maxi, nums[j])
+            output.append(maxi)
+
+        return output
+
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.SlidingWindowMaximum.SegmentTree
+    set output_file "main.py"
+
+    set template_content '
+class SegmentTree:
+    def __init__(self, N, A):
+        self.n = N
+        while (self.n & (self.n - 1)) != 0:
+            self.n += 1
+        self.build(N, A)
+
+    def build(self, N, A):
+        self.tree = [float('-inf')] * (2 * self.n)
+        for i in range(N):
+            self.tree[self.n + i] = A[i]
+        for i in range(self.n - 1, 0, -1):
+            self.tree[i] = max(self.tree[i << 1], self.tree[i << 1 | 1])
+
+    def query(self, l, r):
+        res = float('-inf')
+        l += self.n
+        r += self.n + 1
+        while l < r:
+            if l & 1:
+                res = max(res, self.tree[l])
+                l += 1
+            if r & 1:
+                r -= 1
+                res = max(res, self.tree[r])
+            l >>= 1
+            r >>= 1
+        return res
+
+
+class Solution:
+    def maxSlidingWindow(self, nums, k):
+        n = len(nums)
+        segTree = SegmentTree(n, nums)
+        output = []
+        for i in range(n - k + 1):
+            output.append(segTree.query(i, i + k - 1))
+        return output
+
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.SlidingWindowMaximum.Heap
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        heap = []
+        output = []
+        for i in range(len(nums)):
+            heapq.heappush(heap, (-nums[i], i))
+            if i >= k - 1:
+                while heap[0][1] <= i - k:
+                    heapq.heappop(heap)
+                output.append(-heap[0][0])
+        return output
+
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.SlidingWindowMaximum.DynamicProgramming
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        leftMax = [0] * n
+        rightMax = [0] * n
+
+        leftMax[0] = nums[0]
+        rightMax[n - 1] = nums[n - 1]
+
+        for i in range(1, n):
+            if i % k == 0:
+                leftMax[i] = nums[i]
+            else:
+                leftMax[i] = max(leftMax[i - 1], nums[i])
+
+            if (n - 1 - i) % k == 0:
+                rightMax[n - 1 - i] = nums[n - 1 - i]
+            else:
+                rightMax[n - 1 - i] = max(rightMax[n - i], nums[n - 1 - i])
+
+        output = [0] * (n - k + 1)
+
+        for i in range(n - k + 1):
+            output[i] = max(leftMax[i + k - 1], rightMax[i])
+
+        return output
+
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.SlidingWindowMaximum.Deque
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from collections import deque 
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        output = []
+        q = deque()  # index
+        l = r = 0
+
+        while r < len(nums):
+            while q and nums[q[-1]] < nums[r]:
+                q.pop()
+            q.append(r)
+
+            if l > q[0]:
+                q.popleft()
+
+            if (r + 1) >= k:
+                output.append(nums[q[0]])
+                l += 1
+            r += 1
+
+        return output
+
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MergeKSortedLinkedLists.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        nodes = []
+        for lst in lists:
+            while lst:
+                nodes.append(lst.val)
+                lst = lst.next
+        nodes.sort()
+
+        res = ListNode(0)
+        cur = res
+        for node in nodes:
+            cur.next = ListNode(node)
+            cur = cur.next
+        return res.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MergeKSortedLinkedLists.Iteration
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        res = ListNode(0)
+        cur = res
+
+        while True:
+            minNode = -1
+            for i in range(len(lists)):
+                if not lists[i]:
+                    continue
+                if minNode == -1 or lists[minNode].val > lists[i].val:
+                    minNode = i
+
+            if minNode == -1:
+                break
+            cur.next = lists[minNode]
+            lists[minNode] = lists[minNode].next
+            cur = cur.next
+
+        return res.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MergeKSortedLinkedLists.MergeListsOneByOne
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if len(lists) == 0:
+            return None
+
+        for i in range(1, len(lists)):
+            lists[i] = self.mergeList(lists[i - 1], lists[i])
+
+        return lists[-1]
+
+    def mergeList(self, l1, l2):
+        dummy = ListNode()
+        tail = dummy
+
+        while l1 and l2:
+            if l1.val < l2.val:
+                tail.next = l1
+                l1 = l1.next
+            else:
+                tail.next = l2
+                l2 = l2.next
+            tail = tail.next
+        if l1:
+            tail.next = l1
+        if l2:
+            tail.next = l2
+        return dummy.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MergeKSortedLinkedLists.Heap
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from typing import Optional
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class NodeWrapper:
+    def __init__(self, node):
+        self.node = node
+
+    def __lt__(self, other):
+        return self.node.val < other.node.val
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if len(lists) == 0:
+            return None
+
+        res = ListNode(0)
+        cur = res
+        minHeap = []
+
+        for lst in lists:
+            if lst is not None:
+                heapq.heappush(minHeap, NodeWrapper(lst))
+
+        while minHeap:
+            node_wrapper = heapq.heappop(minHeap)
+            cur.next = node_wrapper.node
+            cur = cur.next
+
+            if node_wrapper.node.next:
+                heapq.heappush(minHeap, NodeWrapper(node_wrapper.node.next))
+
+        return res.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MergeKSortedLinkedLists.DivideAndConquer_Recursion
+
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists):
+        if not lists or len(lists) == 0:
+            return None
+        return self.divide(lists, 0, len(lists) - 1)
+
+    def divide(self, lists, l, r):
+        if l > r:
+            return None
+        if l == r:
+            return lists[l]
+
+        mid = l + (r - l) // 2
+        left = self.divide(lists, l, mid)
+        right = self.divide(lists, mid + 1, r)
+
+        return self.conquer(left, right)
+
+    def conquer(self, l1, l2):
+        dummy = ListNode(0)
+        curr = dummy
+
+        while l1 and l2:
+            if l1.val <= l2.val:
+                curr.next = l1
+                l1 = l1.next
+            else:
+                curr.next = l2
+                l2 = l2.next
+            curr = curr.next
+
+        if l1:
+            curr.next = l1
+        else:
+            curr.next = l2
+
+        return dummy.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.MergeKSortedLinkedLists.DivideAndConquer_Iteration
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists or len(lists) == 0:
+            return None
+
+        while len(lists) > 1:
+            mergedLists = []
+            for i in range(0, len(lists), 2):
+                l1 = lists[i]
+                l2 = lists[i + 1] if (i + 1) < len(lists) else None
+                mergedLists.append(self.mergeList(l1, l2))
+            lists = mergedLists
+        return lists[0]
+
+    def mergeList(self, l1, l2):
+        dummy = ListNode()
+        tail = dummy
+
+        while l1 and l2:
+            if l1.val < l2.val:
+                tail.next = l1
+                l1 = l1.next
+            else:
+                tail.next = l2
+                l2 = l2.next
+            tail = tail.next
+
+        if l1:
+            tail.next = l1
+        if l2:
+            tail.next = l2
+
+        return dummy.next
+
+l1 = ListNode(1, ListNode(4, ListNode(5)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+l3 = ListNode(2, ListNode(6))
+
+lists = [l1, l2, l3]
+
+sol = Solution()
+merged = sol.mergeKLists(lists)
+
+cur = merged
+while cur:
+    print(cur.val, end=" -> ")
+    cur = cur.next
+print("None")
+
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.ReverseNodesinK-Group.Recursion
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        cur = head
+        group = 0
+        while cur and group < k:
+            cur = cur.next
+            group += 1
+
+        if group == k:
+            cur = self.reverseKGroup(cur, k)
+            while group > 0:
+                tmp = head.next
+                head.next = cur
+                cur = head
+                head = tmp
+                group -= 1
+            head = cur
+        return head
+
+head = ListNode(
+    1,
+    ListNode(
+        2,
+        ListNode(
+            3,
+            ListNode(
+                4,
+                ListNode(5)
+            )
+        )
+    )
+)
+
+k = 2
+
+sol = Solution()
+res = sol.reverseKGroup(head, k)
+cur = res
+while cur:
+    print(cur.val, end=" -> " if cur.next else " -> None\n")
+    cur = cur.next
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.ReverseNodesinK-Group.Iteration
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        dummy = ListNode(0, head)
+        groupPrev = dummy
+
+        while True:
+            kth = self.getKth(groupPrev, k)
+            if not kth:
+                break
+            groupNext = kth.next
+
+            prev, curr = kth.next, groupPrev.next
+            while curr != groupNext:
+                tmp = curr.next
+                curr.next = prev
+                prev = curr
+                curr = tmp
+
+            tmp = groupPrev.next
+            groupPrev.next = kth
+            groupPrev = tmp
+        return dummy.next
+
+    def getKth(self, curr, k):
+        while curr and k > 0:
+            curr = curr.next
+            k -= 1
+        return curr
+
+head = ListNode(
+    1,
+    ListNode(
+        2,
+        ListNode(
+            3,
+            ListNode(
+                4,
+                ListNode(5)
+            )
+        )
+    )
+)
+
+k = 2
+
+sol = Solution()
+res = sol.reverseKGroup(head, k)
+cur = res
+while cur:
+    print(cur.val, end=" -> " if cur.next else " -> None\n")
+    cur = cur.next
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.BinaryTreeMaximumPathSum.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        res = -float("inf")
+        def dfs(root):
+            nonlocal res
+            if not root:
+                return
+            left = self.getMax(root.left)
+            right = self.getMax(root.right)
+            res =max(res, root.val + left + right)
+            dfs(root.left)
+            dfs(root.right)
+        dfs(root)
+        return res
+
+    def getMax(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        left = self.getMax(root.left)
+        right = self.getMax(root.right)
+        path = root.val + max(left, right)
+        return max(0, path)
+
+#     1
+#    / \
+#   2   3
+
+root = TreeNode(1,
+        TreeNode(2),
+        TreeNode(3)
+)
+
+sol = Solution()
+print(sol.maxPathSum(root))
+
+
+#    -10
+#    /  \
+#   9   20
+#      /  \
+#     15   7
+
+root = TreeNode(-10,
+        TreeNode(9),
+        TreeNode(20,
+            TreeNode(15),
+            TreeNode(7)
+        )
+)
+
+print(sol.maxPathSum(root))
+
+root = TreeNode(5)
+print(sol.maxPathSum(root))
+
+#    -3
+#    /
+#  -2
+
+root = TreeNode(-3,
+        TreeNode(-2)
+)
+
+print(sol.maxPathSum(root))
+
+#         5
+#        / \
+#       4   8
+#      /   / \
+#    11  13   4
+#    / \
+#   7   2
+
+root = TreeNode(5,
+        TreeNode(4,
+            TreeNode(11,
+                TreeNode(7),
+                TreeNode(2)
+            )
+        ),
+        TreeNode(8,
+            TreeNode(13),
+            TreeNode(4)
+        )
+)
+
+print(sol.maxPathSum(root))
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.BinaryTreeMaximumPathSum.DepthFirstSearch_Optimal
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        res = [root.val]
+
+        def dfs(root):
+            if not root:
+                return 0
+
+            leftMax = dfs(root.left)
+            rightMax = dfs(root.right)
+            leftMax = max(leftMax, 0)
+            rightMax = max(rightMax, 0)
+
+            res[0] = max(res[0], root.val + leftMax + rightMax)
+            return root.val + max(leftMax, rightMax)
+
+        dfs(root)
+        return res[0]
+
+#     1
+#    / \
+#   2   3
+
+root = TreeNode(1,
+        TreeNode(2),
+        TreeNode(3)
+)
+
+sol = Solution()
+print(sol.maxPathSum(root))
+
+
+#    -10
+#    /  \
+#   9   20
+#      /  \
+#     15   7
+
+root = TreeNode(-10,
+        TreeNode(9),
+        TreeNode(20,
+            TreeNode(15),
+            TreeNode(7)
+        )
+)
+
+print(sol.maxPathSum(root))
+
+root = TreeNode(5)
+print(sol.maxPathSum(root))
+
+#    -3
+#    /
+#  -2
+
+root = TreeNode(-3,
+        TreeNode(-2)
+)
+
+print(sol.maxPathSum(root))
+
+#         5
+#        / \
+#       4   8
+#      /   / \
+#    11  13   4
+#    / \
+#   7   2
+
+root = TreeNode(5,
+        TreeNode(4,
+            TreeNode(11,
+                TreeNode(7),
+                TreeNode(2)
+            )
+        ),
+        TreeNode(8,
+            TreeNode(13),
+            TreeNode(4)
+        )
+)
+
+print(sol.maxPathSum(root))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.SerializeandDeserializeBinaryTree.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Codec:
+
+    # Encodes a tree to a single string.
+    def serialize(self, root: Optional[TreeNode]) -> str:
+        res = []
+
+        def dfs(node):
+            if not node:
+                res.append("N")
+                return
+            res.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+
+        dfs(root)
+        return ",".join(res)
+
+    # Decodes your encoded data to tree.
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        vals = data.split(",")
+        self.i = 0
+
+        def dfs():
+            if vals[self.i] == "N":
+                self.i += 1
+                return None
+            node = TreeNode(int(vals[self.i]))
+            self.i += 1
+            node.left = dfs()
+            node.right = dfs()
+            return node
+
+        return dfs()
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.SerializeandDeserializeBinaryTree.BreadthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Codec:
+
+    # Encodes a tree to a single string.
+    def serialize(self, root: Optional[TreeNode]) -> str:
+        if not root:
+            return "N"
+        res = []
+        queue = deque([root])
+        while queue:
+            node = queue.popleft()
+            if not node:
+                res.append("N")
+            else:
+                res.append(str(node.val))
+                queue.append(node.left)
+                queue.append(node.right)
+        return ",".join(res)
+
+    # Decodes your encoded data to tree.
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        vals = data.split(",")
+        if vals[0] == "N":
+            return None
+        root = TreeNode(int(vals[0]))
+        queue = deque([root])
+        index = 1
+        while queue:
+            node = queue.popleft()
+            if vals[index] != "N":
+                node.left = TreeNode(int(vals[index]))
+                queue.append(node.left)
+            index += 1
+            if vals[index] != "N":
+                node.right = TreeNode(int(vals[index]))
+                queue.append(node.right)
+            index += 1
+        return root
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.WordSearchII.Backtracking_Trie
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TrieNode:
+    def __init__(self):
+        self.children = [None] * 26
+        self.idx = -1
+        self.refs = 0
+
+    def addWord(self, word, i):
+        cur = self
+        cur.refs += 1
+        for c in word:
+            index = ord(c) - ord("a")
+            if not cur.children[index]:
+                cur.children[index] = TrieNode()
+            cur = cur.children[index]
+            cur.refs += 1
+        cur.idx = i
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        root = TrieNode()
+        for i in range(len(words)):
+            root.addWord(words[i], i)
+
+        ROWS, COLS = len(board), len(board[0])
+        res = []
+
+        def getIndex(c):
+            index = ord(c) - ord("a")
+            return index
+
+        def dfs(r, c, node):
+            if (r < 0 or c < 0 or r >= ROWS or
+                c >= COLS or board[r][c] == "*" or
+                not node.children[getIndex(board[r][c])]):
+                return
+
+            tmp = board[r][c]
+            board[r][c] = "*"
+            prev = node
+            node = node.children[getIndex(tmp)]
+            if node.idx != -1:
+                res.append(words[node.idx])
+                node.idx = -1
+                node.refs -= 1
+                if not node.refs:
+                    prev.children[getIndex(tmp)] = None
+                    node = None
+                    board[r][c] = tmp
+                    return
+
+            dfs(r + 1, c, node)
+            dfs(r - 1, c, node)
+            dfs(r, c + 1, node)
+            dfs(r, c - 1, node)
+
+            board[r][c] = tmp
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                dfs(r, c, root)
+
+        return res
+
+
+sol = Solution()
+
+board1 = [
+    ["o","a","a","n"],
+    ["e","t","a","e"],
+    ["i", "h","k","r"],
+    ["i","f","l","v"]
+]
+words1 = ["oath","pea","eat","rain"]
+print(sol.findWords(board1, words1))
+
+board2 = [
+    ["a","b"],
+    ["c","d"]
+]
+words2 = ["ab","cb","ad","bd","ac","ca","da","bc","db","adcb","dabc","abb","acb"]
+print(sol.findWords(board2, words2))
+
+board3 = [["a"]]
+words3 = ["a","b"]
+print(sol.findWords(board3, words3))
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.WordSearchII.Backtracking_Trie_HashSet
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.isWord = False
+
+    def addWord(self, word):
+        cur = self
+        for c in word:
+            if c not in cur.children:
+                cur.children[c] = TrieNode()
+            cur = cur.children[c]
+        cur.isWord = True
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        root = TrieNode()
+        for w in words:
+            root.addWord(w)
+
+        ROWS, COLS = len(board), len(board[0])
+        res, visit = set(), set()
+
+        def dfs(r, c, node, word):
+            if (r < 0 or c < 0 or r >= ROWS or
+                c >= COLS or (r, c) in visit or
+                board[r][c] not in node.children
+            ):
+                return
+
+            visit.add((r, c))
+            node = node.children[board[r][c]]
+            word += board[r][c]
+            if node.isWord:
+                res.add(word)
+
+            dfs(r + 1, c, node, word)
+            dfs(r - 1, c, node, word)
+            dfs(r, c + 1, node, word)
+            dfs(r, c - 1, node, word)
+            visit.remove((r, c))
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                dfs(r, c, root, "")
+
+        return list(res)
+
+sol = Solution()
+
+board1 = [
+    ["o","a","a","n"],
+    ["e","t","a","e"],
+    ["i", "h","k","r"],
+    ["i","f","l","v"]
+]
+words1 = ["oath","pea","eat","rain"]
+print(sol.findWords(board1, words1))
+
+board2 = [
+    ["a","b"],
+    ["c","d"]
+]
+words2 = ["ab","cb","ad","bd","ac","ca","da","bc","db","adcb","dabc","abb","acb"]
+print(sol.findWords(board2, words2))
+
+board3 = [["a"]]
+words3 = ["a","b"]
+print(sol.findWords(board3, words3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.WordSearchII.Backtracking
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        ROWS, COLS = len(board), len(board[0])
+        res = []
+
+        def backtrack(r, c, i):
+            if i == len(word):
+                return True
+            if (r < 0 or c < 0 or r >= ROWS or
+                c >= COLS or board[r][c] != word[i]
+            ):
+                return False
+
+            board[r][c] = "*"
+            ret = (backtrack(r + 1, c, i + 1) or
+                   backtrack(r - 1, c, i + 1) or
+                   backtrack(r, c + 1, i + 1) or
+                   backtrack(r, c - 1, i + 1))
+            board[r][c] = word[i]
+            return ret
+
+        for word in words:
+            flag = False
+            for r in range(ROWS):
+                if flag:
+                    break
+                for c in range(COLS):
+                    if board[r][c] != word[0]:
+                        continue
+                    if backtrack(r, c, 0):
+                        res.append(word)
+                        flag = True
+                        break
+        return res
+
+sol = Solution()
+
+board1 = [
+    ["o","a","a","n"],
+    ["e","t","a","e"],
+    ["i", "h","k","r"],
+    ["i","f","l","v"]
+]
+words1 = ["oath","pea","eat","rain"]
+print(sol.findWords(board1, words1))
+
+board2 = [
+    ["a","b"],
+    ["c","d"]
+]
+words2 = ["ab","cb","ad","bd","ac","ca","da","bc","db","adcb","dabc","abb","acb"]
+print(sol.findWords(board2, words2))
+
+board3 = [["a"]]
+words3 = ["a","b"]
+print(sol.findWords(board3, words3))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.N-Queens.Backtracking
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        res = []
+        board = [["."] * n for i in range(n)]
+
+        def backtrack(r):
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+            for c in range(n):
+                if self.isSafe(r, c, board):
+                    board[r][c] = "Q"
+                    backtrack(r + 1)
+                    board[r][c] = "."
+
+        backtrack(0)
+        return res
+
+    def isSafe(self, r: int, c: int, board):
+        row = r - 1
+        while row >= 0:
+            if board[row][c] == "Q":
+                return False
+            row -= 1
+
+        row, col = r - 1, c - 1
+        while row >= 0 and col >= 0:
+            if board[row][col] == "Q":
+                return False
+            row -= 1
+            col -= 1
+
+        row, col = r - 1, c + 1
+        while row >= 0 and col < len(board):
+            if board[row][col] == "Q":
+                return False
+            row -= 1
+            col += 1
+        return True
+
+sol = Solution()
+
+res1 = sol.solveNQueens(4)
+print(f"Number of solutions for 4-Queens: {len(res1)}")
+for board in res1:
+    for row in board:
+        print(row)
+    print()
+
+res2 = sol.solveNQueens(1)
+print(f"Number of solutions for 1-Queen: {len(res2)}")
+for board in res2:
+    for row in board:
+        print(row)
+    print()
+
+res3 = sol.solveNQueens(5)
+print(f"Number of solutions for 5-Queens: {len(res3)}")
+
+
+res1 = sol.solveNQueens(1)
+print("n = 1")
+for board in res1:
+    for row in board:
+        print(row)
+    print()
+print("Total solutions:", len(res1))
+print("="*20)
+
+res2 = sol.solveNQueens(4)
+print("n = 4")
+for idx, board in enumerate(res2, 1):
+    print(f"Solution {idx}:")
+    for row in board:
+        print(row)
+    print()
+print("Total solutions:", len(res2))
+print("="*20)
+
+res3 = sol.solveNQueens(5)
+print("n = 5 (showing first 3 solutions only)")
+for idx, board in enumerate(res3[:3], 1):
+    print(f"Solution {idx}:")
+    for row in board:
+        print(row)
+    print()
+print("Total solutions:", len(res3))
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.N-Queens.Backtracking_HashSet
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = set()
+        posDiag = set()
+        negDiag = set()
+
+        res = []
+        board = [["."] * n for i in range(n)]
+
+        def backtrack(r):
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+
+            for c in range(n):
+                if c in col or (r + c) in posDiag or (r - c) in negDiag:
+                    continue
+
+                col.add(c)
+                posDiag.add(r + c)
+                negDiag.add(r - c)
+                board[r][c] = "Q"
+
+                backtrack(r + 1)
+
+                col.remove(c)
+                posDiag.remove(r + c)
+                negDiag.remove(r - c)
+                board[r][c] = "."
+
+        backtrack(0)
+        return res
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.N-Queens.Backtracking_VisitedArray
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = [False] * n
+        posDiag = [False] * (n * 2)
+        negDiag = [False] * (n * 2)
+        res = []
+        board = [["."] * n for i in range(n)]
+
+        def backtrack(r):
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+            for c in range(n):
+                if col[c] or posDiag[r + c] or negDiag[r - c + n]:
+                    continue
+                col[c] = True
+                posDiag[r + c] = True
+                negDiag[r - c + n] = True
+                board[r][c] = "Q"
+
+                backtrack(r + 1)
+
+                col[c] = False
+                posDiag[r + c] = False
+                negDiag[r - c + n] = False
+                board[r][c] = "."
+
+        backtrack(0)
+        return res
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.N-Queens.Backtracking_BitMask
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = 0
+        posDiag = 0
+        negDiag = 0
+        res = []
+        board = [["."] * n for i in range(n)]
+
+        def backtrack(r):
+            nonlocal col, posDiag, negDiag
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+            for c in range(n):
+                if ((col & (1 << c)) or (posDiag & (1 << (r + c)))
+                    or (negDiag & (1 << (r - c + n)))):
+                    continue
+                col ^= (1 << c)
+                posDiag ^= (1 << (r + c))
+                negDiag ^= (1 << (r - c + n))
+                board[r][c] = "Q"
+
+                backtrack(r + 1)
+
+                col ^= (1 << c)
+                posDiag ^= (1 << (r + c))
+                negDiag ^= (1 << (r - c + n))
+                board[r][c] = "."
+
+        backtrack(0)
+        return res
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.FindMedianFromDataStream.Sorting
+    set output_file "main.py"
+
+    set template_content '
+import heapq
+
+class MedianFinder:
+
+    def __init__(self):
+        self.data = []
+
+    def addNum(self, num: int) -> None:
+        self.data.append(num)
+
+    def findMedian(self) -> float:
+        self.data.sort()
+        n = len(self.data)
+        return (self.data[n // 2] if (n & 1) else
+                (self.data[n // 2] + self.data[n // 2 - 1]) / 2)
+
+mf = MedianFinder()
+
+mf.addNum(1)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(1)
+mf.addNum(2)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(1)
+mf.addNum(2)
+mf.addNum(3)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(5)
+mf.addNum(3)
+mf.addNum(8)
+mf.addNum(9)
+mf.addNum(2)
+
+print(mf.findMedian())
+
+
+mf = MedianFinder()
+
+mf.addNum(-1)
+mf.addNum(-2)
+mf.addNum(-3)
+
+print(mf.findMedian())
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.FindMedianFromDataStream.Heap
+    set output_file "main.py"
+
+    set template_content '
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        # two heaps, large, small, minheap, maxheap
+        # heaps should be equal size
+        self.small, self.large = [], []
+
+    def addNum(self, num: int) -> None:
+        if self.large and num > self.large[0]:
+            heapq.heappush(self.large, num)
+        else:
+            heapq.heappush(self.small, -1 * num)
+
+        if len(self.small) > len(self.large) + 1:
+            val = -1 * heapq.heappop(self.small)
+            heapq.heappush(self.large, val)
+        if len(self.large) > len(self.small) + 1:
+            val = heapq.heappop(self.large)
+            heapq.heappush(self.small, -1 * val)
+
+    def findMedian(self) -> float:
+        if len(self.small) > len(self.large):
+            return -1 * self.small[0]
+        elif len(self.large) > len(self.small):
+            return self.large[0]
+        return (-1 * self.small[0] + self.large[0]) / 2.0
+
+mf = MedianFinder()
+
+mf.addNum(1)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(1)
+mf.addNum(2)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(1)
+mf.addNum(2)
+mf.addNum(3)
+print(mf.findMedian())
+
+mf = MedianFinder()
+
+mf.addNum(5)
+mf.addNum(3)
+mf.addNum(8)
+mf.addNum(9)
+mf.addNum(2)
+
+print(mf.findMedian())
+
+
+mf = MedianFinder()
+
+mf.addNum(-1)
+mf.addNum(-2)
+mf.addNum(-3)
+
+print(mf.findMedian())
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.WordLadder.BreadthFirstSearch-I
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+from collections import deque
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if (endWord not in wordList) or (beginWord == endWord):
+            return 0
+
+        n, m = len(wordList), len(wordList[0])
+        adj = [[] for _ in range(n)]
+        mp = {}
+        for i in range(n):
+            mp[wordList[i]] = i
+
+        for i in range(n):
+            for j in range(i + 1, n):
+                cnt = 0
+                for k in range(m):
+                    if wordList[i][k] != wordList[j][k]:
+                        cnt += 1
+                if cnt == 1:
+                    adj[i].append(j)
+                    adj[j].append(i)
+
+        q, res = deque(), 1
+        visit = set()
+        for i in range(m):
+            for c in range(97, 123):
+                if chr(c) == beginWord[i]:
+                    continue
+                word = beginWord[:i] + chr(c) + beginWord[i + 1:]
+                if word in mp and mp[word] not in visit:
+                    q.append(mp[word])
+                    visit.add(mp[word])
+
+        while q:
+            res += 1
+            for i in range(len(q)):
+                node = q.popleft()
+                if wordList[node] == endWord:
+                    return res
+                for nei in adj[node]:
+                    if nei not in visit:
+                        visit.add(nei)
+                        q.append(nei)
+
+        return 0
+
+tests = [
+    ("hit", "cog", ["hot","dot","dog","lot","log","cog"]),
+    ("hit", "cog", ["hot","dot","dog","lot","log"]),
+    ("a", "c", ["a","b","c"]),
+    ("lost", "cost", ["lost","cost","most","host"]),
+    ("game", "thee", ["fame","fate","gate","gave","gaze","haze","hate","heat","thee"])
+]
+
+solution = Solution()
+
+for i, (begin, end, words) in enumerate(tests, 1):
+    print(f"Example {i}:",
+          solution.ladderLength(begin, end, words))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.WordLadder.BreadthFirstSearch-II
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+from collections import deque
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if (endWord not in wordList) or (beginWord == endWord):
+            return 0
+        words, res = set(wordList), 0
+        q = deque([beginWord])
+        while q:
+            res += 1
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node == endWord:
+                    return res
+                for i in range(len(node)):
+                    for c in range(97, 123):
+                        if chr(c) == node[i]:
+                            continue
+                        nei = node[:i] + chr(c) + node[i + 1:]
+                        if nei in words:
+                            q.append(nei)
+                            words.remove(nei)
+        return 0
+
+tests = [
+    ("hit", "cog", ["hot","dot","dog","lot","log","cog"]),
+    ("hit", "cog", ["hot","dot","dog","lot","log"]),
+    ("a", "c", ["a","b","c"]),
+    ("lost", "cost", ["lost","cost","most","host"]),
+    ("game", "thee", ["fame","fate","gate","gave","gaze","haze","hate","heat","thee"])
+]
+
+solution = Solution()
+
+for i, (begin, end, words) in enumerate(tests, 1):
+    print(f"Example {i}:",
+          solution.ladderLength(begin, end, words))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.WordLadder.BreadthFirstSearch-III
+
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+from collections import deque
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+
+        nei = collections.defaultdict(list)
+        wordList.append(beginWord)
+        for word in wordList:
+            for j in range(len(word)):
+                pattern = word[:j] + "*" + word[j + 1 :]
+                nei[pattern].append(word)
+
+        visit = set([beginWord])
+        q = deque([beginWord])
+        res = 1
+        while q:
+            for i in range(len(q)):
+                word = q.popleft()
+                if word == endWord:
+                    return res
+                for j in range(len(word)):
+                    pattern = word[:j] + "*" + word[j + 1 :]
+                    for neiWord in nei[pattern]:
+                        if neiWord not in visit:
+                            visit.add(neiWord)
+                            q.append(neiWord)
+            res += 1
+        return 0
+
+tests = [
+    ("hit", "cog", ["hot","dot","dog","lot","log","cog"]),
+    ("hit", "cog", ["hot","dot","dog","lot","log"]),
+    ("a", "c", ["a","b","c"]),
+    ("lost", "cost", ["lost","cost","most","host"]),
+    ("game", "thee", ["fame","fate","gate","gave","gaze","haze","hate","heat","thee"])
+]
+
+solution = Solution()
+
+for i, (begin, end, words) in enumerate(tests, 1):
+    print(f"Example {i}:",
+          solution.ladderLength(begin, end, words))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.WordLadder.MeetInTheMiddle_BFS
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+from collections import deque
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList or beginWord == endWord:
+            return 0
+        m = len(wordList[0])
+        wordSet = set(wordList)
+        qb, qe = deque([beginWord]), deque([endWord])
+        fromBegin, fromEnd = {beginWord: 1}, {endWord: 1}
+
+        while qb and qe:
+            if len(qb) > len(qe):
+                qb, qe = qe, qb
+                fromBegin, fromEnd = fromEnd, fromBegin
+            for _ in range(len(qb)):
+                word = qb.popleft()
+                steps = fromBegin[word]
+                for i in range(m):
+                    for c in range(97, 123):
+                        if chr(c) == word[i]:
+                            continue
+                        nei = word[:i] + chr(c) + word[i + 1:]
+                        if nei not in wordSet:
+                            continue
+                        if nei in fromEnd:
+                            return steps + fromEnd[nei]
+                        if nei not in fromBegin:
+                            fromBegin[nei] = steps + 1
+                            qb.append(nei)
+        return 0
+
+tests = [
+    ("hit", "cog", ["hot","dot","dog","lot","log","cog"]),
+    ("hit", "cog", ["hot","dot","dog","lot","log"]),
+    ("a", "c", ["a","b","c"]),
+    ("lost", "cost", ["lost","cost","most","host"]),
+    ("game", "thee", ["fame","fate","gate","gave","gaze","haze","hate","heat","thee"])
+]
+
+solution = Solution()
+
+for i, (begin, end, words) in enumerate(tests, 1):
+    print(f"Example {i}:",
+          solution.ladderLength(begin, end, words))
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MinimumIntervalIncludeEachQuery.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        n = len(intervals)
+        res = []
+        for q in queries:
+            cur = -1
+            for l, r in intervals:
+                if l <= q <= r:
+                    if cur == -1 or (r - l + 1) < cur:
+                        cur = r - l + 1
+            res.append(cur)
+        return res
+
+examples = [
+    (
+        [[1,4],[2,4],[3,6]],  # intervals
+        [2,3,4,5]             # queries
+    ),
+    (
+        [[2,3],[2,5],[1,8]], 
+        [1,2,3,4,5,6,7,8,9]
+    ),
+    (
+        [[5,10],[1,3],[2,6]],
+        [1,4,5,6,7]
+    ),
+    (
+        [[1,100]], 
+        [50, 101, 100]
+    ),
+    (
+        [], 
+        [1,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for intervals, queries in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", queries =", queries,
+        ", minIntervals =", solution.minInterval(intervals, queries)
+    )
+    i += 1
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MinimumIntervalIncludeEachQuery.SweepLineAlgorithm
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        events = []
+        # Create events for intervals
+        for idx, (start, end) in enumerate(intervals):
+            events.append((start, 0, end - start + 1, idx))
+            events.append((end, 2, end - start + 1, idx))
+
+        # Create events for queries
+        for i, q in enumerate(queries):
+            events.append((q, 1, i))
+
+        # Sort by time and type (end before query)
+        events.sort(key=lambda x: (x[0], x[1]))
+
+        # Min heap storing [size, index]
+        sizes = []
+        ans = [-1] * len(queries)
+        inactive = [False] * len(intervals)
+
+        for time, type, *rest in events:
+            if type == 0:  # Interval start
+                interval_size, idx = rest
+                heapq.heappush(sizes, (interval_size, idx))
+            elif type == 2: #Interval end
+                idx = rest[1]
+                inactive[idx] = True
+            else: # Query
+                query_idx = rest[0]
+                while sizes and inactive[sizes[0][1]]:
+                    heapq.heappop(sizes)
+                if sizes:
+                    ans[query_idx] = sizes[0][0]
+
+        return ans
+
+examples = [
+    (
+        [[1,4],[2,4],[3,6]],  # intervals
+        [2,3,4,5]             # queries
+    ),
+    (
+        [[2,3],[2,5],[1,8]], 
+        [1,2,3,4,5,6,7,8,9]
+    ),
+    (
+        [[5,10],[1,3],[2,6]],
+        [1,4,5,6,7]
+    ),
+    (
+        [[1,100]], 
+        [50, 101, 100]
+    ),
+    (
+        [], 
+        [1,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for intervals, queries in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", queries =", queries,
+        ", minIntervals =", solution.minInterval(intervals, queries)
+    )
+    i += 1
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MinimumIntervalIncludeEachQuery.MinHeap
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        intervals.sort()
+        minHeap = []
+        res = {}
+        i = 0
+        for q in sorted(queries):
+            while i < len(intervals) and intervals[i][0] <= q:
+                l, r = intervals[i]
+                heapq.heappush(minHeap, (r - l + 1, r))
+                i += 1
+
+            while minHeap and minHeap[0][1] < q:
+                heapq.heappop(minHeap)
+            res[q] = minHeap[0][0] if minHeap else -1
+        return [res[q] for q in queries]
+
+examples = [
+    (
+        [[1,4],[2,4],[3,6]],  # intervals
+        [2,3,4,5]             # queries
+    ),
+    (
+        [[2,3],[2,5],[1,8]], 
+        [1,2,3,4,5,6,7,8,9]
+    ),
+    (
+        [[5,10],[1,3],[2,6]],
+        [1,4,5,6,7]
+    ),
+    (
+        [[1,100]], 
+        [50, 101, 100]
+    ),
+    (
+        [], 
+        [1,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for intervals, queries in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", queries =", queries,
+        ", minIntervals =", solution.minInterval(intervals, queries)
+    )
+    i += 1
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.MinimumIntervalIncludeEachQuery.MinSegmentTree
+    set output_file "main.py"
+
+    set template_content '
+class SegmentTree:
+    def __init__(self, N):
+        self.n = N
+        self.tree = [float('inf')] * (4 * N)
+        self.lazy = [float('inf')] * (4 * N)
+
+    def propagate(self, treeidx, lo, hi):
+        if self.lazy[treeidx] != float('inf'):
+            self.tree[treeidx] = min(self.tree[treeidx], self.lazy[treeidx])
+            if lo != hi:
+                self.lazy[2 * treeidx + 1] = min(self.lazy[2 * treeidx + 1], self.lazy[treeidx])
+                self.lazy[2 * treeidx + 2] = min(self.lazy[2 * treeidx + 2], self.lazy[treeidx])
+            self.lazy[treeidx] = float('inf')
+
+    def update(self, treeidx, lo, hi, left, right, val):
+        self.propagate(treeidx, lo, hi)
+        if lo > right or hi < left:
+            return
+        if lo >= left and hi <= right:
+            self.lazy[treeidx] = min(self.lazy[treeidx], val)
+            self.propagate(treeidx, lo, hi)
+            return
+        mid = (lo + hi) // 2
+        self.update(2 * treeidx + 1, lo, mid, left, right, val)
+        self.update(2 * treeidx + 2, mid + 1, hi, left, right, val)
+        self.tree[treeidx] = min(self.tree[2 * treeidx + 1], self.tree[2 * treeidx + 2])
+
+    def query(self, treeidx, lo, hi, idx):
+        self.propagate(treeidx, lo, hi)
+        if lo == hi:
+            return self.tree[treeidx]
+        mid = (lo + hi) // 2
+        if idx <= mid:
+            return self.query(2 * treeidx + 1, lo, mid, idx)
+        else:
+            return self.query(2 * treeidx + 2, mid + 1, hi, idx)
+
+    def update_range(self, left, right, val):
+        self.update(0, 0, self.n - 1, left, right, val)
+
+    def query_point(self, idx):
+        return self.query(0, 0, self.n - 1, idx)
+
+class Solution:
+    def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
+        points = []
+        for interval in intervals:
+            points.append(interval[0])
+            points.append(interval[1])
+        for q in queries:
+            points.append(q)
+
+        # Compress the coordinates
+        points = sorted(set(points))
+        compress = {points[i]: i for i in range(len(points))}
+
+        # Lazy Segment Tree
+        segTree = SegmentTree(len(points))
+
+        for interval in intervals:
+            start = compress[interval[0]]
+            end = compress[interval[1]]
+            length = interval[1] - interval[0] + 1
+            segTree.update_range(start, end, length)
+
+        ans = []
+        for q in queries:
+            idx = compress[q]
+
+            # query for minSize
+            res = segTree.query_point(idx)
+            ans.append(res if res != float('inf') else -1)
+        return ans
+
+examples = [
+    (
+        [[1,4],[2,4],[3,6]],  # intervals
+        [2,3,4,5]             # queries
+    ),
+    (
+        [[2,3],[2,5],[1,8]], 
+        [1,2,3,4,5,6,7,8,9]
+    ),
+    (
+        [[5,10],[1,3],[2,6]],
+        [1,4,5,6,7]
+    ),
+    (
+        [[1,100]], 
+        [50, 101, 100]
+    ),
+    (
+        [], 
+        [1,2,3]
+    )
+]
+
+solution = Solution()
+
+i = 1
+for intervals, queries in examples:
+    print(
+        "Example", i,
+        ": intervals =", intervals,
+        ", queries =", queries,
+        ", minIntervals =", solution.minInterval(intervals, queries)
+    )
+    i += 1
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+
+function algoP.ReconstructFlightPath.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        adj = {src: [] for src, dst in tickets}
+        tickets.sort()
+        for src, dst in tickets:
+            adj[src].append(dst)
+
+        res = ["JFK"]
+        def dfs(src):
+            if len(res) == len(tickets) + 1:
+                return True
+            if src not in adj:
+                return False
+
+            temp = list(adj[src])
+            for i, v in enumerate(temp):
+                adj[src].pop(i)
+                res.append(v)
+                if dfs(v): return True
+                adj[src].insert(i, v)
+                res.pop()
+            return False
+
+        dfs("JFK")
+        return res
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]],
+    # Example 2
+    [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]],
+    # Example 3
+    [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]],
+    # Example 4 (single direct flight)
+    [["JFK","ATL"]]
+]
+
+for i, tickets in enumerate(examples, 1):
+    itinerary = solution.findItinerary(tickets)
+    print(f"Example {i}: tickets={tickets} => itinerary={itinerary}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.ReconstructFlightPath.HierholzerRecursion
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        adj = defaultdict(list)
+        for src, dst in sorted(tickets)[::-1]:
+            adj[src].append(dst)
+
+        res = []
+        def dfs(src):
+            while adj[src]:
+                dst = adj[src].pop()
+                dfs(dst)
+            res.append(src)
+
+        dfs('JFK')
+        return res[::-1]
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]],
+    # Example 2
+    [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]],
+    # Example 3
+    [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]],
+    # Example 4 (single direct flight)
+    [["JFK","ATL"]]
+]
+
+for i, tickets in enumerate(examples, 1):
+    itinerary = solution.findItinerary(tickets)
+    print(f"Example {i}: tickets={tickets} => itinerary={itinerary}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.ReconstructFlightPath.HierholzerIteration
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        adj = defaultdict(list)
+        for src, dst in sorted(tickets)[::-1]:
+            adj[src].append(dst)
+
+        stack = ["JFK"]
+        res = []
+
+        while stack:
+            curr = stack[-1]
+            if not adj[curr]:
+                res.append(stack.pop())
+            else:
+                stack.append(adj[curr].pop())
+
+        return res[::-1]
+
+solution = Solution()
+
+examples = [
+    # Example 1
+    [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]],
+    # Example 2
+    [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]],
+    # Example 3
+    [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]],
+    # Example 4 (single direct flight)
+    [["JFK","ATL"]]
+]
+
+for i, tickets in enumerate(examples, 1):
+    itinerary = solution.findItinerary(tickets)
+    print(f"Example {i}: tickets={tickets} => itinerary={itinerary}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.SwiminRisingWater.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        visit = [[False] * n for _ in range(n)]
+
+        def dfs(node, t):
+            r, c = node
+            if min(r, c) < 0 or max(r, c) >= n or visit[r][c]:
+                return 1000000
+            if r == (n - 1) and c == (n - 1):
+                return max(t, grid[r][c])
+            visit[r][c] = True
+            t = max(t, grid[r][c])
+            res = min(dfs((r + 1, c), t),
+                       dfs((r - 1, c), t),
+                       dfs((r, c + 1), t),
+                       dfs((r, c - 1), t))
+            visit[r][c] = False
+            return res
+
+        return dfs((0, 0), 0)
+
+solution = Solution()
+
+examples = [
+    ([[0, 2], [1, 3]], 3),
+    ([[0, 1, 2, 3, 4],
+      [24,23,22,21,5],
+      [12,13,14,15,16],
+      [11,17,18,19,20],
+      [10,9,8,7,6]], 16),
+    ([[7]], 7),
+    ([[3, 2], [0, 1]], 3),
+]
+
+for i, (grid, expected) in enumerate(examples, 1):
+    result = solution.swimInWater(grid)
+    print(f"Example {i}:")
+    print("grid =", grid)
+    print("output =", result, "| expected =", expected)
+    print("OK" if result == expected else "WRONG")
+    print("-" * 30)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.SwiminRisingWater.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        visit = [[False] * n for _ in range(n)]
+        minH = maxH = grid[0][0]
+        for row in range(n):
+            maxH = max(maxH, max(grid[row]))
+            minH = min(minH, min(grid[row]))
+
+        def dfs(node, t):
+            r, c = node
+            if (min(r, c) < 0 or max(r, c) >= n or
+                visit[r][c] or grid[r][c] > t):
+                return False
+            if r == (n - 1) and c == (n - 1):
+                return True
+            visit[r][c] = True
+            return (dfs((r + 1, c), t) or
+                    dfs((r - 1, c), t) or
+                    dfs((r, c + 1), t) or
+                    dfs((r, c - 1), t))
+
+        for t in range(minH, maxH):
+            if dfs((0, 0), t):
+                return t
+            for r in range(n):
+                for c in range(n):
+                    visit[r][c] = False
+
+        return maxH
+
+solution = Solution()
+
+examples = [
+    ([[0, 2], [1, 3]], 3),
+    ([[0, 1, 2, 3, 4],
+      [24,23,22,21,5],
+      [12,13,14,15,16],
+      [11,17,18,19,20],
+      [10,9,8,7,6]], 16),
+    ([[7]], 7),
+    ([[3, 2], [0, 1]], 3),
+]
+
+for i, (grid, expected) in enumerate(examples, 1):
+    result = solution.swimInWater(grid)
+    print(f"Example {i}:")
+    print("grid =", grid)
+    print("output =", result, "| expected =", expected)
+    print("OK" if result == expected else "WRONG")
+    print("-" * 30)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.SwiminRisingWater.BinarySearch_DFS
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        visit = [[False] * n for _ in range(n)]
+        minH = maxH = grid[0][0]
+        for row in range(n):
+            maxH = max(maxH, max(grid[row]))
+            minH = min(minH, min(grid[row]))
+
+        def dfs(node, t):
+            r, c = node
+            if (min(r, c) < 0 or max(r, c) >= n or
+                visit[r][c] or grid[r][c] > t):
+                return False
+            if r == (n - 1) and c == (n - 1):
+                return True
+            visit[r][c] = True
+            return (dfs((r + 1, c), t) or
+                    dfs((r - 1, c), t) or
+                    dfs((r, c + 1), t) or
+                    dfs((r, c - 1), t))
+
+        l, r = minH, maxH
+        while l < r:
+            m = (l + r) >> 1
+            if dfs((0, 0), m):
+                r = m
+            else:
+                l = m + 1
+            for row in range(n):
+                for col in range(n):
+                    visit[row][col] = False
+
+        return r
+
+solution = Solution()
+
+examples = [
+    ([[0, 2], [1, 3]], 3),
+    ([[0, 1, 2, 3, 4],
+      [24,23,22,21,5],
+      [12,13,14,15,16],
+      [11,17,18,19,20],
+      [10,9,8,7,6]], 16),
+    ([[7]], 7),
+    ([[3, 2], [0, 1]], 3),
+]
+
+for i, (grid, expected) in enumerate(examples, 1):
+    result = solution.swimInWater(grid)
+    print(f"Example {i}:")
+    print("grid =", grid)
+    print("output =", result, "| expected =", expected)
+    print("OK" if result == expected else "WRONG")
+    print("-" * 30)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.SwiminRisingWater.DijkstraAlgorithm
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        N = len(grid)
+        visit = set()
+        minH = [[grid[0][0], 0, 0]]  # (time/max-height, r, c)
+        directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+
+        visit.add((0, 0))
+        while minH:
+            t, r, c = heapq.heappop(minH)
+            if r == N - 1 and c == N - 1:
+                return t
+            for dr, dc in directions:
+                neiR, neiC = r + dr, c + dc
+                if (neiR < 0 or neiC < 0 or
+                    neiR == N or neiC == N or
+                    (neiR, neiC) in visit
+                ):
+                    continue
+                visit.add((neiR, neiC))
+                heapq.heappush(minH, [max(t, grid[neiR][neiC]), neiR, neiC])
+
+solution = Solution()
+
+examples = [
+    ([[0, 2], [1, 3]], 3),
+    ([[0, 1, 2, 3, 4],
+      [24,23,22,21,5],
+      [12,13,14,15,16],
+      [11,17,18,19,20],
+      [10,9,8,7,6]], 16),
+    ([[7]], 7),
+    ([[3, 2], [0, 1]], 3),
+]
+
+for i, (grid, expected) in enumerate(examples, 1):
+    result = solution.swimInWater(grid)
+    print(f"Example {i}:")
+    print("grid =", grid)
+    print("output =", result, "| expected =", expected)
+    print("OK" if result == expected else "WRONG")
+    print("-" * 30)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.SwiminRisingWater.KruskalAlgorithm
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class DSU:
+    def __init__(self, n):
+        self.Parent = list(range(n + 1))
+        self.Size = [1] * (n + 1)
+
+    def find(self, node):
+        if self.Parent[node] != node:
+            self.Parent[node] = self.find(self.Parent[node])
+        return self.Parent[node]
+
+    def union(self, u, v):
+        pu = self.find(u)
+        pv = self.find(v)
+        if pu == pv:
+            return False
+        if self.Size[pu] < self.Size[pv]:
+            pu, pv = pv, pu
+        self.Size[pu] += self.Size[pv]
+        self.Parent[pv] = pu
+        return True
+
+    def connected(self, u, v):
+        return self.find(u) == self.find(v)
+
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        N = len(grid)
+        dsu = DSU(N * N)
+        positions = sorted((grid[r][c], r, c) for r in range(N) for c in range(N))
+        directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+        for t, r, c in positions:
+            for dr, dc in directions:
+                nr, nc = r + dr, c + dc
+                if 0 <= nr < N and 0 <= nc < N and grid[nr][nc] <= t:
+                    dsu.union(r * N + c, nr * N + nc)
+            if dsu.connected(0, N * N - 1):
+                return t
+
+solution = Solution()
+
+examples = [
+    ([[0, 2], [1, 3]], 3),
+    ([[0, 1, 2, 3, 4],
+      [24,23,22,21,5],
+      [12,13,14,15,16],
+      [11,17,18,19,20],
+      [10,9,8,7,6]], 16),
+    ([[7]], 7),
+    ([[3, 2], [0, 1]], 3),
+]
+
+for i, (grid, expected) in enumerate(examples, 1):
+    result = solution.swimInWater(grid)
+    print(f"Example {i}:")
+    print("grid =", grid)
+    print("output =", result, "| expected =", expected)
+    print("OK" if result == expected else "WRONG")
+    print("-" * 30)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.AlienDictionary.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def foreignDictionary(self, words: List[str]) -> str:
+        adj = {c: set() for w in words for c in w}
+
+        for i in range(len(words) - 1):
+            w1, w2 = words[i], words[i + 1]
+            minLen = min(len(w1), len(w2))
+            if len(w1) > len(w2) and w1[:minLen] == w2[:minLen]:
+                return ""
+            for j in range(minLen):
+                if w1[j] != w2[j]:
+                    adj[w1[j]].add(w2[j])
+                    break
+
+        visited = {}
+        res = []
+
+        def dfs(char):
+            if char in visited:
+                return visited[char]
+
+            visited[char] = True
+
+            for neighChar in adj[char]:
+                if dfs(neighChar):
+                    return True
+
+            visited[char] = False
+            res.append(char)
+
+        for char in adj:
+            if dfs(char):
+                return ""
+
+        res.reverse()
+        return "".join(res)
+
+solution = Solution()
+
+examples = [
+    (["wrt","wrf","er","ett","rftt"], "wertf"),
+    (["z","x"], "zx"),
+    (["z","x","z"], ""),                 # cycle
+    (["abc","ab"], ""),                  # invalid prefix
+    (["a","b","c"], "abc"),              # simple chain
+    (["baa","abcd","abca","cab","cad"], None),  # multiple valid orders
+]
+
+for i, (words, expected) in enumerate(examples, 1):
+    result = solution.foreignDictionary(words)
+    print(f"Example {i}:")
+    print("words   =", words)
+    print("output  =", result)
+    if expected is not None:
+        print("expected =", expected)
+    print("-" * 40)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.AlienDictionary.TopologicalSort
+    set output_file "main.py"
+
+    set template_content '
+from typing import Optional
+from typing import List
+
+class Solution:
+    def foreignDictionary(self, words):
+        adj = {c: set() for w in words for c in w}
+        indegree = {c: 0 for c in adj}
+
+        for i in range(len(words) - 1):
+            w1, w2 = words[i], words[i + 1]
+            minLen = min(len(w1), len(w2))
+            if len(w1) > len(w2) and w1[:minLen] == w2[:minLen]:
+                return ""
+            for j in range(minLen):
+                if w1[j] != w2[j]:
+                    if w2[j] not in adj[w1[j]]:
+                        adj[w1[j]].add(w2[j])
+                        indegree[w2[j]] += 1
+                    break
+
+        q = deque([c for c in indegree if indegree[c] == 0])
+        res = []
+
+        while q:
+            char = q.popleft()
+            res.append(char)
+            for neighbor in adj[char]:
+                indegree[neighbor] -= 1
+                if indegree[neighbor] == 0:
+                    q.append(neighbor)
+
+        if len(res) != len(indegree):
+            return ""
+
+        return "".join(res)
+
+solution = Solution()
+
+examples = [
+    (["wrt","wrf","er","ett","rftt"], "wertf"),
+    (["z","x"], "zx"),
+    (["z","x","z"], ""),                 # cycle
+    (["abc","ab"], ""),                  # invalid prefix
+    (["a","b","c"], "abc"),              # simple chain
+    (["baa","abcd","abca","cab","cad"], None),  # multiple valid orders
+]
+
+for i, (words, expected) in enumerate(examples, 1):
+    result = solution.foreignDictionary(words)
+    print(f"Example {i}:")
+    print("words   =", words)
+    print("output  =", result)
+    if expected is not None:
+        print("expected =", expected)
+    print("-" * 40)
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.LongestIncreasingPathinMatrix.Recursion
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+class Solution:
+    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        ROWS, COLS = len(matrix), len(matrix[0])
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+
+        def dfs(r, c, prevVal):
+            if (min(r, c) < 0 or r >= ROWS or
+                c >= COLS or matrix[r][c] <= prevVal
+            ):
+                return 0
+
+            res = 1
+            for d in directions:
+                res = max(res, 1 + dfs(r + d[0], c + d[1], matrix[r][c]))
+            return res
+
+        LIP = 0
+        for r in range(ROWS):
+            for c in range(COLS):
+                LIP = max(LIP, dfs(r, c, float('-inf')))
+        return LIP
+
+sol = Solution()
+
+examples = [
+    [[9, 9, 4],
+     [6, 6, 8],
+     [2, 1, 1]],
+
+    [[3, 4, 5],
+     [3, 2, 6],
+     [2, 2, 1]],
+
+    [[1]],
+
+    [[1, 2],
+     [3, 4]],
+
+    [[4, 3],
+     [2, 1]]
+]
+
+for matrix in examples:
+    print("matrix =", matrix)
+    print("longestIncreasingPath =", sol.longestIncreasingPath(matrix))
+    print()
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.LongestIncreasingPathinMatrix.DynamicProgramming
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+class Solution:
+    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        ROWS, COLS = len(matrix), len(matrix[0])
+        dp = {}  # (r, c) -> LIP
+
+        def dfs(r, c, prevVal):
+            if (r < 0 or r == ROWS or c < 0 or
+                c == COLS or matrix[r][c] <= prevVal
+            ):
+                return 0
+            if (r, c) in dp:
+                return dp[(r, c)]
+
+            res = 1
+            res = max(res, 1 + dfs(r + 1, c, matrix[r][c]))
+            res = max(res, 1 + dfs(r - 1, c, matrix[r][c]))
+            res = max(res, 1 + dfs(r, c + 1, matrix[r][c]))
+            res = max(res, 1 + dfs(r, c - 1, matrix[r][c]))
+            dp[(r, c)] = res
+            return res
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                dfs(r, c, -1)
+        return max(dp.values())
+
+sol = Solution()
+
+examples = [
+    [[9, 9, 4],
+     [6, 6, 8],
+     [2, 1, 1]],
+
+    [[3, 4, 5],
+     [3, 2, 6],
+     [2, 2, 1]],
+
+    [[1]],
+
+    [[1, 2],
+     [3, 4]],
+
+    [[4, 3],
+     [2, 1]]
+]
+
+for matrix in examples:
+    print("matrix =", matrix)
+    print("longestIncreasingPath =", sol.longestIncreasingPath(matrix))
+    print()
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.LongestIncreasingPathinMatrix.TopologicalSort
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        ROWS, COLS = len(matrix), len(matrix[0])
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        indegree = [[0] * COLS for _ in range(ROWS)]
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                for d in directions:
+                    nr, nc = d[0] + r, d[1] + c
+                    if (0 <= nr < ROWS and 0 <= nc < COLS and
+                        matrix[nr][nc] < matrix[r][c]
+                    ):
+                        indegree[r][c] += 1
+
+        q = deque()
+        for r in range(ROWS):
+            for c in range(COLS):
+                if indegree[r][c] == 0:
+                    q.append([r, c])
+
+        LIS = 0
+        while q:
+            for _ in range(len(q)):
+                r, c = q.popleft()
+                for d in directions:
+                    nr, nc = r + d[0], c + d[1]
+                    if (0 <= nr < ROWS and 0 <= nc < COLS and
+                        matrix[nr][nc] > matrix[r][c]
+                    ):
+                        indegree[nr][nc] -= 1
+                        if indegree[nr][nc] == 0:
+                            q.append([nr, nc])
+            LIS += 1
+        return LIS
+
+sol = Solution()
+
+examples = [
+    [[9, 9, 4],
+     [6, 6, 8],
+     [2, 1, 1]],
+
+    [[3, 4, 5],
+     [3, 2, 6],
+     [2, 2, 1]],
+
+    [[1]],
+
+    [[1, 2],
+     [3, 4]],
+
+    [[4, 3],
+     [2, 1]]
+]
+
+for matrix in examples:
+    print("matrix =", matrix)
+    print("longestIncreasingPath =", sol.longestIncreasingPath(matrix))
+    print()
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.DistinctSubsequences.Recursion
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        if len(t) > len(s):
+            return 0
+
+        def dfs(i, j):
+            if j == len(t):
+                return 1
+            if i == len(s):
+                return 0
+
+            res = dfs(i + 1, j)
+            if s[i] == t[j]:
+                res += dfs(i + 1, j + 1)
+            return res
+
+        return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("rabbbit", "rabbit"),   # 3
+    ("babgbag", "bag"),      # 5
+    ("abc", "abc"),           # 1
+    ("abc", "d"),             # 0
+    ("aaaa", "aa"),           # 6
+    ("", "a"),                # 0
+    ("a", ""),                # 1
+]
+
+for s, t in examples:
+    print(f"s='{s}', t='{t}' -> numDistinct = {sol.numDistinct(s, t)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.DistinctSubsequences.DynamicProgramming
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        if len(t) > len(s):
+            return 0
+
+        dp = {}
+        def dfs(i, j):
+            if j == len(t):
+                return 1
+            if i == len(s):
+                return 0
+            if (i, j) in dp:
+                return dp[(i, j)]
+
+            res = dfs(i + 1, j)
+            if s[i] == t[j]:
+                res += dfs(i + 1, j + 1)
+            dp[(i, j)] = res
+            return res
+
+        return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("rabbbit", "rabbit"),   # 3
+    ("babgbag", "bag"),      # 5
+    ("abc", "abc"),           # 1
+    ("abc", "d"),             # 0
+    ("aaaa", "aa"),           # 6
+    ("", "a"),                # 0
+    ("a", ""),                # 1
+]
+
+for s, t in examples:
+    print(f"s='{s}', t='{t}' -> numDistinct = {sol.numDistinct(s, t)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.DistinctSubsequences.DynamicProgramming_Bottom-Up
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+        for i in range(m + 1):
+            dp[i][n] = 1
+
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                dp[i][j] = dp[i + 1][j]
+                if s[i] == t[j]:
+                    dp[i][j] += dp[i + 1][j + 1]
+
+        return dp[0][0]
+
+sol = Solution()
+
+examples = [
+    ("rabbbit", "rabbit"),   # 3
+    ("babgbag", "bag"),      # 5
+    ("abc", "abc"),           # 1
+    ("abc", "d"),             # 0
+    ("aaaa", "aa"),           # 6
+    ("", "a"),                # 0
+    ("a", ""),                # 1
+]
+
+for s, t in examples:
+    print(f"s='{s}', t='{t}' -> numDistinct = {sol.numDistinct(s, t)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.DistinctSubsequences.DynamicProgramming_Space
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        dp = [0] * (n + 1)
+        nextDp = [0] * (n + 1)
+
+        dp[n] = nextDp[n] = 1
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                nextDp[j] = dp[j]
+                if s[i] == t[j]:
+                    nextDp[j] += dp[j + 1]
+            dp = nextDp[:]
+
+        return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("rabbbit", "rabbit"),   # 3
+    ("babgbag", "bag"),      # 5
+    ("abc", "abc"),           # 1
+    ("abc", "d"),             # 0
+    ("aaaa", "aa"),           # 6
+    ("", "a"),                # 0
+    ("a", ""),                # 1
+]
+
+for s, t in examples:
+    print(f"s='{s}', t='{t}' -> numDistinct = {sol.numDistinct(s, t)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.DistinctSubsequences.DynamicProgramming_Optimal
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        dp = [0] * (n + 1)
+
+        dp[n] = 1
+        for i in range(m - 1, -1, -1):
+            prev = 1
+            for j in range(n - 1, -1, -1):
+                res = dp[j]
+                if s[i] == t[j]:
+                    res += prev
+
+                prev = dp[j]
+                dp[j] = res
+
+        return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("rabbbit", "rabbit"),   # 3
+    ("babgbag", "bag"),      # 5
+    ("abc", "abc"),           # 1
+    ("abc", "d"),             # 0
+    ("aaaa", "aa"),           # 6
+    ("", "a"),                # 0
+    ("a", ""),                # 1
+]
+
+for s, t in examples:
+    print(f"s='{s}', t='{t}' -> numDistinct = {sol.numDistinct(s, t)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.BurstBalloons.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
+
+        def dfs(nums):
+            if len(nums) == 2:
+                return 0
+
+            maxCoins = 0
+            for i in range(1, len(nums) - 1):
+                coins = nums[i - 1] * nums[i] * nums[i + 1]
+                coins += dfs(nums[:i] + nums[i + 1:])
+                maxCoins = max(maxCoins, coins)
+            return maxCoins
+
+        return dfs(nums)
+
+sol = Solution()
+
+examples = [
+    [3, 1, 5, 8],    # 167
+    [1, 5],          # 10
+    [9, 76, 64, 21], # 116718
+    [1, 2, 3],       # 12
+    [1]              # 1
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> maxCoins = {sol.maxCoins(nums)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.BurstBalloons.DynamicProgramming_Top-Down
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
+        dp = {}
+        def dfs(l, r):
+            if l > r:
+                return 0
+            if (l, r) in dp:
+                return dp[(l, r)]
+
+            dp[(l, r)] = 0
+            for i in range(l, r + 1):
+                coins = nums[l - 1] * nums[i] * nums[r + 1]
+                coins += dfs(l, i - 1) + dfs(i + 1, r)
+                dp[(l, r)] = max(dp[(l, r)], coins)
+            return dp[(l, r)]
+
+        return dfs(1, len(nums) - 2)
+
+sol = Solution()
+
+examples = [
+    [3, 1, 5, 8],    # 167
+    [1, 5],          # 10
+    [9, 76, 64, 21], # 116718
+    [1, 2, 3],       # 12
+    [1]              # 1
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> maxCoins = {sol.maxCoins(nums)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.BurstBalloons.DynamicProgramming_Bottom-Up
+
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def maxCoins(self, nums):
+        n = len(nums)
+        new_nums = [1] + nums + [1]
+
+        dp = [[0] * (n + 2) for _ in range(n + 2)]
+        for l in range(n, 0, -1):
+            for r in range(l, n + 1):
+                for i in range(l, r + 1):
+                    coins = new_nums[l - 1] * new_nums[i] * new_nums[r + 1]
+                    coins += dp[l][i - 1] + dp[i + 1][r]
+                    dp[l][r] = max(dp[l][r], coins)
+
+        return dp[1][n]
+
+sol = Solution()
+
+examples = [
+    [3, 1, 5, 8],    # 167
+    [1, 5],          # 10
+    [9, 76, 64, 21], # 116718
+    [1, 2, 3],       # 12
+    [1]              # 1
+]
+
+for nums in examples:
+    print(f"nums = {nums} -> maxCoins = {sol.maxCoins(nums)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.RegularExpressionMatching.Recursion
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+
+        def dfs(i, j):
+            if j == n:
+                return i == m
+
+            match = i < m and (s[i] == p[j] or p[j] == ".")
+            if (j + 1) < n and p[j + 1] == "*":
+                return (dfs(i, j + 2) or          # dont use *
+                       (match and dfs(i + 1, j))) # use *
+            if match:
+                return dfs(i + 1, j + 1)
+            return False
+
+        return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("aa", "a"),          # False
+    ("aa", "a*"),         # True
+    ("ab", ".*"),         # True
+    ("aab", "c*a*b"),     # True
+    ("mississippi", "mis*is*p*."), # False
+    ("", ".*"),           # True
+    ("", ""),             # True
+    ("abc", "abc"),       # True
+    ("abc", "a.c"),       # True
+]
+
+for s, p in examples:
+    print(f"s='{s}', p='{p}' -> isMatch = {sol.isMatch(s, p)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.RegularExpressionMatching.DynamicProgramming_Top-Down
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        cache = {}
+
+        def dfs(i, j):
+            if j == n:
+                return i == m
+            if (i, j) in cache:
+                return cache[(i, j)]
+
+            match = i < m and (s[i] == p[j] or p[j] == ".")
+            if (j + 1) < n and p[j + 1] == "*":
+                cache[(i, j)] = (dfs(i, j + 2) or
+                                (match and dfs(i + 1, j)))
+                return cache[(i, j)]
+
+            if match:
+                cache[(i, j)] = dfs(i + 1, j + 1)
+                return cache[(i, j)]
+
+            cache[(i, j)] = False
+            return False
+
+        return dfs(0, 0)
+
+sol = Solution()
+
+examples = [
+    ("aa", "a"),          # False
+    ("aa", "a*"),         # True
+    ("ab", ".*"),         # True
+    ("aab", "c*a*b"),     # True
+    ("mississippi", "mis*is*p*."), # False
+    ("", ".*"),           # True
+    ("", ""),             # True
+    ("abc", "abc"),       # True
+    ("abc", "a.c"),       # True
+]
+
+for s, p in examples:
+    print(f"s='{s}', p='{p}' -> isMatch = {sol.isMatch(s, p)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.RegularExpressionMatching.DynamicProgramming_Bottom-Up
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        dp = [[False] * (len(p) + 1) for i in range(len(s) + 1)]
+        dp[len(s)][len(p)] = True
+
+        for i in range(len(s), -1, -1):
+            for j in range(len(p) - 1, -1, -1):
+                match = i < len(s) and (s[i] == p[j] or p[j] == ".")
+
+                if (j + 1) < len(p) and p[j + 1] == "*":
+                    dp[i][j] = dp[i][j + 2]
+                    if match:
+                        dp[i][j] = dp[i + 1][j] or dp[i][j]
+                elif match:
+                    dp[i][j] = dp[i + 1][j + 1]
+
+        return dp[0][0]
+
+sol = Solution()
+
+examples = [
+    ("aa", "a"),          # False
+    ("aa", "a*"),         # True
+    ("ab", ".*"),         # True
+    ("aab", "c*a*b"),     # True
+    ("mississippi", "mis*is*p*."), # False
+    ("", ".*"),           # True
+    ("", ""),             # True
+    ("abc", "abc"),       # True
+    ("abc", "a.c"),       # True
+]
+
+for s, p in examples:
+    print(f"s='{s}', p='{p}' -> isMatch = {sol.isMatch(s, p)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.RegularExpressionMatching.DynamicProgramming_SpaceOptimized
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        dp = [False] * (len(p) + 1)
+        dp[len(p)] = True
+
+        for i in range(len(s), -1, -1):
+            nextDp = [False] * (len(p) + 1)
+            nextDp[len(p)] = (i == len(s))
+
+            for j in range(len(p) - 1, -1, -1):
+                match = i < len(s) and (s[i] == p[j] or p[j] == ".")
+
+                if (j + 1) < len(p) and p[j + 1] == "*":
+                    nextDp[j] = nextDp[j + 2]
+                    if match:
+                        nextDp[j] |= dp[j]
+                elif match:
+                    nextDp[j] = dp[j + 1]
+
+            dp = nextDp
+
+        return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("aa", "a"),          # False
+    ("aa", "a*"),         # True
+    ("ab", ".*"),         # True
+    ("aab", "c*a*b"),     # True
+    ("mississippi", "mis*is*p*."), # False
+    ("", ".*"),           # True
+    ("", ""),             # True
+    ("abc", "abc"),       # True
+    ("abc", "a.c"),       # True
+]
+
+for s, p in examples:
+    print(f"s='{s}', p='{p}' -> isMatch = {sol.isMatch(s, p)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.RegularExpressionMatching.DynamicProgramming_Optimal
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        dp = [False] * (len(p) + 1)
+        dp[len(p)] = True
+
+        for i in range(len(s), -1, -1):
+            dp1 = dp[len(p)]
+            dp[len(p)] = (i == len(s))
+
+            for j in range(len(p) - 1, -1, -1):
+                match = i < len(s) and (s[i] == p[j] or p[j] == ".")
+                res = False
+                if (j + 1) < len(p) and p[j + 1] == "*":
+                    res = dp[j + 2]
+                    if match:
+                        res |= dp[j]
+                elif match:
+                    res = dp1
+                dp[j], dp1 = res, dp[j]
+
+        return dp[0]
+
+sol = Solution()
+
+examples = [
+    ("aa", "a"),          # False
+    ("aa", "a*"),         # True
+    ("ab", ".*"),         # True
+    ("aab", "c*a*b"),     # True
+    ("mississippi", "mis*is*p*."), # False
+    ("", ".*"),           # True
+    ("", ""),             # True
+    ("abc", "abc"),       # True
+    ("abc", "a.c"),       # True
+]
+
+for s, p in examples:
+    print(f"s='{s}', p='{p}' -> isMatch = {sol.isMatch(s, p)}")
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.TwoSum.HashMap_TwoPass
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        indices = {}  # val -> index
+
+        for i, n in enumerate(nums):
+            indices[n] = i
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in indices and indices[diff] != i:
+                return [i, indices[diff]]
+        return []
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))   # [0, 1]
+print(s.twoSum([3,2,4], 6))      # [1, 2]
+print(s.twoSum([3,3], 6))        # [0, 1]
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.TwoSum.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))   # [0, 1]
+print(s.twoSum([3,2,4], 6))      # [1, 2]
+print(s.twoSum([3,3], 6))        # [0, 1]
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.TwoSum.Sorting_TwoPointers
+    set output_file "main.py"
+
+    set template_content '
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        A = []
+        for i, num in enumerate(nums):
+            A.append([num, i])
+
+        A.sort()
+        i, j = 0, len(nums) - 1
+        while i < j:
+            cur = A[i][0] + A[j][0]
+            if cur == target:
+                return [min(A[i][1], A[j][1]),
+                        max(A[i][1], A[j][1])]
+            elif cur < target:
+                i += 1
+            else:
+                j -= 1
+        return []
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))   # [0, 1]
+print(s.twoSum([3,2,4], 6))      # [1, 2]
+print(s.twoSum([3,3], 6))        # [0, 1]
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.TwoSum.HashMap_OnePass
+    set output_file "main.py"
+
+    set template_content '
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {}  # val -> index
+
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
+
+s = Solution()
+print(s.twoSum([2,7,11,15], 9))   # [0, 1]
+print(s.twoSum([3,2,4], 6))      # [1, 2]
+print(s.twoSum([3,3], 6))        # [0, 1]
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+
+function algoP.FindMinimumRotatedSortedArray.BruteForce
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        return min(nums)
+
+tests = [
+    ([3,4,5,1,2], 1),
+    ([4,5,6,7,0,1,2], 0),
+    ([11,13,15,17], 11),
+    ([2,1], 1),
+]
+
+s = Solution()
+for nums, expected in tests:
+    print(nums, "->", s.findMin(nums), "expected:", expected)
+'
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.FindMinimumRotatedSortedArray.BinarySearch
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        res = nums[0]
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            if nums[l] < nums[r]:
+                res = min(res, nums[l])
+                break
+
+            m = (l + r) // 2
+            res = min(res, nums[m])
+            if nums[m] >= nums[l]:
+                l = m + 1
+            else:
+                r = m - 1
+        return res
+
+tests = [
+    ([3,4,5,1,2], 1),
+    ([4,5,6,7,0,1,2], 0),
+    ([11,13,15,17], 11),
+    ([2,1], 1),
+]
+
+s = Solution()
+for nums, expected in tests:
+    print(nums, "->", s.findMin(nums), "expected:", expected)
+'
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoP.FindMinimumRotatedSortedArray.BinarySearch_LowerBound
+    set output_file "main.py"
+
+    set template_content '
+from typing import List
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            m = l + (r - l) // 2
+            if nums[m] < nums[r]:
+                r = m
+            else:
+                l = m + 1
+        return nums[l]
+tests = [
+    ([3,4,5,1,2], 1),
+    ([4,5,6,7,0,1,2], 0),
+    ([11,13,15,17], 11),
+    ([2,1], 1),
+]
+
+s = Solution()
+for nums, expected in tests:
+    print(nums, "->", s.findMin(nums), "expected:", expected)
+
+'
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoP.BinaryTreeRightSideView.DepthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def dfs(node, depth):
+            if not node:
+                return None
+            if depth == len(res):
+                res.append(node.val)
+
+            dfs(node.right, depth + 1)
+            dfs(node.left, depth + 1)
+
+        dfs(root, 0)
+        return res
+
+    #     1
+    #    / \
+    #   2   3
+    #    \   \
+    #     5   4
+
+
+root = TreeNode(1,
+        TreeNode(2,
+            None,
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            None,
+            TreeNode(4)
+        )
+)
+
+sol = Solution()
+print(sol.rightSideView(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #  / \   / \
+    # 3   7 12  18
+
+
+root = TreeNode(10,
+        TreeNode(5,
+            TreeNode(3),
+            TreeNode(7)
+        ),
+        TreeNode(15,
+            TreeNode(12),
+            TreeNode(18)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+root = TreeNode(42)
+print(sol.rightSideView(root))
+
+#[42]
+
+root = None
+print(sol.rightSideView(root))
+
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoP.BinaryTreeRightSideView.BreadthFirstSearch
+    set output_file "main.py"
+
+    set template_content '
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        q = deque([root])
+
+        while q:
+            rightSide = None
+            qLen = len(q)
+
+            for i in range(qLen):
+                node = q.popleft()
+                if node:
+                    rightSide = node
+                    q.append(node.left)
+                    q.append(node.right)
+            if rightSide:
+                res.append(rightSide.val)
+        return res
+
+   #     1
+    #    / \
+    #   2   3
+    #    \   \
+    #     5   4
+
+
+root = TreeNode(1,
+        TreeNode(2,
+            None,
+            TreeNode(5)
+        ),
+        TreeNode(3,
+            None,
+            TreeNode(4)
+        )
+)
+
+sol = Solution()
+print(sol.rightSideView(root))
+
+
+    #     10
+    #    /  \
+    #   5    15
+    #  / \   / \
+    # 3   7 12  18
+
+
+root = TreeNode(10,
+        TreeNode(5,
+            TreeNode(3),
+            TreeNode(7)
+        ),
+        TreeNode(15,
+            TreeNode(12),
+            TreeNode(18)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+#     1
+#    /
+#   2
+#  /
+# 3
+
+root = TreeNode(1,
+        TreeNode(2,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+# 1
+#  \
+#   2
+#    \
+#     3
+
+root = TreeNode(1,
+        None,
+        TreeNode(2,
+            None,
+            TreeNode(3)
+        )
+)
+
+print(sol.rightSideView(root))
+
+
+root = TreeNode(42)
+print(sol.rightSideView(root))
+
+#[42]
+
+root = None
+print(sol.rightSideView(root))
+
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end

@@ -1,5 +1,5 @@
 function algoG.ContainsDuplicate.Brute_Force
-    set output_file "ContainsDuplicateBrute_Force.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -31,7 +31,7 @@ end
 
 
 function algoG.ContainsDuplicate.Sorting
-    set output_file "ContainsDuplicateSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -65,7 +65,7 @@ end
 
 
 function algoG.ContainsDuplicate.Hash_Set
-    set output_file "ContainsDuplicateHash_Set.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -96,7 +96,7 @@ func main() {
 end
 
 function algoG.ContainsDuplicate.Hash_Set_Length
-    set output_file "ContainsDuplicateHash_Set_Length.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -125,7 +125,7 @@ end
 
 
 function algoG.ValidAnagram.Sorting
-    set output_file "ValidAnagramSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -171,7 +171,7 @@ end
 
 
 function algoG.ValidAnagram.Hash_Map
-    set output_file "ValidAnagramHash_Map.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -212,7 +212,7 @@ end
 
 
 function algoG.ValidAnagram.Hash_Table_Using_Array
-    set output_file "ValidAnagramHash_Table_Using_Array.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -252,8 +252,8 @@ func main() {
 end
 
 
-function algoG.TwoSum.Brute_Force
-    set output_file "TwoSumBruteForce.go"
+function algoG.TwoSum.BruteForce
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -286,7 +286,7 @@ end
 
 
 function algoG.TwoSum.Sorting
-    set output_file "TwoSumSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -338,7 +338,7 @@ func main() {
 end
 
 function algoG.TwoSum.TwoPass_HashMap
-    set output_file "TwoSumTwoPass_HashMap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -376,7 +376,7 @@ end
 
 
 function algoG.TwoSum.OnePass_HashMap
-    set output_file ".TwoSumOnePass_HashMap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -411,7 +411,7 @@ end
 
 
 function algoG.ValidPalindrome.Reverse_String
-    set output_file "ValidPalindromeReverse_String.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -455,7 +455,7 @@ end
 
 
 function algoG.ValidPalindrome.TwoPointers
-    set output_file "IsPalindromeTwoPointers.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -503,7 +503,7 @@ end
 
 
 function algoG.ValidParentheses.Brute_Force
-    set output_file "ValidParenthesesBrute_Force.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -536,7 +536,7 @@ end
 
 
 function algoG.ValidParentheses.Stack
-    set output_file "ValidParenthesesStack.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -582,7 +582,7 @@ end
 
 
 function algoG.BinarySearch.Recursive_Binary_Search
-    set output_file "BinarySearchRecursive_Binary_Search.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -623,7 +623,7 @@ end
 
 
 function algoG.BinarySearch.Iterative_Binary_Search
-    set output_file "BinarySearchIterative_Binary_Search.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -662,7 +662,7 @@ end
 
 
 function algoG.BinarySearch.Upper_Bound
-    set output_file "BinarySearchUpper_Bound.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -701,7 +701,7 @@ end
 
 
 function algoG.BinarySearch.Lower_Bound
-    set output_file "BinarySearchLower_Bound.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -740,7 +740,7 @@ end
 
 
 function algoG.BinarySearch.Built-In_Function
-    set output_file "BinarySearchBuilt-In_Function.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -773,7 +773,7 @@ end
 
 
 function algoG.BestTimeToBuyAndSellStock.Brute_Force
-    set output_file "BestTimeToBuyAndSellStockBrute_Force.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -813,7 +813,7 @@ end
 
 
 function algoG.BestTimeToBuyAndSellStock.Two_Pointers
-    set output_file "BestTimeToBuyAndSellStockTwo_Pointers.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -852,7 +852,7 @@ end
 
 
 function algoG.BestTimeToBuyAndSellStock.Dynamic_Programming
-    set output_file "BestTimeToBuyAndSellStockDynamic_Programming.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -890,7 +890,7 @@ func main() {
 end
 
 function algoG.ReverseLinkedList.Recursion
-    set output_file "ReverseLinkedListRecursion.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -944,7 +944,7 @@ end
 
 
 function algoG.ReverseLinkedList.Iteration
-    set output_file "ReverseLinkedListIteration.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1118,7 +1118,7 @@ end
 
 
 
-function algoG.LinkedListCycle.HashSet
+function algoG.LinkedListCycleDetection.HashSet
     set output_file "LinkedListCycleHashSet.go"
 
     set template_content "package main
@@ -1164,7 +1164,7 @@ func main() {
 end
 
 
-function algoG.LinkedListCycle.FastAndSlow_Pointers
+function algoG.LinkedListCycleDetection.FastAndSlow_Pointers
     set output_file "LinkedListCycleFastAndSlow_Pointers.go"
 
     set template_content "package main
@@ -1211,7 +1211,7 @@ end
 
 
 function algoG.InvertBinaryTree.BreadthFirstSearch
-    set output_file "InvertBinaryTreeBreadthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1292,7 +1292,7 @@ end
 
 
 function algoG.InvertBinaryTree.DepthFirstSearch
-    set output_file "InvertBinaryTreeDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1359,7 +1359,7 @@ end
 
 
 function algoG.InvertBinaryTree.Recursive
-    set output_file "InvertBinaryTreeRecursive.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1426,8 +1426,8 @@ func main() {
 end
 
 
-function algoG.MaximumDepthOfBinaryTree.RecursiveDFS
-    set output_file "MaximumDepthOfBinaryTreeRecursiveDFS.go"
+function algoG.MaximumDepthBinaryTree.RecursiveDFS
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1472,8 +1472,8 @@ func main() {
 end
 
 
-function algoG.MaximumDepthOfBinaryTree.IterativeDFS_Stack
-    set output_file "MaximumDepthOfBinaryTreeIterativeDFS_Stack.go"
+function algoG.MaximumDepthBinaryTree.IterativeDFS_Stack
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1540,8 +1540,8 @@ func main() {
 end
 
 
-function algoG.MaximumDepthOfBinaryTree.BreadthFirstSearch
-    set output_file "MaximumDepthOfBinaryTreeBreadthFirstSearch.go"
+function algoG.MaximumDepthBinaryTree.BreadthFirstSearch
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1604,7 +1604,7 @@ end
 
 
 function algoG.DiameterOfBinaryTree.BruteForce
-    set output_file "DiameterOfBinaryTreeRecursive.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1666,7 +1666,7 @@ end
 
 
 function algoG.DiameterOfBinaryTree.DepthFirstSearch
-    set output_file "DiameterOfBinaryTreeOptimized.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1725,7 +1725,7 @@ end
 
 
 function algoG.DiameterOfBinaryTree.IterativeDFS
-    set output_file "DiameterOfBinaryTreeIterative.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1804,7 +1804,7 @@ end
 
 
 function algoG.BalancedBinaryTree.BruteForce
-    set output_file "BalancedBinaryTreeBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1869,7 +1869,7 @@ end
 
 
 function algoG.BalancedBinaryTree.DepthFirstSearch
-    set output_file "BBalancedBinaryTreeDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1936,7 +1936,7 @@ end
 
 
 function algoG.BalancedBinaryTree.IterativeDFS
-    set output_file "BalancedBinaryTreeIterativeDFS.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2014,7 +2014,7 @@ end
 
 
 function algoG.SameBinaryTree.DepthFirstSearch
-    set output_file "SameBinaryTreeDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2061,7 +2061,7 @@ end
 
 
 function algoG.SameBinaryTree.IterativeDFS
-    set output_file "SameBinaryTreeIterativeDFS.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2124,7 +2124,7 @@ end
 
 
 function algoG.SameBinaryTree.BreadthFirstSearch
-    set output_file "SameBinaryTreeBreadthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2187,13 +2187,12 @@ end
 
 
 function algoG.SubtreeOfAnotherTree.DepthFirstSearch
-    set output_file "SubtreeOfAnotherTreeDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
 import \"fmt\"
 
-// Definition for a binary tree node.
 type TreeNode struct {
     Val   int
     Left  *TreeNode
@@ -2248,7 +2247,7 @@ end
 
 
 function algoG.SubtreeOfAnotherTree.SerializationAndPatternMatching
-    set output_file "SubtreeOfAnotherTreeSerializationAndPatternMatching.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2257,7 +2256,6 @@ import (
     \"strconv\"
 )
 
-// Definition for a binary tree node.
 type TreeNode struct {
     Val   int
     Left  *TreeNode
@@ -2339,7 +2337,7 @@ end
 
 
 function algoG.KthLargestElementinStream.Sorting
-    set output_file "KthLargestElementinStreamSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2382,7 +2380,7 @@ end
 
 
 function algoG.LastStoneWeight.Min-Heap
-    set output_file "LastStoneWeightMin-Heap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2436,7 +2434,7 @@ end
 
 
 function algoG.KthLargestElementinStream.Sorting
-    set output_file "KthLargestElementinStreamSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2475,7 +2473,7 @@ end
 
 
 function algoG.LastStoneWeight.BinarySearch
-    set output_file "LastStoneWeightBinarySearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2526,7 +2524,7 @@ end
 
 
 function algoG.LastStoneWeight.Heap
-    set output_file "LastStoneWeightHeap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2572,7 +2570,7 @@ end
 
 
 function algoG.LastStoneWeight.BucketSort
-    set output_file "LastStoneWeightBucketSort.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2644,7 +2642,7 @@ end
 
 
 function algoG.ClimbingStairs.Recursion
-    set output_file "ClimbingStairsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -2678,7 +2676,7 @@ end
 
 
 function algoG.ClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "ClimbingStairsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2722,7 +2720,7 @@ end
 
 
 function algoG.ClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "ClimbingStairsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2755,7 +2753,7 @@ func main() {
 end
 
 function algoG.ClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "ClimbingStairsDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2789,7 +2787,7 @@ end
 
 
 function algoG.ClimbingStairs.MatrixExponentiation
-    set output_file "ClimbingStairsMatrixExponentiation.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2845,7 +2843,7 @@ end
 
 
 function algoG.ClimbingStairs.Math
-    set output_file "ClimbingStairsMath.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2878,7 +2876,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.Recursion
-    set output_file "MinCostClimbingStairsRecursion.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -2918,7 +2916,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "MinCostClimbingStairsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
 
     set template_content "package main
 import \"fmt\"
@@ -2965,7 +2963,7 @@ func main() {
 end
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "MinCostClimbingStairsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3005,7 +3003,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "MinCostClimbingStairsDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3135,7 +3133,7 @@ end
 
 
 function algoG.SingleNumber.Brute_Force
-    set output_file "SingleNumberBrute_Force.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3172,7 +3170,7 @@ end
 
 
 function algoG.SingleNumber.HashMap
-    set output_file "SingleNumberHashMap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -3207,7 +3205,7 @@ end
 
 
 function algoG.SingleNumber.Sorting
-    set output_file "SingleNumberSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3244,7 +3242,7 @@ end
 
 
 function algoG.SingleNumber.BitManipulation
-    set output_file "SingleNumberBitManipulation.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3274,8 +3272,8 @@ end
 
 
 
-function algoG.NumberOfOneBits.BitMask-I
-    set output_file "NumberOfOneBitsBitMask-I.go"
+function algoG.NumberOneBits.BitMask-I
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -3304,8 +3302,8 @@ func main() {
 end
 
 
-function algoG.NumberOfOneBits.BitMask-II
-    set output_file "NumberOfOneBitsBitMask-II.go"
+function algoG.NumberOneBits.BitMask-II
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -3335,8 +3333,8 @@ func main() {
 end
 
 
-function algoG.NumberOfOneBits.BitMask_Optimal
-    set output_file "NumberOfOneBitsBitMask_Optimal.go"
+function algoG.NumberOneBits.BitMask_Optimal
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3365,8 +3363,8 @@ func main() {
 end
 
 
-function algoG.NumberOfOneBits.Built-InFunction
-    set output_file "NumberOfOneBitsBuilt-InFunction.go"
+function algoG.NumberOneBits.Built-InFunction
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3553,7 +3551,7 @@ end
 
 
 function algoG.ReverseBits.Brute_Force
-    set output_file "ReverseBitsBrute_Force.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -3592,7 +3590,7 @@ end
 
 
 function algoG.ReverseBits.BitManipulation
-    set output_file "ReverseBitsBitManipulation.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3622,7 +3620,7 @@ end
 
 
 function algoG.ReverseBits.BitManipulation_Optimal
-    set output_file "ReverseBitsBitManipulation_Optimal.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3653,7 +3651,7 @@ end
 
 
 function algoG.MissingNumber.Sorting
-    set output_file "MissingNumberSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3688,7 +3686,7 @@ end
 
 
 function algoG.MissingNumber.HashSet
-    set output_file "MissingNumberHashSet.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3723,7 +3721,7 @@ end
 
 
 function algoG.MissingNumber.BitwiseXOR
-    set output_file "MissingNumberBitwiseXOR.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3753,7 +3751,7 @@ end
 
 
 function algoG.MissingNumber.Math
-    set output_file "MissingNumberMath.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3782,7 +3780,7 @@ end
 
 
 function algoG.GroupAnagrams.Sorting
-    set output_file "GroupAnagramsSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -3829,7 +3827,7 @@ end
 
 
 function algoG.GroupAnagrams.HashTable
-    set output_file "GroupAnagramsHashTable.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4015,7 +4013,7 @@ end
 
 
 function algoG.EncodeandDecodeStrings.Encoding-Decoding
-    set output_file "EncodeandDecodeStringsEncoding-Decoding.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4076,8 +4074,8 @@ end
 
 
 
-function algoG.EncodeandDecodeStrings.Encoding-Decoding1
-    set output_file "EncodeandDecodeStringsEncoding-Decoding1.go"
+function algoG.EncodeandDecodeStrings.EncodingDecoding_Optimal
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4130,8 +4128,8 @@ func main() {
 end
 
 
-function algoG.ProductsArrayExceptSelf.BruteForce
-    set output_file "ProductsArrayExceptSelfBruteForce.go"
+function algoG.ProductsofArrayExceptSelf.BruteForce
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4169,8 +4167,8 @@ func main() {
 end
 
 
-function algoG.ProductsArrayExceptSelf.Division
-    set output_file "ProductsArrayExceptSelfDivision.go"
+function algoG.ProductsofArrayExceptSelf.Division
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4222,8 +4220,8 @@ func main() {
 end
 
 
-function algoG.ProductsArrayExceptSelf.PrefixSuffix
-    set output_file "ProductsArrayExceptSelfPrefixSuffix.go"
+function algoG.ProductsofArrayExceptSelf.PrefixSuffix
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4263,8 +4261,8 @@ func main() {
 end
 
 
-function algoG.ProductsArrayExceptSelf.PrefixSuffixOptimal
-    set output_file "ProductsArrayExceptSelfPrefixSuffixOptimal.go"
+function algoG.ProductsofArrayExceptSelf.PrefixSuffixOptimal
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4307,7 +4305,7 @@ end
 
 
 function algoG.ValidSudoku.BruteForce
-    set output_file "ValidSudokuBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4385,7 +4383,7 @@ end
 
 
 function algoG.ValidSudoku.HashSet_OnePass
-    set output_file "ValidSudokuHashSet_OnePass.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4449,7 +4447,7 @@ end
 
 
 function algoG.ValidSudoku.Bitmask
-    set output_file "ValidSudokuBitmask.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4510,7 +4508,7 @@ end
 
 
 function algoG.LongestConsecutiveSequence.BruteForce
-    set output_file "LongestConsecutiveSequenceBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4553,7 +4551,7 @@ end
 
 
 function algoG.LongestConsecutiveSequence.Sorting
-    set output_file "LongestConsecutiveSequenceSorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -4602,7 +4600,7 @@ end
 
 
 function algoG.LongestConsecutiveSequence.HashSet
-    set output_file "LongestConsecutiveSequenceHashSet.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4650,7 +4648,7 @@ end
 
 
 function algoG.LongestConsecutiveSequence.HashMap
-    set output_file "LongestConsecutiveSequenceHashMap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4693,7 +4691,7 @@ end
 
 
 function algoG.TwoIntegerSumII.BruteForce
-    set output_file "TwoIntegerSumIIBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4728,7 +4726,7 @@ end
 
 
 function algoG.TwoIntegerSumII.BinarySearch
-    set output_file "TwoIntegerSumIIBinarySearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4770,7 +4768,7 @@ end
 
 
 function algoG.TwoIntegerSumII.HashMap
-    set output_file "TwoIntegerSumIIHashMap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4806,7 +4804,7 @@ end
 
 
 function algoG.TwoIntegerSumII.TwoPointer
-    set output_file "TwoIntegerSumIITwoPointer.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4846,7 +4844,7 @@ end
 
 
 function algoG.3Sum.BruteForce
-    set output_file "3SumBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4905,7 +4903,7 @@ end
 
 
 function algoG.3Sum.HashMap
-    set output_file "3SumHashMap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -4962,7 +4960,7 @@ end
 
 
 function algoG.3Sum.TwoPointers
-    set output_file "3SumTwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -5019,7 +5017,7 @@ end
 
 
 function algoG.ContainerWithMostWater.BruteForce
-    set output_file "ContainerWithMostWaterBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5062,7 +5060,7 @@ end
 
 
 function algoG.ContainerWithMostWater.TwoPointers
-    set output_file "ContainerWithMostWaterTwoPointers.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5110,7 +5108,7 @@ end
 
 
 function algoG.MinimumStack.BruteForce
-    set output_file "MinimumStackBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5186,7 +5184,7 @@ end
 
 
 function algoG.MinimumStack.TwoStacks
-    set output_file "MinimumStackTwoStacks.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5257,7 +5255,7 @@ end
 
 
 function algoG.MinimumStack.OneStack
-    set output_file "MinimumStackOneStack.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5334,7 +5332,7 @@ end
 
 
 function algoG.EvaluateReversePolishNotation.BruteForce
-    set output_file "EvaluateReversePolishNotationBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5393,7 +5391,7 @@ end
 
 
 function algoG.EvaluateReversePolishNotation.DoublyLinkedList
-    set output_file "EvaluateReversePolishNotationDoublyLinkedList.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5467,7 +5465,7 @@ end
 
 
 function algoG.EvaluateReversePolishNotation.Recursion
-    set output_file "EvaluateReversePolishNotationRecursion.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5525,7 +5523,7 @@ end
 
 
 function algoG.EvaluateReversePolishNotation.Stack
-    set output_file "EvaluateReversePolishNotationStack.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5585,7 +5583,7 @@ func main() {
 end
 
 function algoG.DailyTemperatures.BruteForce
-    set output_file "DailyTemperaturesBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5634,7 +5632,7 @@ end
 
 
 function algoG.DailyTemperatures.Stack
-    set output_file "DailyTemperatures.Stack.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5673,7 +5671,7 @@ end
 
 
 function algoG.DailyTemperatures.DynamicProgramming
-    set output_file "DailyTemperatures.DynamicProgramming.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5717,7 +5715,7 @@ end
 
 
 function algoG.CarFleet.Stack
-    set output_file "CarFleetStack.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -5765,7 +5763,7 @@ end
 
 
 function algoG.CarFleet.Iteration
-    set output_file "CarFleetIteration.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5815,7 +5813,7 @@ end
 
 
 function algoG.Search2DMatrix.BruteForce
-    set output_file "Search2DMatrixBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5854,7 +5852,7 @@ end
 
 
 function algoG.Search2DMatrix.StaircaseSearch
-    set output_file "Search2DMatrixStaircaseSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5900,7 +5898,7 @@ end
 
 
 function algoG.Search2DMatrix.BinarySearch
-    set output_file "Search2DMatrixBinarySearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -5961,7 +5959,7 @@ end
 
 
 function algoG.Search2DMatrix.BinarySearch_OnePass
-    set output_file "Search2DMatrixBinarySearch_OnePass.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6007,7 +6005,7 @@ end
 
 
 function algoG.KokoEatingBananas.BruteForce
-    set output_file "KokoEatingBananasBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6048,7 +6046,7 @@ end
 
 
 function algoG.KokoEatingBananas.BinarySearch
-    set output_file "KokoEatingBananasBinarySearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6100,7 +6098,7 @@ end
 
 
 function algoG.FindMinimumRotatedSortedArray.BruteForce
-    set output_file "FindMinimumRotatedSortedArrayBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6132,7 +6130,7 @@ end
 
 
 function algoG.FindMinimumRotatedSortedArray.BinarySearch
-    set output_file "FindMinimumRotatedSortedArrayBinarySearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6184,7 +6182,7 @@ end
 
 
 function algoG.FindMinimumRotatedSortedArray.BinarySearch_LowerBound
-    set output_file "FindMinimumRotatedSortedArrayBinarySearch_LowerBound.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6222,8 +6220,8 @@ end
 
 
 
-function algoG.SearchRotatedSortedArray.BruteForce
-    set output_file "SearchRotatedSortedArrayBruteForce.go"
+function algoG.SearchinRotatedSortedArray.BruteForce
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6254,8 +6252,8 @@ func main() {
 end
 
 
-function algoG.SearchRotatedSortedArray.BinarySearch
-    set output_file "SearchRotatedSortedArrayBinarySearch.go"
+function algoG.SearchinRotatedSortedArray.BinarySearch
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6314,8 +6312,8 @@ func main() {
 end
 
 
-function algoG.SearchRotatedSortedArray.BinarySearch_TwoPass
-    set output_file "SearchRotatedSortedArrayBinarySearch_TwoPass.go"
+function algoG.SearchinRotatedSortedArray.BinarySearch_TwoPass
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6376,8 +6374,8 @@ func main() {
 end
 
 
-function algoG.SearchRotatedSortedArray.BinarySearch_OnePass
-    set output_file "SearchRotatedSortedArrayBinarySearch_OnePass.go"
+function algoG.SearchinRotatedSortedArray.BinarySearch_OnePass
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6425,8 +6423,8 @@ func main() {
 end
 
 
-function algoG.TimeBasedKey-ValueStore.BruteForce
-    set output_file "TimeBasedKey-ValueStoreBruteForce.go"
+function algoG.TimeBasedKeyValueStore.BruteForce
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6496,8 +6494,8 @@ func main() {
 end
 
 
-function algoG.TimeBasedKey-ValueStore.BinarySearch_SortedMap
-    set output_file "TimeBasedKey-ValueStoreBinarySearch_SortedMap.go"
+function algoG.TimeBasedKeyValueStore.BinarySearch_SortedMap
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6560,8 +6558,8 @@ func main() {
 end
 
 
-function algoG.TimeBasedKey-ValueStore.BinarySearch_Array
-    set output_file "TimeBasedKey-ValueStoreBinarySearch_Array.go"
+function algoG.TimeBasedKeyValueStore.BinarySearch_Array
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6629,7 +6627,7 @@ end
 
 
 function algoG.LongestSubstringWithoutRepeatingCharacters.BruteForce
-    set output_file "LongestSubstringWithoutRepeatingCharactersBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6670,7 +6668,7 @@ end
 
 
 function algoG.LongestSubstringWithoutRepeatingCharacters.SlidingWindow
-    set output_file "LongestSubstringWithoutRepeatingCharactersSlidingWindow.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6716,7 +6714,7 @@ end
 
 
 function algoG.LongestSubstringWithoutRepeatingCharacters.SlidingWindow_Optimal
-    set output_file "LongestSubstringWithoutRepeatingCharactersSlidingWindow_Optimal.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6768,7 +6766,7 @@ end
 
 
 function algoG.LongestRepeatingCharacterReplacement.BruteForce
-    set output_file "LongestRepeatingCharacterReplacementBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6819,7 +6817,7 @@ end
 
 
 function algoG.LongestRepeatingCharacterReplacement.SlidingWindow
-    set output_file "LongestRepeatingCharacterReplacementSlidingWindow.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6884,7 +6882,7 @@ end
 
 
 function algoG.LongestRepeatingCharacterReplacement.SlidingWindow_Optimal
-    set output_file "LongestRepeatingCharacterReplacementSlidingWindow_Optimal.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6935,7 +6933,7 @@ end
 
 
 function algoG.PermutationinString.BruteForce
-    set output_file "PermutationinStringBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -6986,7 +6984,7 @@ end
 
 
 function algoG.PermutationinString.HashTable
-    set output_file "PermutationinStringHashTable.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7040,7 +7038,7 @@ end
 
 
 function algoG.PermutationinString.SlidingWindow
-    set output_file "PermutationinStringSlidingWindow.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7113,7 +7111,7 @@ end
 
 
 function algoG.ReorderLinkedList.BruteForce
-    set output_file "ReorderLinkedListBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7190,7 +7188,7 @@ end
 
 
 function algoG.ReorderLinkedList.Recursion
-    set output_file "ReorderLinkedListRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7273,7 +7271,7 @@ end
 
 
 function algoG.ReorderLinkedList.ReverseAndMerge
-    set output_file "ReorderLinkedListReverseAndMerge.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7354,7 +7352,7 @@ end
 
 
 function algoG.RemoveNodeFromEndLinkedList.BruteForce
-    set output_file "RemoveNodeFromEndLinkedListBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7422,7 +7420,7 @@ end
 
 
 function algoG.RemoveNodeFromEndLinkedList.Iteration_TwoPass
-    set output_file "RemoveNthFromEndRemoveNodeFromEndLinkedList.Iteration_TwoPass.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7497,7 +7495,7 @@ end
 
 
 function algoG.RemoveNodeFromEndLinkedList.Recursion
-    set output_file "RemoveNodeFromEndLinkedListRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7565,7 +7563,7 @@ end
 
 
 function algoG.RemoveNodeFromEndLinkedList.TwoPointers
-    set output_file "RemoveNodeFromEndLinkedListTwoPointers.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -7635,7 +7633,7 @@ end
 
 
 function algoG.CopyLinkedListwithRandomPointer.Recursion_HashMap
-    set output_file "CopyLinkedListwithRandomPointer.Recursion_HashMap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7700,7 +7698,7 @@ end
 
 
 function algoG.CopyLinkedListwithRandomPointer.HashMap_TwoPass
-    set output_file "CopyLinkedListwithRandomPointerHashMap_TwoPass.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7770,7 +7768,7 @@ end
 
 
 function algoG.CopyLinkedListwithRandomPointer.HashMap_OnePass
-    set output_file "CopyLinkedListwithRandomPointerHashMap_OnePass.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7846,7 +7844,7 @@ end
 
 
 function algoG.CopyLinkedListwithRandomPointer.SpaceOptimized-I
-    set output_file "CopyLinkedListwithRandomPointerSpaceOptimized-I.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7931,7 +7929,7 @@ end
 
 
 function algoG.CopyLinkedListwithRandomPointer.SpaceOptimized-II
-    set output_file "CopyLinkedListwithRandomPointer.SpaceOptimized-II.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8019,7 +8017,7 @@ end
 end
 
 function algoG.AddTwoNumbers.Recursion
-    set output_file "AddTwoNumbersRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8092,7 +8090,7 @@ end
 
 
 function algoG.AddTwoNumbers.Iteration
-    set output_file "AddTwoNumbersIteration.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8311,7 +8309,7 @@ end
 
 
 function algoG.FindDuplicateNumber.BinarySearch
-    set output_file "FindDuplicateNumberBinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8459,7 +8457,7 @@ end
 
 
 function algoG.LRUCache.BruteForce
-    set output_file "LRUCacheBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -8532,7 +8530,7 @@ end
 
 
 function algoG.LRUCache.DoublyLinkedList
-    set output_file "LRUCacheDoublyLinkedList.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8625,7 +8623,7 @@ end
 
 
 function algoG.LRUCache.Built-InDataStructure
-    set output_file "LRUCacheBuilt-InDataStructure.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8701,7 +8699,7 @@ end
 
 
 function algoG.LowestCommonAncestorBinarySearchTree.Recursion
-    set output_file "LowestCommonAncestorBinarySearchTreeRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8770,7 +8768,7 @@ end
 
 
 function algoG.LowestCommonAncestorBinarySearchTree.Iteration
-    set output_file "LowestCommonAncestorBinarySearchTreeIteration.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -8826,7 +8824,7 @@ func main() {
 end
 
 function algoG.BinaryTreeLevelOrderTraversal.DepthFirstSearch
-    set output_file "BinaryTreeLevelOrderTraversalDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -8885,7 +8883,7 @@ end
 
 
 function algoG.BinaryTreeLevelOrderTraversal.BreadthFirstSearch
-    set output_file "BinaryTreeLevelOrderTraversal.BreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8951,7 +8949,7 @@ end
 
 
 function algoG.BinaryTreeRightSideView.DepthFirstSearch
-    set output_file "BinaryTreeRightSideViewDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9006,7 +9004,7 @@ end
 
 
 function algoG.BinaryTreeRightSideView.BreadthFirstSearch
-    set output_file "BinaryTreeRightSideViewBreadthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9074,7 +9072,7 @@ end
 
 
 function algoG.CountGoodNodesBinaryTree.DepthFirstSearch
-    set output_file "CountGoodNodesBinaryTreeDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9144,7 +9142,7 @@ end
 
 
 function algoG.CountGoodNodesBinaryTree.BreadthFirstSearch
-    set output_file "CountGoodNodesBinaryTree.BreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9230,7 +9228,7 @@ end
 
 
 function algoG.ValidBinarySearchTree.BruteForce
-    set output_file "ValidBinarySearchTree.BruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9282,7 +9280,7 @@ end
 
 
 function algoG.ValidBinarySearchTree.DepthFirstSearch
-    set output_file "ValidBinarySearchTreeDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9333,7 +9331,7 @@ end
 
 
 function algoG.ValidBinarySearchTree.BreadthFirstSearch
-    set output_file "ValidBinarySearchTreeBreadthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9398,8 +9396,8 @@ func main() {
 end
 
 
-function algoG.KthSmallestIntegerBST.BruteForce
-    set output_file "KthSmallestIntegerBSTBruteForce.go"
+function algoG.KthSmallestIntegerinBST.BruteForce
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9454,8 +9452,8 @@ end
 
 
 
-function algoG.KthSmallestIntegerBST.InorderTraversal
-    set output_file "KthSmallestIntegerBSTInorderTraversal.go"
+function algoG.KthSmallestIntegerinBST.InorderTraversal
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9463,9 +9461,7 @@ import (
     \"fmt\"
 )
 
-/**
- * Definition for a binary tree node.
- */
+
 type TreeNode struct {
     Val   int
     Left  *TreeNode
@@ -9513,8 +9509,8 @@ end
 
 
 
-function algoG.KthSmallestIntegerBST.RecursiveDFS_Optimal
-    set output_file "KthSmallestIntegerBSTRecursiveDFS_Optimal.go"
+function algoG.KthSmallestIntegerinBST.RecursiveDFS_Optimal
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9572,8 +9568,8 @@ func main() {
 end
 
 
-function algoG.KthSmallestIntegerBST.IterativeDFS_Optimal
-    set output_file "KthSmallestIntegerBSTIterativeDFS_Optimal.go"
+function algoG.KthSmallestIntegerinBST.IterativeDFS_Optimal
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9634,8 +9630,8 @@ func main() {
 end
 
 
-function algoG.KthSmallestIntegerBST.MorrisTraversal
-    set output_file "KthSmallestIntegerBSTMorrisTraversal.go"
+function algoG.KthSmallestIntegerinBST.MorrisTraversal
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9643,9 +9639,7 @@ import (
     \"fmt\"
 )
 
-/**
- * Definition for a binary tree node.
- */
+
 type TreeNode struct {
     Val   int
     Left  *TreeNode
@@ -9704,7 +9698,7 @@ end
 
 
 function algoG.ConstructBinaryTreefromPreorderInorderTraversal.DepthFirstSearch
-    set output_file "ConstructBinaryTreefromPreorderInorderTraversalDepthFirstSearch.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9768,8 +9762,8 @@ func main() {
 end
 
 
-function algoG.ConstructBinaryTreefromPreorderandInorderTraversal.HashMap_DepthFirstSearch
-    set output_file "ConstructBinaryTreefromPreorderandInorderTraversal.HashMap_DepthFirstSearch.go"
+function algoG.ConstructBinaryTreefromPreorderInorderTraversal.HashMap_DepthFirstSearch
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9840,8 +9834,8 @@ func main() {
 end
 
 
-function algoG.ConstructBinaryTreefromPreorderandInorderTraversal.DepthFirst_SearchOptimal
-    set output_file "ConstructBinaryTreefromPreorderandInorderTraversal.DepthFirst_SearchOptimal.go"
+function algoG.ConstructBinaryTreefromPreorderInorderTraversal.DepthFirst_SearchOptimal
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9909,8 +9903,52 @@ func main() {
 end
 
 
-function algoG.ImplementPrefixTree.Prefix_TreeArray
-    set output_file "PrefixTree"
+function algoG.ConstructBinaryTreefromPreorderInorderTraversal.MorrisTraversal
+    set output_file "main.go"
+
+    set template_content '
+
+ type TreeNode struct {
+      Val int
+      Left *TreeNode
+      Right *TreeNode
+  }
+ 
+func buildTree(preorder []int, inorder []int) *TreeNode {
+    head := &TreeNode{}
+    curr := head
+    i, j, n := 0, 0, len(preorder)
+
+    for i < n && j < n {
+        curr.Right = &TreeNode{Val: preorder[i], Right: curr.Right}
+        curr = curr.Right
+        i++
+        for i < n && curr.Val != inorder[j] {
+            curr.Left = &TreeNode{Val: preorder[i], Right: curr}
+            curr = curr.Left
+            i++
+        }
+        j++
+        for curr.Right != nil && j < n && curr.Right.Val == inorder[j] {
+            prev := curr.Right
+            curr.Right = nil
+            curr = prev
+            j++
+        }
+    }
+    return head.Right
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.ImplementTriePrefixTree.PrefixTreeArray
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -9983,8 +10021,8 @@ func main() {
 end
 
 
-function algoG.ImplementTrie_PrefixTree.PrefixTree_HashMap
-    set output_file "ImplementTrie_PrefixTree.PrefixTree_HashMap.go"
+function algoG.ImplementTriePrefixTree.PrefixTree_HashMap
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -10059,7 +10097,7 @@ end
 
 
 function algoG.DesignAddandSearchWordDataStructure.BruteForce
-    set output_file "DesignAddandSearchWordDataStructureBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10119,7 +10157,7 @@ end
 
 
 function algoG.DesignAddandSearchWordDataStructure.DepthFirstSearch
-    set output_file "DesignAddandSearchWordDataStructure.DepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -10201,7 +10239,7 @@ end
 
 
 function algoG.KClosestPointstoOrigin.Sorting
-    set output_file "KClosestPointstoOriginSorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10283,7 +10321,7 @@ end
 
 
 function algoG.KClosestPointstoOrigin.MaxHeap
-    set output_file "KClosestPointstoOriginMaxHeap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10339,8 +10377,43 @@ func main() {
 end
 
 
+function algoG.KClosestPointstoOrigin.Min-Heap
+    set output_file "main.py"
+
+    set template_content '
+func kClosest(points [][]int, k int) [][]int {
+    minHeap := priorityqueue.NewWith(func(a, b interface{}) int {
+        distA := a.([]int)[0]
+        distB := b.([]int)[0]
+        return distA - distB
+    })
+
+    for _, point := range points {
+        x, y := point[0], point[1]
+        dist := x*x + y*y
+        minHeap.Enqueue([]int{dist, x, y})
+    }
+
+    res := [][]int{}
+    for i := 0; i < k; i++ {
+        item, _ := minHeap.Dequeue()
+        point := item.([]int)
+        res = append(res, []int{point[1], point[2]})
+    }
+
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
 function algoG.KClosestPointstoOrigin.QuickSelect
-    set output_file "KClosestPointstoOriginQuickSelect.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10398,7 +10471,7 @@ end
 
 
 function algoG.KthLargestElementInArray.Sorting
-    set output_file "KthLargestElementInArraySorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10427,7 +10500,7 @@ end
 
 
 function algoG.KthLargestElementInArray.Min-Heap
-    set output_file "KthLargestElementInArrayMin-Heap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10466,7 +10539,7 @@ end
 
 
 function algoG.KthLargestElementInArray.QuickSelect
-    set output_file "KthLargestElementInArray.QuickSelect.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10514,7 +10587,7 @@ end
 
 
 function algoG.KthLargestElementInArray.QuickSelect_Optimal
-    set output_file "KthLargestElementInArray.QuickSelect_Optimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10600,7 +10673,7 @@ end
 
 
 function algoG.TaskScheduler.BruteForce
-    set output_file "TaskSchedulerBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10677,7 +10750,7 @@ end
 
 
 function algoG.TaskScheduler.Max-Heap
-    set output_file "TaskSchedulerMax-Heap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10744,7 +10817,7 @@ end
 
 
 function algoG.TaskScheduler.Greedy
-    set output_file "TaskSchedulerGreedy.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10805,7 +10878,7 @@ end
 
 
 function algoG.TaskScheduler.Math
-    set output_file "TaskSchedulerMath.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -10861,7 +10934,7 @@ end
 
 
 function algoG.DesignTwitter.Sorting
-    set output_file "DesignTwitterSorting.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -10949,7 +11022,7 @@ end
 
 
 function algoG.DesignTwitter.Heap
-    set output_file "DesignTwitterHeap.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11051,7 +11124,7 @@ end
 
 
 function algoG.DesignTwitter.HeapOptimal
-    set output_file "DesignTwitterHeapOptimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11234,7 +11307,7 @@ func main() {
 end
 
 function algoG.Subsets.Iteration
-    set output_file "SubsetsIterative"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11271,7 +11344,7 @@ end
 
 
 function algoG.Subsets.BitManipulation
-    set output_file "SubsetsBitManipulation.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11309,7 +11382,7 @@ end
 
 
 function algoG.CombinationSum.Backtracking
-    set output_file "CombinationSumBacktracking.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11356,7 +11429,7 @@ end
 
 
 function algoG.CombinationSum.BacktrackingOptimal
-    set output_file "CombinationSumBacktrackingOptimal.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11408,7 +11481,7 @@ end
 
 
 function algoG.CombinationSumII.BruteForce
-    set output_file "CombinationSumIIBruteForce.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11461,7 +11534,7 @@ end
 
 
 function algoG.CombinationSumII.Backtracking
-    set output_file "CombinationSumIIBacktracking.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11516,7 +11589,7 @@ end
 
 
 function algoG.CombinationSumII.Backtracking_HashMap
-    set output_file "CombinationSumIIBacktracking_HashMap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11579,7 +11652,7 @@ end
 
 
 function algoG.CombinationSumII.BacktrackingOptimal
-    set output_file "CombinationSumIIBacktrackingOptimal.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -11635,7 +11708,7 @@ end
 
 
 function algoG.Permutations.Recursion
-    set output_file "PermutationsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 import (
     \"fmt\"
@@ -11673,7 +11746,7 @@ end
 
 
 function algoG.Permutations.Iteration
-    set output_file "PermutationsIteration.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11713,7 +11786,7 @@ end
 
 
 function algoG.Permutations.Backtracking
-    set output_file "PermutationsBacktracking.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11758,7 +11831,7 @@ end
 
 
 function algoG.Permutations.Backtracking_BitMask
-    set output_file "PermutationsBacktracking_BitMask.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11801,7 +11874,7 @@ end
 
 
 function algoG.Permutations.Backtracking_Optimal
-    set output_file "PermutationsBacktracking_Optimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11842,7 +11915,7 @@ end
 
 
 function algoG.SubsetsII.BruteForce
-    set output_file "SubsetsIIBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11892,7 +11965,7 @@ end
 
 
 function algoG.SubsetsII.Backtracking-I
-    set output_file "SubsetsIIBacktracking-I.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11941,7 +12014,7 @@ end
 
 
 function algoG.SubsetsII.Backtracking-II
-    set output_file "SubsetsIIBacktracking-II.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -11987,7 +12060,7 @@ end
 
 
 function algoG.SubsetsII.Iteration
-    set output_file "SubsetsIIIteration.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -12032,7 +12105,7 @@ end
 
 
 function algoG.GenerateParentheses.BruteForce
-    set output_file "GenerateParenthesesBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -12090,7 +12163,7 @@ end
 
 
 function algoG.GenerateParentheses.Backtracking
-    set output_file "GenerateParenthesesBacktracking.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -12141,7 +12214,7 @@ end
 
 
 function algoG.GenerateParentheses.DynamicProgramming
-    set output_file "GenerateParenthesesDynamicProgramming.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12179,7 +12252,7 @@ end
 
 
 function algoG.WordSearch.Backtracking_HashSet
-    set output_file "WordSearchBacktracking_HashSet.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12238,7 +12311,7 @@ end
 
 
 function algoG.WordSearch.Backtracking_VisitedArray
-    set output_file "WordSearchBacktracking_VisitedArray.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12300,7 +12373,7 @@ end
 
 
 function algoG.WordSearch.Backtracking_Optimal
-    set output_file "WordSearchBacktracking_Optimal"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12359,7 +12432,7 @@ end
 
 
 function algoG.PalindromePartitioning.Backtracking-I
-    set output_file "PalindromePartitioningBacktracking-I"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12417,7 +12490,7 @@ end
 
 
 function algoG.PalindromePartitioning.Backtracking-II
-    set output_file "PalindromePartitioningBacktracking-II"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12472,7 +12545,7 @@ end
 
 
 function algoG.PalindromePartitioning.Backtracking_DP
-    set output_file "PalindromePartitioningBacktracking_DP.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12528,7 +12601,7 @@ end
 
 
 function algoG.PalindromePartitioning.Recursion
-    set output_file "PalindromePartitioningRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12585,7 +12658,7 @@ end
 
 
 function algoG.LetterCombinationsOfPhoneNumber.Backtracking
-    set output_file "LetterCombinationsOfPhoneNumberBacktracking.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12638,7 +12711,7 @@ end
 
 
 function algoG.LetterCombinationsOfPhoneNumber.Iteration
-    set output_file "LetterCombinationsOfPhoneNumberIteration.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12689,7 +12762,7 @@ end
 
 
 function algoG.NumberOfIslands.DepthFirstSearch
-    set output_file "NumberOfIslandsDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12744,7 +12817,7 @@ end
 
 
 function algoG.NumberOfIslands.BreadthFirstSearch
-    set output_file "NumberOfIslandsBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12807,7 +12880,7 @@ end
 
 
 function algoG.NumberOfIslands.DisjointSetUnion
-    set output_file "NumberOfIslandsDisjointSetUnion.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -12904,7 +12977,7 @@ end
 
 
 function algoG.MaxAreaOfIsland.DepthFirstSearch
-    set output_file "MaxAreaOfIslandDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -12963,7 +13036,7 @@ end
 
 
 function algoG.MaxAreaOfIsland.BreadthFirstSearch
-    set output_file "MaxAreaOfIslandBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13038,7 +13111,7 @@ end
 
 
 function algoG.MaxAreaOfIsland.DisjointSetUnion
-    set output_file "MaxAreaOfIslandDisjointSetUnion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13143,7 +13216,7 @@ func main() {
 end
 
 function algoG.CloneGraph.DepthFirstSeacrh
-    set output_file "CloneGraphDepthFirstSeacrh.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13201,7 +13274,7 @@ end
 
 
 function algoG.CloneGraph.BreadthFirstSearch
-    set output_file "CloneGraphBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13261,7 +13334,7 @@ end
 
 
 function algoG.IslandsandTreasure.BruteForce_Backtracking
-    set output_file "IslandsandTreasureBruteForce_Backtracking.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13338,7 +13411,7 @@ end
 
 
 function algoG.IslandsandTreasure.BreadthFirstSearch
-    set output_file "IslandsandTreasureBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13415,7 +13488,7 @@ end
 
 
 function algoG.IslandsandTreasure.MultiSourceBFS
-    set output_file "IslandsandTreasureMultiSourceBFS.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13479,7 +13552,7 @@ end
 
 
 function algoG.RottingFruit.BreadthFirstSearch
-    set output_file "RottingFruitBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13555,7 +13628,7 @@ end
 
 
 function algoG.RottingFruit.BreadthFirstSearch_NoQueue
-    set output_file "RottingFruitBreadthFirstSearch_NoQueue.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13630,7 +13703,7 @@ end
 
 
 function algoG.PacificAtlanticWaterFlow.BruteForce_Backtracking
-    set output_file "PacificAtlanticWaterFlowBruteForce_Backtracking.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13704,7 +13777,7 @@ end
 
 
 function algoG.PacificAtlanticWaterFlow.DepthFirstSearch
-    set output_file "PacificAtlanticWaterFlowDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13777,7 +13850,7 @@ end
 
 
 function algoG.PacificAtlanticWaterFlow.BreadthFirstSearch
-    set output_file "PacificAtlanticWaterFlowBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -13863,7 +13936,7 @@ end
 
 
 function algoG.SurroundedRegions.DepthFirstSearch
-    set output_file "SurroundedRegionsDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -13939,7 +14012,7 @@ end
 
 
 function algoG.SurroundedRegions.BreadthFirstSearch
-    set output_file "SurroundedRegionsBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14013,7 +14086,7 @@ end
 
 
 function algoG.SurroundedRegions.DisjointSetUnion
-    set output_file "SurroundedRegionsDisjointSetUnion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14118,7 +14191,7 @@ end
 
 
 function algoG.CourseSchedule.CycleDetection_DFS
-    set output_file "CourseScheduleCycleDetection_DFS.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14183,7 +14256,7 @@ end
 
 
 function algoG.CourseSchedule.TopologicalSort
-    set output_file "CourseScheduleTopologicalSort.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14244,7 +14317,7 @@ end
 
 
 function algoG.CourseScheduleII.CycleDetection
-    set output_file "CourseScheduleIICycleDetection.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14315,7 +14388,7 @@ end
 
 
 function algoG.CourseScheduleII.TopologicalSort1 
-    set output_file "CourseScheduleIITopologicalSort1 .go"
+    set output_file "main .go"
     set template_content "package main
 
 import \"fmt\"
@@ -14384,7 +14457,7 @@ end
 
 
 function algoG.CourseScheduleII.TopologicalSort2
-    set output_file "CourseScheduleIITopologicalSort2.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14446,7 +14519,7 @@ end
 
 
 function algoG.CourseScheduleII.TopologicalSort2
-    set output_file "CourseScheduleIITopologicalSort2.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14499,8 +14572,53 @@ func main() {
 end
 
 
+
+function algoG.GraphValidTree.CycleDetection_DFS
+    set output_file "main.go"
+    set template_content '
+func validTree(n int, edges [][]int) bool {
+    if len(edges) > n-1 {
+		return false
+	}
+
+	adj := make([][]int, n)
+	for _, edge := range edges {
+		u, v := edge[0], edge[1]
+		adj[u] = append(adj[u], v)
+		adj[v] = append(adj[v], u)
+	}
+
+	visit := make(map[int]bool)
+	var dfs func(node, parent int) bool
+	dfs = func(node, parent int) bool {
+		if visit[node] {
+			return false
+		}
+		visit[node] = true
+		for _, nei := range adj[node] {
+			if nei == parent {
+				continue
+			}
+			if !dfs(nei, node) {
+				return false
+			}
+		}
+		return true
+	}
+
+	return dfs(0, -1) && len(visit) == n
+}
+'
+
+    echo $template_content > $output_file
+    set_color FFAD8D
+    echo \"$output_file created\"
+    set_color normal
+    cat $output_file
+end
+
 function algoG.GraphValidTree.BreadthFirstSearch
-    set output_file "GraphValidTreeBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14556,7 +14674,7 @@ end
 
 
 function algoG.GraphValidTree.DisjointSetUnion 
-    set output_file "GraphValidTreeDisjointSetUnion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14630,8 +14748,8 @@ func main() {
 end
 
 
-function algoG.NumberConnectedComponentsInUndirectedGraph.DepthFirstSearch
-    set output_file "NumberConnectedComponentsInUndirectedGraphDepthFirstSearch.go"
+function algoG.NumberConnectedComponentsUndirectedGraph.DepthFirstSearch
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14681,8 +14799,8 @@ func main() {
 end
 
 
-function algoG.NumberConnectedComponentsInUndirectedGraph.BreadthFirstSearch
-    set output_file "NumberConnectedComponentsInUndirectedGraphBreadthFirstSearch.go"
+function algoG.NumberConnectedComponentsUndirectedGraph.BreadthFirstSearch
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14736,8 +14854,8 @@ func main() {
 end
 
 
-function algoG.NumberConnectedComponentsInUndirectedGraph.DisjointSetUnion
-    set output_file "NumberConnectedComponentsInUndirectedGraphDisjointSetUnion.go"
+function algoG.NumberConnectedComponentsUndirectedGraph.DisjointSetUnion
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14810,7 +14928,7 @@ end
 
 
 function algoG.RedundantConnection.CycleDetection
-    set output_file "RedundantConnectionCycleDetection.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14867,7 +14985,7 @@ end
 
 
 function algoG.RedundantConnection.DepthFirstSearch
-    set output_file "RedundantConnectionDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -14935,183 +15053,9 @@ func main() {
 end
 
 
-function algoG.InsertInterval.LinearSearch
-    set output_file "InsertIntervalLinearSearch.go"
-    set template_content "package main
-
-import \"fmt\"
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    n := len(intervals)
-    i := 0
-    var res [][]int
-
-    for i < n && intervals[i][1] < newInterval[0] {
-        res = append(res, intervals[i])
-        i++
-    }
-
-    for i < n && newInterval[1] >= intervals[i][0] {
-        newInterval[0] = min(newInterval[0], intervals[i][0])
-        newInterval[1] = max(newInterval[1], intervals[i][1])
-        i++
-    }
-    res = append(res, newInterval)
-
-    for i < n {
-        res = append(res, intervals[i])
-        i++
-    }
-
-    return res
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    fmt.Println(\"After insert:\", insert(intervals, newInterval))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.InsertInterval.BinarySearch
-    set output_file "InsertIntervalBinarySearch.go"
-    set template_content "package main
-
-import \"fmt\"
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    if len(intervals) == 0 {
-        return [][]int{newInterval}
-    }
-
-    n := len(intervals)
-    target := newInterval[0]
-    left, right := 0, n-1
-
-    for left <= right {
-        mid := (left + right) / 2
-        if intervals[mid][0] < target {
-            left = mid + 1
-        } else {
-            right = mid - 1
-        }
-    }
-
-    intervals = append(intervals[:left], append(
-        [][]int{newInterval}, intervals[left:]...)...)
-
-    var res [][]int
-    for _, interval := range intervals {
-        if len(res) == 0 || res[len(res)-1][1] < interval[0] {
-            res = append(res, interval)
-        } else {
-            res[len(res)-1][1] = max(res[len(res)-1][1], interval[1])
-        }
-    }
-    return res
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    fmt.Println(\"After binary insert:\", insert(intervals, newInterval))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.InsertInterval.Greedy
-    set output_file "InsertIntervalGreedy.go"
-    set template_content "package main
-
-import \"fmt\"
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    var res [][]int
-
-    for i := 0; i < len(intervals); i++ {
-        if newInterval[1] < intervals[i][0] {
-            res = append(res, newInterval)
-            return append(res, intervals[i:]...)
-        } else if newInterval[0] > intervals[i][1] {
-            res = append(res, intervals[i])
-        } else {
-            newInterval = []int{
-                min(newInterval[0], intervals[i][0]),
-                max(newInterval[1], intervals[i][1]),
-            }
-        }
-    }
-    res = append(res, newInterval)
-    return res
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    fmt.Println(\"Merged intervals:\", insert(intervals, newInterval))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
 
 function algoG.MergeIntervals.Sorting
-    set output_file "MergeIntervalsSorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15160,7 +15104,7 @@ end
 
 
 function  algoG.MergeIntervals.SweepLineAlgorithm
-    set output_file "MergeIntervalsSweepLineAlgorithm.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -15214,7 +15158,7 @@ end
 
 
 function algoG.MergeIntervals.Greedy
-    set output_file "MergeIntervalsGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15280,7 +15224,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.Recursion
-    set output_file "Non-overlappingIntervalsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15330,7 +15274,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.DynamicProgramming_Top-Down
-    set output_file "Non-overlappingIntervalsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15386,7 +15330,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.DynamicProgramming_Bottom-Up
-    set output_file "Non-OverlappingIntervalsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15441,7 +15385,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.DynamicProgramming_BinarySearch
-    set output_file "Non-overlappingIntervalsDynamicProgramming_BinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15506,7 +15450,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.Greedy_SortByStart
-    set output_file "Non-OverlappingIntervalsGreedy_SortByStart.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15557,7 +15501,7 @@ end
 
 
 function algoG.Non-OverlappingIntervals.Greedy_SortByEnd
-    set output_file "Non-OverlappingIntervalsGreedy_SortByEnd.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -15597,184 +15541,9 @@ func main() {
 end
 
 
-function algoG.MeetingRoomsII.MinHeap
-    set output_file "MeetingRoomsIIMinHeap.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-    \"sort\"
-
-    \"github.com/emirpasic/gods/queues/priorityqueue\"
-    \"github.com/emirpasic/gods/utils\"
-)
-
-type Interval struct {
-    start int
-    end   int
-}
-
-func minMeetingRooms(intervals []Interval) int {
-    sort.Slice(intervals, func(i, j int) bool {
-        return intervals[i].start < intervals[j].start
-    })
-
-    pq := priorityqueue.NewWith(utils.IntComparator)
-
-    for _, interval := range intervals {
-        if pq.Size() > 0 {
-            if top, _ := pq.Peek(); top.(int) <= interval.start {
-                pq.Dequeue()
-            }
-        }
-        pq.Enqueue(interval.end)
-    }
-
-    return pq.Size()
-}
-
-func main() {
-    intervals := []Interval{
-        {start: 0, end: 30},
-        {start: 5, end: 10},
-        {start: 15, end: 20},
-    }
-
-    fmt.Println(\"Minimum meeting rooms needed:\", minMeetingRooms(intervals))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.MeetingRoomsII.SweepLineAlgorithm
-    set output_file "MeetingRoomsIISweepLineAlgorithm.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-    \"sort\"
-)
-
-type Interval struct {
-    start int
-    end   int
-}
-
-func minMeetingRooms(intervals []Interval) int {
-    mp := make(map[int]int)
-    for _, i := range intervals {
-        mp[i.start]++
-        mp[i.end]--
-    }
-
-    keys := make([]int, 0, len(mp))
-    for k := range mp {
-        keys = append(keys, k)
-    }
-    sort.Ints(keys)
-
-    prev := 0
-    res := 0
-    for _, k := range keys {
-        prev += mp[k]
-        if prev > res {
-            res = prev
-        }
-    }
-    return res
-}
-
-func main() {
-    intervals := []Interval{
-        {start: 0, end: 30},
-        {start: 5, end: 10},
-        {start: 15, end: 20},
-    }
-
-    fmt.Println(\"Minimum meeting rooms needed:\", minMeetingRooms(intervals))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.MeetingRoomsII.TwoPointers
-    set output_file "MeetingRoomsIITwoPointers.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-    \"sort\"
-)
-
-type Interval struct {
-    start int
-    end   int
-}
-
-func minMeetingRooms(intervals []Interval) int {
-    start := make([]int, len(intervals))
-    end := make([]int, len(intervals))
-
-    for i, interval := range intervals {
-        start[i] = interval.start
-        end[i] = interval.end
-    }
-
-    sort.Ints(start)
-    sort.Ints(end)
-
-    res, count := 0, 0
-    s, e := 0, 0
-
-    for s < len(intervals) {
-        if start[s] < end[e] {
-            s++
-            count++
-        } else {
-            e++
-            count--
-        }
-        if count > res {
-            res = count
-        }
-    }
-
-    return res
-}
-
-func main() {
-    intervals := []Interval{
-        {start: 0, end: 30},
-        {start: 5, end: 10},
-        {start: 15, end: 20},
-    }
-
-    fmt.Println(\"Minimum meeting rooms needed:\", minMeetingRooms(intervals))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo \"$output_file created\"
-    set_color normal
-    cat $output_file
-end
-
 
 function algoG.ClimbingStairs.Recursion
-    set output_file "ClimbingStairsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15812,7 +15581,7 @@ end
 
 
 function algoG.ClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "ClimbingStairsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15857,7 +15626,7 @@ end
 
 
 function algoG.ClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "ClimbingStairsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15893,7 +15662,7 @@ end
 
 
 function algoG.ClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "ClimbingStairsDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15928,7 +15697,7 @@ end
 
 
 function algoG.ClimbingStairs.MatrixExponentiation
-    set output_file "ClimbingStairsMatrixExponentiation.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -15985,7 +15754,7 @@ end
 
 
 function algoG.ClimbingStairs.Math
-    set output_file "ClimbingStairsMath.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (

@@ -1,5 +1,5 @@
 function algoG.MinCostClimbingStairs.Recursion
-    set output_file "MinCostClimbingStairsRecursion.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -42,7 +42,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_Top-Down
-    set output_file "MinCostClimbingStairsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -92,7 +92,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_Bottom-Up
-    set output_file "MinCostClimbingStairsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -133,7 +133,7 @@ end
 
 
 function algoG.MinCostClimbingStairs.DynamicProgramming_SpaceOptimized
-    set output_file "MinCostClimbingStairsDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -170,7 +170,7 @@ end
 
 
 function algoG.HouseRobber.Recursion
-    set output_file "HouseRobberRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -210,7 +210,7 @@ end
 
 
 function algoG.HouseRobber.DynamicProgramming_Top-Down
-    set output_file "HouseRobberDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -261,7 +261,7 @@ end
 
 
 function algoG.HouseRobber.DynamicProgramming_Bottom-Up
-    set output_file "HouseRobberDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -311,7 +311,7 @@ end
 
 
 function algoG.HouseRobber.DynamicProgramming_SpaceOptimized
-    set output_file "HouseRobberDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -351,7 +351,7 @@ end
 
 
 function algoG.HouseRobber.DynamicProgramming_SpaceOptimized
-    set output_file "HouseRobberDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -389,7 +389,7 @@ func main() {
 end
 
 function algoG.HouseRobberII.Recursion
-    set output_file "HouseRobberIIRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -434,7 +434,7 @@ end
 
 
 function algoG.HouseRobberII.DynamicProgramming_Top-Down
-    set output_file "HouseRobberIIDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -493,7 +493,7 @@ end
 
 
 function algoG.HouseRobberII.DynamicProgramming_Bottom-Up
-    set output_file "HouseRobberIIDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -548,7 +548,7 @@ end
 
 
 function algoG.HouseRobberII.DynamicProgramming_SpaceOptimized
-    set output_file "HouseRobberIIDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -595,7 +595,7 @@ end
 
 
 function algoG.LongestPalindromicSubstring.BruteForce
-    set output_file "LongestPalindromicSubstringBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -639,7 +639,7 @@ end
 
 
 function algoG.LongestPalindromicSubstring.DynamicProgramming
-    set output_file "LongestPalindromicSubstringDynamicProgramming.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -683,55 +683,10 @@ func main() {
     cat $output_file
 end
 
-
-function algoG.LongestPalindromicSubstring.DynamicProgramming
-    set output_file "LongestPalindromicSubstringDynamicProgramming.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-)
-
-func longestPalindrome(s string) string {
-    n := len(s)
-    resIdx, resLen := 0, 0
-
-    dp := make([][]bool, n)
-    for i := range dp {
-        dp[i] = make([]bool, n)
-    }
-
-    for i := n - 1; i >= 0; i-- {
-        for j := i; j < n; j++ {
-            if s[i] == s[j] && (j-i <= 2 || dp[i+1][j-1]) {
-                dp[i][j] = true
-                if resLen < (j-i+1) {
-                    resIdx = i
-                    resLen = j - i + 1
-                }
-            }
-        }
-    }
-
-    return s[resIdx : resIdx+resLen]
-}
-
-func main() {
-    s := \"babad\"
-    fmt.Println(\"Longest Palindromic Substring (DP):\", longestPalindrome(s))
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
 
 function algoG.LongestPalindromicSubstring.TwoPointers
-    set output_file "LongestPalindromicSubstringTwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -783,7 +738,7 @@ end
 
 
 function algoG.LongestPalindromicSubstring.ManacherAlgorithm
-    set output_file "LongestPalindromicSubstringManacherAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -849,7 +804,7 @@ end
 
 
 function algoG.PalindromicSubstrings.BruteForce
-    set output_file "PalindromicSubstringsBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -888,7 +843,7 @@ end
 
 
 function algoG.PalindromicSubstrings.DynamicProgramming
-    set output_file "PalindromicSubstringsDynamicProgramming.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -929,7 +884,7 @@ func main() {
 end
 
 function algoG.PalindromicSubstrings.TwoPointers
-    set output_file "PalindromicSubstringsTwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -974,7 +929,7 @@ func main() {
 end
 
 function algoG.PalindromicSubstrings.TwoPointers_Optimal
-    set output_file "PalindromicSubstringsTwoPointers_Optimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1015,7 +970,7 @@ end
 
 
 function algoG.PalindromicSubstrings.ManacherAlgorithm
-    set output_file "PalindromicSubstringsManacherAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1123,7 +1078,7 @@ end
 
 
 function algoG.DecodeWays.DynamicProgramming_Top-Down
-    set output_file "DecodeWaysDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1168,7 +1123,7 @@ end
 
 
 function algoG.DecodeWays.DynamicProgramming_Bottom-Up
-    set output_file "NumDecodingsDP.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -1208,7 +1163,7 @@ end
 
 
 function algoG.DecodeWays.DynamicProgramming_SpaceOptimized
-    set output_file "DecodeWaysDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1250,7 +1205,7 @@ end
 
 
 function algoG.CoinChange.Recursion
-    set output_file "CoinChangeRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1304,7 +1259,7 @@ func main() {
 end
 
 function algoG.CoinChange.DynamicProgramming_Top-Down
-    set output_file "CoinChangeDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1362,7 +1317,7 @@ end
 
 
 function algoG.CoinChange.DynamicProgramming_Bottom-Up
-    set output_file "CoinChangeDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1411,7 +1366,7 @@ end
 
 
 function algoG.CoinChange.BreadthFirstSearch
-    set output_file "CoinChangeBreadthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1464,7 +1419,7 @@ end
 
 
 function algoG.MaximumProductSubarray.BruteForce
-    set output_file "MaximumProductSubarrayBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1506,7 +1461,7 @@ end
 
 
 function algoG.MaximumProductSubarray.SlidingWindow
-    set output_file "MaximumProductSubarraySlidingWindow.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1592,7 +1547,7 @@ end
 
 
 function algoG.MaximumProductSubarray.KadaneAlgorithm
-    set output_file "MaximumProductSubarrayKadaneAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1640,7 +1595,7 @@ end
 
 
 function algoG.MaximumProductSubarray.PrefixSuffix
-    set output_file "MaximumProductSubarrayPrefixSuffix.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1690,7 +1645,7 @@ end
 
 
 function algoG.WordBreak.Recursion
-    set output_file "WordBreakRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1733,7 +1688,7 @@ end
 
 
 function algoG.WordBreak.Recursion_HashSet
-    set output_file "WordBreakRecursion_HashSet.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1779,7 +1734,7 @@ func main() {
 end
 
 function algoG.WordBreak.DynamicProgramming_Top-Down
-    set output_file "WordBreakDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1828,7 +1783,7 @@ end
 
 
 function algoG.WordBreak.DynamicProgramming_HashSet
-    set output_file "WordBreakDynamicProgramming_HashSet.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1887,7 +1842,7 @@ end
 
 
 function algoG.WordBreak.DynamicProgramming.Bottom-Up
-    set output_file "WordBreakDynamicProgramming.Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -1928,7 +1883,7 @@ end
 
 
 function algoG.WordBreak.DynamicProgramming_Trie
-    set output_file "WordBreakDynamicProgramming_Trie.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2021,7 +1976,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.Recursion
-    set output_file "LongestIncreasingSubsequenceRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2069,7 +2024,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.DynamicProgramming-Top-Down-I
-    set output_file "LongestIncreasingSubsequenceDynamicProgramming-Top-Down-I.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2130,7 +2085,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.DynamicProgramming_Top-DownII
-    set output_file "LongestIncreasingSubsequence.DynamicProgramming_Top-DownII.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2192,7 +2147,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.DynamicProgramming_Bottom-UpI
-    set output_file "LongestIncreasingSubsequenceDynamicProgramming_Bottom-UpI.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2243,7 +2198,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.DynamicProgramming_Bottom-UpII
-    set output_file "LongestIncreasingSubsequenceDynamicProgramming_Bottom-UpII.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2291,7 +2246,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.SegmentTree
-    set output_file "LongestIncreasingSubsequenceSegmentTree.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2390,7 +2345,7 @@ end
 
 
 function algoG.LongestIncreasingSubsequence.DynamicProgramming_BinarySearch
-    set output_file "LongestIncreasingSubsequenceDynamicProgramming_BinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2433,7 +2388,7 @@ func main() {
 end
 
 function algoG.PartitionEqualSubsetSum.Recursion
-    set output_file "PartitionEqualSubsetSumRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2481,7 +2436,7 @@ end
 
 
 function algoG.PartitionEqualSubsetSum.DynamicProgramming_Top-Down
-    set output_file "PartitionEqualSubsetSumDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2547,7 +2502,7 @@ end
 
 
 function algoG.PartitionEqualSubsetSum.DynamicProgramming_SpaceOptimized
-    set output_file "PartitionEqualSubsetSumDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2602,7 +2557,7 @@ end
 
 
 function algoG.PartitionEqualSubsetSum.DynamicProgramming_HashSet
-    set output_file "PartitionEqualSubsetSumDynamicProgramming_HashSet.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2651,7 +2606,7 @@ end
 
 
 function algoG.PartitionEqualSubsetSum.DynamicProgramming_Optimal
-    set output_file "PartitionEqualSubsetSumDynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2695,7 +2650,7 @@ end
 
 
 function algoG.PartitionEqualSubsetSum.DynamicProgramming_Bitset
-    set output_file "PartitionEqualSubsetSumDynamicProgramming_Bitset.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2735,192 +2690,9 @@ func main() {
 end
 
 
-function algoG.InsertInterval.LinearSearch
-    set output_file "InsertIntervalLinearSearch.go"
-    set template_content "package main
 
-import (
-    \"fmt\"
-)
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    n := len(intervals)
-    i := 0
-    var res [][]int
-
-    for i < n && intervals[i][1] < newInterval[0] {
-        res = append(res, intervals[i])
-        i++
-    }
-
-    for i < n && newInterval[1] >= intervals[i][0] {
-        newInterval[0] = min(newInterval[0], intervals[i][0])
-        newInterval[1] = max(newInterval[1], intervals[i][1])
-        i++
-    }
-    res = append(res, newInterval)
-
-    for i < n {
-        res = append(res, intervals[i])
-        i++
-    }
-
-    return res
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    result := insert(intervals, newInterval)
-    fmt.Println(\"Intervals after insertion:\", result)
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.InsertInterval.BinarySearch
-    set output_file "InsertIntervalBinarySearch.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-)
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    if len(intervals) == 0 {
-        return [][]int{newInterval}
-    }
-
-    n := len(intervals)
-    target := newInterval[0]
-    left, right := 0, n-1
-
-    for left <= right {
-        mid := (left + right) / 2
-        if intervals[mid][0] < target {
-            left = mid + 1
-        } else {
-            right = mid - 1
-        }
-    }
-
-    intervals = append(intervals[:left], append(
-                [][]int{newInterval}, intervals[left:]...)...)
-
-    var res [][]int
-    for _, interval := range intervals {
-        if len(res) == 0 || res[len(res)-1][1] < interval[0] {
-            res = append(res, interval)
-        } else {
-            res[len(res)-1][1] = max(res[len(res)-1][1], interval[1])
-        }
-    }
-    return res
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    result := insert(intervals, newInterval)
-    fmt.Println(\"Intervals after insertion (binary search):\", result)
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.InsertInterval.Greedy
-    set output_file "InsertIntervalGreedy.go"
-    set template_content "package main
-
-import (
-    \"fmt\"
-)
-
-func insert(intervals [][]int, newInterval []int) [][]int {
-    var res [][]int
-
-    for i := 0; i < len(intervals); i++ {
-        if newInterval[1] < intervals[i][0] {
-            res = append(res, newInterval)
-            return append(res, intervals[i:]...)
-        } else if newInterval[0] > intervals[i][1] {
-            res = append(res, intervals[i])
-        } else {
-            newInterval = []int{
-                min(newInterval[0], intervals[i][0]),
-                max(newInterval[1], intervals[i][1]),
-            }
-        }
-    }
-    res = append(res, newInterval)
-    return res
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func main() {
-    intervals := [][]int{{1,3},{6,9}}
-    newInterval := []int{2,5}
-    result := insert(intervals, newInterval)
-    fmt.Println(\"Intervals after insertion (compact version):\", result)
-}
-"
-
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
-
-
-function algoG.MergeIntervals.Sorting
-    set output_file "MergeIntervalsSorting.go"
+function algoG.MergeIntervals.Sorting1
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -2969,8 +2741,8 @@ func main() {
 end
 
 
-function algoG.MergeIntervals.SweepLineAlgorithm
-    set output_file "MergeIntervalsSweepLineAlgorithm.go"
+function algoG.MergeIntervals.SweepLineAlgorithm1
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3024,8 +2796,8 @@ func main() {
 end
 
 
-function algoG.MergeIntervals.Greedy
-    set output_file "MergeIntervalsGreedy.go"
+function algoG.MergeIntervals.Greedy1
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3090,7 +2862,7 @@ func main() {
 end
 
 function algoG.Non-overlappingIntervals.Recursion
-    set output_file "Non-overlappingIntervalsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3139,7 +2911,7 @@ func main() {
 end
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_Top-Down
-    set output_file "Non-overlappingIntervalsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3195,7 +2967,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_Bottom-Up
-    set output_file "Non-overlappingIntervalsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3250,7 +3022,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_BinarySearch
-    set output_file "Non-overlappingIntervalsDynamicProgramming_BinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3315,7 +3087,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.Greedy_SortByStart
-    set output_file "Non-overlappingIntervalsGreedy_SortByStart.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3365,7 +3137,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.Greedy_SortByEnd
-    set output_file "Non-overlappingIntervalsGreedy_SortByEnd.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3406,7 +3178,7 @@ end
 
 
 function algoG.MeetingRoomsII.MinHeap
-    set output_file "MeetingRoomsIIMinHeap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3462,7 +3234,7 @@ end
 
 
 function algoG.MeetingRoomsII.SweepLineAlgorithm
-    set output_file "MeetingRoomsIISweepLineAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3517,7 +3289,7 @@ func main() {
 end
 
 function algoG.MeetingRoomsII.TwoPointers
-    set output_file "MeetingRoomsIITwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3579,7 +3351,7 @@ func main() {
 end
 
 function algoG.MeetingRoomsII.Greedy
-    set output_file "MeetingRoomsIIGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -3635,7 +3407,7 @@ end
 
 
 function algoG.SlicePrintGrid
-    set output_file "SlicePrintGrid.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -5623,7 +5395,7 @@ func main1() {
 end
 
 function algoG.InsertInterval.LinearSearch
-    set output_file "InsertIntervalLinearSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -5691,7 +5463,7 @@ end
 
 
 function algoG.InsertInterval.BinarySearch
-    set output_file "InsertIntervalBinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -5757,7 +5529,7 @@ end
 
 
 function algoG.InsertInterval.Greedy
-    set output_file "InsertIntervalGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -5823,8 +5595,8 @@ func main() {
 end
 
 
-function algoG.MergeIntervals.Sorting
-    set output_file "MergeIntervalsSorting.go"
+function algoG.MergeIntervals.Sorting2
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -5880,8 +5652,8 @@ func main() {
 end
 
 
-function algoG.MergeIntervals.SweepLineAlgorithm
-    set output_file "MergeIntervalsSweepLineAlgorithm.go"
+function algoG.MergeIntervals.SweepLineAlgorithm2
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -5945,8 +5717,8 @@ func main() {
 end
 
 
-function algoG.MergeIntervals.Greedy
-    set output_file "MergeIntervalsGreedy.go"
+function algoG.MergeIntervals.Greedy2
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6023,7 +5795,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.Recursion
-    set output_file "Non-overlappingIntervalsRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6084,7 +5856,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_Top-Down
-    set output_file "Non-overlappingIntervalsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6152,7 +5924,7 @@ func main() {
 end
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_Bottom-Up
-    set output_file "Non-overlappingIntervalsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6218,7 +5990,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.DynamicProgramming_BinarySearch
-    set output_file "Non-overlappingIntervalsDynamicProgramming_BinarySearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6296,7 +6068,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.Greedy_SortByStart
-    set output_file "Non-overlappingIntervalsGreedy_SortByStart.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6362,7 +6134,7 @@ end
 
 
 function algoG.Non-overlappingIntervals.Greedy_SortByEnd
-    set output_file "Non-overlappingIntervalsGreedy_SortByEnd.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6412,7 +6184,7 @@ func main() {
 end
 
 function algoG.MeetingRooms.BruteForce
-    set output_file "MeetingRoomsBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6478,7 +6250,7 @@ end
 
 
 function algoG.MeetingRooms.Sorting
-    set output_file "MeetingRoomsSorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6530,7 +6302,7 @@ end
 
 
 function algoG.MeetingRoomsII.MinHeap
-    set output_file "MeetingRoomsIIMinHeap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6593,7 +6365,7 @@ func main() {
 end
 
 function algoG.MeetingRoomsII.SweepLineAlgorithm
-    set output_file "MeetingRoomsIISweepLineAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6654,7 +6426,7 @@ end
 
 
 function algoG.MeetingRoomsII.TwoPointers
-    set output_file "MeetingRoomsIITwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6722,7 +6494,7 @@ end
 
 
 function algoG.MeetingRoomsII.Greedy
-    set output_file "MeetingRoomsII.Greedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6783,7 +6555,7 @@ end
 
 
 function algoG.MinimumIntervaltoIncludeEachQuery.BruteForce
-    set output_file "MinimumIntervaltoIncludeEachQueryBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6825,7 +6597,7 @@ func main() {
 end
 
 function algoG.MinimumIntervaltoIncludeEachQuery.SweepLineAlgorithm
-    set output_file "MinimumIntervaltoIncludeEachQuery.SweepLineAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -6921,7 +6693,7 @@ func main() {
 end
 
 function algoG.MinimumIntervaltoIncludeEachQuery.MinHeap
-    set output_file "MinimumIntervaltoIncludeEachQueryMinHeap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7006,7 +6778,7 @@ end
 
 
 function algoG.MinimumIntervaltoIncludeEachQuery.MinSegmentTree_LazyPropagation
-    set output_file "MinimumIntervaltoIncludeEachQuery.MinSegmentTree_LazyPropagation.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7146,8 +6918,8 @@ func main() {
 end
 
 
-function algoG.SumofTwoIntegers.BruteForce
-    set output_file "SumofTwoIntegers.BruteForce.go"
+function algoG.SumTwoIntegers.BruteForce
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7170,8 +6942,8 @@ func main() {
 end
 
 
-function algoG.SumofTwoIntegers.BitManipulation
-    set output_file "SumofTwoIntegers.BitManipulation.go"
+function algoG.SumTwoIntegers.BitManipulation
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7217,8 +6989,8 @@ end
 
 
 
-function algoG.SumofTwoIntegers.BitManipulation_Optimal
-    set output_file "SumofTwoIntegers.BitManipulation_Optimal.go"
+function algoG.SumTwoIntegers.BitManipulation_Optimal
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7253,7 +7025,7 @@ func main() {
 end
 
 function algoG.ReverseInteger.BruteForce
-    set output_file "ReverseInteger.BruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7301,7 +7073,7 @@ end
 
 
 function algoG.ReverseInteger.Recursion
-    set output_file "ReverseInteger.Recursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7344,7 +7116,7 @@ func main() {
 end
 
 function algoG.ReverseInteger.Iteration
-    set output_file "ReverseInteger.Iteration.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7388,7 +7160,7 @@ func main() {
 end
 
 function algoG.MaximumSubarray.BruteForce
-    set output_file "MaximumSubarrayBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7424,7 +7196,7 @@ end
 
 
 function algoG.MaximumSubarray.Recursion
-    set output_file "MaximumSubarrayRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7469,7 +7241,7 @@ end
 
 
 function algoG.MaximumSubarray.DynamicProgramming_Top-Down
-    set output_file "MaximumSubarrayDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7526,7 +7298,7 @@ end
 
 
 function algoG.MaximumSubarray.DynamicProgramming_Top-Down
-    set output_file "MaximumSubarrayDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7583,7 +7355,7 @@ end
 
 
 function algoG.MaximumSubarray.DynamicProgramming_Bottom-Up
-    set output_file "MaximumSubarrayDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7627,7 +7399,7 @@ func main() {
 end
 
 function algoG.MaximumSubarray.DynamicProgramming_SpaceOptimized
-    set output_file "MaximumSubarrayDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7672,7 +7444,7 @@ end
 
 
 function algoG.MaximumSubarray.KadanesAlgorithm
-    set output_file "MaximumSubarrayKadanesAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -7711,7 +7483,7 @@ end
 
 
 function algoG.MaximumSubarray.DivideConquer
-    set output_file "MaximumSubarrayDivideConquer.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7776,7 +7548,7 @@ end
 
 
 function algoG.JumpGame.Recursion
-    set output_file "JumpGameRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7827,7 +7599,7 @@ end
 
 
 function algoG.JumpGame.DynamicProgramming_Top-Down
-    set output_file "JumpGameDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7891,7 +7663,7 @@ end
 
 
 function algoG.JumpGame.DynamicProgramming_Bottom-Up
-    set output_file "JumpGameDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7940,7 +7712,7 @@ end
 
 
 function algoG.JumpGame.Greedy
-    set output_file "JumpGameGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -7978,7 +7750,7 @@ end
 
 
 function algoG.JumpGameII.Recursion
-    set output_file "JumpGameIIRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8032,7 +7804,7 @@ end
 
 
 function algoG.JumpGameII.DynamicProgramming_Top-Down
-    set output_file "JumpGameIIDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8089,7 +7861,7 @@ end
 
 
 function algoG.JumpGameII.DynamicProgramming_Bottom-Up
-    set output_file "JumpGameIIDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8138,7 +7910,7 @@ end
 
 
 function algoG.JumpGameII.BreadthFirst_SearchGreedy
-    set output_file "JumpGameIIBreadthFirst_SearchGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8186,7 +7958,7 @@ func main() {
 end
 
 function algoG.GasStation.BruteForce
-    set output_file "GasStationBruteForce.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8240,7 +8012,7 @@ end
 
 
 function algoG.GasStation.TwoPointers
-    set output_file "GasStationTwoPointers.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8288,7 +8060,7 @@ end
 
 
 function algoG.GasStation.Greedy
-    set output_file "GasStationGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8342,7 +8114,7 @@ end
 
 
 function algoG.HandofStraights.Sorting
-    set output_file "HandofStraightsSorting.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8394,7 +8166,7 @@ end
 
 
 function algoG.HandofStraights.Heap
-    set output_file "HandofStraightsHeap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8457,7 +8229,7 @@ end
 
 
 function algoG.HandofStraights.OrderedMap
-    set output_file "HandofStraightsOrderedMap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8521,7 +8293,7 @@ end
 
 
 function algoG.HandofStraights.HashMap
-    set output_file "HandofStraightsHashMap.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8578,8 +8350,8 @@ func main() {
 end
 
 
-function algoG.MergeTripletstoFormTarget.Greedy
-    set output_file "MergeTripletstoFormTargetGreedy.go"
+function algoG.MergeTripletsFormTarget.Greedy
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8621,8 +8393,8 @@ func main() {
 end
 
 
-function algoG.MergeTripletstoFormTarget.Greedy_Optimal
-    set output_file "MergeTripletstoFormTargetGreedy_Optimal.go"
+function algoG.MergeTripletsFormTarget.Greedy_Optimal
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8664,7 +8436,7 @@ end
 
 
 function algoG.PartitionLabels.TwoPointers_Greedy
-    set output_file "PartitionLabelsTwoPointers_Greedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8710,7 +8482,7 @@ func main() {
 end
 
 function algoG.ValidParenthesisString.Recursion
-    set output_file "ValidParenthesisStringRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8760,7 +8532,7 @@ func main() {
 end
 
 function algoG.ValidParenthesisString.DynamicProgramming_Top-Down
-    set output_file "ValidParenthesisStringDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8831,7 +8603,7 @@ end
 
 
 function algoG.ValidParenthesisString.DynamicProgramming_Bottom-Up
-    set output_file "ValidParenthesisStringDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8889,7 +8661,7 @@ end
 
 
 function algoG.ValidParenthesisString.DynamicProgramming_SpaceOptimized
-    set output_file "ValidParenthesisStringDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8935,7 +8707,7 @@ func main() {
 end
 
 function algoG.ValidParenthesisString.Stack
-    set output_file "ValidParenthesisString.Stack.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -8988,7 +8760,7 @@ end
 
 
 function algoG.ValidParenthesisString.Greedy
-    set output_file "ValidParenthesisStringGreedy.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9033,7 +8805,7 @@ end
 
 
 function algoG.NetworkDelayTime.DepthFirstSearch
-    set output_file "NetworkDelayTimeDepthFirstSearch.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9094,7 +8866,7 @@ end
 
 
 function algoG.NetworkDelayTime.FloydWarshallAlgorithm
-    set output_file "NetworkDelayTimeFloydWarshallAlgorithm.go"
+    set output_file "main.go"
 
     set template_content "package main
 
@@ -9169,7 +8941,7 @@ end
 
 
 function algoG.NetworkDelayTime.BellmanFordAlgorithm
-    set output_file "NetworkDelayTimeBellmanFordAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9221,7 +8993,7 @@ end
 
 
 function algoG.NetworkDelayTime.ShortestPathFasterAlgorithm
-    set output_file "NetworkDelayTimeShortestPathFasterAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9288,7 +9060,7 @@ end
 
 
 function algoG.NetworkDelayTime.DijkstrasAlgorithm
-    set output_file "NetworkDelayTimeDijkstrasAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9357,7 +9129,7 @@ end
 
 
 function algoG.MinCosttoConnectPoints.KruskalAlgorithm
-    set output_file "MinCosttoConnectPointsKruskalAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9444,7 +9216,7 @@ end
 
 
 function algoG.MinCosttoConnectPoints.PrimsAlgorithm 
-    set output_file "MinCosttoConnectPointsPrimsAlgorithm.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9507,7 +9279,7 @@ end
 
 
 function algoG.MinCosttoConnectPoints.PrimsAlgorithm_Optimal
-    set output_file "MinCosttoConnectPointsPrimsAlgorithm_Optimal.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9556,8 +9328,8 @@ func minCostConnectPoints(points [][]int) int {
 end
 
 
-function algoG.CheapestFlightsWithinKStops.Dijkstras
-    set output_file "CheapestFlightsWithinKStopsDijkstras.go"
+function algoG.CheapestFlightsWithinStops.Dijkstras
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9613,8 +9385,8 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
     cat $output_file
 end
 
-function algoG.CheapestFlightsWithinKStops.BellmanFordAlgorithm
-    set output_file "CheapestFlightsWithinKStopsBellmanFordAlgorithm.go"
+function algoG.CheapestFlightsWithinStops.BellmanFordAlgorithm
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -9665,8 +9437,8 @@ func main() {
 end
 
 
-function algoG.CheapestFlightsWithinKStops.ShortestPathFasterAlgorithm
-    set output_file "CheapestFlightsWithinKStopsShortestPathFasterAlgorithm.go"
+function algoG.CheapestFlightsWithinStops.ShortestPathFasterAlgorithm
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10812,7 +10584,7 @@ end
 
 
 function algoG.TwoSum
-    set output_file "TwoSum.go"
+    set output_file "main.go"
     set template_content "package main
 
 import (
@@ -10835,7 +10607,6 @@ func main() {
 	nums := []int{2, 7, 11, 15}
 	target := 9
 
-	// Call twoSum and print result
 	result := twoSum(nums, target)
 	if len(result) > 0 {
 		fmt.Printf(\"Indices: %d and %d\\n\", result[0], result[1])
@@ -11217,7 +10988,7 @@ func main() {
 end
 
 function algoG.UniquePaths.Recursion
-    set output_file "UniquePathsRecursion.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11251,7 +11022,7 @@ end
 
 
 function algoG.UniquePaths.DynamicProgramming_Top-Down
-    set output_file "UniquePathsDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11298,7 +11069,7 @@ end
 
 
 function algoG.UniquePaths.DynamicProgramming_Bottom-Up
-    set output_file "UniquePathsDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11334,7 +11105,7 @@ end
 
 
 function algoG.UniquePaths.DynamicProgramming_SpaceOptimized
-    set output_file "UniquePathsDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11371,7 +11142,7 @@ end
 
 
 function algoG.UniquePaths.DynamicProgramming_Optimal
-    set output_file "UniquePathsDynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11442,7 +11213,7 @@ end
 
 
 function algoG.LongestCommonSubsequence.Recursion
-    set output_file "LongestCommonSubsequenceRecursion.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -11484,7 +11255,7 @@ end
 
 
 function algoG.LongestCommonSubsequence.DynamicProgramming_Top-Down
-    set output_file "LongestCommonSubsequenceDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -11542,7 +11313,7 @@ func main() {
 end
 
 function algoG.LongestCommonSubsequence.DynamicProgramming_Bottom-Up1
-    set output_file "LongestCommonSubsequenceDynamicProgramming_Bottom-Up1.go"
+    set output_file "main.go"
     set template_content "package main
 
 import \"fmt\"
@@ -11590,7 +11361,7 @@ end
 
 
 function algoG.LongestCommonSubsequence.DynamicProgramming_Bottom-Up
-    set output_file "LongestCommonSubsequence.DynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11638,7 +11409,7 @@ end
 
 
 function algoG.LongestCommonSubsequence.DynamicProgramming_SpaceOptimized
-    set output_file "LongestCommonSubsequence.DynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11686,7 +11457,7 @@ end
 
 
 function algoG.LongestCommonSubsequence.DeynamicProgramming_Optimal
-    set output_file "LongestCommonSubsequenceDeynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11735,7 +11506,7 @@ end
 
 
 function algoG.BestTimetoBuyandSellStockwithCooldown.Recursion
-    set output_file "BestTimetoBuyandSellStockwithCooldown.Recursion.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11780,7 +11551,7 @@ func main() {
 end
 
 function algoG.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Top-Down
-    set output_file "BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11842,7 +11613,7 @@ end
 
 
 function algoG.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Bottom-Up
-    set output_file "BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11895,7 +11666,7 @@ end
 
 
 function algoG.BestTimetoBuyandSellStockwithCooldown.DynamicProgramming_SpaceOptimized
-    set output_file "BestTimetoBuyandSellStockwithCooldownDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -11937,7 +11708,7 @@ end
 
 
 function algoG.CoinChangeII.Recursion
-    set output_file "CoinChangeIIRecursion.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -11982,7 +11753,7 @@ end
 
 
 function algoG.CoinChangeII.DynamicProgramming_Top-Down
-    set output_file "CoinChangeIIDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -12038,7 +11809,7 @@ end
 
 
 function algoG.CoinChangeII.DynamicProgramming_Bottom-Up
-    set output_file "CoinChangeIIDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12082,7 +11853,7 @@ end
 
 
 function algoG.CoinChangeII.DynamicProgramming_SpaceOptimized
-    set output_file "CoinChangeIIDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12121,7 +11892,7 @@ end
 
 
 function algoG.CoinChangeII.DynamicProgramming_Optimal
-    set output_file "CoinChangeII.DynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set content 'package main
 
 import "fmt"
@@ -12155,7 +11926,7 @@ end
 
 
 function algoG.TargetSum.Recursion
-    set output_file "TargetSumRecursion.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12189,7 +11960,7 @@ end
 
 
 function algoG.TargetSum.DynamicProgramming_Top-Down
-    set output_file "TargetSumDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -12248,7 +12019,7 @@ end
 
 
 function algoG.TargetSum.DynamicProgramming_Bottom-Up
-    set output_file "TargetSumDynamicProgramming_Bottom-Up.go"
+    set output_file ".go"
     set template_content 'package main
 
 import "fmt"
@@ -12287,7 +12058,7 @@ end
 
 
 function algoG.TargetSum.DynamicProgramming_SpaceOptimized
-    set output_file "TargetSumDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12322,7 +12093,7 @@ end
 
 
 function algoG.InterleavingString.Recursion
-    set output_file "InterleavingStringRecursion.go"
+    set output_file "main.go"
 
     set template_content 'package main
 
@@ -12368,7 +12139,7 @@ end
 
 
 function algoG.InterleavingString.DynamicProgramming_Top-Down
-    set output_file "InterleavingStringDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12432,7 +12203,7 @@ end
 
 
 function algoG.InterleavingString.DynamicProgramming_Bottom-Up
-    set output_file "InterleavingStringDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12476,7 +12247,7 @@ func main() {
 end
 
 function algoG.InterleavingString.DynamicProgramming_SpaceOptimized
-    set output_file "InterleavingStringDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12527,7 +12298,7 @@ func main() {
 end
 
 function algoG.InterleavingString.DynamicProgramming_Optimal
-    set output_file "InterleavingStringDynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12578,7 +12349,7 @@ end
 
 
 function algoG.EditDistance.Recursion
-    set output_file "EditDistanceRecursion.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12626,7 +12397,7 @@ end
 
 
 function algoG.EditDistance.DynamicProgramming_Top-Down
-    set output_file "EditDistanceDynamicProgramming_Top-Down.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12687,7 +12458,7 @@ end
 
 
 function algoG.EditDistance.DynamicProgramming_Bottom-Up
-    set output_file "EditDistanceDynamicProgramming_Bottom-Up.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12741,7 +12512,7 @@ end
 
 
 function algoG.EditDistance.DynamicProgramming_SpaceOptimized
-    set output_file "EditDistanceDynamicProgramming_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -12797,7 +12568,7 @@ end
 
 
 function algoG.EditDistance.DynamicProgramming_Optimal
-    set output_file "EditDistanceDynamicProgramming_Optimal.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -13181,7 +12952,7 @@ end
 
 
 function algoG.RotateImage.BruteForce
-set output_file "RotateImage.BruteForce.go"
+set output_file "main.go"
 set template_content 'package main
 
 func rotate(matrix [][]int) {
@@ -13220,7 +12991,7 @@ end
 
 
 function algoG.RotateImage.RotateByFourCells
-set output_file "RotateImageRotateByFourCells.go"
+set output_file "main.go"
 set template_content 'package main
 
 func rotate(matrix [][]int) {
@@ -13266,7 +13037,7 @@ end
 
 
 function algoG.RotateImage.ReverseAndTranspose
-set output_file "RotateImageReverseAndTranspose.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -13301,7 +13072,7 @@ end
 
 
 function algoG.SpiralMatrix.Recursion
-set output_file "SpiralMatrix.Recursion.go"
+set output_file "main.go"
 set template_content 'package main
 
 // Return matrix in spiral order using DFS-style traversal
@@ -13346,7 +13117,7 @@ echo $template_content > $output_file
 end
 
 function algoG.SpiralMatrix.Iteration
-set output_file "SpiralMatrixIteration.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -13404,7 +13175,7 @@ end
 
 
 function algoG.SpiralMatrix.Iteration_Optimal
-    set output_file "SpiralMatrix.Iteration_Optimal.go"
+    set output_file "main.go"
     set template_content 'package main
 
 func spiralOrder(matrix [][]int) []int {
@@ -13449,76 +13220,9 @@ func main() {
 end
 
 
-function algoG.DetectSquares.HashMap-I
-    set output_file "DetectSquares.HashMap-I.go"
-    set template_content 'package main
-
-import "fmt"
-
-type CountSquares struct {
-    ptsCount map[Point]int
-    pts      []Point
-}
-
-type Point struct {
-    x, y int
-}
-
-func Constructor() CountSquares {
-    return CountSquares{
-        ptsCount: make(map[Point]int),
-        pts:      make([]Point, 0),
-    }
-}
-
-func (this *CountSquares) Add(point []int) {
-    p := Point{point[0], point[1]}
-    this.ptsCount[p]++
-    this.pts = append(this.pts, p)
-}
-
-func (this *CountSquares) Count(point []int) int {
-    res := 0
-    px, py := point[0], point[1]
-
-    for _, pt := range this.pts {
-        if abs(py-pt.y) != abs(px-pt.x) || pt.x == px || pt.y == py {
-            continue
-        }
-
-        p1 := Point{pt.x, py}
-        p2 := Point{px, pt.y}
-
-        res += this.ptsCount[p1] * this.ptsCount[p2]
-    }
-
-    return res
-}
-
-func abs(x int) int {
-    if x < 0 {
-        return -x
-    }
-    return x
-}
-
-func main() {
-    cs := Constructor()
-    cs.Add([]int{3, 10})
-    cs.Add([]int{11, 2})
-    cs.Add([]int{3, 2})
-    fmt.Println(cs.Count([]int{11, 10})) // Example usage
-}
-'
-    echo $template_content > $output_file
-    set_color FFAD8D
-    echo "$output_file created"
-    set_color normal
-    cat $output_file
-end
 
 function algoG.SetMatrixZeroes.BruteForce
-    set output_file "SetMatrixZeroesBruteForce.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -13570,7 +13274,7 @@ end
 
 
 function algoG.SetMatrixZeroes.Iteration
-    set output_file "SetMatrixZeroesIteration.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -13617,7 +13321,7 @@ end
 
 
 function algoG.SetMatrixZeroes.Iteration_SpaceOptimized
-    set output_file "SetMatrixZeroesIteration_SpaceOptimized.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -13683,7 +13387,7 @@ end
 
 
 function algoG.Pow-x-n.BruteForce
-set output_file "Pow-x-n.BruteForce.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -13727,7 +13431,7 @@ echo $template_content > $output_file
 end
 
 function algoG.Pow-x-n.BinaryExponentiation_Recursive
-        set output_file "Pow-x-nBinaryExponentiation_Recursive.go"
+        set output_file "main.go"
         set template_content 'package main
 
 
@@ -13777,7 +13481,7 @@ end
 
 
 function algoG.Pow-x-n.BinaryExponentiation_Iterative
-set output_file "Pow-x-nBinaryExponentiation_Iterative.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -13828,7 +13532,7 @@ end
 
 
 function algoG.MultiplyStrings.Multiplication_Addition
-set output_file "MultiplyStringsMultiplication_Addition.go"
+set output_file "main.go"
 set template_content 'package main
 
 import "fmt"
@@ -13926,7 +13630,7 @@ end
 
 
 function algoG.MultiplyStrings.Multiplication
-set output_file "MultiplyStringsMultiplication.go"
+set output_file "main.go"
 set template_content 'package main
 
 import (
@@ -14019,7 +13723,7 @@ end
 
 
 function algoG.BalancedBinaryTree
-set output_file "BalancedBinaryTree.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14093,7 +13797,7 @@ end
 
 
 function algoG.BinarySearch.CuttingWood
-set output_file "BinarySearch.CuttingWood.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14149,7 +13853,7 @@ end
 
 
 function algoG.BinarySearch.ArraySorted
-set output_file "BinarySearchArraySorted.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14185,7 +13889,7 @@ end
 
 
 function algoG.BinarySearch.MedianTwoSortedArrays
-set output_file "BinarySearchMedianTwoSortedArrays.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14256,8 +13960,8 @@ fmt.Println(findTheMedianFromTwoSortedArrays(nums1, nums2))
     cat $output_file
 end
 
-function algoG.SearchrotatedSortedArray
-set output_file "SearchrotatedSortedArray.go"
+function algoG.SearchinRotatedSortedArray
+set output_file "main.go"
 set template_content 'package main
 
 import "fmt"
@@ -14307,8 +14011,8 @@ fmt.Println(findTheTargetInARotatedSortedArray(nums, target))
 end
 
 
-function algoG.BinarySearch.SearchRotatedSortedArray
-set output_file "BinarySearchSearchRotatedSortedArray.go"
+function algoG.BinarySearch.SearchinRotatedSortedArray
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14360,7 +14064,7 @@ end
 
 
 function algoG.BinarySearch.FirstLastOccurrences
-set output_file "BinarySearchFirstLastOccurrences.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14425,7 +14129,7 @@ end
 
 
 function algoG.BinarySearch.LocalMaximaBinarySearch
-set output_file "BinarySearchLocalMaximaBinarySearch.go"
+set output_file "main.go"
 set template_content 'package main
 
 import (
@@ -14460,7 +14164,7 @@ end
 
 
 function algoG.BinarySearch.MatrixSearchBinary
-set output_file "BinarySearchMatrixSearchBinary.go"
+set output_file "main.go"
 set template_content 'package main
 
 
@@ -14512,7 +14216,7 @@ end
 
 
 function algoG.BinarySearch.WeightedRandomSelection
-    set output_file "BinarySearchWeightedRandomSelection.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -14569,7 +14273,7 @@ end
 
 
 function algoG.BinarySearch.Recursive_divide
-    set output_file "BinarySearchRecursive_divide.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -14616,7 +14320,7 @@ func main() {
 end
 
 function algoG.BinarySearch.Iterative
-    set output_file "BinarySearchIterative.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -14662,7 +14366,7 @@ end
 
 
 function algoG.BinarySearch.Recursive
-    set output_file "BinarySearchRecursive.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -14706,7 +14410,7 @@ end
 
 
 function algoG.BinarySearch.Iterative
-    set output_file "BinarySearchIterative.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -14743,7 +14447,7 @@ func search(list []int, item int) int {
 end
 
 function algoG.BinarySearch.Recursive2
-    set output_file "BinarySearchRecursive2.go"
+    set output_file "main.go"
     set template_content 'package main
 
 import "fmt"
@@ -15183,8 +14887,8 @@ func main() {
 end
 
 
-function algoG.SumofTwoIntegers.Func
-    set output_file "SumofTwoIntegersFunc.go"
+function algoG.SumTwoIntegers.Func
+    set output_file "main.go"
     set template_content 'package main
 
 import (
@@ -18664,7 +18368,7 @@ end
 
 
 function algoGo.BinarySearch.BinSearch2
-set output_file "BinarySearchBinSearch2.go"
+set output_file "main.go"
 set template_content 'package main
 
 import (
@@ -18711,7 +18415,7 @@ end
 
 
 function algoGo.BinarySearch.SeqSearch1
-set output_file "BinarySearchSeqSearch1.go"
+set output_file "main.go"
 set template_content 'package main
 
 import "fmt"
@@ -20233,3 +19937,5070 @@ fmt.Println()
     cat $output_file
 end
 
+
+function algoG.TrappingRainWater.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func trap(height []int) int {
+    if len(height) == 0 {
+        return 0
+    }
+    n := len(height)
+    res := 0
+
+    for i := 0; i < n; i++ {
+        leftMax := height[i]
+        rightMax := height[i]
+
+        for j := 0; j < i; j++ {
+            if height[j] > leftMax {
+                leftMax = height[j]
+            }
+        }
+        for j := i + 1; j < n; j++ {
+            if height[j] > rightMax {
+                rightMax = height[j]
+            }
+        }
+
+        res += min(leftMax, rightMax) - height[i]
+    }
+    return res
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.TrappingRainWater.PrefixSuffixArrays
+    set output_file "main.go"
+
+    set template_content '
+func trap(height []int) int {
+    n := len(height)
+    if n == 0 {
+        return 0
+    }
+
+    leftMax := make([]int, n)
+    rightMax := make([]int, n)
+
+    leftMax[0] = height[0]
+    for i := 1; i < n; i++ {
+        leftMax[i] = max(leftMax[i-1], height[i])
+    }
+
+    rightMax[n-1] = height[n-1]
+    for i := n - 2; i >= 0; i-- {
+        rightMax[i] = max(rightMax[i+1], height[i])
+    }
+
+    res := 0
+    for i := 0; i < n; i++ {
+        res += min(leftMax[i], rightMax[i]) - height[i]
+    }
+    return res
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.TrappingRainWater.Stack
+    set output_file "main.go"
+
+    set template_content '
+func trap(height []int) int {
+    if len(height) == 0 {
+        return 0
+    }
+
+    stack := linkedliststack.New()
+    res := 0
+
+    for i := 0; i < len(height); i++ {
+        for !stack.Empty() {
+            topIndex, _ := stack.Peek()
+            if height[i] >= height[topIndex.(int)] {
+                midIndex, _ := stack.Pop()
+                mid := height[midIndex.(int)]
+                if !stack.Empty() {
+                    topIndex, _ := stack.Peek()
+                    right := height[i]
+                    left := height[topIndex.(int)]
+                    h := min(right, left) - mid
+                    w := i - topIndex.(int) - 1
+                    res += h * w
+                }
+            } else {
+                break
+            }
+        }
+        stack.Push(i)
+    }
+    return res
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.TrappingRainWater.TwoPointers
+    set output_file "main.go"
+
+    set template_content '
+func trap(height []int) int {
+    if len(height) == 0 {
+        return 0
+    }
+
+    l, r := 0, len(height)-1
+    leftMax, rightMax := height[l], height[r]
+    res := 0
+
+    for l < r {
+        if leftMax < rightMax {
+            l++
+            leftMax = max(leftMax, height[l])
+            res += leftMax - height[l]
+        } else {
+            r--
+            rightMax = max(rightMax, height[r])
+            res += rightMax - height[r]
+        }
+    }
+    return res
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.LargestRectangleInHistogram.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func largestRectangleArea(heights []int) int {
+    n := len(heights)
+    maxArea := 0
+
+    for i := 0; i < n; i++ {
+        height := heights[i]
+
+        rightMost := i + 1
+        for rightMost < n && heights[rightMost] >= height {
+            rightMost++
+        }
+
+        leftMost := i
+        for leftMost >= 0 && heights[leftMost] >= height {
+            leftMost--
+        }
+
+        rightMost--
+        leftMost++
+
+        area := height * (rightMost - leftMost + 1)
+        if area > maxArea {
+            maxArea = area
+        }
+    }
+
+    return maxArea
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.Largest.Rectangle.In.Histogram.DivideAndConquer 
+    set output_file "main.go"
+
+    set template_content '
+type MinIdxSegtree struct {
+    n   int
+    INF int
+    A   []int
+    tree []int
+}
+
+func NewMinIdxSegtree(N int, A []int) *MinIdxSegtree {
+    st := &MinIdxSegtree{
+        n:   N,
+        INF: 1000000000,
+        A:   make([]int, N),
+    }
+    copy(st.A, A)
+
+    for (st.n & (st.n - 1)) != 0 {
+        st.A = append(st.A, st.INF)
+        st.n++
+    }
+
+    st.tree = make([]int, 2*st.n)
+    st.build()
+    return st
+}
+
+func (st *MinIdxSegtree) build() {
+    for i := 0; i < st.n; i++ {
+        st.tree[st.n+i] = i
+    }
+
+    for j := st.n - 1; j > 0; j-- {
+        a := st.tree[j<<1]
+        b := st.tree[(j<<1)+1]
+        if st.A[a] <= st.A[b] {
+            st.tree[j] = a
+        } else {
+            st.tree[j] = b
+        }
+    }
+}
+
+func (st *MinIdxSegtree) update(i, val int) {
+    st.A[i] = val
+    j := (st.n + i) >> 1
+    for j >= 1 {
+        a := st.tree[j<<1]
+        b := st.tree[(j<<1)+1]
+        if st.A[a] <= st.A[b] {
+            st.tree[j] = a
+        } else {
+            st.tree[j] = b
+        }
+        j >>= 1
+    }
+}
+
+func (st *MinIdxSegtree) query(ql, qh int) int {
+    return st.queryHelper(1, 0, st.n-1, ql, qh)
+}
+
+func (st *MinIdxSegtree) queryHelper(node, l, h, ql, qh int) int {
+    if ql > h || qh < l {
+        return st.INF
+    }
+    if l >= ql && h <= qh {
+        return st.tree[node]
+    }
+    a := st.queryHelper(node<<1, l, (l+h)>>1, ql, qh)
+    b := st.queryHelper((node<<1)+1, ((l+h)>>1)+1, h, ql, qh)
+    if a == st.INF {
+        return b
+    }
+    if b == st.INF {
+        return a
+    }
+    if st.A[a] <= st.A[b] {
+        return a
+    }
+    return b
+}
+
+func getMaxArea(heights []int, l, r int, st *MinIdxSegtree) int {
+    if l > r {
+        return 0
+    }
+    if l == r {
+        return heights[l]
+    }
+    minIdx := st.query(l, r)
+    area1 := getMaxArea(heights, l, minIdx-1, st)
+    area2 := getMaxArea(heights, minIdx+1, r, st)
+    area3 := (r - l + 1) * heights[minIdx]
+
+    maxArea := area1
+    if area2 > maxArea {
+        maxArea = area2
+    }
+    if area3 > maxArea {
+        maxArea = area3
+    }
+    return maxArea
+}
+
+func largestRectangleArea(heights []int) int {
+    n := len(heights)
+    st := NewMinIdxSegtree(n, heights)
+    return getMaxArea(heights, 0, n-1, st)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.LargestRectangleInHistogram.Stack
+    set output_file "main.go"
+
+    set template_content '
+func largestRectangleArea(heights []int) int {
+    n := len(heights)
+    stack := make([]int, 0)
+
+    leftMost := make([]int, n)
+    for i := range leftMost {
+        leftMost[i] = -1
+    }
+
+    for i := 0; i < n; i++ {
+        for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
+            stack = stack[:len(stack)-1]
+        }
+        if len(stack) > 0 {
+            leftMost[i] = stack[len(stack)-1]
+        }
+        stack = append(stack, i)
+    }
+
+    stack = stack[:0]
+    rightMost := make([]int, n)
+    for i := range rightMost {
+        rightMost[i] = n
+    }
+
+    for i := n - 1; i >= 0; i-- {
+        for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
+            stack = stack[:len(stack)-1]
+        }
+        if len(stack) > 0 {
+            rightMost[i] = stack[len(stack)-1]
+        }
+        stack = append(stack, i)
+    }
+
+    maxArea := 0
+    for i := 0; i < n; i++ {
+        leftMost[i]++
+        rightMost[i]--
+        area := heights[i] * (rightMost[i] - leftMost[i] + 1)
+        if area > maxArea {
+            maxArea = area
+        }
+    }
+
+    return maxArea
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.LargestRectangleInHistogram.StackOnePass
+    set output_file "main.go"
+
+    set template_content '
+func largestRectangleArea(heights []int) int {
+    maxArea := 0
+    stack := make([][2]int, 0)
+
+    for i, h := range heights {
+        start := i
+        for len(stack) > 0 && stack[len(stack)-1][1] > h {
+            index := stack[len(stack)-1][0]
+            height := stack[len(stack)-1][1]
+            stack = stack[:len(stack)-1]
+            area := height * (i - index)
+            if area > maxArea {
+                maxArea = area
+            }
+            start = index
+        }
+        stack = append(stack, [2]int{start, h})
+    }
+
+    n := len(heights)
+    for _, pair := range stack {
+        area := pair[1] * (n - pair[0])
+        if area > maxArea {
+            maxArea = area
+        }
+    }
+
+    return maxArea
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.LargestRectangleInHistogram.StackOptimal
+    set output_file "main.go"
+
+    set template_content '
+func largestRectangleArea(heights []int) int {
+    n := len(heights)
+    maxArea := 0
+    stack := make([]int, 0)
+
+    for i := 0; i <= n; i++ {
+        for len(stack) > 0 && (i == n || heights[stack[len(stack)-1]] >= heights[i]) {
+            height := heights[stack[len(stack)-1]]
+            stack = stack[:len(stack)-1]
+
+            width := i
+            if len(stack) > 0 {
+                width = i - stack[len(stack)-1] - 1
+            }
+
+            area := height * width
+            if area > maxArea {
+                maxArea = area
+            }
+        }
+        if i < n {
+            stack = append(stack, i)
+        }
+    }
+
+    return maxArea
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MedianTwoSortedArrays.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    merged := append(nums1, nums2...)
+    sort.Ints(merged)
+
+    totalLen := len(merged)
+    if totalLen%2 == 0 {
+        return float64(merged[totalLen/2-1]+merged[totalLen/2]) / 2.0
+    }
+    return float64(merged[totalLen/2])
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MedianTwoSortedArrays.TwoPointers
+    set output_file "main.go"
+
+    set template_content '
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    len1, len2 := len(nums1), len(nums2)
+    i, j := 0, 0
+    median1, median2 := 0, 0
+
+    for count := 0; count < (len1+len2)/2+1; count++ {
+        median2 = median1
+        if i < len1 && j < len2 {
+            if nums1[i] > nums2[j] {
+                median1 = nums2[j]
+                j++
+            } else {
+                median1 = nums1[i]
+                i++
+            }
+        } else if i < len1 {
+            median1 = nums1[i]
+            i++
+        } else {
+            median1 = nums2[j]
+            j++
+        }
+    }
+
+    if (len1+len2)%2 == 1 {
+        return float64(median1)
+    }
+    return float64(median1+median2) / 2.0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.MedianTwoSortedArrays.BinarySearch
+    set output_file "main.go"
+
+    set template_content '
+func getKth(a []int, m int, b []int, n int, k int, aStart int, bStart int) int {
+    if m > n {
+        return getKth(b, n, a, m, k, bStart, aStart)
+    }
+    if m == 0 {
+        return b[bStart+k-1]
+    }
+    if k == 1 {
+        if a[aStart] < b[bStart] {
+            return a[aStart]
+        }
+        return b[bStart]
+    }
+
+    i := min(m, k/2)
+    j := min(n, k/2)
+
+    if a[aStart+i-1] > b[bStart+j-1] {
+        return getKth(a, m, b[bStart+j:], n-j, k-j, aStart, 0)
+    }
+    return getKth(a[aStart+i:], m-i, b, n, k-i, 0, bStart)
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    left := (len(nums1) + len(nums2) + 1) / 2
+    right := (len(nums1) + len(nums2) + 2) / 2
+    return float64(getKth(nums1, len(nums1), nums2, len(nums2), left, 0, 0) +
+           getKth(nums1, len(nums1), nums2, len(nums2), right, 0, 0)) / 2.0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.MedianTwoSortedArrays.BinarySearchOptimal
+    set output_file "main.go"
+
+    set template_content '
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+    A, B := nums1, nums2
+    total := len(A) + len(B)
+    half := (total + 1) / 2
+
+    if len(B) < len(A) {
+        A, B = B, A
+    }
+
+    l, r := 0, len(A)
+    for l <= r {
+        i := (l + r) / 2
+        j := half - i
+
+        Aleft := math.MinInt64
+        if i > 0 {
+            Aleft = A[i-1]
+        }
+        Aright := math.MaxInt64
+        if i < len(A) {
+            Aright = A[i]
+        }
+        Bleft := math.MinInt64
+        if j > 0 {
+            Bleft = B[j-1]
+        }
+        Bright := math.MaxInt64
+        if j < len(B) {
+            Bright = B[j]
+        }
+
+        if Aleft <= Bright && Bleft <= Aright {
+            if total%2 != 0 {
+                return float64(max(Aleft, Bleft))
+            }
+            return (float64(max(Aleft, Bleft)) + float64(min(Aright, Bright))) / 2.0
+        } else if Aleft > Bright {
+            r = i - 1
+        } else {
+            l = i + 1
+        }
+    }
+    return -1
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MinimumWindowSubstring.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func minWindow(s string, t string) string {
+	if t == "" {
+		return ""
+	}
+
+	countT := make(map[rune]int)
+	for _, c := range t {
+		countT[c]++
+	}
+
+	res := []int{-1, -1}
+	resLen := int(^uint(0) >> 1)
+	for i := 0; i < len(s); i++ {
+		countS := make(map[rune]int)
+		for j := i; j < len(s); j++ {
+			countS[rune(s[j])]++
+
+			flag := true
+			for c, cnt := range countT {
+				if cnt > countS[c] {
+					flag = false
+					break
+				}
+			}
+
+			if flag && (j-i+1) < resLen {
+				resLen = j - i + 1
+				res = []int{i, j}
+			}
+		}
+	}
+
+	if res[0] == -1 {
+		return ""
+	}
+	return s[res[0]:res[1]+1]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.MinimumWindowSubstring.SlidingWindow
+    set output_file "main.go"
+
+    set template_content '
+func minWindow(s string, t string) string {
+	if t == "" {
+		return ""
+	}
+
+	countT := make(map[rune]int)
+	for _, c := range t {
+		countT[c]++
+	}
+
+	have, need := 0, len(countT)
+	res := []int{-1, -1}
+	resLen := math.MaxInt32
+	l := 0
+	window := make(map[rune]int)
+
+	for r := 0; r < len(s); r++ {
+		c := rune(s[r])
+		window[c]++
+
+		if countT[c] > 0 && window[c] == countT[c] {
+			have++
+		}
+
+		for have == need {
+			if (r - l + 1) < resLen {
+				res = []int{l, r}
+				resLen = r - l + 1
+			}
+
+			window[rune(s[l])]--
+			if countT[rune(s[l])] > 0 && window[rune(s[l])] < countT[rune(s[l])] {
+				have--
+			}
+			l++
+		}
+	}
+
+	if res[0] == -1 {
+		return ""
+	}
+	return s[res[0]:res[1]+1]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+function algoG.SlidingWindowMaximum.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func maxSlidingWindow(nums []int, k int) []int {
+    output := make([]int, 0, len(nums)-k+1)
+
+    for i := 0; i <= len(nums)-k; i++ {
+        maxi := nums[i]
+        for j := i; j < i+k; j++ {
+            if nums[j] > maxi {
+                maxi = nums[j]
+            }
+        }
+        output = append(output, maxi)
+    }
+
+    return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.SlidingWindowMaximum.SegmentTree
+    set output_file "main.go"
+
+    set template_content '
+type SegmentTree struct {
+    n    int
+    tree []int
+}
+
+func NewSegmentTree(N int, A []int) *SegmentTree {
+    n := N
+    for bits.OnesCount(uint(n)) != 1 {
+        n++
+    }
+
+    st := &SegmentTree{
+        n: n,
+    }
+    st.build(N, A)
+    return st
+}
+
+func (st *SegmentTree) build(N int, A []int) {
+    st.tree = make([]int, 2*st.n)
+    for i := range st.tree {
+        st.tree[i] = math.MinInt
+    }
+    for i := 0; i < N; i++ {
+        st.tree[st.n+i] = A[i]
+    }
+    for i := st.n - 1; i > 0; i-- {
+        st.tree[i] = max(st.tree[i<<1], st.tree[i<<1|1])
+    }
+}
+
+func (st *SegmentTree) Query(l, r int) int {
+    res := math.MinInt
+    l += st.n
+    r += st.n + 1
+
+    for l < r {
+        if l&1 == 1 {
+            res = max(res, st.tree[l])
+            l++
+        }
+        if r&1 == 1 {
+            r--
+            res = max(res, st.tree[r])
+        }
+        l >>= 1
+        r >>= 1
+    }
+    return res
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func maxSlidingWindow(nums []int, k int) []int {
+    n := len(nums)
+    segTree := NewSegmentTree(n, nums)
+    output := make([]int, n-k+1)
+
+    for i := 0; i <= n-k; i++ {
+        output[i] = segTree.Query(i, i+k-1)
+    }
+
+    return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SlidingWindowMaximum.Heap
+    set output_file "main.go"
+
+    set template_content '
+func maxSlidingWindow(nums []int, k int) []int {
+   heap := priorityqueue.NewWith(func(a, b interface{}) int {
+       return b.([2]int)[0] - a.([2]int)[0]
+   })
+
+   output := []int{}
+   for i := 0; i < len(nums); i++ {
+       heap.Enqueue([2]int{nums[i], i})
+       if i >= k - 1 {
+           peek, _ := heap.Peek()
+           for peek.([2]int)[1] <= i - k {
+               heap.Dequeue()
+               peek, _ = heap.Peek()
+           }
+           val, _ := heap.Peek()
+           output = append(output, val.([2]int)[0])
+       }
+   }
+   return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SlidingWindowMaximum.DynamicProgramming
+    set output_file "main.go"
+
+    set template_content '
+func maxSlidingWindow(nums []int, k int) []int {
+	n := len(nums)
+	leftMax := make([]int, n)
+	rightMax := make([]int, n)
+
+	leftMax[0] = nums[0]
+	rightMax[n-1] = nums[n-1]
+
+	for i := 1; i < n; i++ {
+		if i%k == 0 {
+			leftMax[i] = nums[i]
+		} else {
+			leftMax[i] = max(leftMax[i-1], nums[i])
+		}
+	}
+
+	for i := 1; i < n; i++ {
+		if (n-1-i)%k == 0 {
+			rightMax[n-1-i] = nums[n-1-i]
+		} else {
+			rightMax[n-1-i] = max(rightMax[n-i], nums[n-1-i])
+		}
+	}
+
+	output := make([]int, n-k+1)
+
+	for i := 0; i < n-k+1; i++ {
+		output[i] = max(leftMax[i+k-1], rightMax[i])
+	}
+	return output
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SlidingWindowMaximum.Deque
+    set output_file "main.go"
+
+    set template_content '
+func maxSlidingWindow(nums []int, k int) []int {
+   output := []int{}
+   q := []int{}
+   l, r := 0, 0
+
+   for r < len(nums) {
+       for len(q) > 0 && nums[q[len(q)-1]] < nums[r] {
+           q = q[:len(q)-1]
+       }
+       q = append(q, r)
+
+       if l > q[0] {
+           q = q[1:]
+       }
+
+       if (r + 1) >= k {
+           output = append(output, nums[q[0]])
+           l += 1
+       }
+       r += 1
+   }
+
+   return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MergeKSortedLinkedLists.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+      Val int
+      Next *ListNode
+  }
+
+func mergeKLists(lists []*ListNode) *ListNode {
+    nodes := make([]int, 0)
+
+    for _, list := range lists {
+        curr := list
+        for curr != nil {
+            nodes = append(nodes, curr.Val)
+            curr = curr.Next
+        }
+    }
+
+    sort.Ints(nodes)
+
+    dummy := &ListNode{Val: 0}
+    curr := dummy
+
+    for _, val := range nodes {
+        curr.Next = &ListNode{Val: val}
+        curr = curr.Next
+    }
+
+    return dummy.Next
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MergeKSortedLinkedLists.Iteration
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+      Val int
+      Next *ListNode
+  }
+
+func mergeKLists(lists []*ListNode) *ListNode {
+    res := &ListNode{Val: 0}
+    cur := res
+
+    for {
+        minNode := -1
+        for i := range lists {
+            if lists[i] == nil {
+                continue
+            }
+            if minNode == -1 || lists[minNode].Val > lists[i].Val {
+                minNode = i
+            }
+        }
+
+        if minNode == -1 {
+            break
+        }
+
+        cur.Next = lists[minNode]
+        lists[minNode] = lists[minNode].Next
+        cur = cur.Next
+    }
+
+    return res.Next
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MergeKSortedLinkedLists.MergeListsOneByOne
+
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+     Val int
+     Next *ListNode
+ }
+
+func mergeList(l1 *ListNode, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    tail := dummy
+
+    for l1 != nil && l2 != nil {
+        if l1.Val < l2.Val {
+            tail.Next = l1
+            l1 = l1.Next
+        } else {
+            tail.Next = l2
+            l2 = l2.Next
+        }
+        tail = tail.Next
+    }
+
+    if l1 != nil {
+        tail.Next = l1
+    }
+    if l2 != nil {
+        tail.Next = l2
+    }
+
+    return dummy.Next
+}
+
+func mergeKLists(lists []*ListNode) *ListNode {
+    if len(lists) == 0 {
+        return nil
+    }
+
+    for i := 1; i < len(lists); i++ {
+        lists[i] = mergeList(lists[i-1], lists[i])
+    }
+
+    return lists[len(lists)-1]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MergeKSortedLinkedLists.Heap
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+      Val int
+      Next *ListNode
+}
+ 
+func mergeKLists(lists []*ListNode) *ListNode {
+    if len(lists) == 0 {
+        return nil
+    }
+
+    minHeap := priorityqueue.NewWith(func(a, b interface{}) int {
+        return a.(*ListNode).Val - b.(*ListNode).Val
+    })
+
+    for _, list := range lists {
+        if list != nil {
+            minHeap.Enqueue(list)
+        }
+    }
+
+    res := &ListNode{Val: 0}
+    cur := res
+
+    for !minHeap.Empty() {
+        node, _ := minHeap.Dequeue()
+        cur.Next = node.(*ListNode)
+        cur = cur.Next
+
+        if cur.Next != nil {
+            minHeap.Enqueue(cur.Next)
+        }
+    }
+
+    return res.Next
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MergeKSortedLinkedLists.DivideAndConquer_Recursion
+    set output_file "main.go"
+
+    set template_content '
+
+  type ListNode struct {
+      Val int
+      Next *ListNode
+ }
+
+func mergeKLists(lists []*ListNode) *ListNode {
+    if len(lists) == 0 {
+        return nil
+    }
+    return divide(lists, 0, len(lists)-1)
+}
+
+func divide(lists []*ListNode, left, right int) *ListNode {
+    if left > right {
+        return nil
+    }
+    if left == right {
+        return lists[left]
+    }
+
+    mid := left + (right-left)/2
+    l1 := divide(lists, left, mid)
+    l2 := divide(lists, mid+1, right)
+
+    return conquer(l1, l2)
+}
+
+func conquer(l1, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    curr := dummy
+
+    for l1 != nil && l2 != nil {
+        if l1.Val <= l2.Val {
+            curr.Next = l1
+            l1 = l1.Next
+        } else {
+            curr.Next = l2
+            l2 = l2.Next
+        }
+        curr = curr.Next
+    }
+
+    if l1 != nil {
+        curr.Next = l1
+    } else {
+        curr.Next = l2
+    }
+
+    return dummy.Next
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MergeKSortedLinkedLists.DivideAndConquer_Iteration
+
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+     Val int
+     Next *ListNode
+ }
+
+func mergeKLists(lists []*ListNode) *ListNode {
+    if len(lists) == 0 {
+        return nil
+    }
+
+    for len(lists) > 1 {
+        var mergedLists []*ListNode
+        for i := 0; i < len(lists); i += 2 {
+            l1 := lists[i]
+            var l2 *ListNode
+            if i+1 < len(lists) {
+                l2 = lists[i+1]
+            }
+            mergedLists = append(mergedLists, mergeList(l1, l2))
+        }
+        lists = mergedLists
+    }
+    return lists[0]
+}
+
+func mergeList(l1, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    tail := dummy
+
+    for l1 != nil && l2 != nil {
+        if l1.Val < l2.Val {
+            tail.Next = l1
+            l1 = l1.Next
+        } else {
+            tail.Next = l2
+            l2 = l2.Next
+        }
+        tail = tail.Next
+    }
+
+    if l1 != nil {
+        tail.Next = l1
+    } else {
+        tail.Next = l2
+    }
+
+    return dummy.Next
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.ReverseNodesinK-Group.Recursion
+    set output_file "main.go"
+
+    set template_content '
+
+ type ListNode struct {
+      Val int
+      Next *ListNode
+  }
+
+func reverseKGroup(head *ListNode, k int) *ListNode {
+    cur := head
+    group := 0
+
+    for cur != nil && group < k {
+        cur = cur.Next
+        group++
+    }
+
+    if group == k {
+        cur = reverseKGroup(cur, k)
+        for group > 0 {
+            tmp := head.Next
+            head.Next = cur
+            cur = head
+            head = tmp
+            group--
+        }
+        head = cur
+    }
+    return head
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.ReverseNodesinK-Group.Iteration
+    set output_file "main.go"
+
+    set template_content '
+
+type ListNode struct {
+      Val int
+      Next *ListNode
+  }
+ 
+func reverseKGroup(head *ListNode, k int) *ListNode {
+    dummy := &ListNode{Next: head}
+    groupPrev := dummy
+
+    for {
+        kth := getKth(groupPrev, k)
+        if kth == nil {
+            break
+        }
+        groupNext := kth.Next
+
+        prev, curr := groupNext, groupPrev.Next
+        for curr != groupNext {
+            tmp := curr.Next
+            curr.Next = prev
+            prev = curr
+            curr = tmp
+        }
+
+        tmp := groupPrev.Next
+        groupPrev.Next = kth
+        groupPrev = tmp
+    }
+    return dummy.Next
+}
+
+func getKth(curr *ListNode, k int) *ListNode {
+    for curr != nil && k > 0 {
+        curr = curr.Next
+        k--
+    }
+    return curr
+}
+'
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.BinaryTreeMaximumPathSum.DepthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+
+ type TreeNode struct {
+      Val int
+      Left *TreeNode
+      Right *TreeNode
+  }
+
+func maxPathSum(root *TreeNode) int {
+    res := -1 << 31
+    dfs(root, &res)
+    return res
+}
+
+func dfs(root *TreeNode, res *int) {
+    if root == nil {
+        return
+    }
+    left := getMax(root.Left)
+    right := getMax(root.Right)
+    *res = max(*res, root.Val + left + right)
+    dfs(root.Left, res)
+    dfs(root.Right, res)
+}
+
+func getMax(root *TreeNode) int {
+    if root == nil {
+        return 0
+    }
+    left := getMax(root.Left)
+    right := getMax(root.Right)
+    path := root.Val + max(left, right)
+    return max(0, path)
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.BinaryTreeMaximumPathSum.DepthFirstSearch_Optimal
+    set output_file "main.go"
+
+    set template_content '
+
+ type TreeNode struct {
+      Val int
+      Left *TreeNode
+      Right *TreeNode
+  }
+
+func maxPathSum(root *TreeNode) int {
+    res := []int{root.Val}
+
+    var dfs func(node *TreeNode) int
+    dfs = func(node *TreeNode) int {
+        if node == nil {
+            return 0
+        }
+
+        leftMax := dfs(node.Left)
+        rightMax := dfs(node.Right)
+
+        leftMax = max(leftMax, 0)
+        rightMax = max(rightMax, 0)
+
+        res[0] = max(res[0], node.Val+leftMax+rightMax)
+
+        return node.Val + max(leftMax, rightMax)
+    }
+
+    dfs(root)
+    return res[0]
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.SerializeandDeserializeBinaryTree.DepthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+
+ type TreeNode struct {
+     Val int
+     Left *TreeNode
+     Right *TreeNode
+ }
+ 
+type Codec struct{}
+
+func Constructor() Codec {
+    return Codec{}
+}
+
+// Encodes a tree to a single string.
+func (this *Codec) serialize(root *TreeNode) string {
+    var res []string
+
+    var dfs func(node *TreeNode)
+    dfs = func(node *TreeNode) {
+        if node == nil {
+            res = append(res, "N")
+            return
+        }
+        res = append(res, strconv.Itoa(node.Val))
+        dfs(node.Left)
+        dfs(node.Right)
+    }
+
+    dfs(root)
+    return strings.Join(res, ",")
+}
+
+// Decodes your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
+    vals := strings.Split(data, ",")
+    i := 0
+
+    var dfs func() *TreeNode
+    dfs = func() *TreeNode {
+        if vals[i] == "N" {
+            i++
+            return nil
+        }
+        val, _ := strconv.Atoi(vals[i])
+        node := &TreeNode{Val: val}
+        i++
+        node.Left = dfs()
+        node.Right = dfs()
+        return node
+    }
+
+    return dfs()
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.SerializeandDeserializeBinaryTree.BreadthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+
+ type TreeNode struct {
+      Val int
+      Left *TreeNode
+      Right *TreeNode
+  }
+
+
+type Codec struct{}
+
+func Constructor() Codec {
+    return Codec{}
+}
+
+// Encodes a tree to a single string.
+func (this *Codec) serialize(root *TreeNode) string {
+    if root == nil {
+        return "N"
+    }
+    var res []string
+    queue := []*TreeNode{root}
+
+    for len(queue) > 0 {
+        node := queue[0]
+        queue = queue[1:]
+
+        if node == nil {
+            res = append(res, "N")
+        } else {
+            res = append(res, strconv.Itoa(node.Val))
+            queue = append(queue, node.Left)
+            queue = append(queue, node.Right)
+        }
+    }
+
+    return strings.Join(res, ",")
+}
+
+// Decodes your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
+    vals := strings.Split(data, ",")
+    if vals[0] == "N" {
+        return nil
+    }
+
+    rootVal, _ := strconv.Atoi(vals[0])
+    root := &TreeNode{Val: rootVal}
+    queue := []*TreeNode{root}
+    index := 1
+
+    for len(queue) > 0 && index < len(vals) {
+        node := queue[0]
+        queue = queue[1:]
+
+        if vals[index] != "N" {
+            leftVal, _ := strconv.Atoi(vals[index])
+            node.Left = &TreeNode{Val: leftVal}
+            queue = append(queue, node.Left)
+        }
+        index++
+
+        if index < len(vals) && vals[index] != "N" {
+            rightVal, _ := strconv.Atoi(vals[index])
+            node.Right = &TreeNode{Val: rightVal}
+            queue = append(queue, node.Right)
+        }
+        index++
+    }
+
+    return root
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.WordSearchII.Backtracking
+    set output_file "main.go"
+
+    set template_content '
+func findWords(board [][]byte, words []string) []string {
+    var res []string
+    rows, cols := len(board), len(board[0])
+
+    var backtrack func(r, c int, i int, word string) bool
+    backtrack = func(r, c int, i int, word string) bool {
+        if i == len(word) {
+            return true
+        }
+        if r < 0 || c < 0 || r >= rows || c >= cols || board[r][c] != word[i] {
+            return false
+        }
+        board[r][c] = '*'
+        defer func() { board[r][c] = word[i] }()
+        return backtrack(r+1, c, i+1, word) ||
+            backtrack(r-1, c, i+1, word) ||
+            backtrack(r, c+1, i+1, word) ||
+            backtrack(r, c-1, i+1, word)
+    }
+
+    for _, word := range words {
+        found := false
+        for r := 0; r < rows; r++ {
+            if found {
+                break
+            }
+            for c := 0; c < cols; c++ {
+                if board[r][c] == word[0] && backtrack(r, c, 0, word) {
+                    res = append(res, word)
+                    found = true
+                    break
+                }
+            }
+        }
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.WordSearchII.Backtracking_Trie_HashSet
+    set output_file "main.go"
+
+    set template_content '
+type TrieNode struct {
+	children map[byte]*TrieNode
+	isWord   bool
+}
+
+func NewTrieNode() *TrieNode {
+	return &TrieNode{children: make(map[byte]*TrieNode)}
+}
+
+func (this *TrieNode) addWord(word string) {
+	cur := this
+	for i := 0; i < len(word); i++ {
+		c := word[i]
+		if _, found := cur.children[c]; !found {
+			cur.children[c] = NewTrieNode()
+		}
+		cur = cur.children[c]
+	}
+	cur.isWord = true
+}
+
+func findWords(board [][]byte, words []string) []string {
+    root := NewTrieNode()
+	for _, w := range words {
+		root.addWord(w)
+	}
+
+	rows, cols := len(board), len(board[0])
+	var res []string
+	visit := make(map[[2]int]bool)
+	wordSet := make(map[string]bool)
+
+	var dfs func(r, c int, node *TrieNode, word string)
+	dfs = func(r, c int, node *TrieNode, word string) {
+		if r < 0 || c < 0 || r >= rows || c >= cols || visit[[2]int{r, c}] || board[r][c] == 0 {
+			return
+		}
+
+		char := board[r][c]
+		nextNode, found := node.children[char]
+		if !found {
+			return
+		}
+
+		visit[[2]int{r, c}] = true
+		word += string(char)
+		if nextNode.isWord {
+			wordSet[word] = true
+		}
+
+		dfs(r+1, c, nextNode, word)
+		dfs(r-1, c, nextNode, word)
+		dfs(r, c+1, nextNode, word)
+		dfs(r, c-1, nextNode, word)
+
+		visit[[2]int{r, c}] = false
+	}
+
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			dfs(r, c, root, "")
+		}
+	}
+
+	for word := range wordSet {
+		res = append(res, word)
+	}
+	return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.WordSearchII.Backtracking_Trie
+    set output_file "main.go"
+
+    set template_content '
+type TrieNode struct {
+	children [26]*TrieNode
+	idx      int
+	refs     int
+}
+
+func NewTrieNode() *TrieNode {
+	return &TrieNode{idx: -1}
+}
+
+func (this *TrieNode) addWord(word string, i int) {
+	cur := this
+	cur.refs++
+	for _, ch := range word {
+		index := ch - 'a'
+		if cur.children[index] == nil {
+			cur.children[index] = NewTrieNode()
+		}
+		cur = cur.children[index]
+		cur.refs++
+	}
+	cur.idx = i
+}
+
+func findWords(board [][]byte, words []string) []string {
+    root := NewTrieNode()
+	for i, word := range words {
+		root.addWord(word, i)
+	}
+
+	rows, cols := len(board), len(board[0])
+	var res []string
+
+	getIndex := func(c byte) int { return int(c - 'a') }
+
+	var dfs func(r, c int, node *TrieNode)
+	dfs = func(r, c int, node *TrieNode) {
+		if r < 0 || c < 0 || r >= rows || c >= cols ||
+           board[r][c] == '*' || node.children[getIndex(board[r][c])] == nil {
+			return
+		}
+
+		tmp := board[r][c]
+		board[r][c] = '*'
+		prev := node
+		node = node.children[getIndex(tmp)]
+		if node.idx != -1 {
+			res = append(res, words[node.idx])
+			node.idx = -1
+			node.refs--
+			if node.refs == 0 {
+				prev.children[getIndex(tmp)] = nil
+				board[r][c] = tmp
+				return
+			}
+		}
+
+		dfs(r+1, c, node)
+		dfs(r-1, c, node)
+		dfs(r, c+1, node)
+		dfs(r, c-1, node)
+
+		board[r][c] = tmp
+	}
+
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			dfs(r, c, root)
+		}
+	}
+
+	return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.N-Queens.Backtracking
+    set output_file "main.go"
+
+    set template_content '
+func solveNQueens(n int) [][]string {
+    res := [][]string{}
+    board := make([][]string, n)
+    for i := range board {
+        board[i] = make([]string, n)
+        for j := range board[i] {
+            board[i][j] = "."
+        }
+    }
+
+    var backtrack func(r int)
+    backtrack = func(r int) {
+        if r == n {
+            copyBoard := make([]string, n)
+            for i := range board {
+                copyBoard[i] = ""
+                for j := range board[i] {
+                    copyBoard[i] += board[i][j]
+                }
+            }
+            res = append(res, copyBoard)
+            return
+        }
+        for c := 0; c < n; c++ {
+            if isSafe(r, c, board) {
+                board[r][c] = "Q"
+                backtrack(r + 1)
+                board[r][c] = "."
+            }
+        }
+    }
+
+    backtrack(0)
+    return res
+}
+
+func isSafe(r int, c int, board [][]string) bool {
+    for row := r - 1; row >= 0; row-- {
+        if board[row][c] == "Q" {
+            return false
+        }
+    }
+
+    for row, col := r-1, c-1; row >= 0 && col >= 0; row, col = row-1, col-1 {
+        if board[row][col] == "Q" {
+            return false
+        }
+    }
+
+    for row, col := r-1, c+1; row >= 0 && col < len(board); row, col = row-1, col+1 {
+        if board[row][col] == "Q" {
+            return false
+        }
+    }
+
+    return true
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.N-Queens.Backtracking_HashSet
+    set output_file "main.go"
+
+    set template_content '
+func solveNQueens(n int) [][]string {
+    col := make(map[int]bool)
+    posDiag := make(map[int]bool)
+    negDiag := make(map[int]bool)
+    var res [][]string
+    board := make([][]rune, n)
+    for i := range board {
+        board[i] = make([]rune, n)
+        for j := range board[i] {
+            board[i][j] = '.'
+        }
+    }
+
+    var backtrack func(r int)
+    backtrack = func(r int) {
+        if r == n {
+            solution := make([]string, n)
+            for i := range board {
+                solution[i] = string(board[i])
+            }
+            res = append(res, solution)
+            return
+        }
+
+        for c := 0; c < n; c++ {
+            if col[c] || posDiag[r+c] || negDiag[r-c] {
+                continue
+            }
+
+            col[c] = true
+            posDiag[r+c] = true
+            negDiag[r-c] = true
+            board[r][c] = 'Q'
+
+            backtrack(r + 1)
+
+            col[c] = false
+            posDiag[r+c] = false
+            negDiag[r-c] = false
+            board[r][c] = '.'
+        }
+    }
+
+    backtrack(0)
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.N-Queens.Backtracking_VisitedArray
+    set output_file "main.go"
+
+    set template_content '
+func solveNQueens(n int) [][]string {
+    col := make([]bool, n)
+    posDiag := make([]bool, 2*n)
+    negDiag := make([]bool, 2*n)
+    var res [][]string
+    board := make([][]rune, n)
+    for i := range board {
+        board[i] = make([]rune, n)
+        for j := range board[i] {
+            board[i][j] = '.'
+        }
+    }
+
+    var backtrack func(r int)
+    backtrack = func(r int) {
+        if r == n {
+            solution := make([]string, n)
+            for i := range board {
+                solution[i] = string(board[i])
+            }
+            res = append(res, solution)
+            return
+        }
+
+        for c := 0; c < n; c++ {
+            if col[c] || posDiag[r+c] || negDiag[r-c+n] {
+                continue
+            }
+
+            col[c] = true
+            posDiag[r+c] = true
+            negDiag[r-c+n] = true
+            board[r][c] = 'Q'
+
+            backtrack(r + 1)
+
+            col[c] = false
+            posDiag[r+c] = false
+            negDiag[r-c+n] = false
+            board[r][c] = '.'
+        }
+    }
+
+    backtrack(0)
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.N-Queens.Backtracking_BitMask
+    set output_file "main.go"
+
+    set template_content '
+func solveNQueens(n int) [][]string {
+    var res [][]string
+    board := make([][]rune, n)
+    for i := range board {
+        board[i] = make([]rune, n)
+        for j := range board[i] {
+            board[i][j] = '.'
+        }
+    }
+
+    var backtrack func(r, col, posDiag, negDiag int)
+    backtrack = func(r, col, posDiag, negDiag int) {
+        if r == n {
+            solution := make([]string, n)
+            for i := range board {
+                solution[i] = string(board[i])
+            }
+            res = append(res, solution)
+            return
+        }
+
+        for c := 0; c < n; c++ {
+            if (col&(1<<c)) != 0 || (posDiag&(1<<(r+c))) != 0 ||
+               (negDiag&(1<<(r-c+n))) != 0 {
+                continue
+            }
+
+            col ^= (1 << c)
+            posDiag ^= (1 << (r + c))
+            negDiag ^= (1 << (r - c + n))
+            board[r][c] = 'Q'
+
+            backtrack(r+1, col, posDiag, negDiag)
+
+            col ^= (1 << c)
+            posDiag ^= (1 << (r + c))
+            negDiag ^= (1 << (r - c + n))
+            board[r][c] = '.'
+        }
+    }
+
+    backtrack(0, 0, 0, 0)
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.FindMedianFromDataStream.Sorting
+    set output_file "main.go"
+
+    set template_content '
+type MedianFinder struct {
+    data []int
+}
+
+func Constructor() MedianFinder {
+    return MedianFinder{}
+}
+
+func (this *MedianFinder) AddNum(num int) {
+    this.data = append(this.data, num)
+}
+
+func (this *MedianFinder) FindMedian() float64 {
+    sort.Ints(this.data)
+    n := len(this.data)
+    if n%2 == 1 {
+        return float64(this.data[n/2])
+    }
+    return float64(this.data[n/2-1]+this.data[n/2]) / 2.0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.FindMedianFromDataStream.Heap
+    set output_file "main.go"
+
+    set template_content '
+type MedianFinder struct {
+    small *priorityqueue.Queue // maxHeap
+    large *priorityqueue.Queue // minHeap
+}
+
+func Constructor() MedianFinder {
+    small := priorityqueue.NewWith(func(a, b interface{}) int {
+        return b.(int) - a.(int)  // maxHeap
+    })
+    large := priorityqueue.NewWith(func(a, b interface{}) int {
+        return a.(int) - b.(int)  // minHeap
+    })
+    return MedianFinder{small: small, large: large}
+}
+
+func (this *MedianFinder) AddNum(num int) {
+    if this.large.Size() > 0 {
+        largeTop, _ := this.large.Peek()
+        if num > largeTop.(int) {
+            this.large.Enqueue(num)
+        } else {
+            this.small.Enqueue(num)
+        }
+    } else {
+        this.small.Enqueue(num)
+    }
+
+    // Rebalance
+    if this.small.Size() > this.large.Size()+1 {
+        val, _ := this.small.Dequeue()
+        this.large.Enqueue(val)
+    }
+    if this.large.Size() > this.small.Size()+1 {
+        val, _ := this.large.Dequeue()
+        this.small.Enqueue(val)
+    }
+}
+
+func (this *MedianFinder) FindMedian() float64 {
+    if this.small.Size() > this.large.Size() {
+        val, _ := this.small.Peek()
+        return float64(val.(int))
+    }
+    if this.large.Size() > this.small.Size() {
+        val, _ := this.large.Peek()
+        return float64(val.(int))
+    }
+    smallVal, _ := this.small.Peek()
+    largeVal, _ := this.large.Peek()
+    return float64(smallVal.(int)+largeVal.(int)) / 2.0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.WordLadder.BreadthFirstSearch-I
+    set output_file "main.go"
+
+    set template_content '
+func ladderLength(beginWord string, endWord string, wordList []string) int {
+    if !contains(wordList, endWord) || beginWord == endWord {
+        return 0
+    }
+
+    n, m := len(wordList), len(wordList[0])
+    adj := make([][]int, n)
+    mp := make(map[string]int)
+
+    for i := 0; i < n; i++ {
+        mp[wordList[i]] = i
+    }
+
+    for i := 0; i < n; i++ {
+        for j := i + 1; j < n; j++ {
+            cnt := 0
+            for k := 0; k < m; k++ {
+                if wordList[i][k] != wordList[j][k] {
+                    cnt++
+                }
+            }
+            if cnt == 1 {
+                adj[i] = append(adj[i], j)
+                adj[j] = append(adj[j], i)
+            }
+        }
+    }
+
+    q := []int{}
+    res := 1
+    visit := make(map[int]bool)
+
+    for i := 0; i < m; i++ {
+        for c := 'a'; c <= 'z'; c++ {
+            if rune(beginWord[i]) == c {
+                continue
+            }
+            word := beginWord[:i] + string(c) + beginWord[i+1:]
+            if idx, exists := mp[word]; exists && !visit[idx] {
+                q = append(q, idx)
+                visit[idx] = true
+            }
+        }
+    }
+
+    for len(q) > 0 {
+        res++
+        size := len(q)
+        for i := 0; i < size; i++ {
+            node := q[0]
+            q = q[1:]
+            if wordList[node] == endWord {
+                return res
+            }
+            for _, nei := range adj[node] {
+                if !visit[nei] {
+                    visit[nei] = true
+                    q = append(q, nei)
+                }
+            }
+        }
+    }
+    return 0
+}
+
+func contains(wordList []string, word string) bool {
+    for _, w := range wordList {
+        if w == word {
+            return true
+        }
+    }
+    return false
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.WordLadder.BreadthFirstSearch-II
+    set output_file "main.go"
+
+    set template_content '
+func ladderLength(beginWord string, endWord string, wordList []string) int {
+    if !contains(wordList, endWord) || beginWord == endWord {
+        return 0
+    }
+
+    words := make(map[string]bool)
+    for _, word := range wordList {
+        words[word] = true
+    }
+
+    res := 0
+    q := []string{beginWord}
+
+    for len(q) > 0 {
+        res++
+        size := len(q)
+        for i := 0; i < size; i++ {
+            node := q[0]
+            q = q[1:]
+
+            if node == endWord {
+                return res
+            }
+
+            for i := 0; i < len(node); i++ {
+                for c := 'a'; c <= 'z'; c++ {
+                    if rune(node[i]) == c {
+                        continue
+                    }
+                    nei := node[:i] + string(c) + node[i+1:]
+                    if words[nei] {
+                        q = append(q, nei)
+                        delete(words, nei)
+                    }
+                }
+            }
+        }
+    }
+    return 0
+}
+
+func contains(wordList []string, word string) bool {
+    for _, w := range wordList {
+        if w == word {
+            return true
+        }
+    }
+    return false
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.WordLadder.BreadthFirstSearch-III
+    set output_file "main.go"
+
+    set template_content '
+func ladderLength(beginWord string, endWord string, wordList []string) int {
+    if !contains(wordList, endWord) {
+        return 0
+    }
+
+    nei := make(map[string][]string)
+    wordList = append(wordList, beginWord)
+
+    for _, word := range wordList {
+        for j := 0; j < len(word); j++ {
+            pattern := word[:j] + "*" + word[j+1:]
+            nei[pattern] = append(nei[pattern], word)
+        }
+    }
+
+    visit := make(map[string]bool)
+    visit[beginWord] = true
+    q := []string{beginWord}
+    res := 1
+
+    for len(q) > 0 {
+        for i := len(q); i > 0; i-- {
+            word := q[0]
+            q = q[1:]
+
+            if word == endWord {
+                return res
+            }
+
+            for j := 0; j < len(word); j++ {
+                pattern := word[:j] + "*" + word[j+1:]
+                for _, neiWord := range nei[pattern] {
+                    if !visit[neiWord] {
+                        visit[neiWord] = true
+                        q = append(q, neiWord)
+                    }
+                }
+            }
+        }
+        res++
+    }
+    return 0
+}
+
+func contains(wordList []string, word string) bool {
+    for _, w := range wordList {
+        if w == word {
+            return true
+        }
+    }
+    return false
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.WordLadder.MeetInTheMiddle_BFS
+    set output_file "main.go"
+
+    set template_content '
+func ladderLength(beginWord string, endWord string, wordList []string) int {
+    if len(wordList) == 0 || len(beginWord) != len(wordList[0]) {
+        return 0
+    }
+
+    wordSet := make(map[string]bool)
+    for _, word := range wordList {
+        wordSet[word] = true
+    }
+
+    if !wordSet[endWord] || beginWord == endWord {
+        return 0
+    }
+
+    m := len(beginWord)
+    qb := []string{beginWord}
+    qe := []string{endWord}
+    fromBegin := map[string]int{beginWord: 1}
+    fromEnd := map[string]int{endWord: 1}
+
+    for len(qb) > 0 && len(qe) > 0 {
+        if len(qb) > len(qe) {
+            qb, qe = qe, qb
+            fromBegin, fromEnd = fromEnd, fromBegin
+        }
+
+        size := len(qb)
+        for i := 0; i < size; i++ {
+            word := qb[0]
+            qb = qb[1:]
+            steps := fromBegin[word]
+
+            wordBytes := []byte(word)
+            for j := 0; j < m; j++ {
+                orig := wordBytes[j]
+                for c := byte('a'); c <= byte('z'); c++ {
+                    if c == orig {
+                        continue
+                    }
+                    wordBytes[j] = c
+                    nei := string(wordBytes)
+
+                    if !wordSet[nei] {
+                        continue
+                    }
+                    if val, exists := fromEnd[nei]; exists {
+                        return steps + val
+                    }
+                    if _, exists := fromBegin[nei]; !exists {
+                        fromBegin[nei] = steps + 1
+                        qb = append(qb, nei)
+                    }
+                }
+                wordBytes[j] = orig
+            }
+        }
+    }
+    return 0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MinimumIntervalIncludeEachQuery.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func minInterval(intervals [][]int, queries []int) []int {
+    res := make([]int, len(queries))
+    for i, q := range queries {
+        cur := -1
+        for _, interval := range intervals {
+            l, r := interval[0], interval[1]
+            if l <= q && q <= r {
+                if cur == -1 || (r - l + 1) < cur {
+                    cur = r - l + 1
+                }
+            }
+        }
+        res[i] = cur
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MinimumIntervalIncludeEachQuery.SweepLineAlgorithm
+    set output_file "main.go"
+
+    set template_content '
+type Event struct {
+	time int
+	typ  int // 0: interval start, 1: query, 2: interval end
+	val  int // interval size or query index
+	idx  int // interval index
+}
+
+func minInterval(intervals [][]int, queries []int) []int {
+	events := []Event{}
+
+	// Create events for intervals
+	for idx, interval := range intervals {
+		start, end := interval[0], interval[1]
+		size := end - start + 1
+		events = append(events, Event{start, 0, size, idx})
+		events = append(events, Event{end, 2, size, idx})
+	}
+
+	// Create events for queries
+	for i, q := range queries {
+		events = append(events, Event{q, 1, i, -1})
+	}
+
+	// Sort events by time and type
+	sort.Slice(events, func(i, j int) bool {
+		if events[i].time == events[j].time {
+			return events[i].typ < events[j].typ
+		}
+		return events[i].time < events[j].time
+	})
+
+	// Priority queue to store intervals with the smallest size on top
+	sizes := priorityqueue.NewWith(func(a, b interface{}) int {
+		return utils.IntComparator(a.([]int)[0], b.([]int)[0])
+	})
+	ans := make([]int, len(queries))
+	for i := range ans {
+		ans[i] = -1
+	}
+	inactive := make([]bool, len(intervals))
+
+	for _, event := range events {
+		switch event.typ {
+		case 0: // Interval start
+			sizes.Enqueue([]int{event.val, event.idx})
+		case 2: // Interval end
+			inactive[event.idx] = true
+		case 1: // Query
+			queryIdx := event.val
+			for !sizes.Empty() {
+				top, _ := sizes.Peek()
+				if inactive[top.([]int)[1]] {
+					sizes.Dequeue()
+				} else {
+					break
+				}
+			}
+			if !sizes.Empty() {
+				top, _ := sizes.Peek()
+				ans[queryIdx] = top.([]int)[0]
+			}
+		}
+	}
+	return ans
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.MinimumIntervalIncludeEachQuery.MinHeap
+    set output_file "main.go"
+
+    set template_content '
+func minInterval(intervals [][]int, queries []int) []int {
+    sort.Slice(intervals, func(i, j int) bool {
+        return intervals[i][0] < intervals[j][0]
+    })
+
+    queriesWithIdx := make([][2]int, len(queries))
+    for i, q := range queries {
+        queriesWithIdx[i] = [2]int{q, i}
+    }
+    sort.Slice(queriesWithIdx, func(i, j int) bool {
+        return queriesWithIdx[i][0] < queriesWithIdx[j][0]
+    })
+
+    comparator := func(a, b interface{}) int {
+        pair1 := a.([2]int)
+        pair2 := b.([2]int)
+        if pair1[0] != pair2[0] {
+            if pair1[0] < pair2[0] {
+                return -1
+            }
+            return 1
+        }
+        return 0
+    }
+
+    pq := priorityqueue.NewWith(comparator)
+    res := make([]int, len(queries))
+    i := 0
+
+    for _, qPair := range queriesWithIdx {
+        q, originalIdx := qPair[0], qPair[1]
+
+        for i < len(intervals) && intervals[i][0] <= q {
+            size := intervals[i][1] - intervals[i][0] + 1
+            pq.Enqueue([2]int{size, intervals[i][1]})
+            i++
+        }
+
+        for !pq.Empty() {
+            if top, _ := pq.Peek(); top.([2]int)[1] < q {
+                pq.Dequeue()
+            } else {
+                break
+            }
+        }
+
+        if !pq.Empty() {
+            if top, _ := pq.Peek(); true {
+                res[originalIdx] = top.([2]int)[0]
+            }
+        } else {
+            res[originalIdx] = -1
+        }
+    }
+
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.MinimumIntervalIncludeEachQuery.MinSegmentTree
+    set output_file "main.go"
+
+    set template_content '
+type SegmentTree struct {
+    n    int
+    tree []int
+    lazy []int
+}
+
+func NewSegmentTree(n int) *SegmentTree {
+    tree := make([]int, 4*n)
+    lazy := make([]int, 4*n)
+    for i := range tree {
+        tree[i] = math.MaxInt32
+        lazy[i] = math.MaxInt32
+    }
+    return &SegmentTree{n: n, tree: tree, lazy: lazy}
+}
+
+func (st *SegmentTree) propagate(treeIdx, lo, hi int) {
+    if st.lazy[treeIdx] != math.MaxInt32 {
+        st.tree[treeIdx] = min(st.tree[treeIdx], st.lazy[treeIdx])
+        if lo != hi {
+            st.lazy[2*treeIdx+1] = min(st.lazy[2*treeIdx+1], st.lazy[treeIdx])
+            st.lazy[2*treeIdx+2] = min(st.lazy[2*treeIdx+2], st.lazy[treeIdx])
+        }
+        st.lazy[treeIdx] = math.MaxInt32
+    }
+}
+
+func (st *SegmentTree) updateRange(treeIdx, lo, hi, left, right, val int) {
+    st.propagate(treeIdx, lo, hi)
+    if lo > right || hi < left {
+        return
+    }
+    if lo >= left && hi <= right {
+        st.lazy[treeIdx] = min(st.lazy[treeIdx], val)
+        st.propagate(treeIdx, lo, hi)
+        return
+    }
+    mid := (lo + hi) / 2
+    st.updateRange(2*treeIdx+1, lo, mid, left, right, val)
+    st.updateRange(2*treeIdx+2, mid+1, hi, left, right, val)
+    st.tree[treeIdx] = min(st.tree[2*treeIdx+1], st.tree[2*treeIdx+2])
+}
+
+func (st *SegmentTree) queryPoint(treeIdx, lo, hi, idx int) int {
+    st.propagate(treeIdx, lo, hi)
+    if lo == hi {
+        return st.tree[treeIdx]
+    }
+    mid := (lo + hi) / 2
+    if idx <= mid {
+        return st.queryPoint(2*treeIdx+1, lo, mid, idx)
+    }
+    return st.queryPoint(2*treeIdx+2, mid+1, hi, idx)
+}
+
+func (st *SegmentTree) Update(left, right, val int) {
+    st.updateRange(0, 0, st.n-1, left, right, val)
+}
+
+func (st *SegmentTree) Query(idx int) int {
+    return st.queryPoint(0, 0, st.n-1, idx)
+}
+
+func minInterval(intervals [][]int, queries []int) []int {
+    points := make(map[int]bool)
+    for _, interval := range intervals {
+        points[interval[0]] = true
+        points[interval[1]] = true
+    }
+    for _, q := range queries {
+        points[q] = true
+    }
+
+    pointsList := make([]int, 0, len(points))
+    for point := range points {
+        pointsList = append(pointsList, point)
+    }
+    sort.Ints(pointsList)
+
+    compress := make(map[int]int)
+    for i, point := range pointsList {
+        compress[point] = i
+    }
+
+    segTree := NewSegmentTree(len(pointsList))
+
+    for _, interval := range intervals {
+        start := compress[interval[0]]
+        end := compress[interval[1]]
+        length := interval[1] - interval[0] + 1
+        segTree.Update(start, end, length)
+    }
+
+    ans := make([]int, len(queries))
+    for i, q := range queries {
+        idx := compress[q]
+        res := segTree.Query(idx)
+        if res == math.MaxInt32 {
+            ans[i] = -1
+        } else {
+            ans[i] = res
+        }
+    }
+
+    return ans
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.ReconstructFlightPath.DepthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+func findItinerary(tickets [][]string) []string {
+    adj := make(map[string][]string)
+    for _, ticket := range tickets {
+        adj[ticket[0]] = append(adj[ticket[0]], ticket[1])
+    }
+
+    for src := range adj {
+        sort.Strings(adj[src])
+    }
+
+    res := []string{"JFK"}
+
+    var dfs func(string) bool
+    dfs = func(src string) bool {
+        if len(res) == len(tickets) + 1 {
+            return true
+        }
+
+        destinations, exists := adj[src]
+        if !exists {
+            return false
+        }
+
+        temp := make([]string, len(destinations))
+        copy(temp, destinations)
+
+        for i, v := range temp {
+            adj[src] = append(adj[src][:i], adj[src][i+1:]...)
+            res = append(res, v)
+
+            if dfs(v) {
+                return true
+            }
+
+            adj[src] = append(adj[src][:i], append([]string{v}, adj[src][i:]...)...)
+            res = res[:len(res)-1]
+        }
+        return false
+    }
+
+    dfs("JFK")
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.ReconstructFlightPath.HierholzerRecursion 
+    set output_file "main.go"
+
+    set template_content '
+func findItinerary(tickets [][]string) []string {
+    adj := make(map[string][]string)
+
+    sort.Slice(tickets, func(i, j int) bool {
+        if tickets[i][0] == tickets[j][0] {
+            return tickets[i][1] > tickets[j][1]
+        }
+        return tickets[i][0] > tickets[j][0]
+    })
+
+    for _, ticket := range tickets {
+        src, dst := ticket[0], ticket[1]
+        adj[src] = append(adj[src], dst)
+    }
+
+    res := make([]string, 0)
+
+    var dfs func(string)
+    dfs = func(src string) {
+        for len(adj[src]) > 0 {
+            last := len(adj[src]) - 1
+            dst := adj[src][last]
+            adj[src] = adj[src][:last]
+            dfs(dst)
+        }
+        res = append(res, src)
+    }
+
+    dfs("JFK")
+
+    for i := 0; i < len(res)/2; i++ {
+        res[i], res[len(res)-1-i] = res[len(res)-1-i], res[i]
+    }
+
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.ReconstructFlightPath.HierholzerIteration
+    set output_file "main.go"
+
+    set template_content '
+func findItinerary(tickets [][]string) []string {
+	adj := make(map[string][]string)
+	for _, ticket := range tickets {
+		src, dst := ticket[0], ticket[1]
+		adj[src] = append(adj[src], dst)
+	}
+	for src := range adj {
+		sort.Sort(sort.Reverse(sort.StringSlice(adj[src])))
+	}
+
+	stack := []string{"JFK"}
+	var res []string
+
+	for len(stack) > 0 {
+		curr := stack[len(stack)-1]
+		if len(adj[curr]) == 0 {
+			res = append(res, stack[len(stack)-1])
+			stack = stack[:len(stack)-1]
+		} else {
+			stack = append(stack, adj[curr][len(adj[curr])-1])
+			adj[curr] = adj[curr][:len(adj[curr])-1]
+		}
+	}
+
+	for i, j := 0, len(res)-1; i < j; i, j = i+1, j-1 {
+		res[i], res[j] = res[j], res[i]
+	}
+	return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SwiminRisingWater.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func swimInWater(grid [][]int) int {
+    n := len(grid)
+    visit := make([][]bool, n)
+    for i := range visit {
+        visit[i] = make([]bool, n)
+    }
+
+    var dfs func(r, c, t int) int
+    dfs = func(r, c, t int) int {
+        if r < 0 || c < 0 || r >= n || c >= n || visit[r][c] {
+            return 1000000
+        }
+        if r == n-1 && c == n-1 {
+            return max(t, grid[r][c])
+        }
+        visit[r][c] = true
+        t = max(t, grid[r][c])
+
+        res := min(
+            min(dfs(r+1, c, t), dfs(r-1, c, t)),
+            min(dfs(r, c+1, t), dfs(r, c-1, t)),
+        )
+
+        visit[r][c] = false
+        return res
+    }
+
+    return dfs(0, 0, 0)
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SwiminRisingWater.DepthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+func swimInWater(grid [][]int) int {
+    n := len(grid)
+    minH, maxH := grid[0][0], grid[0][0]
+    for r := 0; r < n; r++ {
+        for c := 0; c < n; c++ {
+            if grid[r][c] < minH {
+                minH = grid[r][c]
+            }
+            if grid[r][c] > maxH {
+                maxH = grid[r][c]
+            }
+        }
+    }
+
+    visit := make([][]bool, n)
+    for i := range visit {
+        visit[i] = make([]bool, n)
+    }
+
+    var dfs func(r, c, t int) bool
+    dfs = func(r, c, t int) bool {
+        if r < 0 || c < 0 || r >= n || c >= n ||
+           visit[r][c] || grid[r][c] > t {
+            return false
+        }
+        if r == n-1 && c == n-1 {
+            return true
+        }
+        visit[r][c] = true
+        found := dfs(r+1, c, t) || dfs(r-1, c, t) ||
+                 dfs(r, c+1, t) || dfs(r, c-1, t)
+        return found
+    }
+
+    for t := minH; t <= maxH; t++ {
+        if dfs(0, 0, t) {
+            return t
+        }
+        for i := range visit {
+            for j := range visit[i] {
+                visit[i][j] = false
+            }
+        }
+    }
+
+    return maxH
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.SwiminRisingWater.BinarySearch_DFS
+    set output_file "main.go"
+
+    set template_content '
+func swimInWater(grid [][]int) int {
+    n := len(grid)
+    minH, maxH := grid[0][0], grid[0][0]
+    for r := 0; r < n; r++ {
+        for c := 0; c < n; c++ {
+            if grid[r][c] < minH {
+                minH = grid[r][c]
+            }
+            if grid[r][c] > maxH {
+                maxH = grid[r][c]
+            }
+        }
+    }
+
+    visit := make([][]bool, n)
+    for i := range visit {
+        visit[i] = make([]bool, n)
+    }
+
+    var dfs func(r, c, t int) bool
+    dfs = func(r, c, t int) bool {
+        if r < 0 || c < 0 || r >= n || c >= n ||
+           visit[r][c] || grid[r][c] > t {
+            return false
+        }
+        if r == n-1 && c == n-1 {
+            return true
+        }
+        visit[r][c] = true
+        found := dfs(r+1, c, t) || dfs(r-1, c, t) ||
+                 dfs(r, c+1, t) || dfs(r, c-1, t)
+        return found
+    }
+
+    l, r := minH, maxH
+    for l < r {
+        m := (l + r) / 2
+        if dfs(0, 0, m) {
+            r = m
+        } else {
+            l = m + 1
+        }
+        for i := range visit {
+            for j := range visit[i] {
+                visit[i][j] = false
+            }
+        }
+    }
+
+    return r
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.SwiminRisingWater.DijkstraAlgorithm
+    set output_file "main.go"
+
+    set template_content '
+type Node struct {
+    time, r, c int
+}
+
+func swimInWater(grid [][]int) int {
+    N := len(grid)
+    directions := [][2]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
+
+    pq := priorityqueue.NewWith(func(a, b interface{}) int {
+        return utils.IntComparator(a.(Node).time, b.(Node).time)
+    })
+
+    pq.Enqueue(Node{grid[0][0], 0, 0})
+    visited := make(map[[2]int]bool)
+    visited[[2]int{0, 0}] = true
+
+    for !pq.Empty() {
+        item, _ := pq.Dequeue()
+        node := item.(Node)
+        t, r, c := node.time, node.r, node.c
+
+        if r == N-1 && c == N-1 {
+            return t
+        }
+
+        for _, dir := range directions {
+            neiR, neiC := r+dir[0], c+dir[1]
+            if neiR < 0 || neiC < 0 || neiR >= N || neiC >= N ||
+               visited[[2]int{neiR, neiC}] {
+                continue
+            }
+
+            visited[[2]int{neiR, neiC}] = true
+            pq.Enqueue(Node{max(t, grid[neiR][neiC]), neiR, neiC})
+        }
+    }
+
+    return -1
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.SwiminRisingWater.KruskalAlgorithm
+    set output_file "main.go"
+
+    set template_content '
+type DSU struct {
+    Parent, Size []int
+}
+
+func NewDSU(n int) *DSU {
+    dsu := &DSU{
+        Parent: make([]int, n+1),
+        Size:   make([]int, n+1),
+    }
+    for i := 0; i <= n; i++ {
+        dsu.Parent[i] = i
+        dsu.Size[i] = 1
+    }
+    return dsu
+}
+
+func (dsu *DSU) Find(node int) int {
+    if dsu.Parent[node] != node {
+        dsu.Parent[node] = dsu.Find(dsu.Parent[node])
+    }
+    return dsu.Parent[node]
+}
+
+func (dsu *DSU) Union(u, v int) bool {
+    pu, pv := dsu.Find(u), dsu.Find(v)
+    if pu == pv {
+        return false
+    }
+    if dsu.Size[pu] < dsu.Size[pv] {
+        pu, pv = pv, pu
+    }
+    dsu.Size[pu] += dsu.Size[pv]
+    dsu.Parent[pv] = pu
+    return true
+}
+
+func (dsu *DSU) Connected(u, v int) bool {
+    return dsu.Find(u) == dsu.Find(v)
+}
+
+func swimInWater(grid [][]int) int {
+    N := len(grid)
+    dsu := NewDSU(N * N)
+    positions := make([][3]int, 0, N*N)
+    for r := 0; r < N; r++ {
+        for c := 0; c < N; c++ {
+            positions = append(positions, [3]int{grid[r][c], r, c})
+        }
+    }
+    sort.Slice(positions, func(i, j int) bool {
+        return positions[i][0] < positions[j][0]
+    })
+    directions := [][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+
+    for _, pos := range positions {
+        t, r, c := pos[0], pos[1], pos[2]
+        for _, d := range directions {
+            nr, nc := r+d[0], c+d[1]
+            if nr >= 0 && nc >= 0 && nr < N && nc < N && grid[nr][nc] <= t {
+                dsu.Union(r*N+c, nr*N+nc)
+            }
+        }
+        if dsu.Connected(0, N*N-1) {
+            return t
+        }
+    }
+    return -1
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.AlienDictionary.DepthFirstSearch
+    set output_file "main.go"
+
+    set template_content '
+func foreignDictionary(words []string) string {
+    adj := make(map[rune]map[rune]struct{})
+    for _, w := range words {
+        for _, c := range w {
+            if _, exists := adj[c]; !exists {
+                adj[c] = make(map[rune]struct{})
+            }
+        }
+    }
+
+    for i := 0; i < len(words)-1; i++ {
+        w1, w2 := words[i], words[i+1]
+        minLen := len(w1)
+        if len(w2) < minLen {
+            minLen = len(w2)
+        }
+        if len(w1) > len(w2) && w1[:minLen] == w2[:minLen] {
+            return ""
+        }
+        for j := 0; j < minLen; j++ {
+            if w1[j] != w2[j] {
+                adj[rune(w1[j])][rune(w2[j])] = struct{}{}
+                break
+            }
+        }
+    }
+
+    visited := make(map[rune]int)
+    var res []rune
+
+    var dfs func(char rune) bool
+    dfs = func(char rune) bool {
+        if status, exists := visited[char]; exists {
+            return status == 1
+        }
+
+        visited[char] = 1
+
+        for neighChar := range adj[char] {
+            if dfs(neighChar) {
+                return true
+            }
+        }
+
+        visited[char] = -1
+        res = append(res, char)
+        return false
+    }
+
+    for char := range adj {
+        if dfs(char) {
+            return ""
+        }
+    }
+
+    var result []byte
+    for i := len(res) - 1; i >= 0; i-- {
+        result = append(result, byte(res[i]))
+    }
+
+    return string(result)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.AlienDictionary.TopologicalSort 
+    set output_file "main.go"
+
+    set template_content '
+func foreignDictionary(words []string) string {
+    adj := make(map[byte]map[byte]struct{})
+    indegree := make(map[byte]int)
+
+    for _, word := range words {
+        for i := 0; i < len(word); i++ {
+            char := word[i]
+            if _, exists := adj[char]; !exists {
+                adj[char] = make(map[byte]struct{})
+            }
+            indegree[char] = 0
+        }
+    }
+
+    for i := 0; i < len(words)-1; i++ {
+        w1, w2 := words[i], words[i+1]
+        minLen := len(w1)
+        if len(w2) < minLen {
+            minLen = len(w2)
+        }
+
+        if len(w1) > len(w2) && w1[:minLen] == w2[:minLen] {
+            return ""
+        }
+
+        for j := 0; j < minLen; j++ {
+            if w1[j] != w2[j] {
+                if _, exists := adj[w1[j]][w2[j]]; !exists {
+                    adj[w1[j]][w2[j]] = struct{}{}
+                    indegree[w2[j]]++
+                }
+                break
+            }
+        }
+    }
+
+    q := []byte{}
+    for char := range indegree {
+        if indegree[char] == 0 {
+            q = append(q, char)
+        }
+    }
+
+    res := []byte{}
+    for len(q) > 0 {
+        char := q[0]
+        q = q[1:]
+        res = append(res, char)
+
+        for neighbor := range adj[char] {
+            indegree[neighbor]--
+            if indegree[neighbor] == 0 {
+                q = append(q, neighbor)
+            }
+        }
+    }
+
+    if len(res) != len(indegree) {
+        return ""
+    }
+
+    return string(res)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.LongestIncreasingPathinMatrix.Recursion
+    set output_file "main.go"
+
+    set template_content '
+func longestIncreasingPath(matrix [][]int) int {
+    rows, cols := len(matrix), len(matrix[0])
+    directions := [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
+
+    var dfs func(r, c, prevVal int) int
+    dfs = func(r, c, prevVal int) int {
+        if r < 0 || r >= rows || c < 0 || c >= cols ||
+           matrix[r][c] <= prevVal {
+            return 0
+        }
+
+        res := 1
+        for _, d := range directions {
+            res = max(res, 1 + dfs(r + d[0], c + d[1], matrix[r][c]))
+        }
+        return res
+    }
+
+    LIP := 0
+    for r := 0; r < rows; r++ {
+        for c := 0; c < cols; c++ {
+            LIP = max(LIP, dfs(r, c, -1<<31))
+        }
+    }
+    return LIP
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.LongestIncreasingPathinMatrix.DynamicProgramming
+    set output_file "main.go"
+
+    set template_content '
+func longestIncreasingPath(matrix [][]int) int {
+    rows, cols := len(matrix), len(matrix[0])
+    dp := make([][]int, rows)
+    for i := range dp {
+        dp[i] = make([]int, cols)
+    }
+
+    var dfs func(r, c, prevVal int) int
+    dfs = func(r, c, prevVal int) int {
+        if r < 0 || r >= rows || c < 0 || c >= cols ||
+           matrix[r][c] <= prevVal {
+            return 0
+        }
+        if dp[r][c] != 0 {
+            return dp[r][c]
+        }
+
+        res := 1
+        res = max(res, 1 + dfs(r+1, c, matrix[r][c]))
+        res = max(res, 1 + dfs(r-1, c, matrix[r][c]))
+        res = max(res, 1 + dfs(r, c+1, matrix[r][c]))
+        res = max(res, 1 + dfs(r, c-1, matrix[r][c]))
+        dp[r][c] = res
+        return res
+    }
+
+    maxPath := 0
+    for r := 0; r < rows; r++ {
+        for c := 0; c < cols; c++ {
+            maxPath = max(maxPath, dfs(r, c, -1))
+        }
+    }
+    return maxPath
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.LongestIncreasingPathinMatrix.TopologicalSort
+    set output_file "main.go"
+
+    set template_content '
+func longestIncreasingPath(matrix [][]int) int {
+    rows, cols := len(matrix), len(matrix[0])
+    indegree := make([][]int, rows)
+    for i := range indegree {
+        indegree[i] = make([]int, cols)
+    }
+
+    directions := [][]int{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}
+
+    for r := 0; r < rows; r++ {
+        for c := 0; c < cols; c++ {
+            for _, d := range directions {
+                nr, nc := r + d[0], c + d[1]
+                if nr >= 0 && nr < rows && nc >= 0 && nc < cols &&
+                   matrix[nr][nc] < matrix[r][c] {
+                    indegree[r][c]++
+                }
+            }
+        }
+    }
+
+    queue := [][]int{}
+    for r := 0; r < rows; r++ {
+        for c := 0; c < cols; c++ {
+            if indegree[r][c] == 0 {
+                queue = append(queue, []int{r, c})
+            }
+        }
+    }
+
+    lis := 0
+    for len(queue) > 0 {
+        size := len(queue)
+        for i := 0; i < size; i++ {
+            node := queue[0]
+            queue = queue[1:]
+            r, c := node[0], node[1]
+            for _, d := range directions {
+                nr, nc := r + d[0], c + d[1]
+                if nr >= 0 && nr < rows && nc >= 0 && nc < cols &&
+                   matrix[nr][nc] > matrix[r][c] {
+                    indegree[nr][nc]--
+                    if indegree[nr][nc] == 0 {
+                        queue = append(queue, []int{nr, nc})
+                    }
+                }
+            }
+        }
+        lis++
+    }
+
+    return lis
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.DistinctSubsequences.Recursion
+    set output_file "main.go"
+
+    set template_content '
+func numDistinct(s string, t string) int {
+    if len(t) > len(s) {
+        return 0
+    }
+
+    var dfs func(i, j int) int
+    dfs = func(i, j int) int {
+        if j == len(t) {
+            return 1
+        }
+        if i == len(s) {
+            return 0
+        }
+
+        res := dfs(i+1, j)
+        if s[i] == t[j] {
+            res += dfs(i+1, j+1)
+        }
+        return res
+    }
+
+    return dfs(0, 0)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.DistinctSubsequences.DynamicProgramming_Top-Down
+    set output_file "main.go"
+
+    set template_content '
+func numDistinct(s string, t string) int {
+    if len(t) > len(s) {
+        return 0
+    }
+
+    dp := make([][]int, len(s)+1)
+    for i := range dp {
+        dp[i] = make([]int, len(t)+1)
+        for j := range dp[i] {
+            dp[i][j] = -1
+        }
+    }
+
+    var dfs func(i, j int) int
+    dfs = func(i, j int) int {
+        if j == len(t) {
+            return 1
+        }
+        if i == len(s) {
+            return 0
+        }
+        if dp[i][j] != -1 {
+            return dp[i][j]
+        }
+
+        res := dfs(i+1, j)
+        if s[i] == t[j] {
+            res += dfs(i+1, j+1)
+        }
+
+        dp[i][j] = res
+        return res
+    }
+
+    return dfs(0, 0)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.DistinctSubsequences.DynamicProgramming_Bottom-Up
+    set output_file "main.go"
+
+    set template_content '
+func numDistinct(s string, t string) int {
+    m, n := len(s), len(t)
+    dp := make([][]int, m+1)
+    for i := range dp {
+        dp[i] = make([]int, n+1)
+    }
+
+    for i := 0; i <= m; i++ {
+        dp[i][n] = 1
+    }
+
+    for i := m - 1; i >= 0; i-- {
+        for j := n - 1; j >= 0; j-- {
+            dp[i][j] = dp[i+1][j]
+            if s[i] == t[j] {
+                dp[i][j] += dp[i+1][j+1]
+            }
+        }
+    }
+
+    return dp[0][0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.DistinctSubsequences.DynamicProgramming_SpaceOptimized
+    set output_file "main.go"
+
+    set template_content '
+func numDistinct(s string, t string) int {
+    m, n := len(s), len(t)
+    dp := make([]int, n+1)
+    nextDp := make([]int, n+1)
+
+    dp[n] = 1
+    nextDp[n] = 1
+
+    for i := m - 1; i >= 0; i-- {
+        for j := n - 1; j >= 0; j-- {
+            nextDp[j] = dp[j]
+            if s[i] == t[j] {
+                nextDp[j] += dp[j+1]
+            }
+        }
+        dp = append([]int(nil), nextDp...)
+    }
+
+    return dp[0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.DistinctSubsequences.DynamicProgramming_Optimal
+    set output_file "main.go"
+
+    set template_content '
+func numDistinct(s string, t string) int {
+    m, n := len(s), len(t)
+    dp := make([]int, n+1)
+
+    dp[n] = 1
+    for i := m - 1; i >= 0; i-- {
+        prev := 1
+        for j := n - 1; j >= 0; j-- {
+            res := dp[j]
+            if s[i] == t[j] {
+                res += prev
+            }
+            prev = dp[j]
+            dp[j] = res
+        }
+    }
+
+    return dp[0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.BurstBalloons.BruteForce
+    set output_file "main.go"
+
+    set template_content '
+func maxCoins(nums []int) int {
+    nums = append([]int{1}, nums...)
+    nums = append(nums, 1)
+
+    var dfs func(nums []int) int
+    dfs = func(nums []int) int {
+        if len(nums) == 2 {
+            return 0
+        }
+
+        maxCoins := 0
+        for i := 1; i < len(nums)-1; i++ {
+            coins := nums[i-1] * nums[i] * nums[i+1]
+            coins += dfs(append(append([]int{}, nums[:i]...), nums[i+1:]...))
+            if coins > maxCoins {
+                maxCoins = coins
+            }
+        }
+        return maxCoins
+    }
+
+    return dfs(nums)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.BurstBalloons.DynamicProgramming_Top-Down
+    set output_file "main.go"
+
+    set template_content '
+func maxCoins(nums []int) int {
+    nums = append([]int{1}, nums...)
+    nums = append(nums, 1)
+    n := len(nums)
+
+    dp := make([][]int, n)
+    for i := 0; i < n; i++ {
+        dp[i] = make([]int, n)
+    }
+
+    var dfs func(l, r int) int
+    dfs = func(l, r int) int {
+        if l > r {
+            return 0
+        }
+        if dp[l][r] > 0 {
+            return dp[l][r]
+        }
+
+        dp[l][r] = 0
+        for i := l; i <= r; i++ {
+            coins := nums[l-1] * nums[i] * nums[r+1]
+            coins += dfs(l, i-1) + dfs(i+1, r)
+            dp[l][r] = max(dp[l][r], coins)
+        }
+        return dp[l][r]
+    }
+
+    return dfs(1, len(nums)-2)
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+
+function algoG.BurstBalloons.DynamicProgramming_Bottom-Up
+    set output_file "main.go"
+
+    set template_content '
+func maxCoins(nums []int) int {
+    n := len(nums)
+    newNums := append([]int{1}, nums...)
+    newNums = append(newNums, 1)
+
+    dp := make([][]int, n+2)
+    for i := range dp {
+        dp[i] = make([]int, n+2)
+    }
+
+    for l := n; l >= 1; l-- {
+        for r := l; r <= n; r++ {
+            for i := l; i <= r; i++ {
+                coins := newNums[l-1] * newNums[i] * newNums[r+1]
+                coins += dp[l][i-1] + dp[i+1][r]
+                dp[l][r] = max(dp[l][r], coins)
+            }
+        }
+    }
+
+    return dp[1][n]
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.RegularExpressionMatching.Recursion
+    set output_file "main.go"
+
+    set template_content '
+func isMatch(s string, p string) bool {
+    m, n := len(s), len(p)
+
+    var dfs func(i, j int) bool
+    dfs = func(i, j int) bool {
+        if j == n {
+            return i == m
+        }
+
+        match := i < m && (s[i] == p[j] || p[j] == '.')
+
+        if (j+1) < n && p[j+1] == '*' {
+            return dfs(i, j+2) || (match && dfs(i+1, j))
+        }
+
+        if match {
+            return dfs(i+1, j+1)
+        }
+
+        return false
+    }
+
+    return dfs(0, 0)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.RegularExpressionMatching.DynamicProgramming_Top-Down
+    set output_file "main.go"
+
+    set template_content '
+func isMatch(s string, p string) bool {
+    m, n := len(s), len(p)
+    dp := make([][]int, m+1)
+    for i := range dp {
+        dp[i] = make([]int, n+1)
+        for j := range dp[i] {
+            dp[i][j] = -1
+        }
+    }
+
+    var dfs func(i, j int) bool
+    dfs = func(i, j int) bool {
+        if j == n {
+            return i == m
+        }
+        if dp[i][j] != -1 {
+            return dp[i][j] == 1
+        }
+
+        match := i < m && (s[i] == p[j] || p[j] == '.')
+
+        if (j+1) < n && p[j+1] == '*' {
+            dp[i][j] = boolToInt(dfs(i, j+2) || (match && dfs(i+1, j)))
+            return dp[i][j] == 1
+        }
+
+        if match {
+            dp[i][j] = boolToInt(dfs(i+1, j+1))
+            return dp[i][j] == 1
+        }
+
+        dp[i][j] = 0
+        return false
+    }
+
+    return dfs(0, 0)
+}
+
+func boolToInt(b bool) int {
+    if b {
+        return 1
+    }
+    return 0
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.RegularExpressionMatching.DynamicProgramming_Bottom-Up
+    set output_file "main.go"
+
+    set template_content '
+func isMatch(s, p string) bool {
+    m, n := len(s), len(p)
+    dp := make([][]bool, m+1)
+    for i := range dp {
+        dp[i] = make([]bool, n+1)
+    }
+    dp[m][n] = true
+
+    for i := m; i >= 0; i-- {
+        for j := n - 1; j >= 0; j-- {
+            match := i < m && (s[i] == p[j] || p[j] == '.')
+
+            if j+1 < n && p[j+1] == '*' {
+                dp[i][j] = dp[i][j+2]
+                if match {
+                    dp[i][j] = dp[i][j] || dp[i+1][j]
+                }
+            } else if match {
+                dp[i][j] = dp[i+1][j+1]
+            }
+        }
+    }
+    return dp[0][0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.RegularExpressionMatching.DynamicProgramming_SpaceOptimized
+
+    set output_file "main.go"
+
+    set template_content '
+func isMatch(s, p string) bool {
+    m, n := len(s), len(p)
+    dp := make([]bool, n+1)
+    dp[n] = true
+
+    for i := m; i >= 0; i-- {
+        nextDp := make([]bool, n+1)
+        nextDp[n] = i == m
+
+        for j := n - 1; j >= 0; j-- {
+            match := i < m && (s[i] == p[j] || p[j] == '.')
+
+            if j+1 < n && p[j+1] == '*' {
+                nextDp[j] = nextDp[j+2] || (match && dp[j])
+            } else if match {
+                nextDp[j] = dp[j+1]
+            }
+        }
+        dp = nextDp
+    }
+    return dp[0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.RegularExpressionMatching.DynamicProgramming_Optimal
+    set output_file "main.go"
+
+    set template_content '
+func isMatch(s, p string) bool {
+    m, n := len(s), len(p)
+    dp := make([]bool, n+1)
+    dp[n] = true
+
+    for i := m; i >= 0; i-- {
+        dp1 := dp[n]
+        dp[n] = (i == m)
+
+        for j := n - 1; j >= 0; j-- {
+            match := i < m && (s[i] == p[j] || p[j] == '.')
+            res := false
+            if j+1 < n && p[j+1] == '*' {
+                res = dp[j+2]
+                if match {
+                    res = res || dp[j]
+                }
+            } else if match {
+                res = dp1
+            }
+            dp[j], dp1 = res, dp[j]
+        }
+    }
+
+    return dp[0]
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.TopKFrequentElements.BucketSort
+    set output_file "main.go"
+
+    set template_content '
+func topKFrequent(nums []int, k int) []int {
+    count := make(map[int]int)
+    freq := make([][]int, len(nums)+1)
+
+    for _, num := range nums {
+        count[num]++
+    }
+    for num, cnt := range count {
+        freq[cnt] = append(freq[cnt], num)
+    }
+
+    res := []int{}
+    for i := len(freq) - 1; i > 0; i-- {
+        for _, num := range freq[i] {
+            res = append(res, num)
+            if len(res) == k {
+                return res
+            }
+        }
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.algoG.TopKFrequentElements.Sorting
+    set output_file "main.go"
+
+    set template_content '
+func topKFrequent(nums []int, k int) []int {
+    count := make(map[int]int)
+    for _, num := range nums {
+        count[num]++
+    }
+
+    arr := make([][2]int, 0, len(count))
+    for num, cnt := range count {
+        arr = append(arr, [2]int{cnt, num})
+    }
+
+    sort.Slice(arr, func(i, j int) bool {
+        return arr[i][0] > arr[j][0]
+    })
+
+    res := make([]int, k)
+    for i := 0; i < k; i++ {
+        res[i] = arr[i][1]
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.algoG.TopKFrequentElements.Min-Heap
+    set output_file "main.go"
+
+    set template_content '
+func topKFrequent(nums []int, k int) []int {
+    count := make(map[int]int)
+    for _, num := range nums {
+        count[num]++
+    }
+
+    heap := priorityqueue.NewWith(func(a, b interface{}) int {
+        freqA := a.([2]int)[0]
+        freqB := b.([2]int)[0]
+        return utils.IntComparator(freqA, freqB)
+    })
+
+    for num, freq := range count {
+        heap.Enqueue([2]int{freq, num})
+        if heap.Size() > k {
+            heap.Dequeue()
+        }
+    }
+
+    res := make([]int, k)
+    for i := k - 1; i >= 0; i-- {
+        value, _ := heap.Dequeue()
+        res[i] = value.([2]int)[1]
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.Non-CyclicalNumber.HashSet
+    set output_file "main.go"
+
+    set template_content '
+func isHappy(n int) bool {
+    visit := make(map[int]bool)
+
+    for !visit[n] {
+        visit[n] = true
+        n = sumOfSquares(n)
+        if n == 1 {
+            return true
+        }
+    }
+    return false
+}
+
+func sumOfSquares(n int) int {
+    output := 0
+    for n > 0 {
+        digit := n % 10
+        digit = digit * digit
+        output += digit
+        n = n / 10
+    }
+    return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.Non-CyclicalNumber.FastAndSlowPointersI
+    set output_file "main.go"
+
+    set template_content '
+func isHappy(n int) bool {
+    slow, fast := n, sumOfSquares(n)
+
+    for slow != fast {
+        fast = sumOfSquares(fast)
+        fast = sumOfSquares(fast)
+        slow = sumOfSquares(slow)
+    }
+
+    return fast == 1
+}
+
+func sumOfSquares(n int) int {
+    output := 0
+    for n > 0 {
+        digit := n % 10
+        output += digit * digit
+        n = n / 10
+    }
+    return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.Non-CyclicalNumber.FastAndSlowPointersII
+    set output_file "main.go"
+
+    set template_content '
+func isHappy(n int) bool {
+    slow, fast := n, sumOfSquares(n)
+    power, lam := 1, 1
+
+    for slow != fast {
+        if power == lam {
+            slow = fast
+            power *= 2
+            lam = 0
+        }
+        fast = sumOfSquares(fast)
+        lam++
+    }
+
+    return fast == 1
+}
+
+func sumOfSquares(n int) int {
+    output := 0
+    for n > 0 {
+        digit := n % 10
+        output += digit * digit
+        n = n / 10
+    }
+    return output
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.PlusOne.Recursion
+    set output_file "main.go"
+
+    set template_content '
+func plusOne(digits []int) []int {
+    if len(digits) == 0 {
+        return []int{1}
+    }
+
+    if digits[len(digits)-1] < 9 {
+        digits[len(digits)-1]++
+        return digits
+    } else {
+        return append(plusOne(digits[:len(digits)-1]), 0)
+    }
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.PlusOne.Iteration-I
+    set output_file "main.go"
+
+    set template_content '
+func plusOne(digits []int) []int {
+    one := 1
+    i := 0
+    digits = reverse(digits)
+
+    for one != 0 {
+        if i < len(digits) {
+            if digits[i] == 9 {
+                digits[i] = 0
+            } else {
+                digits[i] += 1
+                one = 0
+            }
+        } else {
+            digits = append(digits, one)
+            one = 0
+        }
+        i++
+    }
+    return reverse(digits)
+}
+
+func reverse(digits []int) []int {
+    for i, j := 0, len(digits)-1; i < j; i, j = i+1, j-1 {
+        digits[i], digits[j] = digits[j], digits[i]
+    }
+    return digits
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.PlusOne.Iteration-II
+    set output_file "main.go"
+
+    set template_content '
+func plusOne(digits []int) []int {
+    n := len(digits)
+    for i := n - 1; i >= 0; i-- {
+        if digits[i] < 9 {
+            digits[i]++
+            return digits
+        }
+        digits[i] = 0
+    }
+
+    return append([]int{1}, digits...)
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.DetectSquares.HashMapI
+    set output_file "main.go"
+    set template_content 'package main
+
+import "fmt"
+
+type CountSquares struct {
+    ptsCount map[Point]int
+    pts      []Point
+}
+
+type Point struct {
+    x, y int
+}
+
+func Constructor() CountSquares {
+    return CountSquares{
+        ptsCount: make(map[Point]int),
+        pts:      make([]Point, 0),
+    }
+}
+
+func (this *CountSquares) Add(point []int) {
+    p := Point{point[0], point[1]}
+    this.ptsCount[p]++
+    this.pts = append(this.pts, p)
+}
+
+func (this *CountSquares) Count(point []int) int {
+    res := 0
+    px, py := point[0], point[1]
+
+    for _, pt := range this.pts {
+        if abs(py-pt.y) != abs(px-pt.x) || pt.x == px || pt.y == py {
+            continue
+        }
+
+        p1 := Point{pt.x, py}
+        p2 := Point{px, pt.y}
+
+        res += this.ptsCount[p1] * this.ptsCount[p2]
+    }
+
+    return res
+}
+
+func abs(x int) int {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
+
+func main() {
+    cs := Constructor()
+    cs.Add([]int{3, 10})
+    cs.Add([]int{11, 2})
+    cs.Add([]int{3, 2})
+    fmt.Println(cs.Count([]int{11, 10})) // Example usage
+}
+'
+    echo $template_content > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.DetectSquares.Hash_MapII
+    set output_file "main.go"
+
+    set template_content '
+type CountSquares struct {
+    ptsCount map[int]map[int]int
+}
+
+func Constructor() CountSquares {
+    return CountSquares{
+        ptsCount: make(map[int]map[int]int),
+    }
+}
+
+func (this *CountSquares) Add(point []int) {
+    x, y := point[0], point[1]
+    if this.ptsCount[x] == nil {
+        this.ptsCount[x] = make(map[int]int)
+    }
+    this.ptsCount[x][y]++
+}
+
+func (this *CountSquares) Count(point []int) int {
+    res := 0
+    x1, y1 := point[0], point[1]
+
+    for y2 := range this.ptsCount[x1] {
+        side := y2 - y1
+        if side == 0 {
+            continue
+        }
+
+        x3, x4 := x1+side, x1-side
+
+        if _, exists := this.ptsCount[x3]; exists {
+            res += this.ptsCount[x1][y2] * this.ptsCount[x3][y1] * this.ptsCount[x3][y2]
+        }
+
+        if _, exists := this.ptsCount[x4]; exists {
+            res += this.ptsCount[x1][y2] * this.ptsCount[x4][y1] * this.ptsCount[x4][y2]
+        }
+    }
+    return res
+}
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
+
+
+function algoG.
+    set output_file "main.go"
+
+    set template_content '
+
+'
+
+    echo "$template_content" > $output_file
+    set_color FFAD8D
+    echo "$output_file created"
+    set_color normal
+    cat $output_file
+end
